@@ -1,0 +1,107 @@
++b(datatable)
+  +scrollbar
+  .row
+    margin: 0
+  .col-sm-12
+    padding: 0
+  @media (max-width: $screen-xs-max)
+    overflow-x: auto
+    padding-bottom: 0
+
+  th
+    text-transform: uppercase
+    font-size: 13px
+    border-bottom: 1px solid $input-border
+    background: #f6f6f6
+    padding: 50px 10px
+    white-space: nowrap
+    &:focus
+      outline: none
+  td
+    padding: 30px 10px
+  tr
+    border-bottom: 1px solid $input-border
+    &.odd
+      background: #f2f2f2
+    &.even
+      background: #f6f6f6
+    &:hover
+      background: #e3f2fd
+  +e(wrap)
+    //min-width: 510px
+  +e(table)
+    border: 1px solid $input-border
+    width: 100%
+
+  +e(head-sort)
+    &:after
+      +font-awesome(0.8em, '\f0dc')
+      margin-left: 5px
+    &.sorting_asc:after
+      content: '\f0de'
+    &.sorting_desc:after
+      content: '\f0dd'
+
+  .dataTables_scrollBody
+    +scrollbar
+
+  +m(properties)
+    +e(table)
+      background: #fafafa
+
+    +e(head-1)
+      padding: 50px 30px
+
+    +e(cell-1)
+      padding: 30px
+    +e(cell-2)
+      color: $brandColor
+      min-width: 100px
+    +e(cell-3)
+      color: $brandColor
+      min-width: 80px
+
+    +e(cell-4)
+      color: $grayColor
+      min-width: 80px
+
+    +e(more)
+      border: none
+      font-size: 12px
+      margin: 0
+      float: none
+      padding-left: 0
+
+  +m(property)
+    th
+      padding: 30px 10px
+
+    .dataTables_scrollBody th
+      display: none
+    td
+      padding: 10px
+    +e(head-2)
+      width: 70px
+      //padding-left: 0
+      //padding-right: 0
+    +e(cell)
+      width: 60px
+      +m(1)
+      +m(2)
+        width: 65px
+        color: $grayColor
+        //min-width: 100px
+      +m(3)
+        color: $grayColor
+        //min-width: 80px
+
+      +m(4)
+        color: $grayColor
+      +m(5)
+        color: $brandColor
+      +m(6)
+        color: $grayColor
+      +m(7)
+        color: $grayColor
+      +m(8)
+        color: $grayColor

@@ -1,0 +1,56 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.Enums
+@model Wohnungstausch24.Models.ViewModels.ChooseTypeOfUseViewModel
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">Add new property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("ChooseTypeOfUse", "Property", FormMethod.Post, new { @class = "form form--flex form--property-add js-form js-form-property" }))
+                        {
+                            @Html.AntiForgeryToken();
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <div class="row">
+                                <div class="form-group form-group--col-12 form-group--inline">
+                                    <div class="form-group form-group--col-6">
+                                        <label class="control-label">Select Type of Use</label>
+                                    </div>
+                                    <div class="form-group--col-6">
+                                        <ul class="form__check">
+                                            <li>
+                                                @Html.RadioButtonFor(m => m.TypeOfUse, TypeOfUse.Business, new { @class = "in-radio", id=TypeOfUse.Business.ToString() })
+                                                @Html.Label(TypeOfUse.Business.GetDisplayName(), new {@class = "in-label", @for= TypeOfUse.Business.ToString() })
+                                            </li>
+                                            <li>
+                                                @Html.RadioButtonFor(m => m.TypeOfUse, TypeOfUse.Investment, new { @class = "in-radio", id = TypeOfUse.Investment.ToString() })
+                                                @Html.Label(TypeOfUse.Investment.GetDisplayName(), new { @class = "in-label", @for = TypeOfUse.Investment.ToString() })
+                                            </li>
+                                            <li>
+                                                @Html.RadioButtonFor(m => m.TypeOfUse, TypeOfUse.Living, new { @class = "in-radio", id = TypeOfUse.Living.ToString() })
+                                                @Html.Label(TypeOfUse.Living.GetDisplayName(), new {@class = "in-label", @for = TypeOfUse.Living.ToString() })
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a class="form__submit" href="@Url.Action("Add")"><i class="fa fa-angle-left"></i> Cancel</a>
+                                <button type="submit" class="form__submit">Next <i class="fa fa-angle-right"></i></button>
+                            </div>
+                        }
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>

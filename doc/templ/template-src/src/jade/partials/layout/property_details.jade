@@ -1,0 +1,207 @@
+include ../mixins/slider_small
+include ../mixins/slider_thumbs
+.property
+  h1.property__title
+    | 1600 Pennsylvania Ave NW
+    span.property__city Washington DC20500, Collingswood, USA 21050
+  .property__header
+    .property__price
+      strong.property__price-value $2,399,900
+      span.property__price-label Inclusive TVA
+    h4.property__commision Commision: #[strong 3%]
+    .property__actions
+      button.btn--default(type='button')
+        i.fa.fa-refresh
+        | Update status
+      button.btn--default(type='button')
+        i.fa.fa-star
+        | Add to favorites
+  .clearfix
+
+  .property__slider
+    .property__ribon For rent
+    .property__ribon.property__ribon--status.property__ribon--done transaction-related
+    +slider_thumbs('', 'properties-thumbs', ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '09.jpg', '06.jpg', '07.jpg', '08.jpg'], ['Awesome Kitchen!!! Spacious kitchen with a granite counter tops, stainless steel appliances, hardwood floors, and plenty of cupboard space. On the other hand, a nicely designed feature sheet can create a quality, professional brand for your property, attracting more buyers who are interested in the benefits that the property can offer.', '2', '3', 'Ok', '5', '6', '7', '8', 'The end'])
+
+  .property__info
+    .property__info-item Property type: #[strong  Apartment]
+    .property__info-item Built Up: #[strong  265 Sq Ft]
+    .property__info-item Date: #[strong  11/03/2016]
+    .property__info-item Land Size: #[strong  100 Sq Ft]
+
+  .property__plan
+    dl.property__plan-item
+      dt.property__plan-icon
+        svg
+          use(xlink:href='#icon-area')
+      dd.property__plan-title Area
+      dd.property__plan-value 120
+
+    dl.property__plan-item
+      dt.property__plan-icon.property__plan-icon--window
+        svg
+          use(xlink:href='#icon-window')
+      dd.property__plan-title Bedrooms
+      dd.property__plan-value 5
+
+    dl.property__plan-item
+      dt.property__plan-icon.property__plan-icon--bathrooms
+        svg
+          use(xlink:href='#icon-bathrooms')
+      dd.property__plan-title Bathrooms
+      dd.property__plan-value 3
+
+    dl.property__plan-item
+      dt.property__plan-icon
+        svg
+          use(xlink:href='#icon-bedrooms')
+      dd.property__plan-title Beds
+      dd.property__plan-value 2
+
+    dl.property__plan-item
+      dt.property__plan-icon.property__plan-icon--garage
+        svg
+          use(xlink:href='#icon-garage')
+      dd.property__plan-title Garages
+      dd.property__plan-value 0
+
+  .property__params
+    h4.property__subtitle The space
+    ul.property__params-list
+      li
+        | Year Built:
+        strong 1971
+      li
+        | Number of Parking Spaces:
+        strong 24
+      li
+        | Garage Size In Square Feet:
+        strong 50
+      li
+        | Basement:
+        strong Full
+      li
+        | External
+        strong Construction: Terace
+      li
+        | Roofing:
+        strong New
+      li
+        | Exterior Material:
+        strong Brick
+      li
+        | Structure Type:
+        strong Mansion
+      li
+        | Doors &amp; windows:
+        strong Double Pane Windows, Skylights
+      li
+        | Fireplace description:
+        strong  Brick
+      li
+        | Fireplace fuel:
+        strong Uses Both Gas &amp; Wood
+      li
+        | Fireplace location:
+        strong Living Room
+      li
+        | Floors:
+        strong Carpet - Partial, Ceramic Tile
+      li
+        | Plumbing:
+        strong Full Copper Plumbing/
+      li
+        | Garage Size In Square Feet:
+        strong 500
+      li
+        | Basement:
+        strong Full
+      li
+        | Available From:
+        strong 2013-05-29
+      li
+        | MLS ID #:
+        strong 0
+
+  .property__params
+    h4.property__subtitle Amenities
+    ul.property__params-list.property__params-list--options
+      li
+        | Wireless Internet
+      li
+        | Kitchen
+      li
+        | Internet
+      li
+        | Air Conditioning
+      li
+        | Heating
+      li
+        | Smoking Allowed
+      li
+        | Wheelchair Accessible
+      li
+        | Washer
+      li
+        | Dryer
+      li
+        | TV
+      li
+        | Suitable for Events
+      li
+        | Smoking Allowed
+      li
+        | Wheelchair Accessible
+      li
+        | Elevator in Building
+      li
+        | Indoor Fireplace
+      li
+        | Buzzer/Wireless Intercom
+      li
+        | Doorman
+      li
+        | Pool
+      li
+        | Hot Tub
+      li
+        | Gym
+  .property__description.js-unhide-block
+    h4.property__subtitle Description
+    .property__description-wrap
+      p
+        | Center of the Meatpacking district. Spacious room with queen Sized bed, Large desk and lots of windows and light. In a large apt with huge private outdoor patio! (Very rare in the city) washer dryer/ Gourmet kitchen. Close to the city&apos;s best night clubs, restaurants and shopping
+      p
+        | This is a spacious private room for rent in my Large 2 bedroom apt with large outdoor patio suitable for eating in the heart of the Meat-Packing District. right across the street from the chelsea market and just steps away from the cites best shopping, restaurants, and night-life
+      p
+        | The apartment is newly renovated with brand new furniture and appliances. It&apos;s a clean and cozy oasis in the coolest neighborhood in nyc.
+        | The private outdoor patio is huge and has a covered eating area, a gas Webber BBQ , 2 lounge chairs for sunbathing and plenty of space to just hang out.
+      p
+        | The bedroom has a queen-sized bed that sleeps 2 and a large desk, a 32 inch flatscreen cable/tv, with 3 large windows overlooking the posh area we call the meatpacking district.
+      p
+        | The bathroom has a shower/tub (perfect for soaking) with sliding glass doors. (towels and bedding provided)
+        | Living room has a new huge leather sectional couch that comfortably holds 5 for movies/meals or just hanging.There is a brand new 42&quot; flat screen TV mounted on the wall. with playstation 3, dvd, and free cable TV w DVR.
+        | this apartment also has a dj booth for anyone that is experienced. or an iPod dock for ppl that just want to play music that way
+        | The kitchen is very large with black marble counter tops,and bar to eat and hang out. It has all the appliances you&apos;ll need including trash compactor, dishwasher, stove/over, toaster, blender and enough space for a chef and several helpers. Air conditioning. And yes, the apartment does have free wireless Internet access.
+
+    button.property__btn-more.js-unhide(type='button') More information ...
+
+
+  +widget(null, null, 'details')
+    .map.map--properties
+      .map__buttons
+        button.map__change-map.js-map-btn.active(type='button') Property Map
+        button.map__change-panorama.js-panorama-btn(type='button') Street view
+
+      .map__wrap
+        .map__view.js-map-canvas(data-type='map')
+        .map__view.map__view--panorama.js-map-canvas(data-type='panorama')
+  if !details_and_agent
+    +widget(null, null, 'details')
+      +worker(0, 'list worker--details' )
+      - var formType = 'properties';
+      include ../chunks/form--property
+
+
+      .clearfix
+// end of block .property

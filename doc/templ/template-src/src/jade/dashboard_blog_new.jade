@@ -1,0 +1,20 @@
+extends dashboard
+
+block config
+  - var bodyClass = 'sidebar-left';
+  - var page = 'dashboard_blog_new';
+  - var user = true;
+
+block dashboard_main
+  +widget('Add new article', null, 'dashboard')
+    // BEGIN SECTION ARTICLE
+    form.form.form--flex.form--article.js-parsley
+      .row
+        .form-group
+          label.control-label(for='in-article-title') Title
+          input.form-control(type='text', id='in-article-title', required)
+        .form-group
+          label.control-label(for='in-article-title') Description
+          textarea.form-control.js-ckeditor(name='editor1')
+      .row
+        button.form__submit(type='submit') Save

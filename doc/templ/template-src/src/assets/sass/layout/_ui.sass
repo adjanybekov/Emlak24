@@ -1,0 +1,414 @@
+// style for demonstration page
+// style for buttons
++b(button)
+  +e(action)
+    +button-action
+
+  +e(more)
+    +button-more
+
+  +e(default)
+    +button-default
+    padding: 6px 5px
+    +m(reset)
+      &:before
+        margin: 0 10px 0 0
+        +font-awesome(1em, '\f00d')
+
+    +m(normal)
+      padding: 4px 10px
+      width: 120px
+
+    +m(medium)
+      font-size: 12px
+      padding: 4px 10px
+      width: 115px
+
+    +m(small)
+      font-size: 12px
+      padding: 1px 10px
+      border-width: 1px
+      width: 100px
+/*------------------------------------------------------------------
+  * UI page demonstration
+  ==============================================================*/
++b(ui)
+  +e(row)
+    +make-row
+    margin-top: 40px
+    @media (max-width: $screen-sm-max)
+      margin-top: 20px
+
+    +m(slider)
+      background: #f6f6f6
+      margin: 0
+
+  +e(title)
+    font-size: 14px
+    @media (max-width: $screen-xs-max)
+      display: block
+      margin-left: 10px
+
+  +e(button)
+    display: inline-block
+    +m(1)
+      width: 150px !important
+      margin-right: 7px
+      @media (max-width: $screen-xs-max)
+        display: block
+        margin-top: 10px
+
+    +m(2)
+      width: 200px !important
+      margin-right: 7px
+      margin-left: 10px
+      display: inline-block
+      @media (max-width: $screen-xs-max)
+        display: block
+        margin-top: 10px
+
+    +m(3)
+      width: 181px
+      margin-right: 7px
+      @media (max-width: $screen-xs-max)
+        display: block
+        margin-top: 10px
+
+    +m(4)
+      width: 120px
+      margin-right: 7px
+      @media (max-width: $screen-xs-max)
+        display: block
+        margin-top: 10px
+
+    +m(5)
+      width: 100px
+      margin-right: 7px
+      @media (max-width: $screen-xs-max)
+        display: block
+        margin-top: 10px
+
+    +m(6)
+      width: 104px
+      margin-right: 7px
+      @media (max-width: $screen-xs-max)
+        display: block
+        margin-top: 10px
+
+    +m(7)
+      width: 72px
+      @media (max-width: $screen-xs-max)
+        display: block
+        margin-top: 10px
+
+
+    +m(wide)
+      width: 230px !important
+      margin-right: 7px
+      margin-left: 10px
+      display: inline-block
+      @media (max-width: $screen-xs-max)
+        display: block
+        margin-top: 10px
+
+  +m(buttons)
+    +e(row)
+      position: relative
+      padding-left: 100px
+      line-height: 3
+      margin-left: 0
+      margin-right: 0
+      @media (max-width: $screen-xs-max)
+        padding-left: 0
+        span,
+        a,
+        button
+          display: block
+          margin-top: 10px
+
+        span
+          margin-top: 0
+          line-height: 1em
+
+    +e(title)
+      width: 98px
+      display: inline-block
+      position: absolute
+      top: 0
+      left: 0
+      @media (max-width: $screen-xs-max)
+        position: relative
+
+
+  +m(social)
+    margin-top: 51px
+    +e(row)
+      margin-top: 0
+    +e(column)
+      +make-lg-column(6)
+      margin-top: 20px
+
+  +m(menu)
+    margin-top: 36px
+
+  +m(properties)
+    .properties__item
+      margin-bottom: 20px
+  +m(sliders)
+    +e(column)
+      +make-lg-column(4)
+
+  +m(links)
+    +e(column)
+      +m(1)
+        +make-block-item($lg: 1, $xs: 4)
+
+      +m(2)
+        +make-lg-column-offset(1)
+        +make-block-item($lg: 1, $xs: 4)
+
+      +m(3)
+        +make-lg-column-offset(0)
+        +make-block-item($lg: 3, $xs: 4)
+
+      +m(4)
+        +make-lg-column-offset(1)
+        +make-block-item($lg: 1, $xs: 4)
+        @media (max-width: $screen-md-max)
+          .social-panel
+            text-align: left
+      +m(5)
+        +make-block-item($lg: 1, $xs: 4)
+
+      +m(6)
+        +make-lg-column-offset(1)
+        +make-block-item($lg: 1, $xs: 4)
+
+  //    sliders
+  +m(sliders)
+    +e(slider)
+      +make-lg-column(9)
+      margin: 0 auto
+
+  +m(search)
+    +e(column)
+      +make-block-item($lg: 9, $sm: 8, $xs: 12)
+
+  //    icons
+  +m(icons)
+    +e(icons-item)
+      +make-block-item($lg: 1.7, $sm: 3, $xs: 6 )
+      margin-top: 0
+      vertical-align: middle
+    +e(icons-svg)
+      fill: $brandColor
+      width: 70%
+      display: block
+      margin: auto
+      +m(stroke)
+        stroke: $brandColor
+        stroke-width: 1px
+        fill: none
+        width: 35%
+      +m(danger)
+        fill: $dangerColor
+      +m(doc)
+        width: 40%
+      +m(area)
+        width: 60%
+      +m(window)
+        width: 40%
+    +e(icons-title)
+      display: block
+      text-align: center
+  //     validation
+  +m(validation)
+
+  //     forms
+  +m(forms)
+    +e(column)
+      +make-md-column(6)
+      position: relative
+    .form-property__ranges
+      margin-top: 40px
+      @media (max-width: $screen-xs-max)
+        margin-top: 20px
+  +m(review)
+    .review__title
+      margin-top: 20px
+
+  +m(dividers)
+    > .row
+      margin-top: 30px
+      margin-bottom: 30px
+
+//style for social panels
++b(social-panel)
+  +clearfix
+  font-size: 21px
+  padding: 5px 0
+  text-align: center
+  +e(link)
+    margin: 10px 20px
+    &:hover,
+    &.hover
+      color: $brandColorHover
+    &:active,
+    &.active
+      color: $highlightColor
+    &:disabled,
+    &.disabled
+      color: #ccc
+      cursor: not-allowed
+    @media (max-width: $screen-md-max)
+      margin: 10px
+
+  +m(brand)
+    background: $brandColor
+    +e(link)
+      color: #fff
+      &:hover,
+      &.hover
+        color: $brandColorHover
+      &:active,
+      &.active
+        color: $highlightColor
+      &:disabled,
+      &.disabled
+        color: #ccc
+        cursor: not-allowed
+
+  +m(black-white)
+    background: #000
+    +e(link)
+      color: #fff
+      &:hover,
+      &.hover
+        color: $highlightColorHover
+      &:active,
+      &.active
+        color: $highlightColor
+      &:disabled,
+      &.disabled
+        color: #ccc
+        cursor: not-allowed
+
+  +m(highlight)
+    background: #000
+    +e(link)
+      color: $highlightColor
+      &:hover,
+      &.hover
+        color: $highlightColorHover
+      &:active,
+      &.active
+        color: $highlightColor
+      &:disabled,
+      &.disabled
+        color: #ccc
+        cursor: not-allowed
+
+  +m(simple)
+    +e(link)
+      color: $brandColor
+      &:hover,
+      &.hover
+        color: $brandColorHover
+      &:active,
+      &.active
+        color: $highlightColor
+      &:disabled,
+      &.disabled
+        color: #ccc
+        cursor: not-allowed
+
+//style for ul lists
++b(ul-list)
+  list-style: none
+  margin: 30px 0
+  padding: 0
+  li
+    padding-left: 25px
+    position: relative
+    &:before
+      +font-awesome(12px)
+      color: $brandColor
+      left: 0
+      position: absolute
+      top: 4px
+  +m(default)
+    li
+      background: url("../img/bg-border-dotted-vertical.png") no-repeat 3px 5px
+      &:before
+        content: " "
+        color: $brandColor
+        width: 8px
+        height: 8px
+        border: 2px solid $brandColor
+        border-radius: 8px
+        margin: 0 3px 0 0
+        display: inline-block
+        top: 9px
+      &:first-child
+        background-position: 3px 10px
+      &:last-child
+        background-position: 3px -209px
+
+  +m(disk)
+    li
+      &:before
+        content: "\f111"
+        font-size: 8px
+
+  +m(check)
+    li
+      &:before
+        content: "\f00c"
+
+  +m(rounded-check)
+    li
+      &:before
+        content: "\f05d"
+
+  +m(arrow)
+    li
+      &:before
+        content: "\f105"
+
+  +m(star)
+    li
+      &:before
+        content: "\f006"
+        color: $highlightColor
+
+  +m(x)
+    li
+      &:before
+        content: "\f00d"
+        color: $highlightColor
+
+  +m(ordered)
+    list-style-type: decimal
+    margin-left: 22px
+    li
+      padding-left: 5px
+      &:before
+        content: " "
+        display: none
+
+
+/*------------------------------------------------------------------
+  * Dividers styles
+  ==============================================================*/
+
++b(divider)
+  +m(solid)
+    border-top: 1px solid #808080
+  +m(solid-light)
+    border-top: 1px solid #d0d0d0
+  +m(dotted)
+    background: url("../img/bg-border-dotted-horizontal.png") 0 0 repeat-x
+    border: 0
+    height: 1px
+  +m(dashed)
+    border-top: 1px dashed #222222

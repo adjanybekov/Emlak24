@@ -1,0 +1,20 @@
+form.form.form--flex.js-contact-form(class='form--#{formType}')(action='#' method='POST')
+  .row
+    .form-group.required
+      label.control-label(for='in-form-name') Your Name
+      input#in-form-name.form-control(type='text', name='name', required)
+
+    .form-group.form-group--col-6
+      label.control-label(for='in-form-phone') Telephone
+      input#in-form-phone.form-control(type='text', name='phone')
+
+    .form-group.form-group--col-6.required
+      label.control-label(for='in-form-email') E-mail
+      input#in-form-email.form-control(type='email', name='email', required, data-parsley-trigger='change')
+
+    .form-group.required
+      label.control-label(for='in-form-message') Message
+      textarea#in-form-message.form-control(name='message', required, data-parsley-trigger='keyup', data-parsley-minlength='20', data-parsley-validation-threshold='10', data-parsley-minlength-message = 'You need to enter at least a 20 caracters long comment..')
+  .row
+    button.form__submit(type='submit') Submit
+// end of block form

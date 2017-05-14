@@ -1,0 +1,406 @@
+$planHeight: 900px
+$planHeightMob: 400px
++b(plan)
+  +clearfix
+  width: 100%
+  position: relative
+  +e(nav-btn)
+    +btn
+    margin-right: 30px
+    text-transform: uppercase
+    color: $grayColor
+    font-weight: 600
+    cursor: pointer
+    &:hover
+      text-decoration: none
+    &.active
+      border-bottom: 2px solid $defaultColor
+      color: $defaultColor
+
+  +e(title)
+    font-size: 30px
+    margin: 0
+  +e(table)
+    position: relative
+    margin-top: 30px
+    +user-select(none)
+  +e(row)
+    display: flex
+    +when('head-wrap')
+      padding-right: 15px
+  +e(head)
+    position: absolute
+    top: 0
+    left: 35px
+    right: 0
+    overflow: hidden
+    margin-right: 5px
+    &::-webkit-scrollbar
+      display: none
+  +e(head-wrap)
+    display: none
+
+  +e(head-row)
+    margin-right: -5px
+  +e(body)
+    display: block
+  +e(heading)
+    width: 35px
+    height: 35px
+    border: 1px solid $input-border
+    color: #808080
+
+    text-align: center
+    font-size: 10px
+    font-weight: 900
+    position: relative
+
+    float: left
+    +m(empty)
+      border: 1px solid transparent
+
+  +e(table-legend)
+    width: 35px
+    height: 35px
+    border: 1px solid $input-border
+    color: #808080
+
+    text-align: center
+    font-weight: 600
+    position: relative
+    text-transform: uppercase
+    font-size: 8px
+    &:before
+      border: 1px solid $input-border
+      content: ' '
+      display: block
+      transform: rotate(50grad)
+      position: absolute
+      left: -7px
+      width: 47px
+      bottom: 16px
+
+
+  +e(heading-floor)
+    position: absolute
+    top: 0
+    right: 2px
+  +e(heading-unit)
+    position: absolute
+    bottom: 0
+    left: 2px
+
+  +e(heading-index)
+    position: absolute
+    top: 9px
+    width: 100%
+  +e(cell)
+    border: none
+    position: relative
+
+  +e(item)
+    border: 1px solid $input-border
+    width: 35px
+    height: 15px
+    &:not(.plan__item--empty)
+      cursor: pointer
+    +m(available)
+      background: #d3ebd4
+    +m(reserved)
+      background: #fff3cf
+    +m(not-available)
+      background: #ececec
+    +m(no-unit)
+      background: #e1f5fe
+
+    +when('cell--empty')
+      border: 1px solid transparent
+      background: none
+
+  +e(units)
+    margin-top: 20px
+    display: flex
+    flex-wrap: wrap
+  +e(unit-column)
+    margin-right: 30px
+    margin-top: 20px
+    display: flex
+    @media (max-width: $screen-xs-max)
+      width: 50%
+      margin-right: 0
+  +e(unit)
+    border: 1px solid $defaultColor
+    width: 35px
+    height: 20px
+    +m(available)
+      background: #d3ebd4
+    +m(reserved)
+      background: #fff3cf
+    +m(not-available)
+      background: #ececec
+    +m(no-unit)
+      background: #e1f5fe
+
+  +e(custom)
+    position: absolute
+    top: 0
+    left: 0
+    width: 35px
+    height: 15px
+    background: #d7ccc8
+    z-index: 5
+    text-align: center
+
+    display: flex
+    align-items: center
+    +m(w1)
+    +m(w2)
+      width: 70px
+    +m(w3)
+      width: 95px
+    +m(h1)
+      //height: 15px
+    +m(h2)
+      height: 30px
+    +m(h3)
+      height: 45px
+
+  +e(custom-label)
+    display: none
+    width: 100%
+  +e(status)
+    display: none
+  +e(heading-title)
+    display: none
+    color: $defaultColor
+    font-size: 15px
+    font-weight: 600
+
+    position: absolute
+    bottom: 4px
+    left: 5px
+  +e(number)
+    position: absolute
+    top: 35px
+    left: 0
+    bottom: 0
+    max-height: $planHeight
+    overflow: hidden
+    padding-bottom: 5px
+    &::-webkit-scrollbar
+      display: none
+    @media (max-width: $screen-xs-max)
+      height: $planHeightMob
+
+  +e(number-wrap)
+    display: none
+  +e(number-cell)
+    width: 35px
+    height: 15px
+    border: 1px solid $input-border
+    color: #808080
+    text-align: center
+    font-size: 10px
+    font-weight: 900
+
+  +e(state)
+    display: none
+    font-size: 12px
+    font-weight: 900
+    text-transform: uppercase
+    position: absolute
+    bottom: 0
+    left: 5px
+    +m(sold)
+      color: #388e3c
+    +m(pending)
+      color: #e65100
+
+  +e(price)
+    display: none
+    font-size: 12px
+    font-weight: 600
+    text-transform: uppercase
+    color: #a6a6a6
+    position: absolute
+    bottom: 0
+    left: 5px
+
+  +e(options)
+    display: none
+    width: 100%
+    padding: 5px 5px 0 0
+    +m(legend)
+      display: flex
+      flex-wrap: wrap
+      margin-top: 20px
+      width: 60%
+      @media (max-width: $screen-md-max)
+        width: 100%
+    +m('cell')
+      position: absolute
+      top: 0
+      right: 0
+  +e(option)
+    width: 10px
+    height: 10px
+    border-radius: 10px
+    margin-left: 5px
+    +m(orientation)
+      background: #2979ff
+    +m(car-parks)
+      background: #757575
+    +m(commission-rate)
+      background: #f9a825
+    +m(discounts)
+      background: #fb5793
+  +e(option-column)
+    width: 50%
+    display: flex
+    align-items: center
+    margin-top: 15px
+  +e(legend)
+  +e(legend-label)
+    text-transform: uppercase
+    color: $defaultColor
+    font-size: 13px
+    font-weight: 600
+    margin: 0 0 0 20px
+  +e(wrap)
+    margin: 0 0 0 35px
+    overflow: auto
+    max-height: $planHeight
+    +scrollbar
+    @media (max-width: $screen-xs-max)
+      height: $planHeightMob
+  +e(overlay)
+    border: 1px solid #ccc
+    background: rgba(#fff, 0.3)
+    width: 50px
+    height: 50px
+
+  +e(details)
+    display: flex
+    margin-top: 30px
+    dt
+      font-weight: 400
+    dd
+      font-weight: 600
+
+  +e(contact)
+    width: 70%
+    dl
+      margin-bottom: 0
+      dt,
+      dd
+        display: inline-block
+    dt
+      width: 200px
+
+  +e(contact-agent)
+    margin-top: 20px
+  +e(info-price)
+    color: $brandColor
+    strong
+      font-size: 24px
+      line-height: 1
+      @media (max-width: $screen-xs-max)
+        font-size: 19px
+  +m(level)
+    +e(wrap)
+      margin: 0 0 0 90px
+      @media (max-width: $screen-xs-max)
+        margin-left: 60px
+    +e(heading)
+      width: 90px
+      height: 70px
+      @media (max-width: $screen-xs-max)
+        width: 60px
+    +e(table-legend)
+      width: 90px
+      height: 70px
+      font-size: 13px
+
+      &:before
+        transform: rotate(42grad)
+        left: -12px
+        width: 113px
+        bottom: 33px
+        @media (max-width: $screen-xs-max)
+          transform: rotate(55grad)
+          left: -16px
+          width: 90px
+          bottom: 33px
+
+      @media (max-width: $screen-xs-max)
+        width: 60px
+        height: 70px
+
+    +e(head)
+      left: 90px
+      @media (max-width: $screen-xs-max)
+        left: 60px
+    +e(heading-index)
+      font-size: 13px
+      top: auto
+      bottom: 4px
+      right: 5px
+      width: auto
+    +e(heading-title)
+      display: block
+    +e(number)
+      top: 70px
+    +e(number-cell)
+      width: 90px
+      height: 35px
+      font-size: 13px
+      line-height: 32px
+      @media (max-width: $screen-xs-max)
+        width: 60px
+        height: 60px
+        line-height: 60px
+    +e(item)
+      width: 90px
+      height: 35px
+      @media (max-width: $screen-xs-max)
+        width: 60px
+        height: 60px
+    +e(custom-label)
+      display: block
+    +e(custom)
+      width: 90px
+      height: 35px
+      top: 0
+      left: 0
+
+      @media (max-width: $screen-xs-max)
+        width: 60px
+        height: 60px
+      +m(w1)
+      +m(w2)
+        width: 180px
+        @media (max-width: $screen-xs-max)
+          width: 120px
+
+      +m(w3)
+        width: 270px
+        @media (max-width: $screen-xs-max)
+          width: 180px
+      +m(h1)
+      //height: 15px
+      +m(h2)
+        height: 70px
+        @media (max-width: $screen-xs-max)
+          height: 120px
+      +m(h3)
+        height: 105px
+        @media (max-width: $screen-xs-max)
+          height: 180px
+
+    +e(options)
+      display: flex
+      justify-content: flex-end
+    +e(state)
+      display: block
+    +e(price)
+      display: block

@@ -1,0 +1,62 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'faq_page';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Faq
+  // END BREADCRUMBS
+block center
+  .row
+    // BEGIN site
+    .site.site--main
+      header.site__header
+        h1.site__title Faq
+        h2.site__headline Find answers to recurring questions and myths about RealtySpace
+      .site__panel
+        span.site__header-text
+          | This is a short list of our most frequently asked questions. For more information about RealtySpace, or if you need support, please call our
+          a(href='#') support center.
+
+      .site__main
+        +widget(null, null, 'main')
+          // BEGIN FAQ
+          .faq(role='tablist', aria-multiselectable='true')
+            - var i;
+            each faq, i in locals.data.faq
+              dl.faq__item
+                dt(id='heading-#{i}', class='faq__title', role='tab')
+                  a.faq__expander(data-toggle='collapse', data-parent='#accordion', href='#collapse-#{i}', aria-expanded='true', aria-controls='collapse-#{i}', class='collapsed')
+                    | #{faq.title}
+                dd(id='collapse-#{i}', class='faq__content collapse', role='tabpanel', aria-labelledby='heading-#{i}')
+                  .faq__body
+                    p #{faq.content}
+                  .faq__footer
+                    a.faq__close(data-toggle='collapse', data-parent='#accordion', href='#collapse-#{i}', aria-controls='collapse-#{i}') Close
+              // end of block .faq__item
+          // END FAQ
+
+    // END site
+    // BEGIN SIDEBAR
+    .sidebar
+      +widget('Popular estate', 'Find your apartment or house on the exact key parameters.', 'sidebar widget--dark', 'Show properties', null, 'toggle')
+        .listing.listing--sidebar
+          - var i = 0;
+          while i++ < 3
+            .listing__item
+              +properties(i, 'sidebar')
+      +widget('Our agents', 'Find your apartment or house on the exact key parameters.', 'sidebar widget--dark', 'Show workers', null, 'toggle')
+        .listing.listing--sidebar
+          - var i = -1;
+          while i++ < 2
+            .listing__item
+              +worker(i, 'sidebar')
+    // END SIDEBAR
+    .clearfix

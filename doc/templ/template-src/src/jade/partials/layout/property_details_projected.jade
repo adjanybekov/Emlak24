@@ -1,0 +1,90 @@
+include ../mixins/slider_small
+include ../mixins/slider_thumbs
+.property
+  h1.property__title
+    | 1600 Pennsylvania Ave NW
+    span.property__city Washington DC20500, Collingswood, USA 21050
+  .property__header
+    .property__price.property__price--commision
+      span.property__price-label Commision
+      strong.property__price-value 9
+        span.property__price-unit %
+    .property__actions.property__actions--btn
+      button.btn--default(type='button')
+        i.fa.fa-star
+        | Add to favorites
+  .clearfix
+
+  .property__slider
+    .property__ribon For rent
+    .property__ribon.property__ribon--status.property__ribon--done transaction-related
+    +slider_thumbs('', 'properties-thumbs', ['11.jpg', '12.jpg', '14.jpg', '15.jpg', '16.jpg', '01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '09.jpg', '06.jpg', '07.jpg', '08.jpg', '16.jpg', '01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '09.jpg', '06.jpg', '07.jpg', '08.jpg'], ['Awesome Kitchen!!! Spacious kitchen with a granite counter tops, stainless steel appliances, hardwood floors, and plenty of cupboard space. On the other hand, a nicely designed feature sheet can create a quality, professional brand for your property, attracting more buyers who are interested in the benefits that the property can offer.', '2', '3', 'Ok', '5', '6', '7', '8', 'The end'], true)
+
+  +widget('Projects Specification & Unit Specifications', null, 'details')
+    .datatable.datatable--property
+      .datatable__wrap
+        table.js-property-table.datatable__table
+          thead
+            tr
+              th.datatable__head-1 No.
+              th.datatable__head-2.datatable__head-sort Bedrooms
+              th.datatable__head-3.datatable__head-sort Floor
+              th.datatable__head-4.datatable__head-sort Area
+              th.datatable__head-5.datatable__head-sort Status
+              th.datatable__head-6.datatable__head-sort Price
+              th.datatable__head-7.datatable__head-sort Commision
+              th.datatable__head-8.datatable__head-sort Credit
+
+          tbody
+            - var limit = 0;
+            while ++limit < 50
+              tr(data-info='<table class="table table--stripped"><tr><td>Bedrooms:</td><td>' + limit + '</td></tr><tr><td>Floor:</td><td>' + (limit % 3 ? 2 : 3) + '</td></tr><tr><td>Area:</td><td>12</td></tr><tr><td>Status:</td><td>For sale </td></tr><tr></td><td>Price:</td><td> RM 402,000 </td></tr><tr><td>Commision:</td><td> 3% </td></tr><tr><td>Credit:</td><td> RM 8,000</td></tr></table>')
+                td.datatable__cell.datatable__cell--1 #{limit}
+                td.datatable__cell.datatable__cell--2= limit % 3 ? 2 : 3
+                td.datatable__cell.datatable__cell--3 12
+                td.datatable__cell.datatable__cell--4 65 Sq Ft
+                td.datatable__cell.datatable__cell--5= limit % 2 ? 'For sale' : 'For rent'
+                td.datatable__cell.datatable__cell--6 RM 402,000
+                td.datatable__cell.datatable__cell--7 3%
+                td.datatable__cell.datatable__cell--8 RM 8,000
+
+      #modal-datatable-detail.modal.modal--datatable.fade(tabindex='-1', role='dialog')
+        .modal-dialog(role='document')
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+
+            .modal-body
+
+
+  +widget('Summary chart information', null, 'details')
+    .info.info--property
+      .info__column
+        .info__donut
+          canvas#property-statistics-units.info__chart
+          .info__total Total Unit #[br] #[strong.info__total-value 1,725]
+        ul.info__legend
+          li.info__legend-item.info__legend-item--green Total sold unit #[br] #[strong 957]
+          li.info__legend-item.info__legend-item--light-green Total unsold unit #[br] #[strong 768]
+
+      .info__column
+        .info__donut
+          canvas#property-statistics-price.info__chart
+          .info__total Total Price #[br] #[strong RM] #[strong.info__total-value 755] #[strong ,000,000]
+        ul.info__legend
+          li.info__legend-item.info__legend-item--blue Total sold price #[br] RM #[strong 590,000,000]
+          li.info__legend-item.info__legend-item--light-blue Total unsold price #[br] RM #[strong 165,000,000]
+
+
+  +widget(null, null, 'details')
+    .property__map.map.map--properties
+      .map__buttons
+        button.map__change-map.js-map-btn.active(type='button') Property Map
+        button.map__change-panorama.js-panorama-btn(type='button') Street view
+
+      .map__wrap
+        .map__view.js-map-canvas(data-type='map')
+        .map__view.map__view--panorama.js-map-canvas(data-type='panorama')
+
+// end of block .property

@@ -1,0 +1,21 @@
+//common styles for listing preoprties and agents
+/*------------------------------------------------------------------
+  * Listing
+  + Listing / .listing
+    __ Listing header / .listing__header
+    __ Listing title / .listing__title
+    __ Listing headline / .listing__headline
+    __ Listing panel / .listing__panel
+  ==============================================================*/
++b(listing)
+  +m(watermarks)
+    +e(item)
+      width: 25%
+      @media (max-width: $screen-xs-max)
+        width: 50%
+
+    +e(thumb)
+      background: url('../img/pattern-empty.png')
+      border: 1px solid $grayColor
+    +e(select)
+      color: $brandColor

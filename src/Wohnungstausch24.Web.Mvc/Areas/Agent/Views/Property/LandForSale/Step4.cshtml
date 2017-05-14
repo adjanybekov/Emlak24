@@ -1,0 +1,179 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Core.Extensions
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step4.Step4ViewModel
+
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+    var addMixedLandAjaxOpt = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        OnBegin= "ShowMixedLandLoader",
+        OnComplete= "HideMixedLandLoader",
+        UpdateTargetId = "mixedland-area-data-div"
+    };
+}
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">@Resource.Add_New_Property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    @Html.Partial("LandForSale/_Steps", Model.StepsProgressModel)
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("Step4", "Property", FormMethod.Post, new { @class = "form form--flex form--property-add" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <legend>@Resource.Add_Property_Areas</legend>
+                                        <div class="row">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-6">
+                                                    @Html.LabelFor(m => m.Step4LandForSale.PlotArea, new { @class = "control-label" })
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="input-group">
+                                                        @Html.TextBoxFor(m => m.Step4LandForSale.PlotArea, new {  @class = "form-control" })
+                                                        <span class="input-group-addon"><b>m<sup>2</sup></b></span>
+                                                    </div>
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4LandForSale.PlotArea, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>  <div class="row">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-6">
+                                                    @Html.LabelFor(m => m.Step4LandForSale.SeparableFrom, new { @class = "control-label" })
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="input-group">
+                                                        @Html.TextBoxFor(m => m.Step4LandForSale.SeparableFrom, new {  @class = "form-control" })
+                                                        <span class="input-group-addon"><b>m<sup>2</sup></b></span>
+                                                    </div>
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4LandForSale.SeparableFrom, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="row" id="sightViewAreaDiv">
+                                    @{ Html.RenderAction("GetMixedLands", "Property", new { id = Model.Id });}
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+
+                                    <a class="form__submit" href="@Url.Action("Step3",new {id = Model.Id})"><i class="fa fa-angle-left"></i>@Resource.Back</a>
+                                    <button type="submit" class="form__submit">@Resource.Next <i class="fa fa-angle-right"></i></button>
+                                </div>
+                            </div>
+                                        }
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="addMixedlandModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">@Resource.Property_Add_New_Mixed_land</h4>
+            </div>
+            @using (Ajax.BeginForm("AddMixedLand", "Property", null, addMixedLandAjaxOpt, new { @class = "form form--flex" }))
+            {
+                @Html.HiddenFor(m => m.Id)
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-8">
+                                @Html.LabelFor(m => m.Step4LandForSale.AddMixedLandViewModel.TypeOfUse, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-4">
+                                   @Html.EnumDropDownListFor(m => m.Step4LandForSale.AddMixedLandViewModel.TypeOfUse, Resource.PleaseChoose, new { required = "", @class = "form-control js-in-select" })
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Step4LandForSale.AddMixedLandViewModel.TypeOfUse, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-8">
+                                @Html.LabelFor(m => m.Step4LandForSale.AddMixedLandViewModel.TotalArea, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.Step4LandForSale.AddMixedLandViewModel.TotalArea, new { required = "",  @class = "form-control" })
+                                    <span class="input-group-addon"><b>km<sup>2</sup></b></span>
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Step4LandForSale.AddMixedLandViewModel.TotalArea, null, new { @class = "text-danger" })
+                        </div>
+                    </div> <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-8">
+                                @Html.LabelFor(m => m.Step4LandForSale.AddMixedLandViewModel.PlotArea, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.Step4LandForSale.AddMixedLandViewModel.PlotArea, new { required = "",  @class = "form-control" })
+                                    <span class="input-group-addon"><b>km<sup>2</sup></b></span>
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Step4LandForSale.AddMixedLandViewModel.PlotArea, null, new { @class = "text-danger" })
+                        </div>
+                    </div> <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-8">
+                                @Html.LabelFor(m => m.Step4LandForSale.AddMixedLandViewModel.SeparableFrom, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.Step4LandForSale.AddMixedLandViewModel.SeparableFrom, new { required = "",  @class = "form-control" })
+                                    <span class="input-group-addon"><b>km<sup>2</sup></b></span>
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Step4LandForSale.AddMixedLandViewModel.SeparableFrom, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resource.Cancel</button>
+                    <button type="submit" class="btn btn-primary">@Resource.OK</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+
+    <script>
+        var ShowMixedLandLoader = function () {
+            $('#addMixedlandModal').modal('toggle');
+            showLoader("#mixedland-area-data-div");
+        }
+
+        var HideMixedLandLoader = function() {
+            hideLoader("#mixedland-area-data-div");
+        }
+
+        SweetAjax("#mixedland-area-data-div", ".wt24-mixedland-confirmation");
+    </script>
+
+}

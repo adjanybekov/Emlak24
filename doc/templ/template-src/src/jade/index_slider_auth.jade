@@ -1,0 +1,12 @@
+extends index
+block config
+  - var bodyClass = 'scroll-animation slider--fadeInLeft ';
+  - var page = 'index_slider_auth';
+  - var headerOverlay = 'header--overlay header--dark';
+  - var navbarOverlay = 'navbar--overlay';
+  - var headerSocial = true;
+
+block banner
+  +widget
+    - var bannerType = 'banner--slider';
+    include partials/widgets/banner--auth

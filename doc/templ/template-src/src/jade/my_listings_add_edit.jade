@@ -1,0 +1,277 @@
+extends partials/layout/_base
+
+include partials/mixins/map--location
+
+block config
+  - var bodyClass = 'compact add_edit_listing';
+  - var page = 'my_listings_add_edit';
+  - var user = true;
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Add listings
+  // END BREADCRUMBS
+block center
+  .row
+    .site.site--main
+      header.site__header
+        h1.site__title Add or edit listing
+        h2.site__headline Add and edit listing information
+      .site__panel
+        span.site__header-text
+          | Flexible configuration and editing forms, add and edit listing information, photos and location of the position
+
+      .site__main
+        form.form.form--flex.form--property-add.js-form.js-form-property
+          +widget('Basic information', 'You should fill all this fields.', 'main widget--no-margin widget--no-border widget--collapse')
+            .row
+              .form-group
+                label.control-label(for='in-1') Contract Type
+                select.form-control#in-1.js-in-select(required, name='contract_type', data-placeholder='---')
+                  option(label=' ')
+                  option(value='Sale') Sale
+                  option(value='Rent') Rent
+
+              .form-group
+                label.control-label(for='in-2') Property type
+                select.form-control#in-2.js-in-select(required, name='property_type', data-placeholder='---')
+                  option(label=' ')
+                  option(value='Private apartment') Private apartment
+                  option(value='Apartment') Apartment
+                  option(value='Cottage') Cottage
+                  option(value='Flat') Flat
+                  option(value='House') House
+                  option(value='Condominium') Condominium
+                  option(value='Cottage') Cottage
+
+              .form-group
+                label.control-label(for='in-3') Area (m2)
+                input.form-control#in-3(type='number', placeholder='', required, data-parsley-type='number')
+
+              .form-group
+                label.control-label(for='in-4') Country
+                include partials/chunks/countries
+
+              .form-group
+                label.control-label(for='in-5') City
+                include partials/chunks/cities
+
+              .form-group
+                label.control-label(for='in-6') Street
+                input.form-control#in-6.form-control--text(type='text', placeholder='Richmond', required)
+
+              .form-group
+                label.control-label(for='in-7') Price
+                input.form-control#in-7.form-control--text(type='text', placeholder='', required)
+
+              .form-group
+                label.control-label(for='in-8') Currency
+                select.form-control#in-8.js-in-select(data-placeholder='---')
+                  option $
+                  option €
+
+              .form-group
+                label.control-label(for='in-9') Type
+                select.form-control#in-9.js-in-select(data-placeholder='Per night', required)
+                  - var i = 0;
+                  while i < 8
+                    option(value='') #{i++}
+
+          +widget('Listing', null, 'main widget--no-margin widget--no-border widget--collapse')
+
+            .row
+              .form-group
+                label.control-label(for='in-10') Bedrooms
+                  span.form-property__information.js-popover(data-container='body', data-toggle='popover', data-placement='top', data-content='You should fill all this fields. All this fields are mandatory. But think twice before you will indicate the price of the property type ')
+                    span.glyphicon.glyphicon-info-sign
+                select.form-control#in-10.js-in-select(data-placeholder='---')
+                  option(label=' ')
+                  - var i = 0;
+                  while i < 8
+                    option #{i++}
+
+              .form-group
+                label.control-label(for='in-11') Bathrooms
+                select.form-control#in-11.js-in-select(data-placeholder='---')
+                  option(label=' ')
+                  - var i = 0;
+                  while i < 8
+                    option #{i++}
+
+              .form-group
+                label.control-label(for='in-12') Garages
+                select.form-control#in-12.js-in-select(data-placeholder='---')
+                  option(label=' ')
+                  - var i = 0;
+                  while i < 8
+                    option #{i++}
+
+              .form-group.form-group--col-12
+                label.control-label(for='in-13') Description
+                textarea.form-control#in-13(required, data-parsley-trigger='keyup', data-parsley-minlength='200', data-parsley-validation-threshold='10', data-parsley-minlength-message = 'You need to enter at least a 200 caracters long comment..')
+
+          +widget('Amenities', 'You can choose all amenities that you have. But think twice before', 'main widget--no-margin widget--no-border widget--collapse')
+            .row
+              .form-group.form-group--col-12
+                ul.form-property__params
+                  li
+                    input#option_1.in-checkbox(type='checkbox')
+                    label.in-label(for='option_1') Wireless Internet
+                  li
+                    input#option_2.in-checkbox(type='checkbox')
+                    label.in-label(for='option_2') Kitchen
+                  li
+                    input#option_3.in-checkbox(type='checkbox')
+                    label.in-label(for='option_3') Internet
+                  li
+                    input#option_4.in-checkbox(type='checkbox')
+                    label.in-label(for='option_4') Air Conditioning
+                  li
+                    input#option_5.in-checkbox(type='checkbox')
+                    label.in-label(for='option_5') Heating
+                  li
+                    input#option_6.in-checkbox(type='checkbox')
+                    label.in-label(for='option_6') Smoking Allowed
+                  li
+                    input#option_7.in-checkbox(type='checkbox')
+                    label.in-label(for='option_7') Wheelchair Accessible
+                  li
+                    input#option_8.in-checkbox(type='checkbox')
+                    label.in-label(for='option_8') Suitable for Events
+                  li
+                    input#option_9.in-checkbox(type='checkbox')
+                    label.in-label(for='option_9') Smoking Allowed
+                  li
+                    input#option_10.in-checkbox(type='checkbox')
+                    label.in-label(for='option_10') Wheelchair Accessible
+                  li
+                    input#option_11.in-checkbox(type='checkbox')
+                    label.in-label(for='option_11') Elevator in Building
+                  li
+                    input#option_12.in-checkbox(type='checkbox')
+                    label.in-label(for='option_12') Indoor Fireplace
+                  li
+                    input#option_13.in-checkbox(type='checkbox')
+                    label.in-label(for='option_13') Buzzer/Wireless Intercom
+                  li
+                    input#option_14.in-checkbox(type='checkbox')
+                    label.in-label(for='option_14') Doorman
+                  li
+                    input#option_15.in-checkbox(type='checkbox')
+                    label.in-label(for='option_15') Washer
+                  li
+                    input#option_16.in-checkbox(type='checkbox')
+                    label.in-label(for='option_16') Dryer
+                  li
+                    input#option_17.in-checkbox(type='checkbox')
+                    label.in-label(for='option_17') TV
+                  li
+                    input#option_18.in-checkbox(type='checkbox')
+                    label.in-label(for='option_18') Pool
+                  li
+                    input#option_19.in-checkbox(type='checkbox')
+                    label.in-label(for='option_19') Hot Tub
+                  li
+                    input#option_20.in-checkbox(type='checkbox')
+                    label.in-label(for='option_20') Gym
+
+          +widget('Special features', null, 'main widget--no-margin widget--no-border widget--collapse')
+            .row
+              .form-group
+                label.control-label(for='in-14') Year built
+                select.form-control#in-14.js-in-select(required, data-placeholder=' ')
+                  option(label=' ')
+                  - var i = 2015;
+                  while i > 1959
+                    option #{i--}
+
+              .form-group
+                label.control-label(for='in-15') Number of parking spaces
+                select.form-control#in-15.js-in-select(data-placeholder='Privat apartment')
+                  option(label=' ')
+                  - var i = 0;
+                  while i < 8
+                    option #{i++}
+
+              .form-group
+                label.control-label(for='in-16') Basement
+                input.form-control#in-16(type='text', placeholder='')
+
+              .form-group
+                label.control-label(for='in-17') External construction
+                input.form-control#in-17(type='text', placeholder='')
+
+              .form-group
+                label.control-label(for='in-18') Roofing
+                input.form-control#in-18(type='text', placeholder='')
+
+              .form-group
+                label.control-label(for='in-19') Exterior material
+                input.form-control#in-19(type='text', placeholder='')
+
+              .form-group
+                label.control-label(for='in-20') Floors
+                input.form-control#in-20(type='text', placeholder='')
+
+              .form-group
+                label.control-label(for='in-21') Plumbing
+                input.form-control#in-21(type='text', placeholder='')
+
+              .form-group
+                label.control-label(for='in-22') Doors&amp;windows
+                input.form-control#in-22(type='text', placeholder='')
+
+              .form-group
+                label.control-label(for='in-23') Garage size in square feet
+                input.form-control#in-23(type='number', placeholder='')
+
+              .form-group
+                label.control-label(for='in-24') Fireplace fuel
+                input.form-control#in-24(type='text', placeholder='')
+
+              .form-group
+                label.control-label(for='in-datetime') Available from
+                input.js-datetimerange.form-control(
+                type='text',
+                id='in-datetime',
+                data-start-date='12/03/2015',
+                data-end-date='12/22/2015',
+                data-time-picker='false'
+                data-single-picker='true'
+                )
+
+          +widget('Location', 'Google Maps is a desktop and mobile web mapping service application and technology provided by Google.', 'main widget--no-margin widget--no-border widget--collapse')
+            +mapLocation('dashboard submit')
+
+          +widget('Photos', 'Images should have maximum size 1Mb', 'main widget--no-margin widget--no-border widget--collapse')
+            .form-property__upload
+              span.form-property__upload-title Upload main photo:
+              .form-property__upload-border
+                input(type='file', multiple).form-property__upload-btn-choose
+
+            .dropzone.dropzone--submit(action='/file-upload')
+
+          h5.form-property__condition If you have filled in all the fields and are confident of the correctness of all information, click on the button below to save data
+          .row
+            button.form__submit Submit
+
+    .sidebar
+      +widget('Popular estate', 'Find your apartment or house on the exact key parameters.', 'sidebar widget--dark', 'Show properties', null, 'toggle')
+        .listing.listing--sidebar
+          - var i = 0;
+          while i++ < 3
+            .listing__item
+              +properties(i, 'sidebar')
+      +widget('Our agents', 'Find your apartment or house on the exact key parameters.', 'sidebar widget--dark', 'Show worker', null, 'toggle')
+        .listing.listing--sidebar
+          - var i = -1;
+          while i++ < 2
+            .listing__item
+              +worker(i, 'sidebar')
+    .clearfix

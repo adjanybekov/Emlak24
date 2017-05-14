@@ -1,0 +1,229 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step1.Step1ViewModel
+
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+@{
+    var viewData = new ViewDataDictionary { TemplateInfo = new TemplateInfo { HtmlFieldPrefix = nameof(Model.Step1FlatForSale)} };
+}
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">@ViewBag.Title</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    @Html.Partial("FlatForSale/_Steps", Model.StepsProgressModel)
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("Step1", "Property", FormMethod.Post, new {@class = "form form--flex form--property-add"}))
+                        {
+                            @Html.ValidationSummary(false, "", new {@class = "text-danger"})
+                            @Html.HiddenFor(m => m.Id)
+                            <div class="row">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Step1FlatForSale.PropertyTpe, new {@class = "control-label"})
+                                    @Html.Label(Model.Step1FlatForSale.PropertyTpe.GetDisplayName(), new {@class = "alert alert-info control-label"})
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Step1FlatForSale.TypeOfMerchandising, new {@class = "control-label"})
+                                    @Html.Label(Model.Step1FlatForSale.TypeOfMerchandising.GetDisplayName(), new {@class = "alert alert-info control-label" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Step1FlatForSale.TypeOfUse, new {@class = "control-label"})
+                                    @Html.Label(Model.Step1FlatForSale.TypeOfUse.GetDisplayName(), new {@class = "alert alert-info control-label" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group form-group--description">
+                                    @Html.LabelFor(m => m.Step1FlatForSale.PropertySubType, new {@class = "control-label"})
+                                    @Html.DropDownListFor(m => m.Step1FlatForSale.PropertySubType, Model.Step1FlatForSale.PropertySubTypes, Resource.PleaseChoose, new {@class = "form-control js-in-select"})
+                                    @Html.ValidationMessageFor(m => m.Step1FlatForSale.PropertySubType, null, new {@class = "text-danger"})
+                                </div>
+                                <div class="form-group form-group--description">
+                                    @Html.LabelFor(m => m.Step1FlatForSale.Level, new {@class = "control-label"})
+                                    @Html.TextBoxFor(m => m.Step1FlatForSale.Level, new {  @class = "form-control", min = "1"})
+                                    @Html.ValidationMessageFor(m => m.Step1FlatForSale.Level, null, new {@class = "text-danger"})
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Step1FlatForSale.NumberOfLevels, new {@class = "control-label"})
+                                    @Html.TextBoxFor(m => m.Step1FlatForSale.NumberOfLevels, new {  @class = "form-control", min = "1"})
+                                    @Html.ValidationMessageFor(m => m.Step1FlatForSale.NumberOfLevels, null, new {@class = "text-danger"})
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Step1FlatForSale.PositionInBuilding, new { @class = "control-label" })
+                                    @Html.EnumDropDownListFor(m => m.Step1FlatForSale.PositionInBuilding, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+                                    @Html.ValidationMessageFor(m => m.Step1FlatForSale.PositionInBuilding, null, new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Step1FlatForSale.NumberOfApartmentUnits, new { @class = "control-label" })
+                                    @Html.TextBoxFor(m => m.Step1FlatForSale.NumberOfApartmentUnits, new {   @class = "form-control", min = "1" })
+                                    @Html.ValidationMessageFor(m => m.Step1FlatForSale.NumberOfApartmentUnits, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Step1FlatForSale.IsFurnished, new {@class = "control-label"})
+                                    @Html.CheckBoxFor(m => m.Step1FlatForSale.IsFurnished, new {@class = "in-checkbox", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger"})
+                                    @Html.ValidationMessageFor(m => m.Step1FlatForSale.IsFurnished, null, new {@class = "text-danger"})
+                                </div>
+                                <div class="form-group" id="furnish-type" style="display: none;">
+                                    @Html.LabelFor(m => m.Step1FlatForSale.FurnishType, new {@class = "control-label"})
+                                    @Html.EnumDropDownListFor(m => m.Step1FlatForSale.FurnishType, Resource.PleaseChoose, new {@class = "form-control js-in-select"})
+                                    @Html.ValidationMessageFor(m => m.Step1FlatForSale.FurnishType, null, new {@class = "text-danger"})
+                                </div>
+                            </div>
+                            @Html.Partial("Common/_LocationSelection",Model.Step1FlatForSale,viewData)
+                            <div class="row">
+                                <a href="@Url.Action("Index", "Home", new {area = "Agent"})" class="form__submit"><i class="fa fa-angle-left"></i>@Resource.Cancel</a>
+                                <button type="submit" class="form__submit">@Resource.Next <i class="fa fa-angle-right"></i></button>
+                            </div>
+                        }
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        var locationLevel1 = $('#@Html.IdFor(m => m.Step1FlatForSale.SelectedLocationlevel1)');
+        var locationLevel2 = $('#@Html.IdFor(m => m.Step1FlatForSale.SelectedLocationlevel2)');
+        var locationLevel3 = $('#@Html.IdFor(m => m.Step1FlatForSale.Locationlevel3)');
+
+        $('#@Html.IdFor(m => m.Step1FlatForSale.SelectedCountry)')
+            .change(function() {
+
+                if (!$(this).val()) {
+                    resetDropdown(locationLevel1);
+                    resetDropdown(locationLevel2);
+                    resetDropdown(locationLevel3);
+                    return;
+                }
+                var request = $.ajax({
+                    url: '@Url.Action("GetLocationLevel1", "Locations", new {area = ""})',
+                    method: "GET",
+                    data: { countryId: $(this).val() },
+                    contentType: "application/json",
+                    dataType: "json"
+                });
+                request.done(function(data) {
+                    resetDropdown(locationLevel1);
+                    resetDropdown(locationLevel2);
+                    resetDropdown(locationLevel3);
+                    $.each(data,
+                        function(index, item) {
+                            locationLevel1.append($('<option></option>').val(item.Value).text(item.Text));
+                        });
+                });
+                request.fail(function(jqXHR, textStatus) {
+                    alert("Request failed: " + textStatus);
+                });
+            });
+
+        locationLevel1.change(function() {
+            if (!$(this).val()) {
+                resetDropdown(locationLevel2);
+                resetDropdown(locationLevel3);
+                return;
+            }
+            var request = $.ajax({
+                url: '@Url.Action("GetLocationLevel2", "Locations", new {area = ""})',
+                method: "GET",
+                data: { locationLevel1: $(this).val() },
+                contentType: "application/json",
+                dataType: "json"
+            });
+            request.done(function(data) {
+                resetDropdown(locationLevel2);
+                resetDropdown(locationLevel3);
+                $.each(data,
+                    function(index, item) {
+                        locationLevel2.append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+            });
+            request.fail(function(jqXHR, textStatus) {
+                alert("Request failed: " + textStatus);
+            });
+        });
+
+        locationLevel2.change(function() {
+            if (!$(this).val()) {
+                resetDropdown(locationLevel3);
+                return;
+            }
+            var request = $.ajax({
+                url: '@Url.Action("GetLocationLevel3", "Locations", new {area = ""})',
+                method: "GET",
+                data: { locationLevel2: $(this).val() },
+                contentType: "application/json",
+                dataType: "json"
+            });
+            request.done(function(data) {
+                resetDropdown(locationLevel3);
+                $.each(data,
+                    function(index, item) {
+                        locationLevel3.append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+            });
+            request.fail(function(jqXHR, textStatus) {
+                alert("Request failed: " + textStatus);
+            });
+        });
+
+        var resetDropdown = function(dropdown) {
+            dropdown.empty();
+            dropdown.append($('<option></option>').val(null).text('@Html.Raw(Resource.PleaseChoose)'));
+            dropdown.selectedIndex = 0;
+            dropdown.change();
+        }
+
+        @*var propertyType = $('#@Html.IdFor(m => m.PropertyType)');
+
+        var propertySubType = $('#@Html.IdFor(m => m.PropertySubType)');
+        propertyType.change(function() {
+            if (!$(this).val()) {
+                resetDropdown(locationLevel3);
+                return;
+            }
+            var request = $.ajax({
+                url: '@Url.Action("GetPropertySubTypes", "Property", new {area = ""})',
+                method: "GET",
+                data: { propertyType: $(this).val() },
+                contentType: "application/json",
+                dataType: "json"
+            });
+            request.done(function(data) {
+                resetDropdown(propertySubType);
+                    $.each(data,
+                        function(index, item) {
+                            propertySubType.append($('<option></option>').val(item.Value).text(item.Text));
+                        });
+            });
+            request.fail(function(jqXHR, textStatus) {
+                alert("Request failed: " + textStatus);
+            });
+        });*@
+
+        var furnishedType = $('#@Html.IdFor(m => m.Step1FlatForSale.IsFurnished)');
+        furnishedType.change(function() {
+            if ($(this).prop('checked')) {
+                $('#furnish-type').show('slow');
+            } else {
+                $('#furnish-type').hide('slow');
+            }
+        });
+        if ($(furnishedType).prop('checked')) {
+            $('#furnish-type').show('slow');
+        } else {
+            $('#furnish-type').hide('slow');
+        }
+    </script>
+}

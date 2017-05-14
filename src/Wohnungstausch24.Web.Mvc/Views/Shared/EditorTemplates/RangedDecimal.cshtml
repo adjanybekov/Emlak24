@@ -1,0 +1,26 @@
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Core.Models.RangedDecimal
+<div class="form-group">
+    <div class="form__mode">
+        <button type="button" data-mode="input" class="form__mode-btn js-input-mode">@Resource.Input</button>
+    </div>
+    @Html.LabelForModel(new {@class = "control-label"})
+    <div class="form__ranges">
+        @Html.TextBoxFor(m => m.Range, new
+   {
+       @class = "js-search-range form__ranges-in ranged_numbers",
+       data_min = ViewData["min"],
+       data_max = ViewData["max"],
+       data_type = ViewData["type"],
+       data_prefix = ViewData["prefix"],
+       data_postfix = ViewData["postfix"],
+       data_step = ViewData["step"]
+   })
+    </div>
+    <div class="form__inputs js-search-inputs">
+        @Html.TextBoxFor(m => m.From, new {data_input_type = "from", @class = "form-control js-field-range"})
+        @Html.TextBoxFor(m => m.To, new {data_input_type = "to", @class = "form-control js-field-range"})
+        @Html.Hidden(nameof(Model.Min), ViewData["min"])
+        @Html.Hidden(nameof(Model.Max), ViewData["max"])
+    </div>
+</div>

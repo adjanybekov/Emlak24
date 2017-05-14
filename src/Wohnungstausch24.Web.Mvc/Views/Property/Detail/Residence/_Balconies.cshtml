@@ -1,0 +1,64 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base.DetailResidence
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">@Resource.Add_Property_Balconies</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-1">
+                        <i class="fa fa-3x flaticon-balcony text-primary"></i>
+                    </div>
+                    <div class="col-md-11">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-8 col-xs-8">@Resource.Property_Detail_NumberOfBalconies:</div>
+                                    <div class="col-md-4 col-xs-4">@Model.Balconies.Count(c => c.BalconyType == BalconyType.Balcony)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-xs-8">@Resource.Property_Detail_NumberOfTerraces:</div>
+                                    <div class="col-md-4 col-xs-4">@Model.Balconies.Count(c => c.BalconyType == BalconyType.Terrace)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-xs-8">@*@Resource.Property_Detail_NumberOfTinyBalconies*@:</div>
+                                    <div class="col-md-4 col-xs-4">@Model.Balconies.Count(c => c.BalconyType == BalconyType.TinyBalcony)</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-xs-8">@Html.LabelFor(c => c.HasWinterGarden, new { @class = "control-label" })</div>
+                                    <div class="col-md-4 col-xs-4">
+                                        @Html.DisplayFor(m => m.HasWinterGarden)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <table class="table table-responsive table-hover table-striped">
+                                    <tr>
+                                        <th>@Resource.BalconyType</th>
+                                        <th>@Resource.Level</th>
+                                        <th>@Resource.Size</th>
+                                        <th>@Resource.Sight_View</th>
+                                        <th>@Resource.Direction</th>
+                                    </tr>
+                                    @foreach (var balcony in Model.Balconies)
+                                    {
+                                        <tr>
+                                            <td>@balcony.BalconyType.GetDisplayName()</td>
+                                            <td>@balcony.Level</td>
+                                            <td>@balcony.Size m<sup>2</sup></td>
+                                            <td>@balcony.SightType.GetDisplayName()</td>
+                                            <td>@balcony.Direction.GetDisplayName()</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

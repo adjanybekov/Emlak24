@@ -1,0 +1,61 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.SummaryViewModel
+<div class="listing__item">
+    <div class="properties properties--management">
+        <div class="properties__item-header">
+            <span class="properties__state properties__state--default">@Resource.Property_Index_InReview</span>
+            <div class="properties__actions">
+                @*<a href="@Url.Action("Step1","Property", new {id=Model.Id})" target="_blank" class="properties__link">Edit</a>*@
+                <div class="dropdown properties__actions-dropdown">
+                    <button data-toggle="dropdown" type="button" class="dropdown-toggle properties__dropdown-toggle"><i class="fa fa-cog"></i>@Resource.Options</button>
+                    <div class="dropdown__menu properties__dropdown-menu">
+                        <button type="button" class="properties__link">@Resource.Delete</button>
+                        <button type="button" class="properties__link">@Resource.Property_Index_ChangeStatus</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="properties__thumb">
+            <a href="@Url.Action("Step1","Property", new {id=Model.Id})" class="item-photo item-photo--static" target="_blank">
+                <img src="/Content/assets/media-demo/properties/554x360/01.jpg" alt="">
+                <figure class="item-photo__hover item-photo__hover--params">
+                    <span class="properties__params">Built-Up - 165 Sq Ft</span>
+                    <span class="properties__params">Land Size - @Model.TotalArea m<sup>2</sup></span>
+                    <span class="properties__time">Added date: 2 days ago</span>
+                    <span class="properties__more">View details</span>
+                </figure>
+            </a>
+            <span class="properties__ribon">@Model.TypeOfMerchandising.GetDisplayName() </span>
+            <span class="properties__ribon properties__ribon--status properties__ribon--done">@Model.PropertyType.GetDisplayName()</span>
+        </div>
+        <!-- end of block .properties__thumb-->
+        <div class="properties__details">
+            <div class="properties__info">
+                @if (!string.IsNullOrEmpty(Model.Owner))
+                {
+                    <span class="label label-info pull-right">@Model.Owner</span>
+                }
+                <a href="@Url.Action("Step1", "Property", new {id = Model.Id})" class="properties__address">
+
+                    <span class="properties__address-street">@Model.Street</span>
+                    <span class="properties__address-city"> @Model.LocationLevel3, @Model.LocationLevel2, @Model.LocationLevel1, @Model.Country</span>
+                </a>
+                <div class="properties__offer">
+                    <div class="properties__offer-column">
+                        <div class="properties__offer-value">
+                            <strong>@Model.Price</strong><span class="properties__offer-period">/@Resource.Month</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="properties__params--mob">
+                    <a href="#" class="properties__more">View details</a>
+                    <span class="properties__params">Built-Up - 165 Sq Ft</span>
+                    <span class="properties__params">Land Size - 210 Sq Ft</span>
+                </div>
+            </div>
+        </div>
+        <!-- end of block .properties__info-->
+    </div>
+    <!-- end of block .properties__item-->
+</div>

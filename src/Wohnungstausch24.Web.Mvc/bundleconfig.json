@@ -1,0 +1,320 @@
+[
+  {
+    "outputFileName": "Content/assets/js/app.min.js",
+    "inputFiles": [
+      "Content/assets/js/app.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/js/demo.min.js",
+    "inputFiles": [
+      "Content/assets/js/demo.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-blue-orange_red.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-blue-orange_red.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-blue_green.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-blue_green.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-brown-dark_red.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-brown-dark_red.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/ie-fix.min.css",
+    "inputFiles": [
+      "Content/assets/css/ie-fix.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/custom.min.css",
+    "inputFiles": [
+      "Content/assets/css/custom.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/email.min.css",
+    "inputFiles": [
+      "Content/assets/css/email.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/font-awesome.min.css",
+    "inputFiles": [
+      "Content/assets/css/font-awesome.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/vendor.min.css",
+    "inputFiles": [
+      "Content/assets/css/vendor.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/ui-panel.min.css",
+    "inputFiles": [
+      "Content/assets/css/ui-panel.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-light_green-violet.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-light_green-violet.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-pink_yellow.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-pink_yellow.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-brown-dark_yellow.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-brown-dark_yellow.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-dark_blue-dark_yellow.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-dark_blue-dark_yellow.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-brown_red.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-brown_red.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-dark_blue-light_green.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-dark_blue-light_green.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-dark_blue-yellow.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-dark_blue-yellow.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-dark_violet-green.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-dark_violet-green.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-dark_violet-yellow.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-dark_violet-yellow.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-default.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-default.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-gray-red.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-gray-red.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-green-red.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-green-red.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-green_blue-red.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-green_blue-red.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-light_blue-beige.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-light_blue-beige.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-light_blue-cyan.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-light_blue-cyan.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-light_cyan-red.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-light_cyan-red.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/css/theme-light_green-dark_blue.min.css",
+    "inputFiles": [
+      "Content/assets/css/theme-light_green-dark_blue.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/js/demodata.min.js",
+    "inputFiles": [
+      "Content/assets/js/demodata.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/js/vendor.min.js",
+    "inputFiles": [
+      "Content/assets/js/vendor.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/bootstrap-theme.min.css",
+    "inputFiles": [
+      "Content/bootstrap-theme.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/bootstrap.min.css",
+    "inputFiles": [
+      "Content/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/toastr.min.css",
+    "inputFiles": [
+      "Content/toastr.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/toggle/css/bootstrap-toggle.min.css",
+    "inputFiles": [
+      "Content/toggle/css/bootstrap-toggle.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/toggle/css/bootstrap2-toggle.min.css",
+    "inputFiles": [
+      "Content/toggle/css/bootstrap2-toggle.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/toggle/js/bootstrap-toggle.min.js",
+    "inputFiles": [
+      "Content/toggle/js/bootstrap-toggle.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/toggle/js/bootstrap2-toggle.min.js",
+    "inputFiles": [
+      "Content/toggle/js/bootstrap2-toggle.js"
+    ]
+  },
+  {
+    "outputFileName": "scripts/jQuery.FileUpload/jquery.fileupload-angular.min.js",
+    "inputFiles": [
+      "scripts/jQuery.FileUpload/jquery.fileupload-angular.js"
+    ]
+  },
+  {
+    "outputFileName": "scripts/jQuery.FileUpload/jquery.fileupload-audio.min.js",
+    "inputFiles": [
+      "scripts/jQuery.FileUpload/jquery.fileupload-audio.js"
+    ]
+  },
+  {
+    "outputFileName": "scripts/jQuery.FileUpload/jquery.fileupload-image.min.js",
+    "inputFiles": [
+      "scripts/jQuery.FileUpload/jquery.fileupload-image.js"
+    ]
+  },
+  {
+    "outputFileName": "scripts/jQuery.FileUpload/jquery.fileupload-process.min.js",
+    "inputFiles": [
+      "scripts/jQuery.FileUpload/jquery.fileupload-process.js"
+    ]
+  },
+  {
+    "outputFileName": "scripts/jQuery.FileUpload/jquery.fileupload-jquery-ui.min.js",
+    "inputFiles": [
+      "scripts/jQuery.FileUpload/jquery.fileupload-jquery-ui.js"
+    ]
+  },
+  {
+    "outputFileName": "scripts/jQuery.FileUpload/jquery.fileupload-validate.min.js",
+    "inputFiles": [
+      "scripts/jQuery.FileUpload/jquery.fileupload-validate.js"
+    ]
+  },
+  {
+    "outputFileName": "scripts/jQuery.FileUpload/jquery.fileupload-video.min.js",
+    "inputFiles": [
+      "scripts/jQuery.FileUpload/jquery.fileupload-video.js"
+    ]
+  },
+  {
+    "outputFileName": "scripts/jQuery.FileUpload/jquery.fileupload.min.js",
+    "inputFiles": [
+      "scripts/jQuery.FileUpload/jquery.fileupload.js"
+    ]
+  },
+  {
+    "outputFileName": "scripts/jQuery.FileUpload/jquery.iframe-transport.min.js",
+    "inputFiles": [
+      "scripts/jQuery.FileUpload/jquery.iframe-transport.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/jQuery.FileUpload/css/jquery.fileupload-ui.min.css",
+    "inputFiles": [
+      "Content/jQuery.FileUpload/css/jquery.fileupload-ui.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/jQuery.FileUpload/css/blueimp-gallery.min.min.css",
+    "inputFiles": [
+      "Content/jQuery.FileUpload/css/blueimp-gallery.min.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/jQuery.FileUpload/css/jquery.fileupload-noscript.min.css",
+    "inputFiles": [
+      "Content/jQuery.FileUpload/css/jquery.fileupload-noscript.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/jQuery.FileUpload/css/jquery.fileupload-ui-noscript.min.css",
+    "inputFiles": [
+      "Content/jQuery.FileUpload/css/jquery.fileupload-ui-noscript.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/jQuery.FileUpload/css/jquery.fileupload.min.css",
+    "inputFiles": [
+      "Content/jQuery.FileUpload/css/jquery.fileupload.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/js/common.min.js",
+    "inputFiles": [
+      "Content/assets/js/common.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/assets/js/landing.min.js",
+    "inputFiles": [
+      "Content/assets/js/landing.js"
+    ]
+  }
+]

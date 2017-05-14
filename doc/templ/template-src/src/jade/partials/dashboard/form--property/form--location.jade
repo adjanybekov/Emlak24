@@ -1,0 +1,11 @@
+include ../../mixins/map--location
+
+form.form.form--flex.form--property.form--location.js-form-property
+  +mapLocation('dashboard')
+  .row
+    .form-group
+      label.control-label(for='in-21') Postcode
+      input.form-control#in-21(required, type='text', name='', value='Text')
+
+  .row
+    button.form__submit Next

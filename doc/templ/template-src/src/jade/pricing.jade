@@ -1,0 +1,250 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var centerClass = '';
+  - var page = 'pricing_page';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Pricing
+  // END BREADCRUMBS
+block center
+  .row
+    section.site
+      header.site__header
+        h1.site__title Pricing
+      .site__main
+        +widget(null, null, 'main widget--no-border')
+          .pricing
+            .pricing__row
+              .pricing__col3
+                .pricing__item
+                  dl.pricing__list
+                    dt.pricing__type Free
+                    dd.pricing__total
+                      span.pricing__currency $
+                      span.pricing__summa 0
+                      span.pricing__period /monthly
+                    dd.pricing__feature
+                      strong 2
+                      | Properties
+                    dd.pricing__feature
+                      strong 1
+                      | Agent Profiles
+                    dd.pricing__feature Agency Profiles
+                    dd.pricing__feature Featured Properties
+                  .pricing__actions
+                    button.pricing__button Sign in
+              .pricing__col3
+                .pricing__item
+                  dl.pricing__list
+                    dt.pricing__type Standard
+                    dd.pricing__total
+                      span.pricing__currency $
+                      span.pricing__summa 39
+                      span.pricing__period /monthly
+                    dd.pricing__feature
+                      strong 20
+                      | Properties
+                    dd.pricing__feature
+                      strong 10
+                      | Agent Profiles
+                    dd.pricing__feature
+                      strong 5
+                      | Agency Profiles
+                    dd.pricing__feature Featured Properties
+                  .pricing__actions
+                    button.pricing__button Sign in
+              .pricing__col3
+                .pricing__item
+                  dl.pricing__list
+                    dt.pricing__type Premium
+                    dd.pricing__total
+                      span.pricing__currency $
+                      span.pricing__summa 79
+                      span.pricing__period /monthly
+                    dd.pricing__feature
+                      strong 50
+                      | Properties
+                    dd.pricing__feature
+                      strong 25
+                      | Agent Profiles
+                    dd.pricing__feature
+                      strong 15
+                      | Agency Profiles
+                    dd.pricing__feature Featured Properties
+                  .pricing__actions
+                    button.pricing__button Sign in
+
+            .pricing__row
+              .pricing__col4
+                .pricing__item
+                  dl.pricing__list
+                    dt.pricing__type Free
+                    dd.pricing__total
+                      span.pricing__currency $
+                      span.pricing__summa 0
+                      span.pricing__period /monthly
+                    dd.pricing__feature
+                      strong 2
+                      | Properties
+                    dd.pricing__feature
+                      strong 1
+                      | Agent Profiles
+                    dd.pricing__feature Agency Profiles
+                    dd.pricing__feature Featured Properties
+                  .pricing__actions
+                    button.pricing__button Sign in
+              .pricing__col4
+                .pricing__item
+                  dl.pricing__list
+                    dt.pricing__type Standard
+                    dd.pricing__total
+                      span.pricing__currency $
+                      span.pricing__summa 39
+                      span.pricing__period /monthly
+                    dd.pricing__feature
+                      strong 20
+                      | Properties
+                    dd.pricing__feature
+                      strong 10
+                      | Agent Profiles
+                    dd.pricing__feature
+                      strong 5
+                      | Agency Profiles
+                    dd.pricing__feature Featured Properties
+                  .pricing__actions
+                    button.pricing__button Sign in
+              .pricing__col4
+                .pricing__item
+                  dl.pricing__list
+                    dt.pricing__type Premium
+                    dd.pricing__total
+                      span.pricing__favorite Users choice
+                      span.pricing__currency $
+                      span.pricing__summa 79
+                      span.pricing__period /monthly
+                    dd.pricing__feature
+                      strong 50
+                      | Properties
+                    dd.pricing__feature
+                      strong 25
+                      | Agent Profiles
+                    dd.pricing__feature
+                      strong 15
+                      | Agency Profiles
+                    dd.pricing__feature Featured Properties
+                  .pricing__actions
+                    button.pricing__button Sign in
+              .pricing__col4
+                .pricing__item
+                  dl.pricing__list
+                    dt.pricing__type Gold
+                    dd.pricing__total
+                      span.pricing__currency $
+                      span.pricing__summa 99
+                      span.pricing__period /monthly
+                    dd.pricing__feature
+                      strong Unlimited
+                      | Properties
+                    dd.pricing__feature
+                      strong Unlimited
+                      |  Agent Profiles
+                    dd.pricing__feature
+                      strong Unlimited
+                      |  Agency Profiles
+                    dd.pricing__feature Featured Properties
+                  .pricing__actions
+                    button.pricing__button Sign in
+            .pricing__row
+              .pricing__table
+                .pricing__table-wrap
+                  .pricing__col5
+                    .pricing__item.pricing__item--col
+                      dl.pricing__list
+                        dt.pricing__type.pricing__type--heading Your package
+                        dd.pricing__total
+                        dd.pricing__feature.pricing__feature--heading Properties
+                        dd.pricing__feature.pricing__feature--heading Agent Profiles
+                        dd.pricing__feature.pricing__feature--heading Agency Profiles
+                        dd.pricing__feature.pricing__feature--heading Featured Properties
+                  .pricing__col5
+                    .pricing__item.pricing__item--col
+                      dl.pricing__list
+                        dt.pricing__type.pricing__type--head Free
+                        dd.pricing__total
+                          span.pricing__currency $
+                          span.pricing__summa 0
+                          span.pricing__period /monthly
+                        dd.pricing__feature
+                          strong 2
+                        dd.pricing__feature
+                          strong 1
+                        dd.pricing__feature
+                          i.fa.fa-close
+                        dd.pricing__feature
+                          i.fa.fa-close
+                      .pricing__actions
+                        button.pricing__button Sign in
+                  .pricing__col5
+                    .pricing__item.pricing__item--col
+                      dl.pricing__list
+                        dt.pricing__type.pricing__type--head Standard
+                        dd.pricing__total
+                          span.pricing__favorite Users choice
+                          span.pricing__currency $
+                          span.pricing__summa 39
+                          span.pricing__period /monthly
+                        dd.pricing__feature
+                          strong 20
+                        dd.pricing__feature
+                          strong 10
+                        dd.pricing__feature
+                          strong 5
+                        dd.pricing__feature
+                          i.fa.fa-close
+                      .pricing__actions
+                        button.pricing__button Sign in
+                  .pricing__col5
+                    .pricing__item.pricing__item--col
+                      dl.pricing__list
+                        dt.pricing__type.pricing__type--head Premium
+                        dd.pricing__total
+                          span.pricing__currency $
+                          span.pricing__summa 79
+                          span.pricing__period /monthly
+                        dd.pricing__feature
+                          strong 50
+                        dd.pricing__feature
+                          strong 25
+                        dd.pricing__feature
+                          strong 15
+                        dd.pricing__feature
+                          i.fa.fa-check
+                      .pricing__actions
+                        button.pricing__button Sign in
+                  .pricing__col5
+                    .pricing__item.pricing__item--col
+                      dl.pricing__list
+                        dt.pricing__type.pricing__type--head Gold
+                        dd.pricing__total
+                          span.pricing__currency $
+                          span.pricing__summa 99
+                          span.pricing__period /monthly
+                        dd.pricing__feature
+                          strong Unlimited
+                        dd.pricing__feature
+                          strong Unlimited
+                        dd.pricing__feature
+                          strong Unlimited
+                        dd.pricing__feature
+                          i.fa.fa-check
+                      .pricing__actions
+                        button.pricing__button Sign in
+      .clearfix

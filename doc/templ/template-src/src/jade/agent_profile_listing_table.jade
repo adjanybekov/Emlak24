@@ -1,0 +1,78 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'agent_profile_listing_table';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Agent Profile
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Listing
+  // END BREADCRUMBS
+block center
+  .row
+    // BEGIN site
+    .site.site--main
+      header.site__header
+        h1.site__title #[span.title-thin Agent] Profile/Property
+        h2.site__headline Christopher’s Profile
+      .site__panel
+        span.site__header-text
+          | An Agent Profile is your free profile page that enables you to build your personal brand and demonstrate your skills to potential Vendors and Landlords to attract your next site.
+      .site__main
+        +widget(null, null, 'main')
+          .datatable.datatable--properties
+            .datatable__wrap
+              table.js-properties-table.datatable__table
+                thead
+                  tr
+                    th.datatable__head-1 Location Address
+                    th.datatable__head-2.datatable__head-sort Commision
+                    th.datatable__head-3.datatable__head-sort Price
+                    th.datatable__head-4.datatable__head-sort Date
+                    th.datatable__head-5 Details
+
+                tbody
+                  each property, i in locals.data.properties
+                    tr(data-info='<table class="table table--stripped"><tr><td>Bedrooms:</td><td>' + i + '</td></tr><tr><td>Floor:</td><td>' + (limit % 3 ? 2 : 3) + '</td></tr><tr><td>Area:</td><td>12</td></tr><tr><td>Status:</td><td>For sale </td></tr><tr></td><td>Price:</td><td> $402,000 </td></tr><tr><td>Commision:</td><td> 3% </td></tr><tr><td>Credit:</td><td> $8,000</td></tr></table>')
+                      td.datatable__cell-1 #{property.acf_location.address.street} #{property.acf_location.address.city}
+                      td.datatable__cell-2
+                        if property.commision.rm
+                          | $
+                          strong #{property.commision.rm}
+                        else if property.commision.percent
+                          strong  #{property.commision.percent}
+                          |  %
+                      td.datatable__cell-3 #{property.acf_price}
+                      td.datatable__cell-4 #{property.added} days ago
+                      td.datatable__cell-5
+                        a.datatable__more(href='#') View Details
+
+            #modal-datatable-detail.modal.modal--datatable.fade(tabindex='-1', role='dialog')
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') ×
+
+                  .modal-body
+          .widget__footer
+            a.widget__more(href='') More listings
+
+
+    // END site
+    // BEGIN SIDEBAR
+    .sidebar
+      +widget(null, null, 'sidebar widget--first-no-head', 'Show agent', null, 'toggle')
+        +worker(0, 'sidebar-advanced')
+      +widget('Filter', 'Find your apartment or house on the exact key parameters.', 'sidebar', 'Show filter', null, 'toggle')
+        - var searchType = 'sidebar'
+        include partials/widgets/form--search
+    // END SIDEBAR
+    .clearfix

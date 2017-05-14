@@ -1,0 +1,15 @@
+﻿@using Wohnungstausch24.Resources
+@model int
+@if (Model < 100)
+{
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: @Model.ToString()%;">
+            Profile Progress %@Model Complete
+            <span class="sr-only">@Model% Complete</span>
+        </div>
+    </div>
+    if (HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString() == "Home" && HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Index")
+    {
+        <a href="@Url.Action("EditSettings","Settings", new {area="Agent"})" class="form__submit pull-right"><i class="fa fa-check"></i> @Resource.CompleteInformations</a>
+    }
+}

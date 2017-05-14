@@ -1,0 +1,126 @@
+/*------------------------------------------------------------------
+  * Common elements styles on the page
+  + Site / .site
+    __ Title / .site__title
+    __ headline / .site__headline
+    __ panel / .site__panel
+    __ content / .site__content
+  ==============================================================*/
+// style for page elements
++b(site)
+  padding-left: 15px
+  padding-right: 15px
+  +e(title)
+    +title
+    margin: 40px 0 0
+    text-align: left
+    @media (max-width: $screen-xs-max)
+      text-align: center
+    +m(slider)
+      margin: 0 0 50px
+      text-align: center
+      @media (max-width: $screen-xs-max)
+        margin-bottom: 20px
+
+    +m(center)
+      text-align: center
+  +e(headline)
+    +headline
+    margin: 4px 0 0 0
+    min-height: 42px
+    text-align: left
+    @media (max-width: $screen-xs-max)
+      margin-bottom: 0
+      margin-top: 12px
+      text-align: center
+
+  +e(panel)
+    background: $brandColor
+    color: $defaultColor
+    margin-top: 0
+    margin-bottom: 0
+    padding: 10px 20px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    //flex-wrap: wrap
+    @media (max-width: $screen-xs-max)
+      margin-top: 30px
+
+    .control-label
+      text-transform: uppercase
+      font-weight: 600
+      color: $onBrandColor
+      margin: 3px 10px 0 0
+      float: left
+      display: inline-block
+      @media (max-width: $screen-md-max)
+        display: block
+        margin-top: 0
+      @media (max-width: $screen-xs-max)
+        display: inline-block
+        margin-top: 3px
+    .form-group
+      margin-bottom: 0
+    .btn--white
+      color: $onBrandColor
+  +e(header-text)
+    width: 100%
+    a
+      color: $onBrandColor
+      text-decoration: underline
+      margin-left: 3px
+      &:hover
+        text-decoration: underline
+
+  +e(filter)
+    display: flex
+    flex-wrap: wrap
+    .form-control--select
+      width: 200px
+      display: inline-block
+    .form-group:not(:first-of-type)
+      margin-left: 20px
+      @media (max-width: $screen-md-max)
+        margin-left: 0
+
+    .select2-container
+      margin-top: 2px
+      margin-right: 20px
+
+  +e(subtitle)
+    font-size: 46px
+    color: $defaultColor
+    font-weight: 600
+    text-transform: uppercase
+    margin: 28px 0 0
+    border-bottom: 1px solid #d0d0d0
+    padding: 0 0 21px 0
+
+  +e(content)
+    +make-column($lg: 9, $sm: 8)
+    margin-bottom: 30px
+    @media (max-width: $screen-xs-max)
+      padding: 0
+
+  +e(widget)
+    border-top: 1px solid $input-border
+
+
+  +m(dashboard)
+    +make-column($lg: 9, $sm: 8)
+    margin-top: 40px
+
+
+  +m(main)
+    +make-column($sm: 8, $lg: 9)
+    +clearfix
+    @media (max-width: $screen-xs-max)
+      float: none
+
+    +e(main)
+      +clearfix
+    +e(header-text)
+      color: $onBrandColor
+      display: block
+      font-weight: 600

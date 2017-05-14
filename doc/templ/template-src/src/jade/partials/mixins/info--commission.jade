@@ -1,0 +1,42 @@
+mixin infoCommission(title, limit, type, btn, btnLink, btnClass)
+  +widget(title, null, 'dashboard', btn, btnLink, btnClass)
+    section.info.info--commission
+      h5.info__group-name Cash receipts from:
+      .info__list
+        .info__column
+          .info__item
+            .info__title Sales
+            .info__value.info__value--small #[span.info__value-label RM] 17,505
+        .info__column
+          .info__item
+            .info__title Commission & Fees
+            .info__value.info__value--small #[span.info__value-label RM] 8,050
+
+        .info__column
+          .info__item
+            .info__title Interest received
+            .info__value.info__value--small #[span.info__value-label RM] 2,310
+
+      h5.info__group-name Cash payment for:
+      .info__list
+        .info__column
+          .info__item
+            .info__title Purchases
+            .info__value.info__value--small #[span.info__value-label RM] 2,825
+        .info__column
+          .info__item
+            .info__title Payment to employees
+            .info__value.info__value--small #[span.info__value-label RM] 9,000
+
+        .info__column
+          .info__item
+            .info__title Operating Expenses
+            .info__value.info__value--small #[span.info__value-label RM] 660
+        .info__column
+          .info__item
+            .info__title Interest Payments
+            .info__value.info__value--small #[span.info__value-label RM] 1,700
+        .info__column
+          .info__item
+            .info__title Direct Taxes Paid
+            .info__value.info__value--small #[span.info__value-label RM] 720

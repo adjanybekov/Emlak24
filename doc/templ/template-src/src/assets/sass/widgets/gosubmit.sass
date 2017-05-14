@@ -1,0 +1,46 @@
+/*------------------------------------------------------------------
+  * Gosubmit
+  + Gosubmit / .gosubmit
+  ==============================================================*/
++b(gosubmit)
+  background: #fff!important
+  border-top: 1px solid $input-border
+  border-bottom: 1px solid $input-border
+  .container
+    background: url("../img/bg-gosubmit.png") no-repeat 23px -2px #fff!important
+    min-height: 200px
+    @media (max-width: $screen-xs-max)
+      background: url("../img/bg-gosubmit-mob.jpg") no-repeat 23px -2px #fff!important
+      min-height: 197px
+      background-size: cover
+  +e(title)
+    font-size: 20px
+    font-weight: 600
+    width: 270px
+    float: left
+    margin: 42px 0 0 495px
+    @media (max-width: $screen-md-max)
+      font-size: 17px
+      width: 270px
+      margin: 17px auto
+      float: none
+    +e(row)
+      +m(second)
+        text-align: center
+      +m(third)
+        text-align: right
+    +e(option)
+      font-size: 60px
+      font-weight: 200
+      line-height: 1
+      @media (max-width: $screen-md-max)
+        font-size: 46px
+  +e(btn)
+    +button-action
+    float: left
+    width: 175px
+    margin: 80px 0 0 30px
+    @media (max-width: $screen-md-max)
+      margin: 0 auto
+      float: none
+      display: block

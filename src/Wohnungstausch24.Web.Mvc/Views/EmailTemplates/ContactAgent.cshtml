@@ -1,0 +1,191 @@
+﻿@using Wohnungstausch24.Core.Extensions
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base.ContactAgentModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="background: #f6f6f6; color: #2c3e50; margin: 0; padding: 0;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>@Resource.Email_Register_Title_Welcome_to_wt24</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body style="background: #f6f6f6; color: #2c3e50; margin: 0; padding: 0;">
+    <table class="wrapper" style="background: #f6f6f6; border-spacing: 0; font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif; width: 100%;margin: 0px auto;" align="center">
+        <tr>
+            <td>
+                <table class="wrapper" style="background: #f6f6f6; border-spacing: 0; font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif; width: 100%; margin: 0px auto;" align="center">
+                    <tr class="header" style="background: #00bbaa;">
+                        <td colspan="3">
+                            <table class="header__wrap" style="border-spacing: 0; margin: 0 auto; max-width: 600px; width: 600px;">
+                                <tr>
+                                    <td style="width: 50%">
+                                        <p class="header__slogan" style="color: #fff; font-size: 13px; font-style: italic;">
+                                            @Resource.Email_Register_Header_Text
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p class="header__title" style="color: #2c3e50; font-size: 15px; text-align: right;"></p>
+                                    </td>
+                                    <td class="header__social" style="text-align: right;">
+                                        <a href="@Resource.Social_FacebookUrl" class="header__link" style="color: #2c3e50; display: inline-block; margin: 5px 0 0 10px;">
+                                            <img src="@Url.Content("~/Content/assets/img/social/icon-facebook.png", true)" alt="" style="max-width: 100%;" />
+                                        </a>
+                                        <a href="@Resource.Social_TwitterUrl" class="header__link" style="color: #2c3e50; display: inline-block; margin: 5px 0 0 10px;">
+                                            <img src="@Url.Content("~/Content/assets/img/social/icon-twitter.png", true)" alt="" style="max-width: 100%;" />
+                                        </a>
+                                        <a href="@Resource.Social_GooglePlusUrl" class="header__link" style="color: #2c3e50; display: inline-block; margin: 5px 0 0 10px;">
+                                            <img src="@Url.Content("~/Content/assets/img/social/icon-google.png", true)" alt="" style="max-width: 100%;" />
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="main">
+                        <td colspan="3">
+                            <a href="@Url.Action("Index", "Home", new {area = ""}, "http")" class="logo" style="color: #2c3e50; display: block; height: 55px; margin: 50px auto 20px; width: 214px;">
+                                <img src="@Url.Content("~/Content/assets/img/logo/email_logo.png", true)" alt="" style="max-width: 240px;">
+                            </a>
+                            <table class="body" style="background: #fff; border-spacing: 0; margin: 0 auto; max-width: 600px;">
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <table class="content" style="border-spacing: 0; margin: 24px; max-width: 500px;">
+                                            <tr>
+                                                <td>
+                                                    <p style="color: #2c3e50; font-size: 15px;">
+                                                        @Resource.Contact_Agent_Your_Message_Has_Been_Sent_Successfully
+                                                    </p>
+                                                    <table class="content" style="border:1px; border-style: solid; border-spacing: 5px; border-color: #00bbaa; margin: 24px; max-width: 500px;">
+                                                        <tr>
+                                                            <th align="left">
+                                                                @Html.LabelFor(m => m.Name)
+                                                            </th>
+                                                            <th>:</th>
+                                                            <td>@Model.Name</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th align="left">
+                                                                @Html.LabelFor(m => m.PhoneNumber)
+                                                            </th>
+                                                            <th>:</th>
+                                                            <td>@Model.PhoneNumber</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th align="left">
+                                                                @Html.LabelFor(m => m.Email)
+                                                            </th>
+                                                            <th>:</th>
+                                                            <td>@Model.Email</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th align="left">
+                                                                @Html.LabelFor(m=>m.NumberOfPersons)
+                                                            </th>
+                                                            <th>:</th>
+                                                            <td>@Model.NumberOfPersons</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th align="left">
+                                                                @Html.LabelFor(m => m.Gender)
+                                                            </th>
+                                                            <th>:</th>
+                                                            <td>@Model.Gender</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th align="left">
+                                                                @Html.LabelFor(m => m.Income)
+                                                            </th>
+                                                            <th>:</th>
+                                                            <td>@Model.Income</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th align="left">
+                                                                @Html.LabelFor(m => m.NumberOfChildren)
+                                                            </th>
+                                                            <th>:</th>
+                                                            <td>@Model.NumberOfChildren</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th align="left">
+                                                                @Html.LabelFor(m => m.Age)
+                                                            </th>
+                                                            <th>:</th>
+                                                            <td>@Model.Age</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th align="left">
+                                                                @Html.LabelFor(m => m.EmploymentStatus)
+                                                            </th>
+                                                            <th>:</th>
+                                                            <td>@Model.EmploymentStatus</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th align="left">
+                                                                @Html.LabelFor(m => m.IsSmoker)
+                                                            </th>
+                                                            <th>:</th>
+                                                            <td>
+                                                                @(Model.IsSmoker ? Resource.Yes : Resource.No)
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th align="left">
+                                                                @Html.LabelFor(m => m.HasPets)
+                                                            </th>
+                                                            <th>:</th>
+                                                            <td>
+                                                                @(Model.HasPets ? Resource.Yes : Resource.No)
+                                                            </td>
+                                                        </tr>
+                                                        @if (Model.HasPets)
+                                                        {
+                                                            <tr>
+                                                                <th align="left">
+                                                                    @Html.LabelFor(m => m.PetsFreeText)
+                                                                </th>
+                                                                <th>:</th>
+                                                                <td>@Model.PetsFreeText</td>
+                                                            </tr>
+                                                        }
+                                                        <tr>
+                                                            <th align="left">
+                                                                @Html.LabelFor(m => m.Text)
+                                                            </th>
+                                                            <th>:</th>
+                                                            <td>@Model.Text</td>
+                                                        </tr>
+                                                    </table>
+
+                                                    <p style="color: #2c3e50; font-size: 15px;">
+                                                        @Resource.Email_Register_Thanks<br />
+                                                        @Resource.Email_Register_The_wt24_Team
+                                                    </p>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="footer" style="color: #2c3e50; font-size: 15px; text-align: center;">
+            <td colspan="3">
+                <p>
+                    @Resource.Email_Please_do_not_reply_directly_to_this_email.
+                    <br>
+                    <a href="@($"mailto:{Resource.Common_Contact_Email}")" style="color: #2c3e50;">
+                        @Resource.Common_Contact_Email
+                    </a>
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

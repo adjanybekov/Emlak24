@@ -1,0 +1,96 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'agent_profile';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Agent Profile
+  // END BREADCRUMBS
+block center
+  .row
+    // BEGIN site
+    .site.site--main
+      header.site__header
+        h1.site__title #[span.title-thin Agent] Profile
+        h2.site__headline Christopher’s Profile
+      .site__panel
+        span.site__header-text
+          | An Agent Profile is your free profile page that enables you to build your personal brand and demonstrate your skills to potential Vendors and Landlords to attract your next site.
+      .site__main
+        +widget(null, null, 'main')
+          +worker(0, 'list worker--details' )
+
+        include partials/mixins/article--profile
+        +articleProfile(3)
+
+        +widget('Testimonials', null, 'main')
+          .listing.listing--list
+            - var reviewType = 'list';
+            each name, j in ['Vanessa Kasinsky', 'Joseph Ryan']
+              .listing__item
+                .review.review--list
+                  include partials/chunks/review_item
+
+
+          form.form.form--flex.form--review
+            .row
+              .form-group.form-group--col-12
+                label.control-label(for='in-testimonial') Post a testimonial
+                textarea.form-control#in-testimonial Working with him was a pleasure and would come with my recommendation. This summer helper is smokin' hot! Porter is a multi-purpose BBQ tray that eliminates extra trips between your kitchen and grill. Containers with lids keep raw food safely separated. If you need a realtor that is knowledgeable, flexible and great to work with, Chris Pakulla is your man!
+
+              .form-group.form-group--inline.form-group--col-9
+                label.control-label Your rating:
+
+                ul.form__check
+                  - var i = 0;
+                  while i < 6
+                    li
+                      input(type='radio', name='agent', id='in-rating-' + i, class='in-radio')
+                      label(for='in-rating-' + i, class='in-label')= i++
+
+              .form-group.form-group--col-4.form-group--right
+                button.form__reset(type='button') Reset
+                button.form__submit(type='submit') Submit
+          .widget__footer
+            a.widget__more(href='') More testimonials
+
+        +widget('Listings', null, 'main')
+          .listing.listing--grid.js-properties-list
+            - var i = 0;
+            while i++ < 9
+              .listing__item
+                +properties(i, 'grid')
+
+          .widget__footer
+            a.widget__more(href='') More listings
+
+        +widget('Total Listing', null, 'main')
+          section.info.info--statistics
+            .info__about
+              include partials/mixins/statistics_table
+              +statisticsTable
+
+        +widget('Graph', null, 'main')
+          section.info.info--statistics
+            .info__chart.info__chart--profile
+              canvas#profile-statistics.info__chart-profile
+
+        +widget('Contact Christopher', null, 'main')
+          - var formType = 'workers';
+          include partials/chunks/form
+
+    // END site
+    // BEGIN SIDEBAR
+    .sidebar
+      +widget('Filter', 'Find your apartment or house on the exact key parameters.', 'sidebar', 'Show filter', null, 'toggle')
+        - var searchType = 'sidebar'
+        include partials/widgets/form--search
+    // END SIDEBAR
+    .clearfix

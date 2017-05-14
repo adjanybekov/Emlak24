@@ -1,0 +1,405 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.Flat
+@using Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.House
+@using Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.Land
+@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.Base.DetailedSearchResidence
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.IsSharePossible, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.IsSharePossible, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasChimney, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasChimney, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasAirCondition, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasAirCondition, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasElevator, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasElevator, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasGardenUtilization, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasGardenUtilization, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.IsWheelchairAccessible, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.IsWheelchairAccessible, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasCableSatTv, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasCableSatTv, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasGermanTvByAntenna, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasGermanTvByAntenna, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasBarrierFree, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasBarrierFree, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasSauna, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasSauna, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasSwimmingPool, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasSwimmingPool, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasWashDryingRoom, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasWashDryingRoom, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasWinterGarden, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasWinterGarden, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasStorageRoom, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasStorageRoom, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasBicycleRoom, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasBicycleRoom, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasRollerBlind, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasRollerBlind, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasGuestToilet, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasGuestToilet, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasCableDucts, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasCableDucts, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.IsSeniorFocused, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.IsSeniorFocused, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasApprovalOfAddress, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasApprovalOfAddress, new { @class = "in-label" })
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        @Html.CheckBoxFor(m => m.HasBalcony, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HasBalcony, new { @class = "in-label" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        @if (Model is DetailedSearchFlatForSale || Model is DetailedSearchHouseForSale || Model is DetailedSearchLandForSale)
+                        {
+                            @Html.EditorFor(m => m.PriceRange, new {min = 0, max = 1000000, type = "double", step = 1000, prefix = '€',})
+                        }
+                        else
+                        {
+                            @Html.EditorFor(m => m.PriceRange, new { min = 0, max = 5000, type = "double", step=10, prefix = '€', })
+                        }
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        @Html.EditorFor(m => m.YearOfConstruction, new { min = 1900, max = DateTime.Now.AddYears(20).Year, type = "double" })
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        @Html.EditorFor(m => m.ResidentialArea, new { min = 0, max = 250, type = "double", postfix = " m<sup>2</sup>" })
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        @Html.EditorFor(m => m.BalconyTerraceArea, new { min = 0, max = 50, type = "double", postfix = " m<sup>2</sup>" })
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        @Html.EditorFor(m => m.GardenArea, new { min = 0, max = 500, type = "double", postfix = " m<sup>2</sup>" })
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        @Html.EditorFor(m => m.NumberOfLivingRooms, new { min = 0, max = 10, type = "double" })
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        @Html.EditorFor(m => m.NumberOfBathRooms, new { min = 0, max = 5, type = "double" })
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        @Html.EditorFor(m => m.NumberOfParkingLots, new { min = 0, max = 10, type = "double" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="form-group">
+                                 @Html.LabelFor(m => m.IsDateFlexible, new { @class = "control-label" })
+                                @Html.ToggleButtonFor(m => m.IsDateFlexible, new ToggleOptions { OffShowClass = "date-flexible" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-xs-12 date-flexible">
+                                @Html.EditorFor(m => m.AvailableFrom)
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12 date-flexible">
+                                @Html.EditorFor(m => m.AvailableTo)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <b>@Resource.Bathroom</b>
+                        <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="@Resource.Bathroom" class="dropdown-toggle js-select-checkboxes-btn">@Resource.Bathroom</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                <ul class="js-checkboxes-tree bonsai region-select__list" id="features">
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.HasShower, new { @class = "in-checkbox" })
+                                        @Html.LabelFor(m => m.HasShower, new { @class = "in-label" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.HasBidet, new { @class = "in-checkbox" })
+                                        @Html.LabelFor(m => m.HasBidet, new { @class = "in-label" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.HasTub, new { @class = "in-checkbox" })
+                                        @Html.LabelFor(m => m.HasTub, new { @class = "in-label" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.HasUrinal, new { @class = "in-checkbox" })
+                                        @Html.LabelFor(m => m.HasUrinal, new { @class = "in-label" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.HasWindow, new { @class = "in-checkbox" })
+                                        @Html.LabelFor(m => m.HasWindow, new { @class = "in-label" })
+                                    </li>
+                                </ul>
+                                <div class="region-select__buttons">
+                                    <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                    <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <b>@Resource.FeatureCategory</b>
+                        <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="@Resource.FeatureCategory" class="dropdown-toggle js-select-checkboxes-btn">@Resource.FeatureCategory</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                <ul class="js-checkboxes-tree bonsai region-select__list" id="features">
+                                    @for (int i = 0; i < Model.FeatureCategoryViewModels.Count(); i++)
+                                    {
+                                        <li>
+                                            @Html.CheckBoxFor(m => Model.FeatureCategoryViewModels[i].Selected, new { @class = "in-checkbox" })
+                                            @Html.LabelFor(m => m.FeatureCategoryViewModels[i].Selected, Model.FeatureCategoryViewModels[i].FeatureCategory.GetDisplayName(), new { @class = "in-label" })
+                                            @Html.HiddenFor(c => c.FeatureCategoryViewModels[i].Id)
+                                            @Html.HiddenFor(c => c.FeatureCategoryViewModels[i].FeatureCategory)
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="region-select__buttons">
+                                    <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                    <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <b>@Resource.Kitchen_Type</b>
+                        <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="@Resource.Kitchen_Type" class="dropdown-toggle js-select-checkboxes-btn">@Resource.Kitchen_Type</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                <ul class="js-checkboxes-tree bonsai region-select__list" id="features">
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.IsKitchenPantry, new { @class = "in-checkbox" })
+                                        @Html.LabelFor(m => m.IsKitchenPantry, new { @class = "in-label" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.IsKitchenFitted, new { @class = "in-checkbox" })
+                                        @Html.LabelFor(m => m.IsKitchenFitted, new { @class = "in-label" })
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.IsKitchenOpen, new { @class = "in-checkbox" })
+                                        @Html.LabelFor(m => m.IsKitchenOpen, new { @class = "in-label" })
+                                    </li>
+                                </ul>
+                                <div class="region-select__buttons">
+                                    <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                    <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <b>@Resource.FloorTypes</b>
+                        <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="@Resource.FloorTypes" class="dropdown-toggle js-select-checkboxes-btn">@Resource.FloorTypes</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                <ul class="js-checkboxes-tree bonsai region-select__list" id="features">
+                                    @for (int i = 0; i < Model.FloorViewModels.Count(); i++)
+                                    {
+                                        <li>
+                                            @Html.CheckBoxFor(m => Model.FloorViewModels[i].Selected, new { @class = "in-checkbox" })
+                                            @Html.LabelFor(m => m.FloorViewModels[i].Selected, Model.FloorViewModels[i].FloorType.GetDisplayName(), new { @class = "in-label" })
+                                            @Html.HiddenFor(c => c.FloorViewModels[i].Id)
+                                            @Html.HiddenFor(c => c.FloorViewModels[i].FloorType)
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="region-select__buttons">
+                                    <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                    <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <b>@Resource.Beaconing_Type</b>
+                        <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="@Resource.Beaconing_Type" class="dropdown-toggle js-select-checkboxes-btn">@Resource.Beaconing_Type</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                <ul class="js-checkboxes-tree bonsai region-select__list" id="features">
+                                    @for (int i = 0; i < Model.BeaconingTypeViewModels.Count(); i++)
+                                    {
+                                        <li>
+                                            @Html.CheckBoxFor(m => Model.BeaconingTypeViewModels[i].Selected, new { @class = "in-checkbox" })
+                                            @Html.LabelFor(m => m.BeaconingTypeViewModels[i].Selected, Model.BeaconingTypeViewModels[i].BeaconingType.GetDisplayName(), new { @class = "in-label" })
+                                            @Html.HiddenFor(c => c.BeaconingTypeViewModels[i].Id)
+                                            @Html.HiddenFor(c => c.BeaconingTypeViewModels[i].BeaconingType)
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="region-select__buttons">
+                                    <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                    <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <b>@Resource.Heating_Type</b>
+                        <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="@Resource.Heating_Type" class="dropdown-toggle js-select-checkboxes-btn">@Resource.Heating_Type</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                <ul class="js-checkboxes-tree bonsai region-select__list" id="features">
+                                    @for (int i = 0; i < Model.HeatingTypeViewModels.Count(); i++)
+                                    {
+                                        <li>
+                                            @Html.CheckBoxFor(m => Model.HeatingTypeViewModels[i].Selected, new { @class = "in-checkbox" })
+                                            @Html.LabelFor(m => m.HeatingTypeViewModels[i].Selected, Model.HeatingTypeViewModels[i].HeatingType.GetDisplayName(), new { @class = "in-label" })
+                                            @Html.HiddenFor(c => c.HeatingTypeViewModels[i].Id)
+                                            @Html.HiddenFor(c => c.HeatingTypeViewModels[i].HeatingType)
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="region-select__buttons">
+                                    <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                    <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <b>@Resource.ParkingSpace</b>
+                        <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="@Resource.ParkType" class="dropdown-toggle js-select-checkboxes-btn">@Resource.ParkType</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                <ul class="js-checkboxes-tree bonsai region-select__list" id="features">
+                                    @for (int i = 0; i < Model.HeatingTypeViewModels.Count(); i++)
+                                    {
+                                        <li>
+                                            @Html.CheckBoxFor(m => Model.ParkSpaceTypeViewModels[i].Selected, new { @class = "in-checkbox" })
+                                            @Html.LabelFor(m => m.ParkSpaceTypeViewModels[i].Selected, Model.ParkSpaceTypeViewModels[i].ParkSpaceType.GetDisplayName(), new { @class = "in-label" })
+                                            @Html.HiddenFor(c => c.ParkSpaceTypeViewModels[i].Id)
+                                            @Html.HiddenFor(c => c.ParkSpaceTypeViewModels[i].ParkSpaceType)
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="region-select__buttons">
+                                    <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                    <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <b>@Resource.Geo_Direction</b>
+                        <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="@Resource.Geo_Direction" class="dropdown-toggle js-select-checkboxes-btn">@Resource.Geo_Direction</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                <ul class="js-checkboxes-tree bonsai region-select__list" id="features">
+                                    @for (int i = 0; i < Model.HeatingTypeViewModels.Count(); i++)
+                                    {
+                                        <li>
+                                            @Html.CheckBoxFor(m => Model.AdjustmentBalconyTerrace[i].Selected, new { @class = "in-checkbox" })
+                                            @Html.LabelFor(m => m.AdjustmentBalconyTerrace[i].Selected, Model.AdjustmentBalconyTerrace[i].GeoDirection.GetDisplayName(), new { @class = "in-label" })
+                                            @Html.HiddenFor(c => c.AdjustmentBalconyTerrace[i].Id)
+                                            @Html.HiddenFor(c => c.AdjustmentBalconyTerrace[i].GeoDirection)
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="region-select__buttons">
+                                    <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                    <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <b>@Resource.SightType</b>
+                        <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="@Resource.SightType" class="dropdown-toggle js-select-checkboxes-btn">@Resource.SightType</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                <ul class="js-checkboxes-tree bonsai region-select__list" id="features">
+                                    @for (int i = 0; i < Model.SightTypeViewModels.Count(); i++)
+                                    {
+                                        <li>
+                                            @Html.CheckBoxFor(m => Model.SightTypeViewModels[i].Selected, new { @class = "in-checkbox" })
+                                            @Html.LabelFor(m => m.SightTypeViewModels[i].Selected, Model.SightTypeViewModels[i].SightType.GetDisplayName(), new { @class = "in-label" })
+                                            @Html.HiddenFor(c => c.SightTypeViewModels[i].Id)
+                                            @Html.HiddenFor(c => c.SightTypeViewModels[i].SightType)
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="region-select__buttons">
+                                    <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                    <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (Model is DetailedSearchFlat)
+                    {
+                        @Html.Partial("Flat/_DetailedSearchFlat", Model as DetailedSearchFlat)
+                    }
+
+                    @if (Model is DetailedSearchHouse)
+                    {
+                        @Html.Partial("House/_DetailedSearchHouse", Model as DetailedSearchHouse)
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

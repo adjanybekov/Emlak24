@@ -1,0 +1,477 @@
+/*------------------------------------------------------------------
+  * Slider widget
+  + Slider / .slider
+    -- Slider wide / .slider--wide
+    -- Slider dots / .slider--dots
+    -- Slider article / .slider--article
+    -- Slider listing / .slider--listing
+    -- Slider small / .slider--small
+  ==============================================================*/
+// slider index styles
++b(slider)
+  position: relative
+  min-height: 110px
+  +e(block)
+    overflow: hidden
+    padding: 0
+    width: 100%
+  +e(item)
+    display: none
+    background: #ffffff
+    position: relative
+    padding: 0
+    &.slick-active:after
+      background: rgba(0, 0, 0, 0)
+    @media (min-width: $screen-lg-min)
+      transition: 1s
+  +e(img)
+    width: 100%
+    height: 100%
+    margin: 0 auto
+    background: url("../img/ajax-loader.gif") no-repeat center center
+    +m(lg)
+      @media (max-width: $screen-sm-max)
+        display: none
+    +m(sm)
+      @media (min-width: $screen-md-min)
+        display: none
+
+
+  +e(controls)
+    +absolute($bottom: 0, $right: 0)
+    background: $brandColor
+    color: #fff
+    padding: 0 0 8px 10px
+    font-weight: 200
+
+  +e(control)
+    width: 40px
+    height: 58px
+    display: inline-block
+    margin: 0 10px 0 0
+    color: #fff
+    background: none
+    border: none
+    vertical-align: bottom
+    outline: none
+    &:hover,
+    &.hover
+      color: $brandColorHover
+    &:active,
+    &.active
+      color: $highlightColor
+    &:disabled,
+    &.disabled
+      color: #ccc
+      cursor: not-allowed
+    +m(prev)
+      &:before
+        +font-awesome(5em, '\f104')
+        line-height: 0.6
+        @media (max-width: $screen-sm-max)
+          font-size: 2em
+
+    +m(next)
+      &:before
+        +font-awesome(5em, '\f105')
+        line-height: 0.6
+        @media (max-width: $screen-sm-max)
+          font-size: 2em
+
+  +e(current)
+    font-size: 36px
+    color: #fff
+    line-height: 48px
+
+  +e(total)
+    font-size: 20px
+    color: #fff
+    position: relative
+    top: -10px
+
+  +e(description)
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    +gradient-vertical(rgba(#000, 0), rgba(#000, 0.9))
+    color: #fff
+    padding: 60px 30px 30px
+    transition: 0.3s
+    @media (max-width: $screen-xs-max)
+      max-height: 135px
+  +e(wrap)
+    position: relative
+
+  +m(wide)
+    background: #ffffff
+    +e(block)
+      visibility: hidden
+    +e(img)
+      width: 100%
+      height: 100%
+      background: url("../img/ajax-loader.gif") no-repeat center center
+      img
+        max-width: 100%
+        min-height: 250px
+      +m(lg)
+        display: block
+        @media (max-width: $screen-xs-max)
+          display: none
+      +m(sm)
+        display: none
+        @media (max-width: $screen-xs-max)
+          display: block
+
+    +e(caption)
+      $el: &
+      @media (min-width: $screen-lg-min)
+        visibility: hidden
+        animation-duration: .5s
+        animation-fill-mode: both
+        z-index: 20
+        @at-root .slider--default .slider__caption
+          transition: 1s
+          transform: translateY(30px)
+
+        @at-root .slider--default .slick-current .slider__caption
+          visibility: visible
+          transform: translateY(0)
+
+      background: rgba($brandColor, 0.8)
+      z-index: 20
+      padding: 40px
+      width: 700px
+      margin: -30px 0 0 -600px
+      +absolute($top: 50%, $left: 50%)
+      @media (max-width: 1430px)
+        margin-left: -520px
+      @media (max-width: $screen-md-max)
+        padding: 30px 15px
+        position: relative
+        width: 100%
+        background: $brandColor
+        left: 0
+        margin: 0
+      @media (max-width: $screen-xs-max)
+        padding: 15px
+        min-height: 130px
+      @media (max-width: 400px)
+        height: 150px
+      .boxed &
+        @media (min-width: $screen-lg-min)
+          margin-left: -520px
+
+    +e(address)
+      color: #fff
+      font-size: 46px
+      font-weight: 600
+      display: block
+      font-family: $font-family-title
+      line-height: 1.1
+      &:hover
+        color: #fff
+        text-decoration: none
+      @media (max-width: $screen-md-max)
+        font-size: 30px
+        padding: 0
+      @media (max-width: $screen-xs-max)
+        font-size: 25px
+        margin-right: 140px
+    +e(address-city)
+      display: block
+      margin: 10px 0
+      font-size: 30px
+      font-weight: normal
+      @media (max-width: $screen-md-max)
+        font-size: 20px
+      @media (max-width: $screen-xs-max)
+        font-size: 14px
+
+    +e(params)
+      padding: 10px 0 19px
+      border-top: 1px solid rgba(#fff, 0.7)
+      margin-right: 200px
+      @media (max-width: $screen-md-max)
+        margin-right: 100px
+        display: none
+        border: 0
+      dl
+        padding: 0
+        width: 50%
+        float: left
+        color: #fff
+        margin-bottom: 0
+        dt
+          float: left
+          clear: both
+        dd
+          float: left
+          margin-left: 5px
+
+    +e(price)
+      background: #fff
+      color: $defaultColor
+      padding: 40px
+      margin: -70px -70px 0 10px
+      float: right
+      line-height: 0.9
+      font-family: $font-family-title
+      @media (max-width: $screen-md-max)
+        font-size: 11px
+        padding: 15px 35px
+        margin: -30px -15px 0 10px
+        min-width: 119px
+        line-height: initial
+      @media (max-width: $screen-xs-max)
+        margin: -15px -15px 0 10px
+      strong
+        font-size: 42px
+        display: block
+        @media (max-width: $screen-md-max)
+          font-size: 26px
+
+    +e(more)
+      +button-action
+      padding: 11px 66px
+      width: auto
+      margin: 0
+      +absolute($bottom: 40px, $right: 30px)
+      @media (max-width: $screen-md-max)
+        padding: 6px 43px
+        bottom: 0
+        right: 0
+    +e(preview)
+      width: 100%
+      height: 100%
+
+    +e(controls)
+      background: none
+      padding: 0
+      line-height: 1
+      visibility: hidden
+      +absolute($top: 50%, $right: 0, $bottom: auto, $left: 0)
+      @media (max-width: $screen-sm-max)
+        margin-top: -40px
+      @media (max-width: $screen-xs-max)
+        margin-top: -70px
+
+      @media (max-width: 400px)
+        margin-top: -70px
+
+    +e(caption)
+      visibility: hidden
+    +e(control)
+      border: none
+      background: rgba(#000, 0.8)
+      width: 70px
+      height: 70px
+      position: absolute
+      top: 50%
+      margin-top: -30px
+      text-align: center
+      @media (max-width: $screen-sm-max)
+        width: 35px
+        height: 35px
+        margin-top: -15px
+      &:hover,
+      &.hover
+        color: $highlightColor
+      &:active,
+      &.active
+        color: #fff
+        background: rgba($highlightColor, 0.8)
+      &:disabled,
+      &.disabled
+        color: #fff
+        cursor: not-allowed
+        background: rgba(#ccc, 0.8)
+      +m(prev)
+        left: 70px
+        @media (max-width: 1550px)
+          left: 10px
+        .boxed &
+          left: 10px
+
+      +m(next)
+        right: 70px
+        @media (max-width: 1550px)
+          right: 10px
+        .boxed &
+          right: 10px
+
+  // effects
+  @each $effect in $animate-effects
+    +m($effect)
+      .slick-current .slider__caption
+        @media (min-width: $screen-lg-min)
+          animation-name: #{$effect}
+  +m(dots)
+    @media (max-width: $screen-sm-max)
+      display: none
+    +e(container)
+      position: absolute
+      top: 200px
+      left: 0
+      right: 0
+    +e(item)
+      overflow: hidden
+      @media (max-width: $screen-sm-max)
+        height: 940px
+      @media (max-width: $screen-xs-max)
+        height: 890px
+    +e(preview)
+      height: 100%
+    +e(img)
+      display: flex
+      align-content: center
+      background: url("../img/ajax-loader.gif") no-repeat center center
+    +e(caption)
+      +make-column($xs: 12, $md: 8)
+      animation-delay: .5s
+      animation-duration: 1s
+      animation-fill-mode: both
+    .slick-dots
+      bottom: 20px
+      li
+        button
+          &:before
+            content: ''
+          color: #fff
+          &:after
+            +font-awesome(10px, '\f10c')
+        &.slick-active
+          button
+            &:after
+              +font-awesome(10px, '\f111')
+
+  +m(auth)
+    @media (max-width: $screen-sm-max)
+      display: none
+    +e(preview)
+      height: 100%
+  +m(init)
+    +e(block)
+      visibility: visible
+    +e(caption)
+      visibility: visible
+    +e(controls)
+      visibility: visible
+
+  +m(small)
+    position: relative
+    +e(item)
+      img
+        margin: 0
+        max-width: 100%
+    +e(controls)
+      padding:  11px 15px 4px 15px
+      @media (max-width: $screen-xs-max)
+        position: relative
+        text-align: center
+        padding: 5px 25px 10px
+    +e(current)
+      margin: 0 4px 9px 19px
+      float: left
+      @media (max-width: $screen-xs-max)
+        float: none
+        position: relative
+        top: 3px
+        line-height: 1
+        font-size: 27px
+
+    +e(total)
+      margin: 0 20px 0 3px
+      top: 0
+      @media (max-width: $screen-xs-max)
+        top: -6px
+        margin-left: 7px
+        font-size: 17px
+    +e(control)
+      margin: 5px 0 0 0
+      width: 40px
+      height: 40px
+      padding: 0
+      @media (max-width: $screen-xs-max)
+        height: 25px
+        width: 25px
+      &:before
+        content: ''
+        display: none
+      +m(prev)
+        float: left
+      +m(next)
+        float: right
+    +e(control-icon)
+      width: 30px
+      height: 40px
+      stroke: #fff
+      stroke-width: 1px
+      fill: none
+      fill-rule: evenodd
+      @media (max-width: $screen-xs-max)
+        width: 25px
+        height: 25px
+        stroke-width: 2px
+
+  +m(thumbs)
+    position: relative
+    margin: 0
+    +e(item)
+      padding: 30px 0
+      z-index: 5
+      position: relative
+      background: none
+      img
+        margin: 0
+        max-width: 100%
+      &.slick-current
+        z-index: 15
+        transform: scale(1.2)
+        img
+          @media (min-width: $screen-lg-min)
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6)
+
+    +e(block)
+      padding: 0 35px
+    +e(control)
+      margin: 0
+      width: 35px
+      height: auto
+      padding: 0
+      position: absolute
+      background: $brandColor
+      bottom: 30px
+      top: 30px
+      &:before
+        content: ''
+        display: none
+      +m(prev)
+        left: 0
+      +m(next)
+        right: 0
+    +e(control-icon)
+      width: 30px
+      height: 40px
+      stroke: #fff
+      stroke-width: 1px
+      fill: none
+      fill-rule: evenodd
+      @media (max-width: $screen-md-max)
+        width: 25px
+        height: 25px
+        stroke-width: 2px
+    +e(categories)
+      margin-top: 30px
+    +e(category)
+      margin-right: 30px
+      text-transform: uppercase
+      color: $grayColor
+      font-weight: 600
+      cursor: pointer
+      display: inline-block
+      &:hover
+        text-decoration: none
+      &.active
+        border-bottom: 2px solid $defaultColor
+        color: $defaultColor

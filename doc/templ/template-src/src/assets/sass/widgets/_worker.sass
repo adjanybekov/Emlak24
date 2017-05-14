@@ -1,0 +1,757 @@
+/*------------------------------------------------------------------
+  * Workers widget
+  + Worker / .worker
+    __ Item / .worker__item
+    -- Worker sidebar / .worker--sidebar
+    -- Worker card / .worker--card
+    -- Worker list / .worker--list
+    -- Worker details / .worker--details
+    -- Worker grid / .worker--grid
+    -- Worker sidebar-advanced / .worker--sidebar-advanced
+  ==============================================================*/
+
++b(worker)
+
+  +e(name)
+    margin: 7px 0 7px
+    text-transform: uppercase
+    font-size: 24px
+    color: $brandColor
+    font-weight: 600
+    @media (max-width: $screen-xs-max)
+      font-size: 17px
+      margin-bottom: 0
+
+  +e(post)
+    padding: 10px 0
+    @media (max-width: $screen-xs-max)
+      padding: 3px 0
+      border: none
+
+  +e(photo)
+
+  +e(tel)
+    margin: 10px 0 10px 0
+    font-size: 20px
+    color: $brandColor
+    font-weight: 600
+    text-decoration: none
+    &:hover
+      text-decoration: none
+      color: $brandColor
+    @media (max-width: $screen-xs-max)
+      font-size: 17px
+      margin: 5px 0 0 0
+
+  +e(contacts)
+    color: $defaultColor
+    a
+      font-weight: 600
+      color: $brandColor
+      margin-left: 5px
+      &:first-child
+        margin-left: 0 !important
+
+    > div
+      > span
+        width: 20%
+        display: inline-block
+        vertical-align: middle
+      > a
+        +text-overflow
+        width: 75%
+        display: inline-block
+        vertical-align: middle
+        font-weight: 600
+        &:first-child
+          width: 100%
+
+
+  +e(listings)
+    a
+      font-weight: 600
+      margin-left: 5px
+
+  +e(favorites)
+    font-style: normal
+    margin-right: 10px
+    &:before
+      +font-awesome(1em, '\f005')
+    +m(highlight)
+      color: $highlightColor
+
+  +e(avatar)
+    background: #e4e4e4
+    padding: 25px 0 0 0
+    margin: 19px 0 11px 0
+    svg
+      fill: $defaultColor
+      width: 85%
+      margin: 0 auto 0
+      display: block
+      height: 130px
+
+
+  +e(avatar-upload)
+    text-align: center
+    font-size: 13px
+    color: $brandColor
+    border: none
+    background: none
+    width: 100%
+    display: block
+
+  +e(nav)
+    margin: 27px 0 0 10px
+    ul
+      margin: 0
+      padding: 0
+      list-style: none
+    li
+      margin: 18px 0
+    a
+      text-transform: uppercase
+      color: $defaultColor
+      display: block
+
+  +e(show)
+    border: 1px solid $input-border
+    color: $brandColor
+    text-align: center
+    background: #fff
+    margin: 15px auto 0
+    padding: 6px 10px
+    display: none
+    width: 170px
+    &:before
+      +font-awesome(1em, '\f095')
+      margin-right: 10px
+    .opened &
+      display: none
+    @media (max-width: $screen-xs-max)
+      display: block
+
+  +e(intro-col)
+    +clearfix
+  +e(intro-head)
+    display: flex
+    flex-wrap: wrap
+  +e(intro-name)
+    flex: 1
+  +e(intro-brand)
+    text-align: center
+  +e(more)
+    +button-default
+    width: 130px
+    display: none
+    background: none
+    @media (max-width: $screen-xs-max)
+      display: block
+      margin: 10px auto 0
+
+  +m(index)
+    &:hover
+      @media (min-width: $screen-lg-min)
+        .worker__details
+          transform: translateY(0)
+        .worker__link
+          transform: translateY(0)
+
+    @media (max-width: $screen-md-max)
+      padding: 0 30px
+    @media (max-width: $screen-xs-max)
+      margin-bottom: 30px
+      &:last-of-type
+        margin-bottom: 0
+
+    @media (min-width: $screen-lg-min)
+      &.animate-end .worker__name,
+      &.animate-end .worker__tel,
+      &.animate-end .worker__more
+        transform: translateY(0)
+        opacity: 1
+    +e(name)
+      margin-bottom: 0
+      margin-top: 0
+      color: $defaultColor
+      text-transform: none
+      @media (min-width: $screen-lg-min)
+        transform: translateY(30px)
+        opacity: 0
+        transition: 0.5s
+
+      @media (max-width: $screen-xs-max)
+        font-size: 20px
+    +e(post)
+      padding-top: 5px
+      padding-bottom: 5px
+      text-transform: none
+      font-weight: normal
+    +e(photo)
+      position: relative
+      overflow: hidden
+    +e(info)
+      background: #fff
+      text-align: center
+      padding-top: 30px
+
+    +e(more)
+      text-transform: uppercase
+      font-size: 12px
+      color: $grayColor
+      display: block
+      border: none
+      width: 90px
+      margin: 9px auto 0
+      padding-bottom: 20px
+      &:hover,
+      &:active
+        background: none
+      @media (min-width: $screen-lg-min)
+        transform: translateY(90px)
+        opacity: 0
+        transition: 0.5s
+
+    +e(details)
+      position: absolute
+      left: 0
+      right: 0
+      bottom: 0
+      +gradient-vertical(rgba(#000, 0), rgba(#000, 0.8))
+      color: #fff
+      text-align: center
+      text-transform: uppercase
+      font-weight: 700
+      padding: 60px 0 0
+      transition: 0.3s
+      transform: translateY(100px)
+
+    +e(links)
+      padding: 10px 0
+    +e(link)
+      font-size: 20px
+      color: #fff
+      margin: 0 10px
+      transition: 0.3s
+      &:nth-child(1)
+        transform: translateY(50px)
+      &:nth-child(2)
+        transform: translateY(200px)
+      &:nth-child(3)
+        transform: translateY(300px)
+      &:nth-child(4)
+        transform: translateY(400px)
+    +e(link-icon)
+      fill: #fff
+      width: 18px
+      height: 13px
+    +e(tel)
+      margin: 9px 0 0 0
+      color: $brandColor
+      font-size: 17px
+      font-weight: bold
+      display: block
+      &:hover
+        color: $brandColor
+        border: none
+
+      @media (min-width: $screen-lg-min)
+        transform: translateY(60px)
+        opacity: 0
+        transition: 0.5s
+
+  +m(sidebar)
+    +e(name)
+      font-size: 15px
+      text-align: left
+      margin-top: 0
+
+    +e(post)
+      font-size: 14px
+      border: none
+      text-align: left
+      font-weight: normal
+      padding-top: 3px
+      margin-bottom: 0
+
+    +e(photo)
+      +make-xs-column(5)
+      padding: 0 !important
+      margin: 0 0 10px 0
+      float: none
+      img
+        display: block
+        margin: 0
+
+    +e(tel)
+      clear: both
+      font-size: 15px
+      text-align: left
+      margin: 0
+      display: inline-block
+      &:hover
+        color: $brandColor
+        border-bottom-color: $brandColor
+
+  // style for card wokers
+  +m(card)
+    margin: 0 auto
+    width: 50%
+    @media (max-width: $screen-sm-max)
+      width: 80%
+    @media (max-width: $screen-xs-max)
+      width: 100%
+
+    +e(photo)
+      margin: 12px 0 0
+      +make-column($xs: 6)
+      @media (max-width: $screen-xs-max)
+        padding: 0
+        margin: 0 auto
+        float: none
+        img
+          margin: 0
+    +e(intro)
+      +make-column($sm: 6)
+      @media (max-width: $screen-xs-max)
+        text-align: center
+
+    +e(name)
+      font-size: 30px
+      margin-top: 10px
+      text-transform: none
+      color: $defaultColor
+
+    +e(post)
+      font-size: 15px
+      border: none
+      font-weight: normal
+      padding-top: 3px
+      color: $textColor
+
+    +e(company)
+      display: block
+      margin-top: 10px
+      &:hover
+        text-decoration: none
+
+    +e(company-name)
+      display: block
+      color: $textColor
+      font-weight: 600
+      margin-top: 5px
+    +e(more)
+      margin-top: 30px
+      display: block
+      font-size: 12px
+      width: 150px
+      margin-left: 0
+      @media (max-width: $screen-xs-max)
+        margin-left: auto
+
+  // style for worker in list mode
+  +m(list)
+
+    +e(photo)
+      +make-lg-column(4)
+      margin: 0
+      padding-right: 30px
+      padding-left: 0
+      @media (max-width: $screen-md-max)
+        padding: 0
+        width: 50%
+        margin-bottom: 20px
+      @media (max-width: $screen-xs-max)
+        width: 60%
+        margin: 0 auto
+
+    +e(show)
+      display: none
+    +e(intro)
+      +make-lg-column(8)
+      padding-left: 0
+      padding-right: 0
+      margin-bottom: 11px
+      @media (max-width: $screen-md-max)
+        margin-bottom: 0
+
+    +e(name)
+      border: none
+      margin: -4px 0 5px 0
+      @media (max-width: $screen-xs-max)
+        text-align: center
+        margin: 15px 0 5px
+
+    +e(post)
+      +make-lg-column(6)
+      border: 0
+      padding: 0
+      margin-bottom: 13px
+      @media (max-width: $screen-md-max)
+        margin-bottom: 3px
+      @media (max-width: $screen-xs-max)
+        text-align: center
+
+    +e(listings)
+      +make-lg-column(6)
+      padding-right: 0
+      text-align: right
+      @media (max-width: $screen-md-max)
+        margin-bottom: 13px
+        text-align: left
+        padding-left: 0
+      @media (max-width: $screen-xs-max)
+        padding: 0 30px
+        text-align: center
+        margin-bottom: 0
+
+    +e(intro-head)
+      background: url("../img/bg-border-dotted-horizontal.png") 0 100% repeat-x
+      display: block
+      +clearfix
+      @media (max-width: $screen-xs-max)
+        background: none
+    +e(intro-row)
+      +clearfix
+      clear: both
+      @media (max-width: $screen-xs-max)
+        border-top: none
+        text-align: center
+    +e(intro-col)
+      +make-sm-column(6)
+      padding: 0
+
+    +e(contacts)
+      margin-top: 13px
+      @media (max-width: $screen-xs-max)
+        text-align: center
+        span
+          width: auto
+        a
+          width: auto
+
+    +e(descr)
+      margin-top: 13px
+      line-height: 1.5
+      @media (max-width: $screen-xs-max)
+        margin-top: 0
+      p:last-of-type
+        @media (max-width: $screen-md-max)
+          margin-bottom: 0
+    .social--worker
+      padding-bottom: 10px
+      padding-right: 0
+      width: 100%
+      float: none
+      justify-content: inherit
+      display: block
+      text-align: right
+      @media (max-width: $screen-xs-max)
+        padding-right: 0
+        margin-right: 0 !important
+        justify-content: space-around
+
+    .social__item
+      margin-left: 20px !important
+      float: none
+  +m(details)
+    +e(item)
+      float: none
+    @media (max-width: $screen-xs-max)
+      +e(show)
+        display: block
+        padding: 6px 10px
+        margin: 15px auto 0
+      +e(intro-row)
+        display: none
+      +e(intro-name)
+        flex: inherit
+        width: 100%
+      +e(descr)
+        display: none
+        margin: 0 30px
+      +e(listings)
+        display: none
+      +e(intro-brand)
+        display: none
+      +e(form)
+        display: none
+        padding-bottom: 20px
+      &.opened
+        +e(show)
+          display: none
+        +e(intro-row)
+          display: block
+        +e(intro-brand)
+          display: block
+          width: 100%
+        +e(descr)
+          display: block
+        +e(listings)
+          display: block
+        +e(form)
+          display: block
+
+    +e(item)
+      border-bottom: none
+      padding-bottom: 0
+      margin-bottom: 15px
+      @media (max-width: $screen-xs-max)
+        border-bottom: none
+        padding-bottom: 0
+        margin-bottom: 0
+        margin-top: 30px
+    +e(photo)
+    +e(name)
+      text-transform: none
+      font-size: 30px
+    +e(intro)
+      margin-bottom: 0
+
+    +e(company-name)
+      font-size: 17px
+      margin-top: 5px
+    +e(post)
+      margin-top: 7px
+    +e(intro-head)
+      display: flex
+    +e(intro-row)
+      padding: 0
+    .social--worker
+      margin-top: 16px
+      @media (max-width: $screen-xs-max)
+        margin-top: 0
+        text-align: center
+        .social__item
+          margin-left: 0
+  // style for worker in grid mode
+  +m(grid)
+    +e(photo)
+      margin: 0
+      @media (max-width: $screen-xs-max)
+        width: 60%
+        margin: 0 auto
+
+    +e(name)
+      border: none
+      margin: 15px 0 8px 0
+      padding: 0
+      @media (max-width: $screen-xs-max)
+        text-align: center
+        margin: 15px 0 5px
+
+    +e(show)
+      display: none
+    +e(post)
+      border: 0
+      padding: 0 0 10px
+      @media (max-width: $screen-xs-max)
+        text-align: center
+
+    +e(more)
+      @media (max-width: $screen-xs-max)
+        margin: 0 auto
+    +e(listings)
+      border-top: 1px solid $input-border
+      padding: 17px 0 0
+      margin-top: 2px
+      @media (max-width: $screen-xs-max)
+        text-align: center
+        margin: 0 10%
+        padding-top: 10px
+
+    +e(descr)
+      margin-top: 7px
+      line-height: 1.5
+      clear: both
+      max-height: 200px
+      overflow: hidden
+      padding-right: 0
+      padding-left: 0
+      p
+        margin-bottom: 0
+      @media (max-width: $screen-xs-max)
+        height: auto
+        margin: 7px 10% 15px
+        text-align: center
+
+  // style for worker in sidebar advanced mode
+  +m(sidebar-advanced)
+    +clearfix
+    @media (max-width: $screen-xs-max)
+      &.opened
+        +e(item)
+          margin-top: 0
+          border-bottom: none
+        +e(intro-row)
+          display: block
+        +e(descr)
+          display: block
+        +e(listings)
+          display: block
+          text-align: center
+        +e(form)
+          display: block
+
+
+    +e(item)
+      +clearfix
+      width: 100%
+      text-align: left
+      margin: 0
+      padding: 0
+      @media (max-width: $screen-xs-max)
+        margin-top: 0
+    +e(form)
+      clear: both
+      background: #fff!important
+      border: 1px solid $input-border
+      border-top: none
+    +e(photo)
+      margin: 6px 0 0
+
+    +e(intro)
+
+    +e(name)
+      border: none
+      margin: 0
+      text-align: center
+
+    +e(nav)
+      clear: both
+      li:first-child
+        margin-top: 5px
+    +e(post)
+      border: 0
+      padding: 0
+      text-align: center
+      padding-top: 2px
+      padding-bottom: 7px
+      &:before
+        content: " "
+        border-top: 1px solid $input-border
+        width: 50%
+        margin: 8px auto
+        display: block
+
+    +e(listings)
+      padding: 10px 0 13px
+      border-bottom: 1px dotted $input-border
+      margin-bottom: 1px
+      @media (max-width: $screen-xs-max)
+        display: none
+      a
+        font-weight: 600
+
+    +e(intro-row)
+      +clearfix
+      @media (max-width: $screen-xs-max)
+        display: none
+
+    +e(intro-col)
+      padding: 0
+
+    +e(contacts)
+      margin-top: 13px
+      > div > a
+        color: $defaultColor
+      @media (max-width: $screen-sm-max)
+        > div > span
+          width: 100%
+        > div > a
+          width: 100%
+          margin-left: 0
+      @media (max-width: $screen-xs-max)
+        text-align: center
+    +e(descr)
+      margin: 0 15px
+      line-height: 1.5
+      @media (max-width: $screen-xs-max)
+        display: none
+    .social--worker
+      width: 100%
+      float: none
+      margin-top: 10px
+      @media (max-width: $screen-xs-max)
+        justify-content: space-around
+
+
+  // style for worker in profile mode
+  +m(profile)
+    margin-top: 0
+    +e(item)
+      +make-row
+      width: auto
+      float: none
+      text-align: left
+      padding: 0
+      margin-bottom: 0
+
+    +e(photo)
+      +make-column($md: 4,  $xs: 12)
+      margin: 0
+
+    +e(show)
+      display: none
+
+    +e(intro)
+      +make-column($md: 8, $xs: 12)
+      @media (max-width: $screen-sm-max)
+        margin-top: 15px
+
+    +e(name)
+      font-size: 30px
+      margin-top: 0
+      text-transform: none
+      color: $defaultColor
+
+    +e(post)
+      font-size: 15px
+      border: none
+      font-weight: normal
+      padding-top: 3px
+      color: $textColor
+
+    +e(company)
+      display: block
+      float: left
+      &:hover
+        text-decoration: none
+
+    +e(company-name)
+      display: block
+      color: $textColor
+      font-weight: 600
+      float: left
+      margin-top: 10px
+      margin-left: 15px
+
+    +e(contacts)
+      +clearfix
+      clear: both
+      background: url("../img/bg-border-dotted-horizontal.png") 0 0 repeat-x
+      margin-top: 20px
+      padding-top: 15px
+      span
+        margin-top: 5px
+        display: block
+        @media (max-width: $screen-xs-max)
+          display: inline-block
+          width: 20%
+      a
+        display: block
+        margin-left: 0
+        @media (max-width: $screen-xs-max)
+          display: inline-block
+          margin-left: 10px
+    +e(intro-col)
+      +make-column($lg: 6)
+      padding: 0
+    .social--worker
+      margin-top: 20px
+      justify-content: flex-start
+      @media (max-width: $screen-sm-max)
+        float: none
+
+      .social__item
+        margin-right: 30px

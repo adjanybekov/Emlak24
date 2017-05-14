@@ -1,0 +1,126 @@
+﻿@using System.Web.Mvc.Html
+@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Search.TenantSearch.TenantSearchViewModel
+
+
+<div class="sidebar">
+    <div class="widget js-widget widget--sidebar">
+        <div class="widget__header">
+            <h2 class="widget__title">@Resource.Home_Search_Filter</h2>
+            <a class="widget__btn js-widget-btn widget__btn--toggle">@Resource.Show_Filter</a>
+        </div>
+        <div class="widget__content">
+            @using (Html.BeginForm("TenantSearch", "Home", FormMethod.Post, new {@class = "form form--flex form--search js-search-form form--white"}))
+            {
+                <div class="row">
+
+                    <div class="col-md-12 col-xs-12">
+                        @Html.LabelFor(m => m.SelectedLocationLevel1, new {@class = "control-label"})
+                        @Html.DropDownListFor(m => m.SelectedLocationLevel1, Model.Locationlevel1, Resource.PleaseChoose, new {@class = "form-control wt24-location-selection", data_target_div = "locations", data_loading_element_container = "loading_part"})
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        <span class="control-label">@Resource.Location</span>
+                        <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="@Resource.Location" class="dropdown-toggle js-select-checkboxes-btn" id="locations-button">@Resource.Location</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes" data-single-select="true">
+                                <div class="region-select">
+                                    <ul class="js-checkboxes-tree bonsai region-select__list" id="locations">
+                                        @Html.Partial("_LocationsTreeView", Model)
+                                    </ul>
+                                    <div class="region-select__buttons">
+                                        <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                        <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Locations, null, new {@class = "text-danger"})
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        @Html.LabelFor(m => m.SelectedTypeOfMerchandising, new {@class = "control-label"})
+                        @Html.DropDownListFor(m => m.SelectedTypeOfMerchandising, Model.MerchandisingTypes, Resource.PleaseChoose, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(m => m.SelectedTypeOfMerchandising, null, new {@class = "text-danger"})
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        @Html.LabelFor(m => m.SelectedPropertyType, new {@class = "control-label"})
+                        @Html.DropDownListFor(m => m.SelectedPropertyType, Model.PropertyTypes, Resource.PleaseChoose, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(m => m.SelectedPropertyType, null, new {@class = "text-danger"})
+                    </div>
+
+                    <div class="col-md-12 col-xs-12">
+                        @Html.LabelFor(m => m.LivingArea, new {@class = "control-label"})
+                        @Html.TextBoxFor(m => m.LivingArea, new {@class = "form-control", min = "0"})
+                        @Html.ValidationMessageFor(m => m.LivingArea, null, new {@class = "text-danger"})
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        @Html.LabelFor(m => m.NumberOfLivingRooms, new {@class = "control-label"})
+                        @Html.TextBoxFor(m => m.NumberOfLivingRooms, new {@class = "form-control", min = "0"})
+                        @Html.ValidationMessageFor(m => m.NumberOfLivingRooms, null, new {@class = "text-danger"})
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        @Html.LabelFor(m => m.Price, new {@class = "control-label"})
+                        @Html.TextBoxFor(m => m.Price, new {@class = "form-control", min = "0"})
+                        @Html.ValidationMessageFor(m => m.Price, null, new {@class = "text-danger"})
+                    </div>
+                    <div class="col-md-12  col-xs-12 hide-if-sale">
+                        @Html.EditorFor(m => m.MinIncome, "_SingleSlider", new {min = 0, max = 5000, prefix = '€'})
+                    </div>
+                    <div class="col-md-12 hide-if-sale  col-xs-12">
+                        <span class="control-label">@Resource.EmploymentStatus</span>
+                        <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="@Resource.EmploymentStatus" class="dropdown-toggle js-select-checkboxes-btn">@Resource.EmploymentStatus</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                <ul class="js-checkboxes-tree bonsai region-select__list" id="features">
+                                    @for (int i = 0; i < Model.EmploymentStatusViewModel.Count(); i++)
+                                    {
+                                        <li>
+                                            @Html.CheckBoxFor(m => Model.EmploymentStatusViewModel[i].Selected, new {@class = "in-checkbox"})
+                                            @Html.LabelFor(m => m.EmploymentStatusViewModel[i].Selected, Model.EmploymentStatusViewModel[i].EmploymentStatus.GetDisplayName(), new {@class = "in-label"})
+                                            @Html.HiddenFor(c => c.EmploymentStatusViewModel[i].Id)
+                                            @Html.HiddenFor(c => c.EmploymentStatusViewModel[i].EmploymentStatus)
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="region-select__buttons">
+                                    <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                    <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hide-if-sale col-xs-12">
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.MaxNumberOfMembers, new {@class = "control-label"})
+                            @Html.TextBoxFor(m => m.MaxNumberOfMembers, new {@class = "form-control", min = "0"})
+                            @Html.ValidationMessageFor(m => m.MaxNumberOfMembers, null, new {@class = "text-danger"})
+                        </div>
+                    </div>
+                    <div class="hide-if-sale col-xs-12">
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.PetsAreAllowed, new {@class = "control-label"})
+                            @Html.ToggleButtonFor(m => m.PetsAreAllowed)
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            @Html.LabelFor(m => m.IsSmokingAllowed, new {@class = "control-label"})
+                            @Html.ToggleButtonFor(m => m.IsSmokingAllowed)
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-xs-12">
+                        <br/>
+                        <div class="row">
+                            <div class="form__buttons form__buttons--double">
+                                <a href="@Url.Action("Index", "Home")" class="form__reset">@Resource.Cancel</a>
+                                <button type="submit" class="form__submit">@Resource.Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="loading"></div>
+        </div>
+    </div>
+</div>

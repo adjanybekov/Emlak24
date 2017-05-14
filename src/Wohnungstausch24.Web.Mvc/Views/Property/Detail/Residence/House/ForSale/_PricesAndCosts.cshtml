@@ -1,0 +1,106 @@
+﻿@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.House.DetailHouseForSale
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Prices & Costs</div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-md-1">
+                        <i class="fa fa-3x fa-euro text-primary"></i>
+                    </div>
+                    <div class="col-md-11">
+
+                        <div class="alert alert-info" role="alert">
+                            <i class="fa fa-check-circle"></i>
+                            Be smart and compare engy costs - get a better contract now or just check how much you will pay after moving.
+                            We have a lot of partners you can filter.
+                            Find the best offer by clicking <a href="#">here. <i class="fa fa-external-link"></i></a>???
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">@Html.LabelFor(c => c.ColdRent, new { @class = "control-label" })</div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(c => c.ColdRent)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-6">@Html.LabelFor(c => c.AdditionalCosts, new { @class = "control-label" })</div>
+                                            <div class="col-md-6">
+                                                @Html.DisplayFor(c => c.AdditionalCosts)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-6">@Html.LabelFor(c => c.IsHeatingCostsIncluded, new { @class = "control-label" })</div>
+                                            <div class="col-md-6">
+                                                @Html.DisplayFor(c => c.IsHeatingCostsIncluded)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if (!Model.IsHeatingCostsIncluded)
+                                    {
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-6">@Html.LabelFor(c => c.HeatingCosts, new { @class = "control-label" })</div>
+                                                <div class="col-md-6">
+                                                    @Html.DisplayFor(c => c.HeatingCosts)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <hr />
+                            <div class="col-md-4">
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            <div class="col-md-8">
+                                                @Html.LabelFor(c => c.Clearance, new { @class = "control-label" })
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.DisplayFor(c => c.Clearance)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-body">
+                                                <div class="col-md-12">What does moving cost?</div>
+                                                <div class="col-md-12">
+                                                    <i class="fa fa-3x fa-truck"></i>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    link to listing or calculator???
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="#">link to our schufa-gateway or moneyfix???</a>
+                                <img class="img img-responsive" src="/Content/assets/img/no-image--blog-275x180.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿@using Microsoft.AspNet.Identity
+@using Wohnungstausch24.Resources
+
+<!-- BEGIN SIDEBAR-->
+<div class="sidebar sidebar--dashboard">
+    <div class="widget js-widget widget--sidebar-dashboard widget--collapsing">
+        <div class="widget__header">
+            <a class="widget__btn js-widget-btn widget__btn--toggle">@Resource.Agent_Sidebar_Dashboard</a>
+        </div>
+        <div class="widget__content">
+            <!-- BEGIN WORKER PROFILE-->
+            <div class="worker sidebar-advanced">
+                <div class="worker__photo">
+                    <img src="@{ Html.RenderAction("GetProfilePicturePathByUserId", "File", new {id = User.Identity.GetUserId()});}" class="img-responsive"/>
+                    <button class="worker__avatar-upload">@Html.ActionLink(Resource.Upload_your_profile_picture,"UploadProfilePicture","File",new { area="Agent" },null)  </button>
+                </div>
+                <!-- end of block .worker__nav-->
+            </div>
+            <!-- end of block .worker__item-->
+            <!-- END WORKER PROFILE-->
+            <nav class="nav nav--sidebar">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="@Url.Action("Index", "Home", new {area = "Agent"})" class="nav__link">
+                            <svg class="nav__icon">
+                                <use xlink:href="#icon-dashboard"></use>
+                            </svg>@Resource.Agent_Sidebar_Dashboard
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="@Url.Action("Index", "Property", new {area = "Agent"})" class="nav__link">
+                            <svg class="nav__icon">
+                                <use xlink:href="#icon-property-edit"></use>
+                            </svg>@Resource.Agent_Sidebar_MyListings
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="@Url.Action("Index","SearchProfile", new {area = "Agent"})" class="nav__link">
+                            <svg class="nav__icon">
+                                <use xlink:href="#icon-favorite-search"></use>
+                            </svg>@Resource.Agent_SidebarMenu_Search_Profiles
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="@Url.Action("Add", "Property", new {area = "Agent"})" class="nav__link">
+                            <svg class="nav__icon">
+                                <use xlink:href="#icon-add-listing"></use>
+                            </svg>@Resource.Agent_Sidebar_AddListing
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="@Url.Action("Index", "Settings", new {area = "Agent"})" class="nav__link">
+                            <svg class="nav__icon">
+                                <use xlink:href="#icon-cog"></use>
+                            </svg>@Resource.General_Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- END SIDEBAR-->

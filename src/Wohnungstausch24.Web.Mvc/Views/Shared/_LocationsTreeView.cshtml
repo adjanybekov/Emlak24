@@ -1,0 +1,27 @@
+﻿@model Wohnungstausch24.Models.ViewModels.Search.SearchModelBase
+@if (Model.Locations.Any())
+{
+    for (var i = 0; i < Model.Locations.Count; i++)
+    {
+        <li>
+            @Html.CheckBoxFor(m => Model.Locations[i].Selected, new {@class = "in-checkbox"})
+                        @Html.HiddenFor(m => Model.Locations[i].Id)
+                        @Html.HiddenFor(m => Model.Locations[i].Name)
+            @Html.LabelFor(m => Model.Locations[i].Selected, Model.Locations[i].Name, new {@class = "in-label", data_toggle = "tooltip", data_placement = "top", @for = Html.IdFor(m => Model.Locations[i].Selected)})
+            @if (Model.Locations[i].Children.Any())
+            {
+                <ul>
+                    @for (var j = 0; j < Model.Locations[i].Children.Count; j++)
+                    {
+                        <li>
+                            @Html.CheckBoxFor(m => Model.Locations[i].Children[j].Selected, new {@class = "in-checkbox"})
+                            @Html.HiddenFor(m => Model.Locations[i].Children[j].Id)
+                            @Html.HiddenFor(m => Model.Locations[i].Children[j].Name)
+                            @Html.Label(Model.Locations[i].Children[j].Name, new {@class = "in-label", data_toggle = "tooltip", data_placement = "top", @for = Html.IdFor(m => Model.Locations[i].Children[j].Selected)})
+                        </li>
+                    }
+                </ul>
+            }
+        </li>
+    }
+}

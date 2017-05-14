@@ -1,0 +1,65 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'blog_empty';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Blog
+  // END BREADCRUMBS
+block center
+  .row
+    .site.site--main
+      header.site__header
+        h1.site__title Blog
+        h2.site__headline Check out our new market updates
+
+      include partials/mixins/form--search
+      +formSearch('article-listing', 'Search your post')
+
+      button.widget__btn--goto.js-goto-btn(type='button', data-goto-target='.js-categories-article') Show blog categories
+
+      .site__main
+        +widget(null, null, 'main widget--no-margin')
+          .listing__empty
+            svg.listing__empty-icon
+              use(xlink:href='#icon-info')
+
+            h4.listing__empty-title Your search &quot;vbuilding&quot; did not return any properties.
+            span.listing__empty-headline
+              | Please make sure all words are spelled correctly
+              | or try different keywords.
+
+    // END site
+    // BEGIN SIDEBAR
+    .sidebar
+      +widget('Categories', 'Find your apartment or house on the exact key parameters.', 'sidebar', 'Show blog categories', null, 'toggle')
+        include partials/chunks/sidebar/blog_categories
+
+      +widget('Filter', 'Find your apartment or house on the exact key parameters.', 'sidebar', 'Show filter', null, 'toggle')
+        - var searchType = 'sidebar'
+        include partials/widgets/form--search
+
+      +widget('Popular estate', 'Find your apartment or house on the exact key parameters.', 'sidebar widget--dark', 'Show properties', null, 'toggle')
+        .listing.listing--sidebar
+          - var i = 0;
+          while i++ < 3
+            .listing__item
+              +properties(i, 'sidebar')
+      +widget('Our agents', 'Find your apartment or house on the exact key parameters.', 'sidebar widget--dark', 'Show workers', null, 'toggle')
+        .listing.listing--sidebar
+          - var i = -1;
+          while i++ < 2
+            .listing__item
+              +worker(i, 'sidebar')
+      +widget('News & Blog', 'Find your apartment or house on the exact key parameters.', 'sidebar', 'Show articles', null, 'toggle')
+        - var articleType = 'sidebar';
+        include partials/widgets/article
+    // END SIDEBAR
+    .clearfix

@@ -1,0 +1,82 @@
+﻿
+<div class="sidebar">
+    <div class="widget js-widget widget--sidebar widget--first-no-head">
+        <div class="widget__header">
+            <a class="widget__btn js-widget-btn widget__btn--toggle">Show profile</a>
+        </div>
+        <div class="widget__content">
+            <!-- BEGIN WORKER PROFILE-->
+            <div class="worker sidebar-advanced">
+                <h3 class="worker__name">Jenniffer Hartnet</h3>
+                <div class="worker__photo">
+                    <div class="worker__avatar">
+                        <svg>
+                            <use xlink:href="#icon-avatar"></use>
+                        </svg>
+                    </div>
+                    <button class="worker__avatar-upload">Upload your profile picture</button>
+                </div>
+                <nav class="worker__nav">
+                    <ul>
+                        <li><a href="#">My listing</a></li>
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="@Url.Action("Settings","Manage")">Settings</a></li>
+                        <li><a href="@Url.Action("ChangePassword","Manage")">Change Password</a></li>
+                    </ul>
+                </nav>
+                <!-- end of block .worker__nav-->
+            </div>
+            <!-- end of block .worker__item-->
+            <!-- END WORKER PROFILE-->
+        </div>
+    </div>
+    <div class="widget js-widget widget--sidebar widget--dark">
+        <div class="widget__header">
+            <h2 class="widget__title">Our agents</h2>
+            <h5 class="widget__headline">Find your apartment or house on the exact key parameters.</h5><a class="widget__btn js-widget-btn widget__btn--toggle">Show worker</a>
+        </div>
+        <div class="widget__content">
+            <div class="listing listing--sidebar">
+                <div class="listing__item">
+                    <div data-sr="enter bottom move 80px, scale(0), over 0s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--sidebar">
+                        <div class="worker__photo">
+                            <a href="@Url.Action("Index","Agents")" class="item-photo item-photo--static">
+                                <img src="/Content/assets/media-demo/workers/worker-1.jpg" alt="Christopher Pakulla" class="photo" />
+                                <figure class="item-photo__hover"><span class="item-photo__more">View</span></figure>
+                            </a>
+                        </div>
+                        <h3 class="worker__name fn">Christopher Pakulla</h3>
+                        <div class="worker__post">Realtor, West USA Realty</div><a href="tel:+44(0)2035102390" class="worker__tel uri">+44 (0) 20 3510 2390</a>
+                    </div>
+                    <!-- end of block .worker-->
+                </div>
+                <div class="listing__item">
+                    <div data-sr="enter bottom move 80px, scale(0), over 0.3s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--sidebar">
+                        <div class="worker__photo">
+                            <a href="@Url.Action("Index","Agents")" class="item-photo item-photo--static">
+                                <img src="/Content/assets/media-demo/workers/worker-2.jpg" alt="Lisa Wemert" class="photo" />
+                                <figure class="item-photo__hover"><span class="item-photo__more">View</span></figure>
+                            </a>
+                        </div>
+                        <h3 class="worker__name fn">Lisa Wemert</h3>
+                        <div class="worker__post">Managing Broker/Partner, e-PRO</div><a href="tel:+44(0)203510567" class="worker__tel uri">+44 (0) 20 3510 567</a>
+                    </div>
+                    <!-- end of block .worker-->
+                </div>
+                <div class="listing__item">
+                    <div data-sr="enter bottom move 80px, scale(0), over 0.6s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--sidebar">
+                        <div class="worker__photo">
+                            <a href="@Url.Action("Index","Agents")" class="item-photo item-photo--static">
+                                <img src="/Content/assets/media-demo/workers/worker-3.jpg" alt="Mariusz Ciesla" class="photo" />
+                                <figure class="item-photo__hover"><span class="item-photo__more">View</span></figure>
+                            </a>
+                        </div>
+                        <h3 class="worker__name fn">Mariusz Ciesla</h3>
+                        <div class="worker__post">Real Estate Professional</div><a href="tel:+44(0)203510334" class="worker__tel uri">+44 (0) 20 3510 334</a>
+                    </div>
+                    <!-- end of block .worker-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

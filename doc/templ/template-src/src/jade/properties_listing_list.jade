@@ -1,0 +1,58 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'properties_listing_list';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Listing
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') United states
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Apartment for sale
+  // END BREADCRUMBS
+block center
+  .row
+    // BEGIN site
+    .site.site--main
+      header.site__header
+        h1.site__title Listing estate
+        h5.site__headline
+          | Found:
+          strong   641 apatments
+
+      button.widget__btn--goto.js-goto-btn(type='button', data-goto-target='.js-search-form') Show Filter
+
+      .site__panel
+        include partials/chunks/listing/sort
+        - var linkList = 'properties_listing_list.html';
+        - var linkGrid = 'properties_listing_grid.html';
+        - var linkTable = 'properties_listing_table.html';
+        - var linkActive = 'linkList';
+        include partials/chunks/listing/view
+
+      include partials/chunks/listing/param
+      .site__main
+        +widget(null, null, 'main')
+          .listing.listing--list.js-properties-list
+            - var i = 0;
+            while i++ < 23
+              .listing__item
+                +properties(i, 'list')
+
+        .widget__footer
+          a.widget__more.js-properties-more(href='') More listings
+    // END site
+    // BEGIN SIDEBAR
+    .sidebar
+      +widget('Filter', 'Find your apartment or house on the exact key parameters.', 'sidebar', 'Show filter', null, 'toggle')
+        - var searchType = 'sidebar'
+        include partials/widgets/form--search
+    // END SIDEBAR
+    .clearfix

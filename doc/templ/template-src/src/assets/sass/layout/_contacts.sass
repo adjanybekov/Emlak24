@@ -1,0 +1,85 @@
+/*------------------------------------------------------------------
+  * Contact page style
+  + Contacts / .contacts
+    __ Contacts column / .contacts__column
+    __ Contacts address / .contacts__address
+    __ Contacts address-item / .contacts__address-item
+    __ Contacts address-column / .contacts__address-column
+    __ Contacts address-title / .contacts__address-title
+    __ Contacts address-street / .contacts__address-street
+    __ Contacts address-phone / .contacts__address-phone
+    __ Contacts address-email / .contacts__address-email
+    __ Contacts address-skype / .contacts__address-skype
+  ==============================================================*/
++b(contacts)
+  +e(column)
+    +make-sm-column(6)
+    margin-top: 16px
+    &:first-of-type
+      @media (max-width: $screen-xs-max)
+        margin-top: 0
+    @media (max-width: $screen-xs-max)
+      padding: 0
+    a
+      color: $brandColor
+  +e(address)
+    padding: 0
+    font-weight: 600
+    @media (max-width: $screen-xs-max)
+      text-align: center
+  +e(address-item)
+
+  +e(address-column)
+    float: left
+    width: 33%
+    dd
+      font-weight: 600
+    @media (max-width: $screen-md-max)
+      width: 50%
+    @media (max-width: $screen-xs-max)
+      width: 100%
+      float: none
+    +e(title)
+      font-weight: normal
+
+  +e(address-title)
+    border-bottom: 1px solid #d6d6d6
+    padding: 0 0 12px 0
+    margin-bottom: 10px
+    display: block
+    font-weight: 600
+
+
+  +e(address-street)
+    display: block
+
+  +e(address-phone)
+    display: block
+    margin: 5px 0
+
+  +e(address-email)
+    display: block
+    margin: 12px 0
+    a
+      text-decoration: underline
+      color: $defaultColor
+
+  +e(address-skype)
+    a
+      text-decoration: underline
+      color: $defaultColor
+    display: block
+
+  +e(form)
+    margin-top: 31px
+    clear: both
+  +e(social)
+    border-top: 1px solid #d6d6d6
+
+  +e(social-title)
+    float: left
+    margin-right: 50px
+    padding-top: 5px
+  +e(body)
+    h4
+      font-weight: 600

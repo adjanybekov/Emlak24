@@ -1,0 +1,13 @@
+extends dashboard
+
+block config
+  - var bodyClass = 'sidebar-left';
+  - var page = 'dashboard_financials';
+  - var user = true;
+
+block dashboard_main
+  include partials/mixins/info--financials
+  +infoFinancials('Credit', null, null)
+
+  include partials/mixins/info--commission
+  +infoCommission('Commission', null, null)

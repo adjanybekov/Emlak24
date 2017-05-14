@@ -1,0 +1,18 @@
+mixin listingItem(img, title, categories, showSelect)
+  .listing__item.js-listing-item
+    .listing__thumb
+      if showSelect
+        button.listing__select.js-listing-select
+      a.item-photo.item-photo--static(href='')
+        img(src=img, alt='')
+        figure.item-photo__hover
+          span.item-photo__more View
+
+    // end of block .listing__thumb
+    .listing__info
+      .listing__categories
+        each category in categories
+          a.listing__category= category
+      a.listing__title(href='')= title
+    // end of block .listing__info
+  // end of block .listing__item

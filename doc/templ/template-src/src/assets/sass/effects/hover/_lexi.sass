@@ -1,0 +1,68 @@
+// ====
+// lexi
+// ====
+.hover-lexi .item-photo
+  overflow: hidden
+  display: block
+  position: relative
+  text-decoration: none
+
+  img
+    @include transition(opacity $hover-effect-speed, transform $hover-effect-speed)
+    @include translate3d(10px, 10px, 0)
+    @include backface-visibility(hidden)
+
+    margin: -10px 0 0 -10px
+    max-width: none
+    opacity: .9
+    width: -webkit-calc(100% + 10px)
+    width: calc(100% + 10px)
+
+  .item-photo__hover
+    text-align: left
+    +absolute(0, 0, 0, 0)
+    background: rgba(#000, 0.7)
+    opacity: 0
+    transition: 0.35s
+  .item-photo__more
+    &::before
+      @include transition(opacity $hover-effect-speed, transform $hover-effect-speed)
+      @include transform-origin(50% 50%)
+      transform: scale3d(.5, .5, 1)
+
+      border: 2px solid $hover-effect-border-color
+      border-radius: 50%
+      bottom: -90px
+      box-shadow: 0 0 0 900px rgba($hover-effect-border-color, .2)
+      content: ''
+      height: 200px
+      opacity: 0
+      position: absolute
+      right: -50px
+      width: 200px
+    opacity: 0
+    display: block
+    width: 100%
+    color: #fff
+    padding-top: 50%
+    padding-left: 30px
+    padding-right: 30px
+    font-size: 16px
+    text-transform: uppercase
+    text-align: right
+    +transition-delay($hover-effect-delay)
+    +transition-duration($hover-effect-speed)
+
+  &:hover
+    img
+      @include translate3d(0, 0, 0)
+      opacity: .6
+    .item-photo__more
+      opacity: 1
+      &::before
+        transform: scale3d(1, 1, 1)
+        opacity: 1
+
+    .item-photo__hover
+      opacity: 1
+

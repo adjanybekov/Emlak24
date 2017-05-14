@@ -1,0 +1,78 @@
+﻿@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Agent.SearchProfile.AddNewClientViewModel
+@{
+    ViewBag.Title = "AddNewClient";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+<!-- BEGIN LISTING-->
+<div class="site site--dashboard">
+<div class="site__main">
+    <div class="widget js-widget widget--dashboard">
+        <div class="widget__content">
+            @using (Html.BeginForm("AddNewClient", "SearchProfile"))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, null, new { @class = "text-danger" })
+                <header class="form__header">
+                    <h2 class="form__title js-form-title">AddNewClient</h2>
+                </header>
+                <div class="form__block js-form-block">
+                    <div class="row">
+                        <div class="col-md-4">
+                            @Html.LabelFor(m => m.FirstName, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FirstName, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            @Html.LabelFor(m => m.Gender, new { @class = "control-label" })
+                            @Html.EnumDropDownListFor(m => m.Gender, Resource.PleaseChoose, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Gender, null, new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(m => m.EmploymentStatus, new { @class = "control-label" })
+                            @Html.EnumDropDownListFor(m => m.EmploymentStatus, Resource.PleaseChoose, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.EmploymentStatus, null, new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(m => m.Profession, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Profession, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Profession, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            @Html.LabelFor(m => m.Age, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Age, null, new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(m => m.Income, new {@class = "control-label"})
+                            @Html.TextBoxFor(m => m.Income, new {@class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.Income, null, new {@class = "text-danger"})
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Headline, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Headline, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Headline, null, new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-8">
+                            @Html.LabelFor(m => m.About, new { @class = "control-label" })
+                            @Html.TextAreaFor(m => m.About, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.About, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                @Html.HiddenFor(m => m.SearchProfileId)
+                <input class="button__action" type="submit" value="@Resource.General_Submit" />
+            }
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,477 @@
+/*------------------------------------------------------------------
+  * Map widget styles
+  + Map / .map
+  __ Map address / .map__address
+  __ Map infobox / .map__infobox
+  __ Map photo / .map__photo
+  __ Map info / .map__info
+  __ Map details / .map__details
+  __ Map price / .map__price
+  -- Map index / .map--index
+  -- Map contacts / .map--contacts
+  -- Map properties / .map--properties
+  -- Map submit / .map--submit
+  ==============================================================*/
++b(map)
+  position: relative
+  +clearfix
+  +e(infobox)
+    background: $brandColor
+    padding: 13px 20px 18px
+    color: #fff
+    position: absolute
+    bottom: -2px
+    left: 18px
+    font-weight: 200
+    width: 340px
+    font-size: 15px
+    &:after
+      content: ""
+      display: block
+      position: absolute
+      bottom: -15px
+      left: 0
+      width: 0
+      height: 0
+      border-bottom: 15px solid transparent
+      border-left: 15px solid $brandColor
+    +m(white)
+      background: rgba(#fff, 0.8)
+      color: #000
+      &:after
+        border-left: 15px solid rgba(#fff, 0.8)
+
+    +m(dark)
+      background: rgba($defaultColor, 0.8)
+      color: #fff
+      &:after
+        border-left: 15px solid rgba($defaultColor, 0.8)
+      dl dt
+        color: #c7d3de
+
+  +e(address)
+    font-weight: 600
+    margin: 5px 0 12px
+    line-height: 1.2
+    display: block
+
+  +e(photo)
+    float: left
+    width: 100px
+
+  +e(info)
+    +clearfix
+    margin-bottom: 10px
+    display: block
+
+  +e(details)
+    float: left
+    width: 175px
+    margin-left: 20px
+    margin-top: -6px
+    dl
+      display: block
+      margin: 0
+      dt
+        display: inline-block
+        font-weight: normal
+      dd
+        font-weight: bold
+        display: inline-block
+
+  +e(price)
+    float: left
+    position: relative
+    top: 9px
+    strong
+      font-size: 26px
+      display: block
+
+  +e(more)
+    +button-action
+    float: right
+    width: 120px
+    margin-left: 0
+    margin-right: 0
+
+  +e(buttons)
+    +clearfix
+    z-index: 20
+    position: relative
+    text-align: center
+  +e(change-map)
+    font-size: 20px
+    margin: 10px 0
+    float: left
+    border: none
+    background: none
+    outline: none
+    padding: 0
+    font-weight: 400
+    border-bottom: 1px dashed $defaultColor
+    &.active
+      border: none
+      font-weight: 600
+
+    @media (max-width: $screen-xs-max)
+      +button-toggle($size-arrow: 22px)
+      float: none
+      width: auto
+      display: block
+      padding: 3px 10px
+      font-weight: 400
+      margin: 50px auto 0
+      &:before
+        +font-awesome(1em, '\f041')
+        color: $brandColor
+        margin-right: 10px
+      &:after
+        margin-top: 3px
+      &.active
+        border: 1px solid $input-border
+
+  +e(change-panorama)
+    float: left
+    border: none
+    background: none
+    border-bottom: 1px dashed $defaultColor
+    font-size: 20px
+    color: $defaultColor
+    margin: 17px 0 0 60px
+    line-height: 1
+    padding: 0
+    outline: none
+    font-weight: 400
+    &.active
+      border-bottom: none
+      font-weight: 600
+    @media (max-width: $screen-xs-max)
+      +button-toggle($size-arrow: 22px)
+      float: none
+      width: auto
+      display: block
+      padding: 5px 10px
+      font-weight: 400
+      vertical-align: bottom
+      line-height: 1.4
+      margin: 10px auto 0
+      &:before
+        +font-awesome(1em, '\f21d')
+        color: $brandColor
+        margin-right: 10px
+      &:after
+        font-size: 0.7em
+      &.active
+        border: 1px solid $input-border
+
+  +e(view)
+    border: 8px solid #fff
+    margin: 17px 0
+    width: 100%
+    height: 550px
+    z-index: 10
+    +m(panorama)
+      z-index: 5
+    +m(property-form)
+      height: 385px
+
+    @media (max-width: $screen-xs-max)
+      margin: 0
+      border: 0
+    +when('wrap')
+      @media (max-width: $screen-xs-max)
+        visibility: hidden
+
+    iframe
+      display: block
+      width: 100%
+      height: 380px
+      @media (max-width: $screen-xs-max)
+        height: 155px
+
+  +e(wrap)
+    @media (max-width: $screen-xs-max)
+      position: absolute
+      width: 100%
+      top: 0
+      background: url($imgPath + '../img/map-placeholder.jpg')
+      background-size: cover
+      height: 170px
+      border: 8px solid #fff
+      margin: 17px 0
+      overflow: hidden
+
+  +m(index)
+    min-height: 550px
+    z-index: 205
+    @media (min-width: $screen-sm-min)
+      display: flex
+      align-items: center
+    @media (max-width: $screen-xs-max)
+      min-height: 170px
+    +e(buttons)
+      display: none
+      @media (max-width: $screen-xs-max)
+        height: 170px
+        display: flex
+        align-items: center
+        justify-content: center
+    +e(change-map)
+      margin: 0
+    +e(view)
+      position: absolute !important
+      bottom: 0
+      top: 0
+      height: auto
+      margin: 0
+      border: 0
+    > .container
+      @media (max-width: $screen-xs-max)
+        padding: 0
+    +e(wrap)
+      margin: 0
+      border: 0
+    +e(search)
+      width: 33%
+      position: relative
+      z-index: 250
+      margin-top: 50px
+      margin-bottom: 50px
+      @media (max-width: $screen-xs-max)
+        width: 100%
+        margin-top: 0
+        margin-bottom: 0
+
+  +m(contacts)
+    min-height: 550px
+    @media (max-width: $screen-xs-max)
+      min-height: 170px
+    +e(buttons)
+      display: none
+      @media (max-width: $screen-xs-max)
+        display: block
+        height: 170px
+    +e(view)
+      position: absolute !important
+      bottom: 0
+      top: 0
+      height: auto
+      margin: 0
+      border: 0
+    > .container
+      @media (max-width: $screen-xs-max)
+        padding: 0
+    +e(wrap)
+      margin: 0
+      border: 0
+
+  +m(hide)
+    overflow: hidden
+
+  +m(properties)
+    @media (max-width: $screen-xs-max)
+      height: 170px
+    +e(buttons)
+      display: block
+      @media (max-width: $screen-xs-max)
+        position: absolute
+        top: 50%
+        margin-top: -41px
+        left: 7px
+        right: 7px
+
+    +e(wrap)
+      position: relative
+      height: 400px
+      margin-top: 10px
+      @media (max-width: $screen-xs-max)
+        height: 170px
+        position: absolute
+        margin: 0
+    +e(view)
+      width: 100%
+      margin: 0
+      top: 0
+      +when('wrap')
+        height: 396px!important
+        position: absolute !important
+    +e(change-map)
+      margin-top: 10px
+      @media (max-width: $screen-xs-max)
+        margin-top: 0
+
+  +m(location)
+    +e(block)
+    +e(buttons)
+      display: block
+
+    +e(wrap)
+      position: relative
+      height: 400px
+      @media (max-width: $screen-xs-max)
+        height: 170px
+
+    +e(view)
+      height: 396px!important
+      width: 100%
+      margin: 0
+      position: absolute
+      top: 0
+
+    +e(change-map)
+      margin-top: 10px
+      border: none
+      @media (min-width: $screen-sm-min)
+        text-transform: uppercase
+        font-weight: bold
+
+    +e(geolocation)
+      background: none
+      border: none
+      outline: none
+      padding: 0
+      margin-top: 25px
+
+      svg
+        fill: $brandColor
+        height: 45px
+        width: 30px
+
+    .form-group
+      +m(autocomplete)
+        +make-column($lg: 8, $xs: 12)
+        margin-bottom: 9px
+
+      +m(coords)
+        +make-column($lg: 4, $xs: 12)
+
+    +e(header)
+      display: flex
+      justify-content: space-between
+
+    +e(autocomplete)
+    +e(title)
+      font-size: 15px
+      margin-top: 3px
+      text-transform: uppercase
+      font-weight: 600
+    +e(actions-btn)
+      +btn
+      text-transform: uppercase
+      font-size: 13px
+      color: $brandColor
+      font-weight: 600
+
+  +m(dashboard)
+    position: relative
+    .form-group
+      +m(autocomplete)
+        width: 400px
+        margin-bottom: 0
+        @media (max-width: $screen-md-max)
+          width: 300px
+        @media (max-width: $screen-sm-max)
+          width: 180px
+        @media (max-width: $screen-xs-max)
+          width: 85%
+        .control-label
+          display: none
+          @media (max-width: $screen-xs-max)
+            display: block
+        .form-control
+          @media (min-width: $screen-sm-min)
+            height: 32px
+            border-radius: 3px
+            border: none
+      +m(coords)
+        display: none
+
+    +e(block)
+      position: relative
+
+    +e(autocomplete)
+      @media (min-width: $screen-sm-min)
+        position: absolute
+        top: 10px
+        left: 140px
+        z-index: 20
+
+    +e(geolocation)
+      margin-top: 0
+      align-self: flex-end
+      svg
+        height: 25px
+        width: 25px
+    +e(buttons)
+      position: absolute
+      top: 54%
+      width: 100%
+    +e(change-map)
+      display: none
+      @media (max-width: $screen-xs-max)
+        display: block
+    +e(block)
+      margin-bottom: 20px
+    +e(wrap)
+      border: none
+    +e(view)
+      border: none
+
+  +m(submit)
+    +e(header)
+      display: none
+    +e(autocomplete)
+      top: 20px
+    +e(wrap)
+      border: 8px solid #fff
+      height: 412px
+  +m(banner)
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    opacity: 0
+    transition: 0.3s
+    visibility: hidden
+    &.opened
+      opacity: 1
+      visibility: visible
+    @media (max-width: $screen-xs-max)
+      display: none
+  // leaflet fix
+  .leaflet-popup-content-wrapper,
+  .leaflet-popup-tip
+    background: none
+    box-shadow: none
+  .leaflet-popup-content
+    position: relative
+  .leaflet-container a
+    color: $buttonColor
+.infoBox > img .infobox__close
+  position: absolute
+  top: 10px
+  right: 10px
+
+@keyframes blink
+  from
+    margin-top: -230px
+  to
+    margin-top: 0
+
+.cluster
+  .opened &
+    animation: blink
+    animation-duration: 0.3s
+    animation-delay: 0s
+    animation-iteration-count: 1
+    animation-direction: alternate
+  > div
+    background: $defaultColor !important
+    border-radius: 10px !important
+    width: 20px !important
+    height: 20px !important
+    line-height: 20px !important
+
+#cboxContent .gm-style-mtc:first-of-type
+  margin-left: 50px

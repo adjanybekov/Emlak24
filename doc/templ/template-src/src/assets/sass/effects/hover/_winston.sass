@@ -1,0 +1,60 @@
+// ====
+// winston
+// ====
+.hover-winston .item-photo
+  overflow: hidden
+  display: block
+  position: relative
+  text-decoration: none
+  img
+    +transition(opacity $hover-effect-speed, transform $hover-effect-speed)
+    max-width: none
+    width: 100%
+    opacity: 1
+
+  .item-photo__hover
+    text-align: left
+    +absolute(0, 0, 0, 0)
+    background: rgba(#000, 0.7)
+    opacity: 0
+    transition: 0.35s
+  .item-photo__more
+    &::before
+      @include transition(opacity $hover-effect-speed, transform $hover-effect-speed)
+      @include transform-origin(0 100%)
+
+      transform: rotate3d(0, 0, 1, 45deg)
+      border-bottom: 210px solid $highlightColor
+      border-left: 290px solid transparent
+      content: ''
+      height: 100%
+      left: 0
+      position: absolute
+      top: 0
+      width: 100%
+
+    opacity: 0
+    display: block
+    width: 100%
+    color: #fff
+    padding-top: 50%
+    padding-left: 30px
+    padding-right: 30px
+    font-size: 16px
+    text-transform: uppercase
+    text-align: right
+    +transition-delay($hover-effect-delay)
+    +transition-duration($hover-effect-speed)
+
+  &:hover
+    img
+      opacity: .7
+    .item-photo__more
+      opacity: 1
+      &::before
+        transform: rotate3d(0, 0, 1, 20deg)
+        opacity: .7
+
+    .item-photo__hover
+      opacity: 1
+

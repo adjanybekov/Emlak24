@@ -1,0 +1,114 @@
+@font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.eot");
+    src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+         url("./Flaticon.woff") format("woff"),
+         url("./Flaticon.ttf") format("truetype"),
+         url("./Flaticon.svg#Flaticon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: "Flaticon";
+        src: url("./Flaticon.svg#Flaticon") format("svg");
+    }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    font-family: Flaticon;
+    font-size: inherit;
+    font-style: normal;
+}
+
+.flaticon-areas-sizes:before { content: "\f100"; }
+
+.flaticon-balcony:before { content: "\f101"; }
+
+.flaticon-bath:before { content: "\f102"; }
+
+.flaticon-bathroom-with-shower:before { content: "\f103"; }
+
+.flaticon-bathtub:before { content: "\f104"; }
+
+.flaticon-buildings:before { content: "\f105"; }
+
+.flaticon-buildings-1:before { content: "\f106"; }
+
+.flaticon-buildings-2:before { content: "\f107"; }
+
+.flaticon-business:before { content: "\f108"; }
+
+.flaticon-car-in-a-garage:before { content: "\f109"; }
+
+.flaticon-catalog:before { content: "\f10a"; }
+
+.flaticon-chimney:before { content: "\f10b"; }
+
+.flaticon-circle:before { content: "\f10c"; }
+
+.flaticon-commercial:before { content: "\f10d"; }
+
+.flaticon-commercial-buildings-or-industrial:before { content: "\f10e"; }
+
+.flaticon-contract:before { content: "\f10f"; }
+
+.flaticon-double-king-size-bed:before { content: "\f110"; }
+
+.flaticon-file:before { content: "\f111"; }
+
+.flaticon-file-1:before { content: "\f112"; }
+
+.flaticon-garage:before { content: "\f113"; }
+
+.flaticon-has-bathroom:before { content: "\f114"; }
+
+.flaticon-has-parking-pace:before { content: "\f115"; }
+
+.flaticon-has-urinal:before { content: "\f116"; }
+
+.flaticon-home:before { content: "\f117"; }
+
+.flaticon-home-1:before { content: "\f118"; }
+
+.flaticon-investment:before { content: "\f119"; }
+
+.flaticon-lift:before { content: "\f11a"; }
+
+.flaticon-list:before { content: "\f11b"; }
+
+.flaticon-location:before { content: "\f11c"; }
+
+.flaticon-location-1:before { content: "\f11d"; }
+
+.flaticon-map:before { content: "\f11e"; }
+
+.flaticon-mortgage:before { content: "\f11f"; }
+
+.flaticon-multimedia:before { content: "\f120"; }
+
+.flaticon-number-of-living-bedrooms:before { content: "\f121"; }
+
+.flaticon-number-of-rooms:before { content: "\f122"; }
+
+.flaticon-parking:before { content: "\f123"; }
+
+.flaticon-people:before { content: "\f124"; }
+
+.flaticon-premium-checked-user-or-sth-like-this:before { content: "\f125"; }
+
+.flaticon-search-object:before { content: "\f126"; }
+
+.flaticon-shower:before { content: "\f127"; }
+
+.flaticon-square-measument:before { content: "\f128"; }
+
+.flaticon-technology:before { content: "\f129"; }
+
+.flaticon-tenant:before { content: "\f12a"; }
+
+.flaticon-transport:before { content: "\f12b"; }
+
+.flaticon-transport-1:before { content: "\f12c"; }

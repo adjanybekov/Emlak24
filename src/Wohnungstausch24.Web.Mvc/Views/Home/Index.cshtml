@@ -1,0 +1,406 @@
+﻿@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.HomePageViewModel
+    <div class="widget js-widget" id="map-container">
+        <div class="widget__content">
+            <div class="map map--index">
+                <div class="map__buttons">
+                    <button type="button" class="map__change-map js-map-btn">Property Map</button>
+                </div>
+                <div class="map__wrap">
+                    <div data-infobox-theme="white" class="map__view js-map-index-canvas"></div>
+                </div>
+                <div class="container">
+                    <div class="map__search">
+                        @Html.Partial("_BasicSearch",Model.BasicSearchModel)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="loading"></div>
+    </div>
+    <div class="widget js-widget widget--landing widget--gray">
+        <div class="widget__header">
+            <h2 class="widget__title">@Resource.Home_Index_Realsetates</h2>
+            <h5 class="widget__headline">@Resource.Home_Index_RealEstateDescription</h5>
+        </div>
+        <div class="widget__content">
+            <!-- BEGIN PROPERTIES INDEX-->
+            <div class="tab tab--properties">
+                <!-- Nav tabs-->
+                <ul role="tablist" class="nav tab__nav">
+                    <li class="active">
+                        <a href="#tab-popular" aria-controls="tab-popular" role="tab" data-toggle="tab" class="properties__btn js-pgroup-tab">@Resource.Home_Index_Popular</a>
+                    </li>
+                    <li>
+                        <a href="#tab-recent" aria-controls="tab-recent" role="tab" data-toggle="tab" class="properties__btn js-pgroup-tab">@Resource.Home_Index_Recent</a>
+                    </li>
+                    <li>
+                        <a href="#tab-featured" aria-controls="tab-featured" role="tab" data-toggle="tab" class="properties__btn js-pgroup-tab">@Resource.Home_Index_Featured</a>
+                    </li>
+                </ul>
+                <!-- Tab panes-->
+                <div class="tab-content">
+                    <div id="tab-popular" class="tab-pane in active">
+                        <div class="listing listing--grid">
+                            @foreach (var listing in Model.Listings)
+                            {
+                                @Html.Partial("_ListingPartial", listing)
+                            }
+                        </div>
+                    </div>
+                    <div id="tab-recent" class="tab-pane">
+                        <div class="listing listing--grid">
+                            @foreach (var listing in Model.Listings)
+                            {
+                                @Html.Partial("_ListingPartial", listing)
+                            }
+                        </div>
+                    </div>
+                    <div id="tab-featured" class="tab-pane">
+                        <div class="listing listing--grid">
+                            @foreach (var listing in Model.Listings)
+                            {
+                                @Html.Partial("_ListingPartial", listing)
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget__footer">
+                <a href="properties_listing_list.html" class="widget__more">@Resource.Home_Index_MoreProperties</a>
+            </div>
+        </div>
+    </div>
+    <div class="widget js-widget">
+        <div class="widget__content">
+            <!-- BEGIN SECTION FEATURE-->
+            <section class="feature">
+                <div class="feature__picture"></div>
+                <!-- end of .feature__picture-->
+                <div class="container">
+                    <div class="feature__content">
+                        <div class="feature__header">
+                            <h3 data-sr="enter right ease-in-out 150px" class="feature__title">@Resource.Mission_Header</h3>
+                            <h4 data-sr="enter right ease-in-out 250px" class="feature__headline">@Resource.Mission</h4>
+                        </div>
+                        <!-- end of block .feature__header-->
+                        <div class="feature__list">
+                            <div data-sr="enter right ease 150px" class="feature__item">
+                                <svg class="feature__icon feature__icon--money-save">
+                                    <use xlink:href="#icon-money-save"></use>
+                                </svg>
+                                <div class="feature__item-content">
+                                    <h3 class="feature__item-title">@Resource.Save_Money_Header</h3>
+                                    <div class="feature__text">
+                                        <p>@Resource.Save_Money_Text</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end of block .feature__item-->
+                            <div data-sr="enter right ease 250px" class="feature__item">
+                                <svg class="feature__icon feature__icon--good-sales">
+                                    <use xlink:href="#icon-good-sales"></use>
+                                </svg>
+                                <div class="feature__item-content">
+                                    <h3 class="feature__item-title">@Resource.Good_Sales_Header</h3>
+                                    <div class="feature__text">
+                                        <p>@Resource.Good_Sales_Text</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end of block .feature__item-->
+                        </div>
+                        <!-- end of block .feature__list-->
+                    </div>
+                    <!-- end of .feature__content-->
+                </div>
+            </section>
+            <!-- END SECTION FEATURE-->
+        </div>
+    </div>
+    <div class="widget js-widget widget--landing widget--gray">
+        <div class="widget__header">
+            <h2 class="widget__title">@Resource.Home_Index_OurAgents</h2>
+            <h5 class="widget__headline">@Resource.Home_Index_RealEstateDescription</h5>
+        </div>
+        <div class="widget__content">
+            <!-- BEGIN SECTION WORKER INDEX-->
+            <div class="listing listing--grid listing--lg-4">
+                <div class="listing__item">
+                    <div data-sr="enter bottom move 80px, scale(0), over 0s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--index">
+                        <div class="worker__photo">
+                            <a href="@Url.Action("Index", "Agents")" class="item-photo item-photo--static">
+                                <img src="/Content/assets/media-demo/workers/worker-1.jpg" alt="Christopher Pakulla" class="photo" />
+                            </a>
+                            <div class="worker__details">
+                                <span class="worker__post">Realtor, West USA Realty</span>
+                                <div class="worker__links">
+                                    <a class="worker__link">
+                                        <svg class="worker__link-icon">
+                                            <use xlink:href="#icon-mail"></use>
+                                        </svg>
+                                    </a><a class="worker__link">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a><a class="worker__link">
+                                        <i class="fa fa-facebook"></i>
+                                    </a><a class="worker__link">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="worker__info">
+                            <h4 class="worker__name fn">Christopher Pakulla</h4><a href="tel:+44(0)2035102390" class="worker__tel uri">+44 (0) 20 3510 2390</a><a href="@Url.Action("Index", "Agents")" class="worker__more">Read more</a>
+                        </div>
+                        <!-- end of block .worker__info-->
+                    </div>
+                    <!-- end of block .worker-->
+                </div>
+                <div class="listing__item">
+                    <div data-sr="enter bottom move 80px, scale(0), over 0.3s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--index">
+                        <div class="worker__photo">
+                            <a href="@Url.Action("Index", "Agents")" class="item-photo item-photo--static">
+                                <img src="/Content/assets/media-demo/workers/worker-2.jpg" alt="Lisa Wemert" class="photo" />
+                            </a>
+                            <div class="worker__details">
+                                <span class="worker__post">Managing Broker/Partner, e-PRO</span>
+                                <div class="worker__links">
+                                    <a class="worker__link">
+                                        <svg class="worker__link-icon">
+                                            <use xlink:href="#icon-mail"></use>
+                                        </svg>
+                                    </a><a class="worker__link">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a><a class="worker__link">
+                                        <i class="fa fa-facebook"></i>
+                                    </a><a class="worker__link">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="worker__info">
+                            <h4 class="worker__name fn">Lisa Wemert</h4><a href="tel:+44(0)203510567" class="worker__tel uri">+44 (0) 20 3510 567</a><a href="@Url.Action("Index", "Agents")" class="worker__more">Read more</a>
+                        </div>
+                        <!-- end of block .worker__info-->
+                    </div>
+                    <!-- end of block .worker-->
+                </div>
+                <div class="listing__item">
+                    <div data-sr="enter bottom move 80px, scale(0), over 0.6s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--index">
+                        <div class="worker__photo">
+                            <a href="@Url.Action("Index", "Agents")" class="item-photo item-photo--static">
+                                <img src="/Content/assets/media-demo/workers/worker-3.jpg" alt="Mariusz Ciesla" class="photo" />
+                            </a>
+                            <div class="worker__details">
+                                <span class="worker__post">Real Estate Professional</span>
+                                <div class="worker__links">
+                                    <a class="worker__link">
+                                        <svg class="worker__link-icon">
+                                            <use xlink:href="#icon-mail"></use>
+                                        </svg>
+                                    </a><a class="worker__link">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a><a class="worker__link">
+                                        <i class="fa fa-facebook"></i>
+                                    </a><a class="worker__link">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="worker__info">
+                            <h4 class="worker__name fn">Mariusz Ciesla</h4><a href="tel:+44(0)203510334" class="worker__tel uri">+44 (0) 20 3510 334</a><a href="@Url.Action("Index", "Agents")" class="worker__more">Read more</a>
+                        </div>
+                        <!-- end of block .worker__info-->
+                    </div>
+                    <!-- end of block .worker-->
+                </div>
+                <div class="listing__item">
+                    <div data-sr="enter bottom move 80px, scale(0), over 0.8999999999999999s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--index">
+                        <div class="worker__photo">
+                            <a href="@Url.Action("Index", "Agents")" class="item-photo item-photo--static">
+                                <img src="/Content/assets/media-demo/workers/worker-4.jpg" alt="Vladimir Babic" class="photo" />
+                            </a>
+                            <div class="worker__details">
+                                <span class="worker__post">Realtor, CDPE</span>
+                                <div class="worker__links">
+                                    <a class="worker__link">
+                                        <svg class="worker__link-icon">
+                                            <use xlink:href="#icon-mail"></use>
+                                        </svg>
+                                    </a><a class="worker__link">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a><a class="worker__link">
+                                        <i class="fa fa-facebook"></i>
+                                    </a><a class="worker__link">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="worker__info">
+                            <h4 class="worker__name fn">Vladimir Babic</h4><a href="tel:+44(0)2044442390" class="worker__tel uri">+44 (0) 20 4444 2390</a><a href="@Url.Action("Index", "Agents")" class="worker__more">Read more</a>
+                        </div>
+                        <!-- end of block .worker__info-->
+                    </div>
+                    <!-- end of block .worker-->
+                </div>
+            </div>
+            <!-- END SECTION WORKER INDEX-->
+        </div>
+</div>
+<div class="widget js-widget widget--landing widget--achievement">
+    <div class="widget__content">
+        <!-- BEGIN SECTION ACHIEVEMENT-->
+        <div class="achievement">
+            <div class="container">
+                <div class="row">
+                    <div data-sr="enter right move 0 over 0 wait 0s" data-animate-callback="countUp" data-animate-end="achievement__item--animate-end" class="achievement__item">
+                        <svg class="achievement__icon">
+                            <use xlink:href="#icon-transactions"></use>
+                        </svg>
+                        <div data-count-end="755300" data-count-duration="1" class="achievement__counter achievement__counter--lg js-count-up"></div>
+                        <div class="achievement__counter">755 300</div>
+                        <div class="achievement__name">Transactions</div>
+                    </div>
+                    <div data-sr="enter right move 0 over 0 wait 0.5s" data-animate-callback="countUp" data-animate-end="achievement__item--animate-end" class="achievement__item">
+                        <svg class="achievement__icon">
+                            <use xlink:href="#icon-customers"></use>
+                        </svg>
+                        <div data-count-end="17620" data-count-duration="1" class="achievement__counter achievement__counter--lg js-count-up"></div>
+                        <div class="achievement__counter">17 620</div>
+                        <div class="achievement__name">Satisfied Customers</div>
+                    </div>
+                    <div data-sr="enter right move 0 over 0 wait 1s" data-animate-callback="countUp" data-animate-end="achievement__item--animate-end" class="achievement__item">
+                        <svg class="achievement__icon">
+                            <use xlink:href="#icon-agency"></use>
+                        </svg>
+                        <div data-count-end="790" data-count-duration="1" class="achievement__counter achievement__counter--lg js-count-up"></div>
+                        <div class="achievement__counter">790</div>
+                        <div class="achievement__name">Agencies</div>
+                    </div>
+                    <div data-sr="enter right move 0 over 0 wait 1.5s" data-animate-callback="countUp" data-animate-end="achievement__item--animate-end" class="achievement__item">
+                        <svg class="achievement__icon">
+                            <use xlink:href="#icon-sales"></use>
+                        </svg>
+                        <div data-count-end="1528715" data-count-duration="1" class="achievement__counter achievement__counter--lg js-count-up"></div>
+                        <div class="achievement__counter">1 528 715</div>
+                        <div class="achievement__name">Sales &amp; Rents</div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END SECTION ACHIEVEMENT-->
+        </div>
+    </div>
+    <div class="widget js-widget">
+        <div class="widget__content">
+            <!-- BEGIN BLOCK GO SUBMIT-->
+            <div data-sr="flip 45deg over 0.5s" class="gosubmit">
+                <div class="container">
+                    <div class="gosubmit__title">
+                        <div class="gosubmit__title__row gosubmit__title__row--first">Looking to</div>
+                        <div class="gosubmit__title__row gosubmit__title__row--second"><span class="gosubmit__title__option">Sell</span>or<span class="gosubmit__title__option">Rent</span></div>
+                        <div class="gosubmit__title__row gosubmit__title__row--third">Your Property?</div>
+                    </div>
+                    <!-- end of block .gosubmit__title--><a href="my_listings_add_edit.html" class="gosubmit__btn">@Resource.Home_Index_SubmitNow</a>
+                </div>
+            </div>
+            <!-- END BLOCK GO SUBMIT-->
+        </div>
+    </div>
+    <div class="center">
+        <div class="container">
+        </div>
+    </div>
+    <!-- END CENTER SECTION-->
+    <!-- BEGIN AFTER CENTER SECTION-->
+    <div class="widget js-widget widget--landing">
+        <div class="widget__header">
+            <h2 class="widget__title">
+                @Resource.Home_Index_OurPartners
+            </h2>
+            <h5 class="widget__headline"> @Resource.Home_Index_PartnersDescription</h5>
+        </div>
+        <div class="widget__content">
+            <!-- BEGIN PARTNERS-->
+            <div id="partners-slider" class="partners">
+                <div class="partners__slider js-slick-slider">
+                    <a class="partners__item">
+                        <img src="/Content/assets/media-demo/partners/logo-company-1.png" alt=""><span class="partners__name">Elite Construction Group, LLC</span>
+                    </a><a class="partners__item">
+                        <img src="/Content/assets/media-demo/partners/logo-company-2.png" alt=""><span class="partners__name">Pro Era Limited</span>
+                    </a><a class="partners__item">
+                        <img src="/Content/assets/media-demo/partners/logo-company-3.png" alt=""><span class="partners__name">Otdelka Real Estate LTD</span>
+                    </a><a class="partners__item">
+                        <img src="/Content/assets/media-demo/partners/logo-company-4.png" alt=""><span class="partners__name">Fermer Realty Group</span>
+                    </a><a class="partners__item">
+                        <img src="/Content/assets/media-demo/partners/logo-company-5.png" alt=""><span class="partners__name">Pro Era Limited</span>
+                    </a><a class="partners__item">
+                        <img src="/Content/assets/media-demo/partners/logo-company-3.png" alt=""><span class="partners__name">Fermer Realty Group</span>
+                    </a><a class="partners__item">
+                        <img src="/Content/assets/media-demo/partners/logo-company-2.png" alt=""><span class="partners__name">Otdelka Real Estate LTD</span>
+                    </a>
+                </div>
+                <div class="partners__controls">
+                    <button class="partners__arrow partners__arrow--prev js-partners-prev"></button>
+                    <button class="partners__arrow partners__arrow--next js-partners-next"></button>
+                </div>
+                <!-- end of block .partners__controls-->
+            </div>
+            <!-- end of block .partners-->
+        </div>
+    </div>
+    <!-- END PARTNERS-->
+    <div class="widget js-widget">
+        <div class="widget__content">
+            <!-- BEGIN SUBSCRIBE-->
+            <div class="subscribe">
+                <form action="#" class="subscribe__form js-subscribe-form">
+                    <h4 class="subscribe__title">@Resource.Home_Index_Newsletters</h4>
+                    <div class="subscribe__group form-group">
+                        <label class="sr-only">@Resource.Home_Index_Newsletters</label>
+                        <input type="email" placeholder="Input your e-mail" name="email" required data-parsley-trigger="change" class="subscribe__field form-control js-subscribe-email">
+                    </div>
+                    <button type="submit" class="btn--action subscribe__submit js-subscribe-submit">@Resource.General_Submit</button>
+                </form>
+                <!-- end of block .subscribe__form-->
+            </div>
+            <!-- END SUBSCRIBE-->
+        </div>
+    </div>
+<!-- END AFTER CENTER SECTION-->
+
+@section scripts{
+
+    <script>
+        var selector = "#SelectedTypeOfMerchandising";
+
+        $(selector).on('change', handleTomSlider);
+        handleTomSlider();
+        function handleTomSlider() {
+            var selected = $(selector).find(":selected");
+            if (selected.val() === "@TypeOfMerchandising.Sale") {
+                $('#range_price').data("ionRangeSlider").update({
+                    min: 0,
+                    max: 1000000,
+                    step: 1000,
+                    to: 1000000
+                });
+            } else {
+                $('#range_price').data("ionRangeSlider").update({
+                    min: 0,
+                    max: 5000,
+                    step:10,
+                    to:5000
+                });
+            }
+        }
+
+
+    </script>
+
+
+}

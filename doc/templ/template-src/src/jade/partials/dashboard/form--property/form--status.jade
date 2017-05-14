@@ -1,0 +1,23 @@
+form.form.form--flex.form--property.form--extra.js-form-property
+  .row
+    .form-group.form-group--col-12.form-group--inline
+      label.control-label Market Status
+      - var options = ['Draft', 'Published', 'Unpublished', 'Expired', 'Transacting', 'Transacted', 'Withdraw']
+
+      ul.form__check
+        each option, i in options
+          li
+            input(type='radio', name='market_status', id='in-radio-market-status-' + i, class='in-radio')
+            label(for='in-radio-market-status-' + i, class='in-label')= option
+    .form-group.form-group--col-12.form-group--inline
+      label.control-label Sale status
+      - options = ['Urgent Sale']
+      ul.form__check
+        each option, i in options
+          li
+            input(type='checkbox', name='sale_status', id='in-check-sale-status-' + i, class='in-checkbox')
+            label(for='in-check-sale-status-' + i, class='in-label')= option
+
+
+  .row
+    button.form__submit Next

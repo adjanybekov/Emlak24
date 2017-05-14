@@ -1,0 +1,78 @@
+///*------------------------------------------------------------------
+//  * Mixins and function which support for BEM namig convention
+//  * https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+//  ==============================================================*/
+
+// mixin use  bem style coding
+$elementSeparator: "__"
+$modifierSeparator: "--"
+
+@function selectorToString($selector)
+  $selector: inspect($selector)
+  //cast to string
+  $selector: str-slice($selector, 2, -2)
+  //remove bracket
+  @return $selector
+
+@function containsModifier($selector)
+  $selector: selectorToString($selector)
+  @if str-index($selector, $modifierSeparator)
+    @return true
+  @else
+    @return false
+
+@function getBlock($selector)
+  $selector: selectorToString($selector)
+  @if str-index($selector, $modifierSeparator)
+    $modifierStart: str-index($selector, $modifierSeparator) - 1
+    @return str-slice($selector, 0, $modifierStart)
+  @else
+    @return $selector
+
+@function getBlockName($selector)
+  $selector: selectorToString($selector)
+  @if str-index($selector, $modifierSeparator)
+    $modifierStart: str-index($selector, $modifierSeparator) - 1
+    @return str-slice($selector, 0, $modifierStart)
+  @else if str-index($selector, $elementSeparator)
+    $elementStart: str-index($selector, $elementSeparator) - 1
+    @return str-slice($selector, 0, $elementStart)
+
+=b($block)
+  .#{$block}
+    @content
+
+=e($element)
+  $selector: &
+  $block: getBlock($selector)
+  @if containsModifier($selector)
+    @at-root #{$selector}
+      #{$block + $elementSeparator + $element}
+        @content
+  @else
+    @at-root #{$selector + $elementSeparator + $element}
+      @content
+
+
+=m($modifier)
+  @at-root
+    #{&}#{$modifierSeparator + $modifier}
+      @content
+
+=when($on, $absolute: false)
+  $selector: selectorToString(&)
+
+  @if ($absolute)
+    @at-root #{'.' + $on + ' ' + $selector}
+      @content
+  @else
+    $blockName: getBlockName($selector)
+    $on: ' .' + $blockName + $elementSeparator + $on + ' '
+    @if str-index($selector, ' ')
+      $insertStart: str-index($selector, ' ')
+      $selector: str-insert($selector, $on, $insertStart)
+    @else
+      $selector: str-insert($selector, $on, 0)
+
+    @at-root #{$selector}
+      @content

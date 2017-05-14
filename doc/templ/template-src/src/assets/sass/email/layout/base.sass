@@ -1,0 +1,88 @@
+html, body
+  background: #f6f6f6
+  margin: 0
+  padding: 0
+  color: $defaultColor
+table
+  border-spacing: 0
+
+a
+  color: $defaultColor
+  &:hover
+    text-decoration: underline
+
+.header
+  background: $brandColor
+.header__slogan
+  font-size: 13px
+  font-style: italic
+  color: #fff
+.header__title
+  font-size: 15px
+  text-align: right
+  color: $defaultColor
+
+.header__social
+  text-align: right
+.header__link
+  margin: 5px 0 0 10px
+  display: inline-block
+
+.logo
+  background: url('assets/img/logo.png')
+  display: block
+  width: 214px
+  height: 55px
+  margin: 50px auto 20px
+
+.header__wrap
+  margin: 0 auto
+  max-width: 600px
+  width: 600px
+.wrapper
+  background: #f6f6f6
+  width: 100%
+  font-family:  "Source Sans Pro", Arial, Helvetica, sans-serif
+
+  img
+    max-width: 100%
+.body
+  margin: 0 auto
+  max-width: 600px
+  background: #fff
+
+.footer
+  text-align: center
+  font-size: 15px
+  color: $defaultColor
+.content
+  max-width: 500px
+  margin: 0 auto
+
+  h1
+    font-size: 46px
+    color: $defaultColor
+  p
+    font-size: 15px
+    color: $defaultColor
+.btn-link
+  display: inline-block
+  margin-bottom: 0
+  // For input.btn
+  text-align: center
+  vertical-align: middle
+  cursor: pointer
+  background-image: none
+  // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  text-transform: uppercase
+  white-space: nowrap
+  padding-left: 10px
+  padding-right: 10px
+  line-height: 35px
+  border: none
+  border-bottom: 4px solid $highlightColorDark
+  background: $highlightColor
+  color: #222222!important
+  font-weight: bold
+  text-decoration: none!important
+  width: 210px

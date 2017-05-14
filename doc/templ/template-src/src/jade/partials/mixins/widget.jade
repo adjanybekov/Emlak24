@@ -1,0 +1,12 @@
+mixin widget(title, headline, modifier,  btn, btnLink, btnClass)
+  .widget.js-widget(class= modifier ? 'widget--' + modifier : '')
+    unless title == undefined && headline == undefined && btn == undefined
+      .widget__header
+        unless title == undefined || title == ''
+          h2.widget__title!= title
+        unless headline == undefined || undefined == ''
+          h5.widget__headline!= headline
+        unless btn == undefined
+          a.widget__btn.js-widget-btn(class= btnClass == undefined ? '' : 'widget__btn--' + btnClass, href= btnLink)= btn
+    .widget__content
+      block

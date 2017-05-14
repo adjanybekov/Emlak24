@@ -1,0 +1,33 @@
+// BEGIN AUTH LOGIN
+h5.auth__title Login in your account
+form.form.form--flex.form--auth.js-login-form.js-parsley(action='#')
+  .row
+    .form-group
+      label.control-label(for='login-username-' + formType) Username
+      input.form-control(type='text', name='username', id='login-username-' + formType, required, data-parsley-trigger='keyup', data-parsley-minlength='6', data-parsley-validation-threshold='5', data-parsley-minlength-message = 'Login should be at least 6 chars')
+
+    .form-group
+      label.control-label(for='login-password-' + formType) Password
+      input.form-control(type='password', name='password', id='login-password-' + formType, required)
+
+  .row
+    .form__options.form__options--forgot
+      if formType == 'inline'
+        a(href='user_restore_pass.html') Forgot password ?
+      else
+        button(type='button').js-user-restore Forgot password ?
+    button.form__submit(type='submit') Sign in
+
+  .form__remember
+    input.in-checkbox(type='checkbox', id='remember-in-' + formType)
+    label.in-label(for='remember-in-' + formType) Remember me
+
+  .row
+    .form__options
+      | Not a user yet?
+      if formType == 'inline'
+        a(href='user_register.html') Get an account
+      else
+        button(type='button').js-user-register Get an account
+// end of block .auth__form
+// END AUTH LOGIN

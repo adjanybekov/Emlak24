@@ -1,0 +1,1990 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\lib\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\lib\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\..\lib\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\lib\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B425D2D-68A3-41DB-AC47-D2A35E634465}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wohnungstausch24.Web.Mvc</RootNamespace>
+    <AssemblyName>Wohnungstausch24.Web.Mvc</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <ApplicationInsightsResourceId>/subscriptions/4ed9cf3a-de1a-4ecb-a5b5-f0024c60d2ec/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/Wohnungstausch24.Web.Mvc</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/4ed9cf3a-de1a-4ecb-a5b5-f0024c60d2ec/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/Wohnungstausch24.Web.Mvc</ApplicationInsightsAnnotationResourceId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\FluentValidation.MVC5.6.2.1.0\lib\Net45\FluentValidation.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageProcessor, Version=2.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\ImageProcessor.2.5.3\lib\net45\ImageProcessor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageProcessor.Web, Version=4.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\ImageProcessor.Web.4.8.3\lib\net45\ImageProcessor.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.ApplicationInsights.Agent.Intercept.2.0.7\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.TraceListener, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.ApplicationInsights.TraceListener.2.2.0\lib\net45\Microsoft.ApplicationInsights.TraceListener.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.IO.RecyclableMemoryStream.1.2.1\lib\net45\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NReco.VideoConverter, Version=1.1.2.0, Culture=neutral, PublicKeyToken=395ccb334978a0cd, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\NReco.VideoConverter.1.1.2\lib\net20\NReco.VideoConverter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\lib\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\lib\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\lib\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\lib\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\lib\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\lib\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\lib\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Z.ExtensionMethods, Version=2.0.10.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Z.ExtensionMethods.2.0.10\lib\net45\Z.ExtensionMethods.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\..\lib\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\..\lib\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\..\lib\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\lib\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\lib\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\lib\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\..\lib\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\lib\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\lib\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\..\lib\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\..\lib\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\..\lib\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\..\lib\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\..\lib\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\..\lib\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\..\lib\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\..\lib\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\..\lib\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\AutoMapperConfigurator.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectConfigurator.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Agent\Controllers\AgencyController.cs" />
+    <Compile Include="Areas\Agent\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Agent\AgentAreaRegistration.cs" />
+    <Compile Include="Areas\Agent\Controllers\FileController.cs" />
+    <Compile Include="Areas\Agent\Controllers\PropertyController.cs" />
+    <Compile Include="Areas\Agent\Controllers\SearchProfileController.cs" />
+    <Compile Include="Areas\Agent\Controllers\SettingsController.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToDto\DetailListingToDetailDto.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\AddNewClientViewModelToClient.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\BathroomViewModelToBathroom.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\BeaconingToBeaconingViewModel.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\ClientViewModelToClient.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\DistanceViewModelToDistance.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\HeatingToHeatingViewModel.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\ImageDtoToImage.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\MixedLandToMLViewModel.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\ObjectTextInAnotherLanguageToTextInAnotherLanguageViewModel.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\RangedNumbersToEntity.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ClientToClientViewModel.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\RangedNumbersToDto.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\SearchProfileToEntity.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\Step10ViewModelToListings.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\Step1ViewModelToListings.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\Step2ViewModelToListings.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\BalconyViewModelToBalcony.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\ParkingSpacesViewToParkingSpace.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\Step3ViewModelToListings.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\Step4ViewModelToListings.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\Step5ViewModelToListings.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\Step6ViewModelToListings.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\Step7ViewModelToListings.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\Step8ViewModelToListings.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\Step9ViewModelToListings.cs" />
+    <Compile Include="AutoMappingConfiguration\DtoToEntity\ViewSightViewModelToSight.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\BalconyToBalconyViewModel.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\BathroomToBathroomViewModel.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\BeaconingViewModelToBeaconing.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\DistanceToDistanceToViewModel.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\CustomResolvers\FloorTypesResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\CustomResolvers\EmployeeStatusTypeResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\HeatingViewModelToHeating.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ImageToImageDto.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ListingsToStep1.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ListingsToStep10.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ListingsToStep2.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ListingsToStep3.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ListingsToStep4.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ListingsToStep5.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ListingsToStep6.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ListingsToStep7.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ListingsToStep8.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ListingsToStep9.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\MLViewModelToMixedLand.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ParkingSpaceToParkingSpacesView.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\PersonToPersonViewModel.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\SearchProfileToDto.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\TextInAnotherLanguageViewModelToObjectTextInAnotherLanguage.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToDto\ViewSightToViewSightViewModel.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToEntity\FlatToFlatForRent.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToEntity\FlatToFlatForSale.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToEntity\ListingToFlat.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToEntity\FlatToListing.cs" />
+    <Compile Include="AutoMappingConfiguration\EntityToEntity\ResidenceToFlat.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AgentsController.cs" />
+    <Compile Include="Controllers\EmailTemplatesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\PropertyController.cs" />
+    <Compile Include="Controllers\RedirectController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="ErrorHandler\AiHandleErrorAttribute.cs" />
+    <Compile Include="Filters\AuthorizeRolesAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\BundlesHelper.cs" />
+    <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Compile Include="Helpers\ToggleOptions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\animate.min.css" />
+    <Content Include="Content\assets\css\custom.css" />
+    <Content Include="Content\assets\css\custom.min.css">
+      <DependentUpon>custom.css</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\css\email.css" />
+    <Content Include="Content\assets\css\email.min.css">
+      <DependentUpon>email.css</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\css\font-awesome.css" />
+    <Content Include="Content\assets\css\font-awesome.min.css">
+      <DependentUpon>font-awesome.css</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\css\ie-fix.css" />
+    <Content Include="Content\assets\css\ie-fix.min.css">
+      <DependentUpon>ie-fix.css</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\css\theme-blue-orange_red.css" />
+    <Content Include="Content\assets\css\theme-blue-orange_red.min.css">
+      <DependentUpon>theme-blue-orange_red.css</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\css\theme-default.css" />
+    <Content Include="Content\assets\css\theme-default.min.css">
+      <DependentUpon>theme-default.css</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\css\ui-panel.css" />
+    <Content Include="Content\assets\css\ui-panel.min.css">
+      <DependentUpon>ui-panel.css</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\css\vendor.css" />
+    <Content Include="Content\assets\css\vendor.min.css">
+      <DependentUpon>vendor.css</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\assets\fonts\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="Content\assets\fonts\montserrat\montserrat-thin.svg" />
+    <Content Include="Content\assets\fonts\slick\slick.svg" />
+    <Content Include="Content\assets\icons\flaticon.css" />
+    <Content Include="Content\assets\icons\flaticon.html" />
+    <Content Include="Content\assets\icons\Flaticon.svg" />
+    <Content Include="Content\assets\img\admin-color-options\!default.png" />
+    <Content Include="Content\assets\img\admin-color-options\blue-orange_red.png" />
+    <Content Include="Content\assets\img\admin-color-options\blue-red.png" />
+    <Content Include="Content\assets\img\admin-color-options\blue_green.png" />
+    <Content Include="Content\assets\img\admin-color-options\brown-dark_red.png" />
+    <Content Include="Content\assets\img\admin-color-options\brown-dark_yellow.png" />
+    <Content Include="Content\assets\img\admin-color-options\brown_red.png" />
+    <Content Include="Content\assets\img\admin-color-options\dark_blue-dark_yellow.png" />
+    <Content Include="Content\assets\img\admin-color-options\dark_blue-light_green.png" />
+    <Content Include="Content\assets\img\admin-color-options\dark_blue-yellow.png" />
+    <Content Include="Content\assets\img\admin-color-options\dark_violet-green.png" />
+    <Content Include="Content\assets\img\admin-color-options\dark_violet-yellow.png" />
+    <Content Include="Content\assets\img\admin-color-options\gray-red.png" />
+    <Content Include="Content\assets\img\admin-color-options\green-red.png" />
+    <Content Include="Content\assets\img\admin-color-options\green_blue-red.png" />
+    <Content Include="Content\assets\img\admin-color-options\light_blue-beige.png" />
+    <Content Include="Content\assets\img\admin-color-options\light_blue-cyan.png" />
+    <Content Include="Content\assets\img\admin-color-options\light_cyan-red.png" />
+    <Content Include="Content\assets\img\admin-color-options\light_green-dark_blue.png" />
+    <Content Include="Content\assets\img\admin-color-options\light_green-violet.png" />
+    <Content Include="Content\assets\img\admin-color-options\pink_yellow.png" />
+    <Content Include="Content\assets\img\ajax-loader.gif" />
+    <Content Include="Content\assets\img\banner-subpage.jpg" />
+    <Content Include="Content\assets\img\bg-achievement--mob.jpg" />
+    <Content Include="Content\assets\img\bg-achievement.jpg" />
+    <Content Include="Content\assets\img\bg-border-dotted-horizontal--hover.png" />
+    <Content Include="Content\assets\img\bg-border-dotted-horizontal.png" />
+    <Content Include="Content\assets\img\bg-border-dotted-vertical.png" />
+    <Content Include="Content\assets\img\bg-feature.jpg" />
+    <Content Include="Content\assets\img\bg-footer.jpg" />
+    <Content Include="Content\assets\img\bg-gosubmit-mob.jpg" />
+    <Content Include="Content\assets\img\bg-gosubmit.png" />
+    <Content Include="Content\assets\img\bg-search.jpg" />
+    <Content Include="Content\assets\img\bg-worker--mob.jpg" />
+    <Content Include="Content\assets\img\bg-worker.jpg" />
+    <Content Include="Content\assets\img\bg-worker1.jpg" />
+    <Content Include="Content\assets\img\blank.gif" />
+    <Content Include="Content\assets\img\chosen-sprite%402x.png" />
+    <Content Include="Content\assets\img\chosen-sprite.png" />
+    <Content Include="Content\assets\img\controls.png" />
+    <Content Include="Content\assets\img\default-skin.svg" />
+    <Content Include="Content\assets\img\fancybox_loading%402x.gif" />
+    <Content Include="Content\assets\img\fancybox_loading.gif" />
+    <Content Include="Content\assets\img\fancybox_overlay.png" />
+    <Content Include="Content\assets\img\fancybox_sprite%402x.png" />
+    <Content Include="Content\assets\img\fancybox_sprite.png" />
+    <Content Include="Content\assets\img\favicon.ico" />
+    <Content Include="Content\assets\img\filetypes\aac.png" />
+    <Content Include="Content\assets\img\filetypes\ai.png" />
+    <Content Include="Content\assets\img\filetypes\aiff.png" />
+    <Content Include="Content\assets\img\filetypes\avi.png" />
+    <Content Include="Content\assets\img\filetypes\bmp.png" />
+    <Content Include="Content\assets\img\filetypes\c.png" />
+    <Content Include="Content\assets\img\filetypes\cpp.png" />
+    <Content Include="Content\assets\img\filetypes\css.png" />
+    <Content Include="Content\assets\img\filetypes\dat.png" />
+    <Content Include="Content\assets\img\filetypes\dmg.png" />
+    <Content Include="Content\assets\img\filetypes\doc.png" />
+    <Content Include="Content\assets\img\filetypes\docx.png" />
+    <Content Include="Content\assets\img\filetypes\dotx.png" />
+    <Content Include="Content\assets\img\filetypes\dwg.png" />
+    <Content Include="Content\assets\img\filetypes\dxf.png" />
+    <Content Include="Content\assets\img\filetypes\eps.png" />
+    <Content Include="Content\assets\img\filetypes\exe.png" />
+    <Content Include="Content\assets\img\filetypes\flv.png" />
+    <Content Include="Content\assets\img\filetypes\gif.png" />
+    <Content Include="Content\assets\img\filetypes\h.png" />
+    <Content Include="Content\assets\img\filetypes\hpp.png" />
+    <Content Include="Content\assets\img\filetypes\html.png" />
+    <Content Include="Content\assets\img\filetypes\ics.png" />
+    <Content Include="Content\assets\img\filetypes\iso.png" />
+    <Content Include="Content\assets\img\filetypes\java.png" />
+    <Content Include="Content\assets\img\filetypes\jpg.png" />
+    <Content Include="Content\assets\img\filetypes\js.png" />
+    <Content Include="Content\assets\img\filetypes\key.png" />
+    <Content Include="Content\assets\img\filetypes\less.png" />
+    <Content Include="Content\assets\img\filetypes\mid.png" />
+    <Content Include="Content\assets\img\filetypes\mp3.png" />
+    <Content Include="Content\assets\img\filetypes\mp4.png" />
+    <Content Include="Content\assets\img\filetypes\mpg.png" />
+    <Content Include="Content\assets\img\filetypes\odf.png" />
+    <Content Include="Content\assets\img\filetypes\ods.png" />
+    <Content Include="Content\assets\img\filetypes\odt.png" />
+    <Content Include="Content\assets\img\filetypes\otp.png" />
+    <Content Include="Content\assets\img\filetypes\ots.png" />
+    <Content Include="Content\assets\img\filetypes\ott.png" />
+    <Content Include="Content\assets\img\filetypes\pdf.png" />
+    <Content Include="Content\assets\img\filetypes\php.png" />
+    <Content Include="Content\assets\img\filetypes\png.png" />
+    <Content Include="Content\assets\img\filetypes\ppt.png" />
+    <Content Include="Content\assets\img\filetypes\pptx.png" />
+    <Content Include="Content\assets\img\filetypes\psd.png" />
+    <Content Include="Content\assets\img\filetypes\py.png" />
+    <Content Include="Content\assets\img\filetypes\qt.png" />
+    <Content Include="Content\assets\img\filetypes\rar.png" />
+    <Content Include="Content\assets\img\filetypes\rb.png" />
+    <Content Include="Content\assets\img\filetypes\rtf.png" />
+    <Content Include="Content\assets\img\filetypes\sass.png" />
+    <Content Include="Content\assets\img\filetypes\scss.png" />
+    <Content Include="Content\assets\img\filetypes\sql.png" />
+    <Content Include="Content\assets\img\filetypes\tga.png" />
+    <Content Include="Content\assets\img\filetypes\tgz.png" />
+    <Content Include="Content\assets\img\filetypes\tiff.png" />
+    <Content Include="Content\assets\img\filetypes\txt.png" />
+    <Content Include="Content\assets\img\filetypes\wav.png" />
+    <Content Include="Content\assets\img\filetypes\xls.png" />
+    <Content Include="Content\assets\img\filetypes\xlsx.png" />
+    <Content Include="Content\assets\img\filetypes\xml.png" />
+    <Content Include="Content\assets\img\filetypes\yml.png" />
+    <Content Include="Content\assets\img\filetypes\zip.png" />
+    <Content Include="Content\assets\img\filetypes\_blank.png" />
+    <Content Include="Content\assets\img\filetypes\_page.png" />
+    <Content Include="Content\assets\img\flags\ad.png" />
+    <Content Include="Content\assets\img\flags\ae.png" />
+    <Content Include="Content\assets\img\flags\af.png" />
+    <Content Include="Content\assets\img\flags\ag.png" />
+    <Content Include="Content\assets\img\flags\ai.png" />
+    <Content Include="Content\assets\img\flags\al.png" />
+    <Content Include="Content\assets\img\flags\am.png" />
+    <Content Include="Content\assets\img\flags\an.png" />
+    <Content Include="Content\assets\img\flags\ao.png" />
+    <Content Include="Content\assets\img\flags\ar.png" />
+    <Content Include="Content\assets\img\flags\as.png" />
+    <Content Include="Content\assets\img\flags\at.png" />
+    <Content Include="Content\assets\img\flags\au.png" />
+    <Content Include="Content\assets\img\flags\aw.png" />
+    <Content Include="Content\assets\img\flags\ax.png" />
+    <Content Include="Content\assets\img\flags\az.png" />
+    <Content Include="Content\assets\img\flags\ba.png" />
+    <Content Include="Content\assets\img\flags\bb.png" />
+    <Content Include="Content\assets\img\flags\bd.png" />
+    <Content Include="Content\assets\img\flags\be.png" />
+    <Content Include="Content\assets\img\flags\bf.png" />
+    <Content Include="Content\assets\img\flags\bg.png" />
+    <Content Include="Content\assets\img\flags\bh.png" />
+    <Content Include="Content\assets\img\flags\bi.png" />
+    <Content Include="Content\assets\img\flags\bj.png" />
+    <Content Include="Content\assets\img\flags\bm.png" />
+    <Content Include="Content\assets\img\flags\bn.png" />
+    <Content Include="Content\assets\img\flags\bo.png" />
+    <Content Include="Content\assets\img\flags\br.png" />
+    <Content Include="Content\assets\img\flags\bs.png" />
+    <Content Include="Content\assets\img\flags\bt.png" />
+    <Content Include="Content\assets\img\flags\bv.png" />
+    <Content Include="Content\assets\img\flags\bw.png" />
+    <Content Include="Content\assets\img\flags\by.png" />
+    <Content Include="Content\assets\img\flags\bz.png" />
+    <Content Include="Content\assets\img\flags\ca.png" />
+    <Content Include="Content\assets\img\flags\catalonia.png" />
+    <Content Include="Content\assets\img\flags\cc.png" />
+    <Content Include="Content\assets\img\flags\cd.png" />
+    <Content Include="Content\assets\img\flags\cf.png" />
+    <Content Include="Content\assets\img\flags\cg.png" />
+    <Content Include="Content\assets\img\flags\ch.png" />
+    <Content Include="Content\assets\img\flags\ci.png" />
+    <Content Include="Content\assets\img\flags\ck.png" />
+    <Content Include="Content\assets\img\flags\cl.png" />
+    <Content Include="Content\assets\img\flags\cm.png" />
+    <Content Include="Content\assets\img\flags\cn.png" />
+    <Content Include="Content\assets\img\flags\co.png" />
+    <Content Include="Content\assets\img\flags\cr.png" />
+    <Content Include="Content\assets\img\flags\cs.png" />
+    <Content Include="Content\assets\img\flags\cu.png" />
+    <Content Include="Content\assets\img\flags\cv.png" />
+    <Content Include="Content\assets\img\flags\cx.png" />
+    <Content Include="Content\assets\img\flags\cy.png" />
+    <Content Include="Content\assets\img\flags\cz.png" />
+    <Content Include="Content\assets\img\flags\de.png" />
+    <Content Include="Content\assets\img\flags\dj.png" />
+    <Content Include="Content\assets\img\flags\dk.png" />
+    <Content Include="Content\assets\img\flags\dm.png" />
+    <Content Include="Content\assets\img\flags\do.png" />
+    <Content Include="Content\assets\img\flags\dz.png" />
+    <Content Include="Content\assets\img\flags\ec.png" />
+    <Content Include="Content\assets\img\flags\ee.png" />
+    <Content Include="Content\assets\img\flags\eg.png" />
+    <Content Include="Content\assets\img\flags\eh.png" />
+    <Content Include="Content\assets\img\flags\en.png" />
+    <Content Include="Content\assets\img\flags\england.png" />
+    <Content Include="Content\assets\img\flags\er.png" />
+    <Content Include="Content\assets\img\flags\es.png" />
+    <Content Include="Content\assets\img\flags\et.png" />
+    <Content Include="Content\assets\img\flags\europeanunion.png" />
+    <Content Include="Content\assets\img\flags\fam.png" />
+    <Content Include="Content\assets\img\flags\fi.png" />
+    <Content Include="Content\assets\img\flags\fj.png" />
+    <Content Include="Content\assets\img\flags\fk.png" />
+    <Content Include="Content\assets\img\flags\fm.png" />
+    <Content Include="Content\assets\img\flags\fo.png" />
+    <Content Include="Content\assets\img\flags\fr.png" />
+    <Content Include="Content\assets\img\flags\ga.png" />
+    <Content Include="Content\assets\img\flags\gb.png" />
+    <Content Include="Content\assets\img\flags\gd.png" />
+    <Content Include="Content\assets\img\flags\ge.png" />
+    <Content Include="Content\assets\img\flags\gf.png" />
+    <Content Include="Content\assets\img\flags\gh.png" />
+    <Content Include="Content\assets\img\flags\gi.png" />
+    <Content Include="Content\assets\img\flags\gl.png" />
+    <Content Include="Content\assets\img\flags\gm.png" />
+    <Content Include="Content\assets\img\flags\gn.png" />
+    <Content Include="Content\assets\img\flags\gp.png" />
+    <Content Include="Content\assets\img\flags\gq.png" />
+    <Content Include="Content\assets\img\flags\gr.png" />
+    <Content Include="Content\assets\img\flags\gs.png" />
+    <Content Include="Content\assets\img\flags\gt.png" />
+    <Content Include="Content\assets\img\flags\gu.png" />
+    <Content Include="Content\assets\img\flags\gw.png" />
+    <Content Include="Content\assets\img\flags\gy.png" />
+    <Content Include="Content\assets\img\flags\hk.png" />
+    <Content Include="Content\assets\img\flags\hm.png" />
+    <Content Include="Content\assets\img\flags\hn.png" />
+    <Content Include="Content\assets\img\flags\hr.png" />
+    <Content Include="Content\assets\img\flags\ht.png" />
+    <Content Include="Content\assets\img\flags\hu.png" />
+    <Content Include="Content\assets\img\flags\id.png" />
+    <Content Include="Content\assets\img\flags\ie.png" />
+    <Content Include="Content\assets\img\flags\il.png" />
+    <Content Include="Content\assets\img\flags\in.png" />
+    <Content Include="Content\assets\img\flags\io.png" />
+    <Content Include="Content\assets\img\flags\iq.png" />
+    <Content Include="Content\assets\img\flags\ir.png" />
+    <Content Include="Content\assets\img\flags\is.png" />
+    <Content Include="Content\assets\img\flags\it.png" />
+    <Content Include="Content\assets\img\flags\jm.png" />
+    <Content Include="Content\assets\img\flags\jo.png" />
+    <Content Include="Content\assets\img\flags\jp.png" />
+    <Content Include="Content\assets\img\flags\ke.png" />
+    <Content Include="Content\assets\img\flags\kg.png" />
+    <Content Include="Content\assets\img\flags\kh.png" />
+    <Content Include="Content\assets\img\flags\ki.png" />
+    <Content Include="Content\assets\img\flags\km.png" />
+    <Content Include="Content\assets\img\flags\kn.png" />
+    <Content Include="Content\assets\img\flags\kp.png" />
+    <Content Include="Content\assets\img\flags\kr.png" />
+    <Content Include="Content\assets\img\flags\kw.png" />
+    <Content Include="Content\assets\img\flags\ky.png" />
+    <Content Include="Content\assets\img\flags\kz.png" />
+    <Content Include="Content\assets\img\flags\la.png" />
+    <Content Include="Content\assets\img\flags\lb.png" />
+    <Content Include="Content\assets\img\flags\lc.png" />
+    <Content Include="Content\assets\img\flags\li.png" />
+    <Content Include="Content\assets\img\flags\lk.png" />
+    <Content Include="Content\assets\img\flags\lr.png" />
+    <Content Include="Content\assets\img\flags\ls.png" />
+    <Content Include="Content\assets\img\flags\lt.png" />
+    <Content Include="Content\assets\img\flags\lu.png" />
+    <Content Include="Content\assets\img\flags\lv.png" />
+    <Content Include="Content\assets\img\flags\ly.png" />
+    <Content Include="Content\assets\img\flags\ma.png" />
+    <Content Include="Content\assets\img\flags\mc.png" />
+    <Content Include="Content\assets\img\flags\md.png" />
+    <Content Include="Content\assets\img\flags\me.png" />
+    <Content Include="Content\assets\img\flags\mg.png" />
+    <Content Include="Content\assets\img\flags\mh.png" />
+    <Content Include="Content\assets\img\flags\mk.png" />
+    <Content Include="Content\assets\img\flags\ml.png" />
+    <Content Include="Content\assets\img\flags\mm.png" />
+    <Content Include="Content\assets\img\flags\mn.png" />
+    <Content Include="Content\assets\img\flags\mo.png" />
+    <Content Include="Content\assets\img\flags\mp.png" />
+    <Content Include="Content\assets\img\flags\mq.png" />
+    <Content Include="Content\assets\img\flags\mr.png" />
+    <Content Include="Content\assets\img\flags\ms.png" />
+    <Content Include="Content\assets\img\flags\mt.png" />
+    <Content Include="Content\assets\img\flags\mu.png" />
+    <Content Include="Content\assets\img\flags\mv.png" />
+    <Content Include="Content\assets\img\flags\mw.png" />
+    <Content Include="Content\assets\img\flags\mx.png" />
+    <Content Include="Content\assets\img\flags\my.png" />
+    <Content Include="Content\assets\img\flags\mz.png" />
+    <Content Include="Content\assets\img\flags\na.png" />
+    <Content Include="Content\assets\img\flags\nc.png" />
+    <Content Include="Content\assets\img\flags\ne.png" />
+    <Content Include="Content\assets\img\flags\nf.png" />
+    <Content Include="Content\assets\img\flags\ng.png" />
+    <Content Include="Content\assets\img\flags\ni.png" />
+    <Content Include="Content\assets\img\flags\nl.png" />
+    <Content Include="Content\assets\img\flags\no.png" />
+    <Content Include="Content\assets\img\flags\np.png" />
+    <Content Include="Content\assets\img\flags\nr.png" />
+    <Content Include="Content\assets\img\flags\nu.png" />
+    <Content Include="Content\assets\img\flags\nz.png" />
+    <Content Include="Content\assets\img\flags\om.png" />
+    <Content Include="Content\assets\img\flags\pa.png" />
+    <Content Include="Content\assets\img\flags\pe.png" />
+    <Content Include="Content\assets\img\flags\pf.png" />
+    <Content Include="Content\assets\img\flags\pg.png" />
+    <Content Include="Content\assets\img\flags\ph.png" />
+    <Content Include="Content\assets\img\flags\pk.png" />
+    <Content Include="Content\assets\img\flags\pl.png" />
+    <Content Include="Content\assets\img\flags\pm.png" />
+    <Content Include="Content\assets\img\flags\pn.png" />
+    <Content Include="Content\assets\img\flags\pr.png" />
+    <Content Include="Content\assets\img\flags\ps.png" />
+    <Content Include="Content\assets\img\flags\pt.png" />
+    <Content Include="Content\assets\img\flags\pw.png" />
+    <Content Include="Content\assets\img\flags\py.png" />
+    <Content Include="Content\assets\img\flags\qa.png" />
+    <Content Include="Content\assets\img\flags\re.png" />
+    <Content Include="Content\assets\img\flags\readme.txt" />
+    <Content Include="Content\assets\img\flags\ro.png" />
+    <Content Include="Content\assets\img\flags\rs.png" />
+    <Content Include="Content\assets\img\flags\ru.png" />
+    <Content Include="Content\assets\img\flags\rw.png" />
+    <Content Include="Content\assets\img\flags\sa.png" />
+    <Content Include="Content\assets\img\flags\sb.png" />
+    <Content Include="Content\assets\img\flags\sc.png" />
+    <Content Include="Content\assets\img\flags\scotland.png" />
+    <Content Include="Content\assets\img\flags\sd.png" />
+    <Content Include="Content\assets\img\flags\se.png" />
+    <Content Include="Content\assets\img\flags\sg.png" />
+    <Content Include="Content\assets\img\flags\sh.png" />
+    <Content Include="Content\assets\img\flags\si.png" />
+    <Content Include="Content\assets\img\flags\sj.png" />
+    <Content Include="Content\assets\img\flags\sk.png" />
+    <Content Include="Content\assets\img\flags\sl.png" />
+    <Content Include="Content\assets\img\flags\sm.png" />
+    <Content Include="Content\assets\img\flags\sn.png" />
+    <Content Include="Content\assets\img\flags\so.png" />
+    <Content Include="Content\assets\img\flags\sr.png" />
+    <Content Include="Content\assets\img\flags\st.png" />
+    <Content Include="Content\assets\img\flags\sv.png" />
+    <Content Include="Content\assets\img\flags\sy.png" />
+    <Content Include="Content\assets\img\flags\sz.png" />
+    <Content Include="Content\assets\img\flags\tc.png" />
+    <Content Include="Content\assets\img\flags\td.png" />
+    <Content Include="Content\assets\img\flags\tf.png" />
+    <Content Include="Content\assets\img\flags\tg.png" />
+    <Content Include="Content\assets\img\flags\th.png" />
+    <Content Include="Content\assets\img\flags\tj.png" />
+    <Content Include="Content\assets\img\flags\tk.png" />
+    <Content Include="Content\assets\img\flags\tl.png" />
+    <Content Include="Content\assets\img\flags\tm.png" />
+    <Content Include="Content\assets\img\flags\tn.png" />
+    <Content Include="Content\assets\img\flags\to.png" />
+    <Content Include="Content\assets\img\flags\tr.png" />
+    <Content Include="Content\assets\img\flags\tt.png" />
+    <Content Include="Content\assets\img\flags\tv.png" />
+    <Content Include="Content\assets\img\flags\tw.png" />
+    <Content Include="Content\assets\img\flags\tz.png" />
+    <Content Include="Content\assets\img\flags\ua.png" />
+    <Content Include="Content\assets\img\flags\ug.png" />
+    <Content Include="Content\assets\img\flags\um.png" />
+    <Content Include="Content\assets\img\flags\uy.png" />
+    <Content Include="Content\assets\img\flags\uz.png" />
+    <Content Include="Content\assets\img\flags\va.png" />
+    <Content Include="Content\assets\img\flags\vc.png" />
+    <Content Include="Content\assets\img\flags\ve.png" />
+    <Content Include="Content\assets\img\flags\vg.png" />
+    <Content Include="Content\assets\img\flags\vi.png" />
+    <Content Include="Content\assets\img\flags\vn.png" />
+    <Content Include="Content\assets\img\flags\vu.png" />
+    <Content Include="Content\assets\img\flags\wales.png" />
+    <Content Include="Content\assets\img\flags\wf.png" />
+    <Content Include="Content\assets\img\flags\ws.png" />
+    <Content Include="Content\assets\img\flags\ye.png" />
+    <Content Include="Content\assets\img\flags\yt.png" />
+    <Content Include="Content\assets\img\flags\za.png" />
+    <Content Include="Content\assets\img\flags\zm.png" />
+    <Content Include="Content\assets\img\flags\zw.png" />
+    <Content Include="Content\assets\img\icon-add--favorites.svg" />
+    <Content Include="Content\assets\img\icon-add--gallery.svg" />
+    <Content Include="Content\assets\img\icon-add--post.svg" />
+    <Content Include="Content\assets\img\icon-add--property.svg" />
+    <Content Include="Content\assets\img\icon-add-listing.svg" />
+    <Content Include="Content\assets\img\icon-agency.svg" />
+    <Content Include="Content\assets\img\icon-area.svg" />
+    <Content Include="Content\assets\img\icon-arrow-end.svg" />
+    <Content Include="Content\assets\img\icon-arrow-left.svg" />
+    <Content Include="Content\assets\img\icon-arrow-right.svg" />
+    <Content Include="Content\assets\img\icon-avatar.svg" />
+    <Content Include="Content\assets\img\icon-bathrooms.svg" />
+    <Content Include="Content\assets\img\icon-bedrooms.svg" />
+    <Content Include="Content\assets\img\icon-blog-edit.svg" />
+    <Content Include="Content\assets\img\icon-change--property.svg" />
+    <Content Include="Content\assets\img\icon-chat.svg" />
+    <Content Include="Content\assets\img\icon-clock.svg" />
+    <Content Include="Content\assets\img\icon-comfort.svg" />
+    <Content Include="Content\assets\img\icon-customers.svg" />
+    <Content Include="Content\assets\img\icon-dashboard.svg" />
+    <Content Include="Content\assets\img\icon-doc.svg" />
+    <Content Include="Content\assets\img\icon-documents.png" />
+    <Content Include="Content\assets\img\icon-earth.svg" />
+    <Content Include="Content\assets\img\icon-easy.svg" />
+    <Content Include="Content\assets\img\icon-edit--favorites.svg" />
+    <Content Include="Content\assets\img\icon-edit--gallery.svg" />
+    <Content Include="Content\assets\img\icon-edit--post.svg" />
+    <Content Include="Content\assets\img\icon-edit--property.svg" />
+    <Content Include="Content\assets\img\icon-error.svg" />
+    <Content Include="Content\assets\img\icon-favorite-agents.svg" />
+    <Content Include="Content\assets\img\icon-favorite-listings.svg" />
+    <Content Include="Content\assets\img\icon-favorite-search.svg" />
+    <Content Include="Content\assets\img\icon-financials.svg" />
+    <Content Include="Content\assets\img\icon-garage.svg" />
+    <Content Include="Content\assets\img\icon-geolocation.svg" />
+    <Content Include="Content\assets\img\icon-get--review.svg" />
+    <Content Include="Content\assets\img\icon-get--stars.svg" />
+    <Content Include="Content\assets\img\icon-good-sales.svg" />
+    <Content Include="Content\assets\img\icon-info.svg" />
+    <Content Include="Content\assets\img\icon-lens.svg" />
+    <Content Include="Content\assets\img\icon-login.svg" />
+    <Content Include="Content\assets\img\icon-logo--mob.svg" />
+    <Content Include="Content\assets\img\icon-logo.svg" />
+    <Content Include="Content\assets\img\icon-mail.svg" />
+    <Content Include="Content\assets\img\icon-marker-white.svg" />
+    <Content Include="Content\assets\img\icon-marker.png" />
+    <Content Include="Content\assets\img\icon-marker.svg" />
+    <Content Include="Content\assets\img\icon-menu-close.svg" />
+    <Content Include="Content\assets\img\icon-menu.svg" />
+    <Content Include="Content\assets\img\icon-money-save.svg" />
+    <Content Include="Content\assets\img\icon-money.svg" />
+    <Content Include="Content\assets\img\icon-news.svg" />
+    <Content Include="Content\assets\img\icon-noitems.svg" />
+    <Content Include="Content\assets\img\icon-phone.svg" />
+    <Content Include="Content\assets\img\icon-property-edit.svg" />
+    <Content Include="Content\assets\img\icon-remove--favorites.svg" />
+    <Content Include="Content\assets\img\icon-remove--gallery.svg" />
+    <Content Include="Content\assets\img\icon-remove--post.svg" />
+    <Content Include="Content\assets\img\icon-remove--property.svg" />
+    <Content Include="Content\assets\img\icon-sales.svg" />
+    <Content Include="Content\assets\img\icon-statistics.svg" />
+    <Content Include="Content\assets\img\icon-transactions.svg" />
+    <Content Include="Content\assets\img\icon-user-admin.svg" />
+    <Content Include="Content\assets\img\icon-user.svg" />
+    <Content Include="Content\assets\img\icon-valid.svg" />
+    <Content Include="Content\assets\img\icon-window.svg" />
+    <Content Include="Content\assets\img\lazy-image.jpg" />
+    <Content Include="Content\assets\img\left-arrow.png" />
+    <Content Include="Content\assets\img\loading.gif" />
+    <Content Include="Content\assets\img\logo--ipad.png" />
+    <Content Include="Content\assets\img\logo--mob.png" />
+    <Content Include="Content\assets\img\logo.png" />
+    <Content Include="Content\assets\img\logo\Aplle Iphone Retina Logo.png" />
+    <Content Include="Content\assets\img\logo\Apple Iphone Retina.png" />
+    <Content Include="Content\assets\img\logo\AppleIphoneIcon 57x57.png" />
+    <Content Include="Content\assets\img\logo\email_logo.png" />
+    <Content Include="Content\assets\img\logo\Ipad Icon.png" />
+    <Content Include="Content\assets\img\logo\Ipad Retina Icon.png" />
+    <Content Include="Content\assets\img\logo\wohnungstausch24_logo_rgb_praegung - Kopie.png" />
+    <Content Include="Content\assets\img\logo\wohnungstausch24_logo_rgb_praegung.png" />
+    <Content Include="Content\assets\img\logo\WT24 klein.png" />
+    <Content Include="Content\assets\img\map-placeholder.jpg" />
+    <Content Include="Content\assets\img\marker\blue-orange_red.png" />
+    <Content Include="Content\assets\img\marker\blue-red.png" />
+    <Content Include="Content\assets\img\marker\blue_green.png" />
+    <Content Include="Content\assets\img\marker\brown-dark_red.png" />
+    <Content Include="Content\assets\img\marker\brown-dark_yellow.png" />
+    <Content Include="Content\assets\img\marker\brown_red.png" />
+    <Content Include="Content\assets\img\marker\dark_blue-dark_yellow.png" />
+    <Content Include="Content\assets\img\marker\dark_blue-light_green.png" />
+    <Content Include="Content\assets\img\marker\dark_blue-yellow.png" />
+    <Content Include="Content\assets\img\marker\dark_violet-green.png" />
+    <Content Include="Content\assets\img\marker\dark_violet-yellow.png" />
+    <Content Include="Content\assets\img\marker\default.png" />
+    <Content Include="Content\assets\img\marker\gray-red.png" />
+    <Content Include="Content\assets\img\marker\green-red.png" />
+    <Content Include="Content\assets\img\marker\green_blue-red.png" />
+    <Content Include="Content\assets\img\marker\light_blue-beige.png" />
+    <Content Include="Content\assets\img\marker\light_blue-cyan.png" />
+    <Content Include="Content\assets\img\marker\light_cyan-red.png" />
+    <Content Include="Content\assets\img\marker\light_green-dark_blue.png" />
+    <Content Include="Content\assets\img\marker\light_green-violet.png" />
+    <Content Include="Content\assets\img\marker\pink_yellow.png" />
+    <Content Include="Content\assets\img\no-image--554x360.jpg" />
+    <Content Include="Content\assets\img\no-image--blog-275x180.jpg" />
+    <Content Include="Content\assets\img\no-image--blog-870x480.jpg" />
+    <Content Include="Content\assets\img\no-image.jpg" />
+    <Content Include="Content\assets\img\pattern-empty.png" />
+    <Content Include="Content\assets\img\patterns\50x50\!none.png" />
+    <Content Include="Content\assets\img\patterns\50x50\brickwall.png" />
+    <Content Include="Content\assets\img\patterns\50x50\debut_light.png" />
+    <Content Include="Content\assets\img\patterns\50x50\diagonal-noise.png" />
+    <Content Include="Content\assets\img\patterns\50x50\diagonal_lines_01.png" />
+    <Content Include="Content\assets\img\patterns\50x50\dust_2X.png" />
+    <Content Include="Content\assets\img\patterns\50x50\groovepaper.png" />
+    <Content Include="Content\assets\img\patterns\50x50\little_pluses.png" />
+    <Content Include="Content\assets\img\patterns\50x50\p4.png" />
+    <Content Include="Content\assets\img\patterns\50x50\p5.png" />
+    <Content Include="Content\assets\img\patterns\50x50\retina_dust.png" />
+    <Content Include="Content\assets\img\patterns\50x50\ricepaper2.png" />
+    <Content Include="Content\assets\img\patterns\50x50\shl.png" />
+    <Content Include="Content\assets\img\patterns\50x50\squairy_light.png" />
+    <Content Include="Content\assets\img\patterns\50x50\stardust_2X.png" />
+    <Content Include="Content\assets\img\patterns\50x50\subtle_dots.png" />
+    <Content Include="Content\assets\img\patterns\50x50\subtle_dots_2X.png" />
+    <Content Include="Content\assets\img\patterns\50x50\white_brick_wall.png" />
+    <Content Include="Content\assets\img\patterns\50x50\worn_dots.png" />
+    <Content Include="Content\assets\img\patterns\brickwall.png" />
+    <Content Include="Content\assets\img\patterns\debut_light.png" />
+    <Content Include="Content\assets\img\patterns\diagonal-noise.png" />
+    <Content Include="Content\assets\img\patterns\diagonal_lines_01.png" />
+    <Content Include="Content\assets\img\patterns\dust_2X.png" />
+    <Content Include="Content\assets\img\patterns\groovepaper.png" />
+    <Content Include="Content\assets\img\patterns\little_pluses.png" />
+    <Content Include="Content\assets\img\patterns\p4.png" />
+    <Content Include="Content\assets\img\patterns\p5.png" />
+    <Content Include="Content\assets\img\patterns\retina_dust.png" />
+    <Content Include="Content\assets\img\patterns\ricepaper2.png" />
+    <Content Include="Content\assets\img\patterns\shl.png" />
+    <Content Include="Content\assets\img\patterns\squairy_light.png" />
+    <Content Include="Content\assets\img\patterns\stardust_2X.png" />
+    <Content Include="Content\assets\img\patterns\subtle_dots.png" />
+    <Content Include="Content\assets\img\patterns\subtle_dots_2X.png" />
+    <Content Include="Content\assets\img\patterns\white_brick_wall.png" />
+    <Content Include="Content\assets\img\patterns\worn_dots.png" />
+    <Content Include="Content\assets\img\payments.png" />
+    <Content Include="Content\assets\img\preloader.gif" />
+    <Content Include="Content\assets\img\slider-handle-2.svg" />
+    <Content Include="Content\assets\img\slider-handle.png" />
+    <Content Include="Content\assets\img\slider-handle.svg" />
+    <Content Include="Content\assets\img\social\icon-facebook.png" />
+    <Content Include="Content\assets\img\social\icon-google.png" />
+    <Content Include="Content\assets\img\social\icon-twitter.png" />
+    <Content Include="Content\assets\img\sprite-inline.svg" />
+    <Content Include="Content\assets\img\sprite-skin-flat.png" />
+    <Content Include="Content\assets\img\sprite.svg" />
+    <Content Include="Content\assets\img\watermarks\watermark-1.png" />
+    <Content Include="Content\assets\img\watermarks\watermark-2.png" />
+    <Content Include="Content\assets\img\watermarks\watermark-3.png" />
+    <Content Include="Content\assets\img\watermarks\watermark-4.png" />
+    <Content Include="Content\assets\js\app.js" />
+    <Content Include="Content\assets\js\app.min.js">
+      <DependentUpon>app.js</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\js\common.js" />
+    <Content Include="Content\assets\js\common.min.js">
+      <DependentUpon>common.js</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\js\agent.js" />
+    <Content Include="Content\assets\js\landing.js" />
+    <Content Include="Content\assets\js\vendor.js" />
+    <Content Include="Content\assets\js\vendor.min.js">
+      <DependentUpon>vendor.js</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\media-demo\Apartment-Perlova-photos-Exterior-Hotel-information.JPEG" />
+    <Content Include="Content\assets\media-demo\Apartment-Living.jpg" />
+    <Content Include="Content\assets\media-demo\Apartment-201020321427.jpg" />
+    <Content Include="Content\assets\media-demo\001-Apartment-1-6-Palace-Gate-London-W8-England-UK-The-Pinnacle-List-TPL-1840-920x613.jpg" />
+    <Content Include="Content\assets\media-demo\avatars\01.jpg" />
+    <Content Include="Content\assets\media-demo\avatars\02.jpg" />
+    <Content Include="Content\assets\media-demo\avatars\03.jpg" />
+    <Content Include="Content\assets\media-demo\avatars\04.jpg" />
+    <Content Include="Content\assets\media-demo\avatars\05.jpg" />
+    <Content Include="Content\assets\media-demo\banner\banner-1.jpg" />
+    <Content Include="Content\assets\media-demo\banner\banner-2.jpg" />
+    <Content Include="Content\assets\media-demo\banner\banner-3.jpg" />
+    <Content Include="Content\assets\media-demo\banner\banner-4.jpg" />
+    <Content Include="Content\assets\media-demo\email\image.jpg" />
+    <Content Include="Content\assets\media-demo\longwood_towers_apartments_living_room_in_brookline_ma740x354.jpg" />
+    <Content Include="Content\assets\media-demo\news\news-1.jpg" />
+    <Content Include="Content\assets\media-demo\news\news-2.jpg" />
+    <Content Include="Content\assets\media-demo\news\news-3.jpg" />
+    <Content Include="Content\assets\media-demo\news\news-4.jpg" />
+    <Content Include="Content\assets\media-demo\no-image.jpg" />
+    <Content Include="Content\assets\media-demo\partners\logo-company-1.png" />
+    <Content Include="Content\assets\media-demo\partners\logo-company-2.png" />
+    <Content Include="Content\assets\media-demo\partners\logo-company-3.png" />
+    <Content Include="Content\assets\media-demo\partners\logo-company-4.png" />
+    <Content Include="Content\assets\media-demo\partners\logo-company-5.png" />
+    <Content Include="Content\assets\media-demo\partners\logo-company-proera.png" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\01.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\02.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\03.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\04.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\05.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\06.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\07.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\08.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\09.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\10.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\11.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\12.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\14.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\15.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1168x550\16.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\01.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\02.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\03.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\04.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\05.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\06.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\07.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\08.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\09.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\10.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\11.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\12.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\14.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\15.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\16.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\21.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\22.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\23.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\24.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\25.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\26.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\27.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\28.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\29.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\30.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\31.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\32.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\34.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\35.jpg" />
+    <Content Include="Content\assets\media-demo\properties\1740x960\36.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\01.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\02.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\03.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\04.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\05.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\06.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\07.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\08.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\09.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\10.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\11.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\12.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\14.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\15.jpg" />
+    <Content Include="Content\assets\media-demo\properties\2336x1100\16.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\01.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\02.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\03.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\04.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\05.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\06.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\07.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\08.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\09.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\10.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\11.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\12.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\14.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\15.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\16.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\21.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\22.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\23.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\24.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\25.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\26.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\27.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\28.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\29.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\30.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\31.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\32.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\33.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\34.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\35.jpg" />
+    <Content Include="Content\assets\media-demo\properties\277x180\36.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\01.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\02.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\03.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\04.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\05.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\06.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\07.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\08.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\09.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\10.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\11.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\12.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\14.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\15.jpg" />
+    <Content Include="Content\assets\media-demo\properties\554x360\16.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\01.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\02.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\03.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\04.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\05.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\06.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\07.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\08.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\09.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\10.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\11.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\12.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\14.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\15.jpg" />
+    <Content Include="Content\assets\media-demo\properties\830x540\16.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\01.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\02.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\03.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\04.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\05.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\06.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\07.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\08.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\09.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\10.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\11.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\12.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\14.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\15.jpg" />
+    <Content Include="Content\assets\media-demo\properties\870x480\16.jpg" />
+    <Content Include="Content\assets\media-demo\sleek-modern-apartment-6.jpg" />
+    <Content Include="Content\assets\media-demo\testimonials\01.jpg" />
+    <Content Include="Content\assets\media-demo\testimonials\02.jpg" />
+    <Content Include="Content\assets\media-demo\testimonials\03.jpg" />
+    <Content Include="Content\assets\media-demo\testimonials\04.jpg" />
+    <Content Include="Content\assets\media-demo\workers\worker-1.jpg" />
+    <Content Include="Content\assets\media-demo\workers\worker-2.jpg" />
+    <Content Include="Content\assets\media-demo\workers\worker-3.jpg" />
+    <Content Include="Content\assets\media-demo\workers\worker-4.jpg" />
+    <Content Include="Content\assets\doc.png" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css">
+      <DependentUpon>bootstrap-theme.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\jQuery.FileUpload\css\blueimp-gallery.min.css" />
+    <Content Include="Content\jQuery.FileUpload\css\blueimp-gallery.min.min.css">
+      <DependentUpon>blueimp-gallery.min.css</DependentUpon>
+    </Content>
+    <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-noscript.css" />
+    <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-noscript.min.css">
+      <DependentUpon>jquery.fileupload-noscript.css</DependentUpon>
+    </Content>
+    <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-ui.css" />
+    <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-ui.min.css">
+      <DependentUpon>jquery.fileupload-ui.css</DependentUpon>
+    </Content>
+    <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload.css" />
+    <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload.min.css">
+      <DependentUpon>jquery.fileupload.css</DependentUpon>
+    </Content>
+    <Content Include="Content\jQuery.FileUpload\img\error.png" />
+    <Content Include="Content\jQuery.FileUpload\img\error.svg" />
+    <Content Include="Content\jQuery.FileUpload\img\loading.gif" />
+    <Content Include="Content\jQuery.FileUpload\img\play-pause.png" />
+    <Content Include="Content\jQuery.FileUpload\img\play-pause.svg" />
+    <Content Include="Content\jQuery.FileUpload\img\progressbar.gif" />
+    <Content Include="Content\jQuery.FileUpload\img\video-play.png" />
+    <Content Include="Content\jQuery.FileUpload\img\video-play.svg" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css">
+      <DependentUpon>toastr.css</DependentUpon>
+    </Content>
+    <Content Include="Content\toggle\css\bootstrap-toggle.css" />
+    <Content Include="Content\toggle\css\bootstrap-toggle.min.css">
+      <DependentUpon>bootstrap-toggle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\toggle\css\bootstrap2-toggle.css" />
+    <Content Include="Content\toggle\css\bootstrap2-toggle.min.css">
+      <DependentUpon>bootstrap2-toggle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\toggle\js\bootstrap-toggle.js" />
+    <Content Include="Content\toggle\js\bootstrap-toggle.min.js">
+      <DependentUpon>bootstrap-toggle.js</DependentUpon>
+    </Content>
+    <Content Include="Content\toggle\js\bootstrap-toggle.min.js.map">
+      <DependentUpon>bootstrap-toggle.js</DependentUpon>
+    </Content>
+    <Content Include="Content\toggle\js\bootstrap2-toggle.js" />
+    <Content Include="Content\toggle\js\bootstrap2-toggle.min.js">
+      <DependentUpon>bootstrap2-toggle.js</DependentUpon>
+    </Content>
+    <Content Include="Content\toggle\js\bootstrap2-toggle.min.js.map">
+      <DependentUpon>bootstrap2-toggle.js</DependentUpon>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Agent\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Agent\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Agent\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminSidebar.cshtml" />
+    <Content Include="Areas\Agent\Views\Shared\_AgentSidebar.cshtml" />
+    <Content Include="Areas\Agent\Views\Settings\ChangePassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\ChangePassword.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\Index.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForRent\Step1.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForRent\Step2.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForRent\Step3.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForRent\Step4.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForRent\Step6.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForRent\Step7.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForRent\_Steps.cshtml" />
+    <Content Include="Areas\Agent\Views\Settings\Contact.cshtml" />
+    <Content Include="Areas\Agent\Views\Settings\Social.cshtml" />
+    <Content Include="Areas\Agent\Views\Agency\Step1.cshtml" />
+    <Content Include="Areas\Agent\Views\Settings\_Progress.cshtml" />
+    <Content Include="Areas\Agent\Views\Settings\Index.cshtml" />
+    <Content Include="Areas\Agent\Views\Shared\_MyListings.cshtml" />
+    <Content Include="Areas\Agent\Views\Shared\Property\_ParkingSpaceTablePartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Shared\Property\_BalconyTablePartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\ChoosePropertyType.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForSale\Step8.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForSale\Step1.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForSale\Step2.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForSale\Step3.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForSale\Step4.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForSale\Step6.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForRent\Step1.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForRent\Step2.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForRent\Step3.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForRent\Step4.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForRent\Step6.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForRent\Step7.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForSale\Step8.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForSale\Step1.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForSale\Step2.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForSale\Step3.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForSale\Step4.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForSale\Step6.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\LandForSale\Step8.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\LandForSale\Step1.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\LandForSale\Step2.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\LandForSale\Step3.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\LandForSale\Step4.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\LandForSale\Step6.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\LandForSale\Step7.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForSale\_Steps.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForRent\_Steps.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForSale\_Steps.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\LandForSale\_Steps.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\ChooseTypeOfUse.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\TypeOfMerchandising.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForSale\Step9.cshtml" />
+    <Content Include="Areas\Agent\Views\Shared\Property\_ViewSightTablePartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\FlatForRent\Step9.cshtml" />
+    <Content Include="Areas\Agent\Views\Shared\Property\_DistanceToTablePartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForRent\Step9.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\HouseForSale\Step9.cshtml" />
+    <Content Include="Areas\Agent\Views\Agency\Step3.cshtml" />
+    <Content Include="Areas\Agent\Views\Agency\AddAgent.cshtml" />
+    <Content Include="Areas\Agent\Views\Shared\Property\_HeatingPartialTable.cshtml" />
+    <Content Include="Areas\Agent\Views\Shared\Property\_BathroomPartialTable.cshtml" />
+    <Content Include="Areas\Agent\Views\Shared\Property\_BeaconingTablePartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Agency\Step2.cshtml" />
+    <Content Include="Areas\Agent\Views\Agency\_BranchesTablePartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Shared\Property\_TextInAnotherLanguageTablePartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\Common\Step5.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\_AddHeatingPartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\_AddBeaconingModalPartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\_AddBathroomModalPartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\_AddBalconyModalPartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\_AddParkingSpaceModalPartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\Common\_LocationSelection.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\Common\Residence\_HouseNumber.cshtml" />
+    <Content Include="Areas\Agent\Views\Settings\Tenant.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\_MySearchProfiles.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\AddNewClient.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\_SearchProfileFeaturesPartial.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\_SearchProfileResidence.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\AddPerson.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\Index.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\Detail.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\_PersonsTablePartial.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\EditClient.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\_SearchProfileFlatForRent.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\_SearchProfileFlatForSale.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\_SearchProfileHouseForRent.cshtml" />
+    <Content Include="Areas\Agent\Views\SearchProfile\_SearchProfileHouseForSale.cshtml" />
+    <Content Include="Areas\Agent\Views\File\UploadProfilePicture.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\_AddDistanceModalPartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\Common\EnergyStep.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\Common\_EnergyPartial.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\RoomForRent\Step1.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\RoomForRent\_Steps.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\RoomForRent\Step2.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\RoomForRent\Step3.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\RoomForRent\Step4.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\RoomForRent\Step6.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\RoomForRent\Step7.cshtml" />
+    <Content Include="Areas\Agent\Views\Property\RoomForRent\Step9.cshtml" />
+    <None Include="bundleconfig.json" />
+    <Content Include="Content\assets\img\logo\wohnungstausch24_logo_cmyk.eps" />
+    <Content Include="Content\assets\img\logo\wohnungstausch24_logo_rgb.eps" />
+    <Content Include="Content\assets\img\logo\wohnungstausch24_logo_sw.eps" />
+    <Content Include="Content\assets\icons\Flaticon.eot" />
+    <Content Include="Content\assets\icons\Flaticon.ttf" />
+    <Content Include="Content\assets\icons\Flaticon.woff" />
+    <Content Include="Content\assets\icons\_flaticon.scss" />
+    <None Include="Properties\PublishProfiles\live-Wohnungstausch24.pubxml" />
+    <None Include="scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="scripts\bootstrap-datetimepicker.js" />
+    <Content Include="scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.af-ZA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.af.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.am-ET.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.am.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-AE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-BH.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-DZ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-EG.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-IQ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-JO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-KW.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-LB.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-LY.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-MA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-OM.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-QA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-SA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-SY.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-TN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar-YE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ar.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.arn-CL.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.arn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.as-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.as.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.az-Cyrl-AZ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.az-Cyrl.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.az-Latn-AZ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.az-Latn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.az.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ba-RU.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ba.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.be-BY.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.be.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.bg-BG.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.bg.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.bn-BD.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.bn-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.bn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.bo-CN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.bo.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.br-FR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.br.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.bs-Cyrl-BA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.bs-Cyrl.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.bs-Latn-BA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.bs-Latn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.bs.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ca-ES.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ca.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.co-FR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.co.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.cs-CZ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.cs.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.cy-GB.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.cy.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.da-DK.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.da.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.de-AT.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.de-CH.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.de-DE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.de-LI.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.de-LU.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.de.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.dsb-DE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.dsb.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.dv-MV.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.dv.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.el-GR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.el.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-029.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-AU.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-BZ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-CA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-GB.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-IE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-JM.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-MY.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-NZ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-PH.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-SG.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-TT.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-US.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-ZA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.en-ZW.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-AR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-BO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-CL.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-CO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-CR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-DO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-EC.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-ES.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-GT.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-HN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-MX.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-NI.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-PA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-PE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-PR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-PY.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-SV.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-US.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-UY.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es-VE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.es.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.et-EE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.et.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.eu-ES.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.eu.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fa-IR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fa.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fi-FI.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fi.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fil-PH.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fil.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fo-FO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fo.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fr-BE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fr-CA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fr-CH.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fr-FR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fr-LU.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fr-MC.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fr.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fy-NL.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.fy.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ga-IE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ga.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.gd-GB.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.gd.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.gl-ES.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.gl.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.gsw-FR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.gsw.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.gu-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.gu.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ha-Latn-NG.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ha-Latn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ha.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.he-IL.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.he.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.hi-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.hi.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.hr-BA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.hr-HR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.hr.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.hsb-DE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.hsb.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.hu-HU.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.hu.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.hy-AM.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.hy.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.id-ID.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.id.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ig-NG.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ig.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ii-CN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ii.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.is-IS.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.is.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.it-CH.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.it-IT.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.it.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.iu-Cans-CA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.iu-Cans.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.iu-Latn-CA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.iu-Latn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.iu.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ja-JP.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ja.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ka-GE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ka.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.kk-KZ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.kk.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.kl-GL.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.kl.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.km-KH.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.km.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.kn-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.kn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ko-KR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ko.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.kok-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.kok.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ky-KG.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ky.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.lb-LU.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.lb.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.lo-LA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.lo.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.lt-LT.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.lt.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.lv-LV.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.lv.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mi-NZ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mi.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mk-MK.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mk.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ml-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ml.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mn-Cyrl.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mn-MN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mn-Mong-CN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mn-Mong.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.moh-CA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.moh.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mr-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mr.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ms-BN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ms-MY.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ms.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mt-MT.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.mt.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.nb-NO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.nb.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ne-NP.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ne.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.nl-BE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.nl-NL.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.nl.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.nn-NO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.nn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.no.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.nso-ZA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.nso.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.oc-FR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.oc.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.or-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.or.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.pa-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.pa.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.pl-PL.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.pl.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.prs-AF.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.prs.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ps-AF.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ps.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.pt-BR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.pt-PT.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.pt.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.qut-GT.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.qut.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.quz-BO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.quz-EC.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.quz-PE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.quz.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.rm-CH.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.rm.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ro-RO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ro.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ru-RU.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ru.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.rw-RW.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.rw.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sa-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sa.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sah-RU.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sah.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.se-FI.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.se-NO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.se-SE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.se.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.si-LK.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.si.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sk-SK.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sk.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sl-SI.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sl.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sma-NO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sma-SE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sma.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.smj-NO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.smj-SE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.smj.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.smn-FI.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.smn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sms-FI.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sms.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sq-AL.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sq.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sr-Cyrl-BA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sr-Cyrl-CS.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sr-Cyrl-ME.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sr-Cyrl-RS.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sr-Cyrl.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sr-Latn-BA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sr-Latn-CS.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sr-Latn-ME.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sr-Latn-RS.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sr-Latn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sr.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sv-FI.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sv-SE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sv.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sw-KE.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.sw.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.syr-SY.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.syr.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ta-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ta.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.te-IN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.te.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tg-Cyrl-TJ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tg-Cyrl.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tg.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.th-TH.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.th.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tk-TM.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tk.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tn-ZA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tr-TR.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tr.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tt-RU.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tt.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tzm-Latn-DZ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tzm-Latn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.tzm.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ug-CN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ug.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.uk-UA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.uk.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ur-PK.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.ur.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.uz-Cyrl-UZ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.uz-Cyrl.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.uz-Latn-UZ.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.uz-Latn.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.uz.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.vi-VN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.vi.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.wo-SN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.wo.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.xh-ZA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.xh.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.yo-NG.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.yo.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.zh-CHS.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.zh-CHT.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.zh-CN.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.zh-Hans.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.zh-Hant.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.zh-HK.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.zh-MO.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.zh-SG.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.zh-TW.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.zh.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.zu-ZA.js" />
+    <Content Include="scripts\globalize\cultures\globalize.culture.zu.js" />
+    <Content Include="scripts\globalize\cultures\globalize.cultures.js" />
+    <Content Include="scripts\globalize\globalize.js" />
+    <Content Include="scripts\jquery-3.1.1.js" />
+    <Content Include="scripts\jquery-3.1.1.min.js" />
+    <Content Include="scripts\jquery-3.1.1.slim.js" />
+    <Content Include="scripts\jquery-3.1.1.slim.min.js" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery-ui-1.12.1.js" />
+    <Content Include="scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="scripts\jQuery.FileUpload\canvas-to-blob.min.js" />
+    <Content Include="scripts\jQuery.FileUpload\cors\jquery.postmessage-transport.js" />
+    <Content Include="scripts\jQuery.FileUpload\cors\jquery.xdr-transport.js" />
+    <Content Include="scripts\jQuery.FileUpload\jquery.blueimp-gallery.min.js" />
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-angular.js" />
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-audio.js" />
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-audio.min.js">
+      <DependentUpon>jquery.fileupload-audio.js</DependentUpon>
+    </Content>
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-image.js" />
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-image.min.js">
+      <DependentUpon>jquery.fileupload-image.js</DependentUpon>
+    </Content>
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-jquery-ui.js" />
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-jquery-ui.min.js">
+      <DependentUpon>jquery.fileupload-jquery-ui.js</DependentUpon>
+    </Content>
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-process.js" />
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-process.min.js">
+      <DependentUpon>jquery.fileupload-process.js</DependentUpon>
+    </Content>
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-ui.js" />
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-validate.js" />
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-validate.min.js">
+      <DependentUpon>jquery.fileupload-validate.js</DependentUpon>
+    </Content>
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-video.js" />
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload-video.min.js">
+      <DependentUpon>jquery.fileupload-video.js</DependentUpon>
+    </Content>
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload.js" />
+    <Content Include="scripts\jQuery.FileUpload\jquery.fileupload.min.js">
+      <DependentUpon>jquery.fileupload.js</DependentUpon>
+    </Content>
+    <Content Include="scripts\jQuery.FileUpload\jquery.iframe-transport.js" />
+    <Content Include="scripts\jQuery.FileUpload\jquery.iframe-transport.min.js">
+      <DependentUpon>jquery.iframe-transport.js</DependentUpon>
+    </Content>
+    <Content Include="scripts\jQuery.FileUpload\load-image.all.min.js" />
+    <Content Include="scripts\jQuery.FileUpload\tmpl.min.js" />
+    <Content Include="scripts\jquery.ui.widget.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="scripts\jquery.validate.globalize.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="scripts\modernizr-2.8.3.js" />
+    <Content Include="scripts\moment-with-locales.js" />
+    <Content Include="scripts\moment-with-locales.min.js" />
+    <Content Include="scripts\moment.js" />
+    <Content Include="scripts\moment.min.js" />
+    <Content Include="scripts\respond.js" />
+    <Content Include="scripts\respond.matchmedia.addListener.js" />
+    <Content Include="scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="scripts\respond.min.js" />
+    <Content Include="scripts\sweetalert-dev.js" />
+    <Content Include="scripts\sweetalert.min.js" />
+    <Content Include="scripts\toastr.js" />
+    <Content Include="scripts\toastr.min.js" />
+    <Content Include="Styles\sweetalert.css" />
+    <Content Include="Views\Home\TenantDetail.cshtml" />
+    <Content Include="Views\Home\TenantSearch.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Impressum.cshtml" />
+    <Content Include="Views\Property\Index.cshtml" />
+    <Content Include="Views\Agents\Index.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Shared\_UserProfileSidebar.cshtml" />
+    <Content Include="Views\Shared\_ListingPartial.cshtml" />
+    <Content Include="Views\Shared\_HomeSearchBox.cshtml" />
+    <Content Include="Views\Shared\_ListingSearchResult.cshtml" />
+    <Content Include="Views\Shared\Property\_PropertyFeaturesPartial.cshtml" />
+    <Content Include="Views\Shared\Property\_PropertyDistancesPartial.cshtml" />
+    <Content Include="Views\Shared\_LocationsTreeView.cshtml" />
+    <Content Include="Views\Property\_AgentInformations.cshtml" />
+    <Content Include="Views\Property\_PropertySidebarPartial.cshtml" />
+    <Content Include="Views\Property\_SimilarPropertiesPartial.cshtml" />
+    <Content Include="Views\Property\_PropertyAgentSideBar.cshtml" />
+    <Content Include="Views\Property\_DetailGoogleMapPartial.cshtml" />
+    <Content Include="Views\Agents\Detail.cshtml" />
+    <Content Include="Areas\Agent\Views\Agency\EditAgent.cshtml" />
+    <Content Include="Views\Property\Detail\_MediaPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Boolean.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\BooleanFeature.cshtml" />
+    <Content Include="Views\Property\Detail.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\_Prices.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\Flat\ForRent\_ObjectInformations.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\_Area.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\_Rooms.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\_Balconies.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\_Garages.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\_Bathrooms.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\Flat\ForRent\_PricesAndCosts.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\_EnergyCertificates.cshtml" />
+    <Content Include="Areas\Agent\Views\Shared\Property\_MixedLandTablePartial.cshtml" />
+    <Content Include="Views\Property\Detail\Land\ForSale\_Prices.cshtml" />
+    <Content Include="Views\Property\Detail\Land\_ObjectInformations.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\Flat\ForSale\_ObjectInformations.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\Flat\ForSale\_PricesAndCosts.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\House\ForRent\_ObjectInformations.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\House\ForRent\_PricesAndCosts.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\House\ForSale\_ObjectInformations.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\House\ForSale\_PricesAndCosts.cshtml" />
+    <Content Include="Views\Property\Detail\Land\ForSale\_PricesAndCosts.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\Flat\ForRent\_Prices.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\Flat\ForSale\_Prices.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\House\ForRent\_Prices.cshtml" />
+    <Content Include="Views\Property\Detail\Residence\House\ForSale\_Prices.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Home\_SideBarForSearchPartial.cshtml" />
+    <Content Include="Views\Home\_DetailSearchLfsPartial.cshtml" />
+    <Content Include="Views\Home\_DetailSearchResidence.cshtml" />
+    <Content Include="Views\Home\Flat\_DetailedSearchFlat.cshtml" />
+    <Content Include="Views\Services\Electricity.cshtml" />
+    <Content Include="Views\Services\Gas.cshtml" />
+    <Content Include="Views\Services\Internet.cshtml" />
+    <Content Include="Views\Services\Holiday.cshtml" />
+    <Content Include="Views\Services\RentACar.cshtml" />
+    <Content Include="Views\Services\Hotels.cshtml" />
+    <Content Include="Views\Services\Loan.cshtml" />
+    <Content Include="Views\Services\Insurance.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\RangedInt.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\RangedDecimal.cshtml" />
+    <Content Include="Views\Home\Flat\ForRent\_DetailedSearchFlatForRent.cshtml" />
+    <Content Include="Views\Home\Flat\ForSale\_DetailedSearchFlatForSale.cshtml" />
+    <Content Include="Views\Home\House\ForSale\_DetailedSearchHouseForSale.cshtml" />
+    <Content Include="Views\Home\House\ForRent\_DetailedSearchHouseForRent.cshtml" />
+    <Content Include="Views\Home\House\_DetailedSearchHouse.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_SingleSlider.cshtml" />
+    <Content Include="Views\Shared\_BasicSearch.cshtml" />
+    <Content Include="Views\Home\_TenantsSearchResult.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\RangedDecimal.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\RangedInt.cshtml" />
+    <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\Home\_TenantSearchSideBar.cshtml" />
+    <Content Include="Views\EmailTemplates\Register.cshtml" />
+    <Content Include="Views\Account\RegisterConfirmation.cshtml" />
+    <Content Include="Views\EmailTemplates\CreateAgent.cshtml" />
+    <Content Include="Views\EmailTemplates\ContactAgent.cshtml" />
+    <Content Include="Views\Property\_ContactAgentForm.cshtml" />
+    <None Include="Web.Test.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Views\Home\DetailedSearch.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Agent\Models\" />
+    <Folder Include="Views\File\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Content\assets\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\assets\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\assets\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\assets\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\assets\fonts\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="Content\assets\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="Content\assets\fonts\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="Content\assets\fonts\font-awesome\fontawesome-webfont.woff2" />
+    <Content Include="Content\assets\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="Content\assets\fonts\montserrat\montserrat-thin.eot" />
+    <Content Include="Content\assets\fonts\montserrat\montserrat-thin.ttf" />
+    <Content Include="Content\assets\fonts\montserrat\montserrat-thin.woff" />
+    <Content Include="Content\assets\fonts\montserrat\montserrat-thin.woff2" />
+    <Content Include="Content\assets\fonts\slick\slick.eot" />
+    <Content Include="Content\assets\fonts\slick\slick.ttf" />
+    <Content Include="Content\assets\fonts\slick\slick.woff" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\Shared\_Toastr.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\Account\_Login.cshtml" />
+    <Content Include="Views\Shared\Account\_Register.cshtml" />
+    <Content Include="Views\Shared\Account\_ForgotPassword.cshtml" />
+    <None Include="Properties\PublishProfiles\test-Wohnungstausch24.pubxml" />
+    <Content Include="scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wohnungstausch24.Core\Wohnungstausch24.Core.csproj">
+      <Project>{A79797CC-D009-482F-B4F8-EAFB2A82C802}</Project>
+      <Name>Wohnungstausch24.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wohnungstausch24.DataAccess\Wohnungstausch24.DataAccess.csproj">
+      <Project>{609620F5-9B54-449E-9A45-6B230B798531}</Project>
+      <Name>Wohnungstausch24.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wohnungstausch24.Migrations\Wohnungstausch24.Migrations.csproj">
+      <Project>{49863FC9-CD96-4F12-BBAD-C129551EA877}</Project>
+      <Name>Wohnungstausch24.Migrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wohnungstausch24.Models\Wohnungstausch24.Models.csproj">
+      <Project>{1F8B1F7C-C525-44D2-8C0C-D7AABB002338}</Project>
+      <Name>Wohnungstausch24.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wohnungstausch24.Resources\Wohnungstausch24.Resources.csproj">
+      <Project>{0004f6d4-50db-4402-9511-2481fa74feaa}</Project>
+      <Name>Wohnungstausch24.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wohnungstausch24.Web.Common\Wohnungstausch24.Web.Common.csproj">
+      <Project>{0f81b660-e77b-47db-8f1e-e38a5781d162}</Project>
+      <Name>Wohnungstausch24.Web.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8718</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8718/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\lib\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\lib\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\..\lib\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\lib\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,42 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'property_details';
+block head
+  // Meta graph protocol
+  meta(property='og:title' content='1600 Pennsylvania Ave NW')
+  meta(property="og:url" content='property_details.html')
+  meta(property='og:image' content='#{path.media}/properties/554x360/01.jpg')
+  meta(property='og:description' content='Center of the Meatpacking district. Spacious room with queen Sized bed, Large desk and lots of windows and light. In a large apt with huge private outdoor patio!')
+  //Meta Twitter protocol
+  meta(name="twitter:card" content='property')
+  meta(name="twitter:url" content='property_details.html')
+  meta(name="twitter:title" content='1600 Pennsylvania Ave NW')
+  meta(name="twitter:description" content='Center of the Meatpacking district. Spacious room with queen Sized bed, Large desk and lots of windows and light. In a large apt with huge private outdoor patio!')
+  meta(name="twitter:image" content='#{path.media}/properties/554x360/01.jpg')
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Listing estate
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') 1600 Pennsylvania Ave NW
+  // END BREADCRUMBS
+
+block center
+  .row
+    .site.site--main
+      // BEGIN PROPERTY DETAILS
+      include partials/layout/property_details
+      // END PROPERTY DETAILS
+    // BEGIN SIDEBAR
+    .sidebar
+      +widget('Filter', 'Find your apartment or house on the exact key parameters.', 'sidebar', 'Show filter', null, 'toggle')
+        - var searchType = 'sidebar'
+        include partials/widgets/form--search
+    // END SIDEBAR

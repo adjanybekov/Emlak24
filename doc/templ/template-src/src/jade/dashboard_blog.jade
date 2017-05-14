@@ -1,0 +1,10 @@
+extends dashboard
+
+block config
+  - var bodyClass = 'sidebar-left';
+  - var page = 'dashboard_blog';
+  - var user = true;
+
+block dashboard_main
+  include partials/mixins/article--management
+  +articlesManagement('Blog Management', 6, 'list', 'Add new article', 'dashboard_blog_new.html', 'action')

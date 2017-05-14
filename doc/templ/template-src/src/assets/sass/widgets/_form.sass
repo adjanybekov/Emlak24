@@ -1,0 +1,617 @@
+/*------------------------------------------------------------------
+  * Form
+  + Form / .form
+    -- Form comment's / .form--comment
+    -- Form contacts's / .form--contacts
+    -- Form workers's / .form--workers
+    -- Form sidebar-workers / .form--sidebar-workers
+    -- Form footer / .form--footer
+    -- Form properties / .form--properties
+  ==============================================================*/
+
+
++b(form)
+  +clearfix
+  .control-label
+    text-transform: uppercase
+    width: 100%
+    display: block
+    margin-bottom: 10px
+    font-weight: 600
+
+  .form-group
+    > br
+      display: none
+    +m(inline)
+      > .control-label
+        display: inline-block
+        width: 110px
+        margin-bottom: 6px
+        margin-top: 4px
+        @media (max-width: $screen-xs-max)
+          width: 100%
+    +m(bottom)
+      @media (min-width: $screen-lg-min)
+        align-items: flex-end
+    +m(right)
+      justify-content: flex-end
+
+  .form-control
+    position: relative
+    z-index: 5
+    &.parsley-error
+      border: 1px solid $dangerColor !important
+    .auth__nav-item:not(.open) &
+      background: none !important
+
+  hr
+    width: 100%
+    margin-top: 0
+  +e(header)
+    &:first-of-type .form__title
+      margin-top: 0
+
+  +e(submit)
+    +button-action
+    margin-top: 10px
+    padding-left: 30px
+    padding-right: 30px
+    +when('buttons--double')
+      width: 45%
+      margin-top: 0
+  .input-group
+    display: flex
+    width: 100%
+
+  +e(check)
+    +ul
+    .form-group--inline &
+      flex: 1
+      @media (max-width: $screen-xs-max)
+        flex: inherit
+        width: 100%
+      li
+        display: inline-block
+        margin-left: 30px
+        @media (max-width: $screen-xs-max)
+          margin-left: 0
+          margin-right: 10px
+
+  +e(reset)
+    +button-default
+    &:before
+      +font-awesome(12px, '\f00d')
+      margin: 0 5px 0 0
+    +when('buttons--double')
+      width: 45%
+      margin-left: 10px
+  +e(lens)
+    +btn
+    color: #d6d6d6
+    font-size: 16px
+    float: right
+    margin: -32px 5px 0 0
+    position: relative
+    z-index: 10
+
+  +m(comment)
+    +make-lg-column(12)
+    +make-from
+    padding: 0
+    +e(submit)
+      width: 200px
+      margin: 15px auto 0
+      @media (max-width: $screen-md-max)
+        width: 150px
+        float: none
+        display: block
+        margin: 10px auto 0
+
+  +m(contacts)
+    +make-lg-column(12)
+    +make-from
+    padding: 0
+    +e(submit)
+      @media (max-width: $screen-xs-max)
+        margin: 10px auto 0
+        float: none
+        width: 150px
+        display: block
+
+  //   footer form
+  +m(footer)
+    width: 300px
+    margin: 20px 0 0 0
+    padding-top: 0
+    @media (max-width: $screen-md-max)
+      width: 95%
+    @media (max-width: $screen-xs-max)
+      margin-top: 0
+    .form-control
+      border: 1px solid $footerColor
+      background: none
+      margin: 5px 0
+      +placeholder($color: $placeholderColorOnDark)
+      color: #fff
+    textarea.form-control
+      min-height: 120px
+
+    +e(submit)
+      width: 43%
+
+  +m(properties)
+    +e(submit)
+      @media (max-width: $screen-xs-max)
+        width: 100%
+
+  +m(banner-sidebar)
+    padding: 30px
+    background: rgba(#fff, 0.3)
+    position: relative
+    transition: 0.5s
+    @media (max-width: $screen-sm-max)
+      width: 100%
+
+    .control-label
+      color: #fff
+      margin-bottom: 0
+    &:not(.form--white) .dropdown--select .dropdown-toggle
+      background: rgba(#fff, 0.7)
+      border: 1px solid transparent
+      box-shadow: none
+      &:after
+        border-left: none
+    .form-control
+      background: rgba(#fff, 0.7)
+      box-shadow: none
+      border: none
+      +when('inputs')
+        margin-top: 18px
+    +e(mode-btn)
+      color: #fff
+    +e(buttons)
+      margin-top: 10px
+      width: 100%
+    +e(submit)
+      width: 100%
+      margin-right: 10px
+      +when('buttons--double')
+        width: 45%
+        margin-top: 0
+  +m(white)
+    background: rgba(#fff, 0.9)
+    .control-label
+      color: $defaultColor
+    .form-control
+      border: 1px solid $input-border
+    +e(mode-btn)
+      color: $defaultColor
+
+  +m(dark)
+    background: rgba($defaultColor, 0.85)
+    .control-label
+      color: #fff
+    .form-control
+      border: 1px solid $input-border
+    +e(reset)
+      border-color: #fff
+      color: #fff
+  +m(article)
+    textarea.form-control
+      height: 600px
+    +e(submit)
+      width: 150px
+      float: none
+      margin-left: 0
+  +m(flex)
+    .col-sm-12,
+    .col-md-6,
+    .col-lg-4
+      padding-left: 10px
+      padding-right: 10px
+    .row
+      display: flex
+      flex-wrap: wrap
+      margin-left: -10px
+      margin-right: -10px
+      &:before, &:after
+        display: none
+        content: ''
+      .form-group
+        padding-left: 10px
+        padding-right: 10px
+
+    +e(buttons)
+      display: flex
+      justify-content: space-between
+      flex-wrap: wrap
+    .form-group
+      width: 100%
+      position: relative
+      display: flex
+      flex-wrap: wrap
+      align-content: flex-start
+
+      +m(col-3)
+        width: 25%
+        @media (max-width: $screen-sm-max)
+          width: 100%
+
+      +m(col-4)
+        width: 33.3333%
+        @media (max-width: $screen-sm-max)
+          width: 100%
+
+      +m(col-6)
+        width: 50%
+        @media (max-width: $screen-sm-max)
+          width: 100%
+
+      +m(col-9)
+        width: 66.6666%
+        @media (max-width: $screen-sm-max)
+          width: 100%
+
+      +m(col-12)
+        width: 100%
+    +e(submit)
+      margin-left: 10px
+  +m(payment)
+    .form-group
+      width: 50%
+      @media (max-width: $screen-xs-max)
+        width: 100%
+    +e(payments)
+      margin-top: 20px
+      margin-left: -10px
+      margin-bottom: 20px
+      display: block
+      max-width: 100%
+    +e(submit)
+      width: auto
+      float: none
+      margin: 15px auto 15px 10px
+  +m(profile)
+    .form-group
+      width:  33.3333%
+      @media (max-width: $screen-md-max)
+        width: 50%
+      @media (max-width: $screen-xs-max)
+        width: 100%
+      +m(social)
+        width: 70%
+      +m(description)
+        width: 100%
+    .form-control
+      +m(description)
+        height: 175px
+    .select2-container
+      width: 100%!important
+
+  +m(property)
+    margin-top: 40px
+    .form-group
+      margin-bottom: 30px
+      width: 33.3333%
+      @media (max-width: $screen-sm-max)
+        width: 100%
+        margin-bottom: 10px
+      +m(col-9)
+        width: 66.6666%
+        @media (max-width: $screen-sm-max)
+          width: 100%
+      +m(col-12)
+        width: 100%
+    +e(submit)
+      margin-top: 20px
+      @media (max-width: $screen-xs-max)
+        margin: 20px auto 0
+    .select2-container
+      width: 100% !important
+    hr
+      margin-bottom: 30px
+
+  +m(basic)
+    .form-group
+      +m(description)
+        width: 66.6666%
+        @media (max-width: $screen-sm-max)
+          width: 100%
+  +m(location)
+  +m(extra)
+  +m(hidden)
+  +m(photo)
+    margin-top: 0
+    img
+      max-width: 100%
+  +m(auth)
+    .control-label
+      font-weight: normal
+      text-transform: none
+      margin-bottom: 5px
+    +e(options)
+      color: #acacac
+      margin-left: 10px
+      margin-top: 10px
+      a,
+      button
+        border: none
+        background: none
+        color: $defaultColor
+        text-decoration: underline
+        padding: 1px 3px
+        outline: none
+        text-align: left
+      +m(forgot)
+        width: 80px
+        line-height: 1
+
+    +e(remember)
+      margin-top: 10px
+    +e(submit)
+      margin-right: 10px
+      margin-left: auto
+  +m(restore)
+    +e(submit)
+      width: 100%
+      margin-left: 10px
+  +m(search)
+    .form-group
+      +m(input)
+        +e(ranges)
+          display: none
+        +e(inputs)
+          display: flex
+
+    +e(mode)
+      position: absolute
+      right: 10px
+    +e(mode-btn)
+      +btn
+      font-size: 12px
+      text-transform: uppercase
+
+    +e(ranges)
+      position: relative
+      margin-top: 21px
+      width: 100%
+    +e(ranges-in)
+      display: none
+    +e(inputs)
+      display: none
+      margin-left: -10px
+      margin-right: -10px
+      .form-control
+        margin-left: 10px
+        margin-right: 10px
+        width: 44%
+
+    +e(favorite)
+      +button-default
+      width: 100%
+      font-size: 13px
+      margin-top: 15px
+      &:before
+        +font-awesome(1em, '\f005')
+        margin: 0 5px 0 0
+        color: $highlightColor
+
+
+    +e(submit)
+
+  // style for index
+  +m(wide)
+    margin-top: 50px
+    background: #fff
+    padding: 35px 40px
+    position: relative
+    box-shadow: 0 15px 35px rgba(0,0,0, 0.2 )
+    z-index: 50
+    @media (max-width: $screen-xs-max)
+      margin-top: 10px
+    .form-group
+      +make-column($xs: 12, $md: 6, $lg: 2.4)
+      margin-bottom: 15px
+
+    +e(buttons)
+      width: 58%
+      margin: 15px auto 0
+      @media (max-width: $screen-xs-max)
+        width: 100%
+    +e(reset)
+      width: 48%
+    +e(submit)
+      width: 48%
+      margin: 0
+    +e(ranges)
+      @media (min-width: $screen-lg-min)
+        margin-top: 10px
+
+  +m(wide-default)
+    box-shadow: none
+    margin-top: 0
+    padding: 0 15px
+  +m(sidebar)
+    .control-label
+      margin-bottom: 3px
+
+    .form-group
+      margin-bottom: 21px
+
+    +e(buttons)
+      margin: 6px 0
+      padding: 0 10px
+      width: 100%
+    +e(reset)
+      width: 47%
+      margin-left: 0
+    +e(submit)
+      margin: 0
+      width: 47%
+      padding-left: 0
+      padding-right: 0
+
+  +m(review)
+    margin-top: 30px
+    textarea.form-control
+      background: none
+      margin-bottom: 20px
+    .form-group
+      +m(right)
+        @media (max-width: $screen-xs-max)
+          justify-content: space-between
+    +e(reset)
+      @media (max-width: $screen-xs-max)
+        width: 48%
+        margin-left: 0
+    +e(submit)
+      margin-top: 0
+      @media (max-width: $screen-xs-max)
+        width: 48%
+        margin-left: 0
+
+  +m(workers)
+    width: 66.666%
+    margin-top: 30px
+    @media (max-width: $screen-xs-max)
+      width: 100%
+    +e(submit)
+      margin-right: 10px
+      margin-left: auto
+      @media (max-width: $screen-xs-max)
+        width: 100%
+        margin-left: 10px
+  +m(property-agent)
+    margin-top: 40px
+    @media (max-width: $screen-xs-max)
+      display: none
+      padding: 0 30px 30px
+      margin-top: 0
+      .opened &
+        display: block
+    +e(submit)
+      margin-top: 20px
+      margin-right: 10px
+      margin-left: auto
+      @media (max-width: $screen-xs-max)
+        margin: 20px 10px 0
+    .select2-container
+      width: 100% !important
+  +m(article)
+    .form-group
+      position: relative
+
+  +m(article-listing)
+    display: none
+    @media (max-width: $screen-xs-max)
+      display: block
+      margin: 0 15px
+
+  +m(error-status)
+    margin: 50px auto
+    width: 400px
+    @media (max-width: $screen-md-max)
+      margin: 30px auto 0
+    @media (max-width: $screen-sm-max)
+      width: 90%
+
+  +m(property-add)
+    .form-group
+      margin-bottom: 30px
+      width: 33.3333%
+      @media (max-width: $screen-sm-max)
+        width: 100%
+        margin-bottom: 10px
+      +m(col-9)
+        width: 66.6666%
+        @media (max-width: $screen-sm-max)
+          width: 100%
+      +m(col-12)
+        width: 100%
+    +e(submit)
+      margin-top: 20px
+      @media (max-width: $screen-xs-max)
+        margin: 20px auto 0
+    .select2-container
+      width: 100% !important
+    hr
+      margin-bottom: 30px
+
+  +m(anim)
+    @media (min-width: $screen-lg-min)
+      animation-name: wobble-reverse
+      animation-duration: 1s
+      animation-fill-mode: both
+
+  +m(map-bottom)
+    +container
+    z-index: 205
+    margin-top: -200px
+    padding: 35px 40px
+    @media (max-width: $screen-xs-max)
+      margin-top: 0
+      width: 100%
+      box-shadow: none
+
+// asterics for required fields
+.form-group
+  margin-bottom: 9px
+.form-group.required .control-label:after
+  content: "*"
+  color: red
+  margin-left: 3px
+
+input[type="file"].form-control
+  background: $brandColor
+  color: #fff
+  font-size: 13px
+  border: 2px solid #fff
+  outline: 2px solid $brandColor
+  &:focus
+    box-shadow: none
+    outline-offset: 0
+textarea.form-control,
+.form textarea.form-control
+  height: 140px
+
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"]
+  position: relative
+  margin: 0
+
+.wpcf7-form-control-wrap
+  width: 100%
+
+div.wpcf7 img.ajax-loader
+  width: 16px
+  height: 16px
+  margin-top: 20px
+
+.js-select-checkboxes-btn
+  +text-overflow
+
+.dropdown--select
+  ul
+    list-style: none
+    margin: 0
+    padding: 8px 15px
+
+.help-block
+  width: 100%
+  margin: 0
+  +when('banner', true)
+
+    .parsley-errors-list.filled
+      margin-top: 0
+      li
+        padding: 5px
+        color: $defaultColor
+
+    .parsley-required
+      background: $dangerColor
+      color: #fff
+    .parsley-type
+      background: $warningColor

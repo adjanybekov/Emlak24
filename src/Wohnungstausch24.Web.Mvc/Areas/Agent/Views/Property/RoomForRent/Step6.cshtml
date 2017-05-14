@@ -1,0 +1,138 @@
+﻿@using Wohnungstausch24.Core
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step6.Step6ViewModel
+
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+
+    var addLanguageDescriptionOpt = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "languageDescription-area-data-div",
+        OnBegin = "showLangDescrLoader",
+        OnComplete= "hideLangDescrLoader"
+    };
+}
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">@Resource.Add_New_Property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    @Html.Partial("RoomForRent/_Steps", Model.StepsProgressModel)
+                    <div class="form-property__content">
+
+                        @using (Html.BeginForm("Step6", "Property", FormMethod.Post, new { @class = "form form--flex form--property-add js-form js-form-property" }))
+                        {
+                            @Html.HiddenFor(m => m.Id)
+                            <div class="row">
+                                <div class="form-group form-group--col-9 form-group--inline">
+                                    @Html.LabelFor(m => m.Step6RoomForRent.ListingHeader, new { @class = "control-label" })
+                                    @Html.TextBoxFor(m => m.Step6RoomForRent.ListingHeader, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group form-group--col-9 form-group--inline">
+                                    @Html.LabelFor(m => m.Step6RoomForRent.ObjectDescription, new { @class = "control-label" })
+                                    @Html.TextAreaFor(m => m.Step6RoomForRent.ObjectDescription, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group form-group--col-9 form-group--inline">
+                                    @Html.LabelFor(m => m.Step6RoomForRent.LocationDescription, new { @class = "control-label" })
+                                    @Html.TextAreaFor(m => m.Step6RoomForRent.LocationDescription, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group form-group--col-9 form-group--inline">
+                                    @Html.LabelFor(m => m.Step6RoomForRent.EnvironmentDescription, new { @class = "control-label" })
+                                    @Html.TextAreaFor(m => m.Step6RoomForRent.EnvironmentDescription, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group form-group--col-9 form-group--inline">
+                                    @Html.LabelFor(m => m.Step6RoomForRent.OtherDetails, new { @class = "control-label" })
+                                    @Html.TextAreaFor(m => m.Step6RoomForRent.OtherDetails, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group form-group--col-9 form-group--inline">
+                                    @Html.LabelFor(m => m.Step6RoomForRent.Tercet, new { @class = "control-label" })
+                                    @Html.TextAreaFor(m => m.Step6RoomForRent.Tercet, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <legend>@Resource.DescriptionInAnotherLanguage</legend>
+                                    @{ Html.RenderAction("GetTextsInAnotherLanguage", "Property", new { id = Model.Id });}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a class="form__submit" href="@Url.Action("Step5", new {id=Model.Id})"><i class="fa fa-angle-left"></i> @Resource.Back</a>
+                                <button type="submit" class="form__submit">@Resource.Next <i class="fa fa-angle-right"></i></button>
+                            </div>
+                                        }
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addLanguageDescriptionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">@Resource.Add_Text_In_Another_Language</h4>
+            </div>
+            @using (Ajax.BeginForm("AddTextInAnotherLanguage", "Property", null, addLanguageDescriptionOpt, new { @class = "form form--flex" }))
+            {
+                @Html.HiddenFor(m => m.Id)
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Step6RoomForRent.AddTextInAnotherLanguageViewModel.LanguageCode, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.DropDownListFor(m => m.Step6RoomForRent.AddTextInAnotherLanguageViewModel.LanguageCode, Model.Step6RoomForRent.LanguagesList, new { required = "", @class = "form-control js-in-select" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Step6RoomForRent.AddTextInAnotherLanguageViewModel.LanguageCode, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        @Html.LabelFor(m => m.Step6RoomForRent.AddTextInAnotherLanguageViewModel.Description, new { @class = "control-label" })
+                        @Html.TextAreaFor(m => m.Step6RoomForRent.AddTextInAnotherLanguageViewModel.Description, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resource.Cancel</button>
+                    <button type="submit" class="btn btn-primary">@Resource.OK</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script>
+        var showLangDescrLoader = function () {
+            $('#addLanguageDescriptionModal').modal('toggle');
+            showLoader("#languageDescription-area-data-div");
+        }
+        var hideLangDescrLoader = function() {
+            hideLoader("#languageDescription-area-data-div");
+        }
+        SweetAjax("#languageDescription-area-data-div", ".wt24-languageDescription-confirmation");
+    </script>
+}

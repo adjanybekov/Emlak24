@@ -1,0 +1,52 @@
++b(tags)
+  user-select: none
+  +e(title)
+  +e(actions)
+    display: flex
+  +e(actions-border)
+    border-top: 1px solid $input-border
+    flex: 1
+    margin-top: 10px
+  +e(actions-btn)
+    margin-left: 20px
+  +e(list)
+    display: flex
+    flex-wrap: wrap
+    @media (max-width: $screen-xs-max)
+      margin-top: 20px
+  +e(item)
+    +btn
+    color: $grayColor
+    font-size: 12px
+    border: 1px solid $input-border
+    border-radius: 15px
+    padding: 4px 10px
+    margin-right: 10px
+    text-transform: uppercase
+    font-weight: 600
+    margin-top: 20px
+    cursor: pointer
+    height: 30px
+    line-height: 1.6
+    &.active
+      background: $highlightColor
+      color: $buttonColor
+      border-color: $highlightColor
+    &.editable
+      cursor: text
+    @media (max-width: $screen-xs-max)
+      margin-top: 10px
+
+    +m(new)
+      background: $highlightColor
+      color: $buttonColor
+      border-color: $highlightColor
+
+  +e(new-icon)
+    font-style: normal
+    cursor: pointer
+    &:after
+      +font-awesome(1em, "\f067")
+    .editable &:after
+      +font-awesome(1em, "\f00c")
+      margin-left: 5px

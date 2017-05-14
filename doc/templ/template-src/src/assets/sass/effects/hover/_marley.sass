@@ -1,0 +1,55 @@
+// ====
+// marley
+// ====
+.hover-marley .item-photo
+  overflow: hidden
+  display: block
+  position: relative
+  text-decoration: none
+  img
+    +transition(opacity $hover-effect-speed, transform $hover-effect-speed)
+    max-width: none
+    width: 100%
+    opacity: 1
+
+  .item-photo__hover
+    text-align: left
+    +absolute(0, 0, 0, 0)
+    background: rgba(#000, 0.7)
+    opacity: 0
+    transition: 0.35s
+  .item-photo__more
+    &::before
+      border-top: 5px solid $hover-effect-border-color
+      content: ''
+      left: 30px
+      position: absolute
+      right: 30px
+      bottom: 30px
+      @include transition(opacity $hover-effect-speed, transform $hover-effect-speed)
+      @include scale(0)
+      opacity: 0
+    opacity: 0
+    display: block
+    width: 100%
+    color: #fff
+    padding-top: 45%
+    padding-left: 30px
+    font-size: 16px
+    text-transform: uppercase
+    text-align: left
+    +transition-delay($hover-effect-delay)
+    +transition-duration($hover-effect-speed)
+
+  &:hover
+    img
+      opacity: .7
+    .item-photo__more
+      opacity: 1
+      &::before
+        @include scale(1)
+        opacity: 1
+
+    .item-photo__hover
+      opacity: 1
+

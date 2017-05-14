@@ -1,0 +1,10 @@
+extends dashboard
+
+block config
+  - var bodyClass = 'sidebar-left';
+  - var page = 'dashboard_property';
+  - var user = true;
+
+block dashboard_main
+  include partials/mixins/properties--management
+  +propertiesManagement('Property Management', 20, 'list', 'Add new property', 'dashboard_property_new.html', 'action')

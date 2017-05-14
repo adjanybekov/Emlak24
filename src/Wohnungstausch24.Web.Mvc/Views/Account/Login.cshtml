@@ -1,0 +1,59 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Account.AccountModels
+<nav class="breadcrumbs">
+    <div class="container">
+        <ul>
+            <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Home</a></li>
+            <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Login</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="center">
+    <div class="container">
+        <div class="row">
+            <section class="site">
+                <header class="site__header">
+                    <h1 class="site__title">Sign In</h1>
+                    <h2 class="site__headline">Login in your account</h2>
+                </header>
+                <div class="site__main">
+                    <div class="widget js-widget widget--main widget--no-border">
+                        <div class="widget__content">
+                            <div class="auth auth--inline">
+                                <div class="auth__wrap auth__wrap--login">
+                                    <h5 class="auth__title">Login in your account</h5>
+                                    @using (Html.BeginForm("Login", "Account", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form form--flex form--auth js-login-form js-parsley"}))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                                        <div class="row">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.LoginViewModel.Email, new {@for = "login-username-inline", @class = "control-label"})
+                                                @Html.TextBoxFor(m => m.LoginViewModel.Email, new {type = "text", name = "username", id = "login-username-inline", required = "",  @class = "form-control"})
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.LoginViewModel.Password, new {@for = "login-password-inline", @class = "control-label"})
+                                                @Html.PasswordFor(m => m.LoginViewModel.Password, new {type = "password", name = "password", id = "login-password-inline", required = "", @class = "form-control"})
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form__options form__options--forgot">
+                                                <a href="@Url.Action("ForgotPassword", "Account")">@Resource.ForgotPassword</a>
+                                            </div>
+                                            <button type="submit" class="form__submit">Sign in</button>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form__options">
+                                                @Resource.NotAUserYet<a href="@Url.Action("Register", "Account")">Get an account</a>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

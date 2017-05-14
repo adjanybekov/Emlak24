@@ -1,0 +1,174 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step8.Base.Step8Residence
+@{
+    Layout = null;
+}
+<div class="form-property__content">
+    @using (Html.BeginForm(ViewData["action"].ToString(), "Property", FormMethod.Post, new {@class = "form form--flex form--property-add js-form js-form-property"}))
+    {
+        <div class="row">
+            <div class="col-md-4 col-xs-6">
+                @Html.LabelFor(m => m.EnergyCertificateType, new {@class = "control-label"})
+                @Html.EnumDropDownListFor(m => m.EnergyCertificateType, Resource.PleaseChoose, new {@class = "form-control js-in-select"})
+                @Html.ValidationMessageFor(m => m.EnergyCertificateType, null, new {@class = "text-danger"})
+            </div>
+            <div class="col-md-4 col-xs-6 hide-if-missing">
+                @Html.LabelFor(m => m.Epart, new {@class = "control-label"})
+                @Html.EnumDropDownListFor(m => m.Epart, Resource.PleaseChoose, new {@class = "form-control js-in-select"})
+                @Html.ValidationMessageFor(m => m.Epart, null, new {@class = "text-danger"})
+            </div>
+            <div class="col-md-4 col-xs-6 hide-if-missing">
+                @Html.LabelFor(m => m.EnergyType, new {@class = "control-label"})
+                @Html.EnumDropDownListFor(m => m.EnergyType, Resource.PleaseChoose, new {@class = "form-control js-in-select"})
+                @Html.ValidationMessageFor(m => m.EnergyType, null, new {@class = "text-danger"})
+            </div>
+        </div><br>
+
+        <div class="row show-if-missing">
+            <div class="form-group form-group--col-12">
+                <div class="col-md-8">
+                    @Html.LabelFor(m => m.WantEnergyCertificate, new {@class = "control-label"})
+                </div>
+                <div class="col-md-4">
+                    @Html.CheckBoxFor(m => m.WantEnergyCertificate, new {@class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger"})
+                </div>
+                @Html.ValidationMessageFor(m => m.WantEnergyCertificate, null, new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="row hide-if-missing">
+            <div class="col-md-4 col-xs-6">
+                @Html.LabelFor(m => m.AgeGroup, new {@class = "control-label"})
+                @Html.EnumDropDownListFor(m => m.AgeGroup, Resource.PleaseChoose, new {@class = "form-control js-in-select"})
+                @Html.ValidationMessageFor(m => m.AgeGroup, null, new {@class = "text-danger"})
+            </div>
+            <div class="col-md-4 col-xs-6">
+                @Html.LabelFor(m => m.PrimaryEnegySource, new {@class = "control-label"})
+                @Html.EnumDropDownListFor(m => m.PrimaryEnegySource, Resource.PleaseChoose, new {@class = "form-control js-in-select"})
+                @Html.ValidationMessageFor(m => m.PrimaryEnegySource, null, new {@class = "text-danger"})
+            </div>
+        </div>
+        <br>
+        <div class="row hide-if-missing">
+            <div class="form-group form-group--col-4">
+                @Html.EditorFor(m => m.DateOfIssue)
+                @Html.ValidationMessageFor(m => m.DateOfIssue, null, new {@class = "text-danger"})
+            </div>
+            <div class="form-group form-group--col-4">
+                @Html.EditorFor(m => m.ValidUntil)
+                @Html.ValidationMessageFor(m => m.ValidUntil, null, new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="row hide-if-missing">
+            <div class="form-group form-group--col-12">
+                <div class="col-md-8">
+                    @Html.LabelFor(m => m.IncludedHotWater, new {@class = "control-label"})
+                </div>
+                <div class="col-md-4">
+                    @Html.CheckBoxFor(m => m.IncludedHotWater, new {@class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger"})
+                </div>
+                @Html.ValidationMessageFor(m => m.IncludedHotWater, null, new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="row hide-if-missing">
+            <div class="form-group form-group--col-12">
+                <div class="col-md-8">
+
+                    @Html.LabelFor(m => m.EnergyConsumptionParameter, new {@class = "control-label"})
+                </div>
+
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.EnergyConsumptionParameter, new {@class = "form-control"})
+                        <span class="input-group-addon">
+                                                <b>kwh/(m²*a)</b>
+                                            </span>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(m => m.EnergyConsumptionParameter, null, new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="row hide-if-missing">
+            <div class="form-group form-group--col-12">
+                <div class="col-md-8">
+                    @Html.LabelFor(m => m.UltimateEnergyDemand, new {@class = "control-label"})
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.UltimateEnergyDemand, new {@class = "form-control"})
+                        <span class="input-group-addon">
+                                                <b>kwh/(m²*a)</b>
+                                            </span>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(m => m.UltimateEnergyDemand, null, new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="row hide-if-missing">
+            <div class="form-group form-group--col-12">
+                <div class="col-md-8">
+                    @Html.LabelFor(m => m.ElectricityValue, new {@class = "control-label"})
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.ElectricityValue, new {@class = "form-control"})
+                        <span class="input-group-addon">
+                                                <b>kwh/(m²*a)</b>
+                                            </span>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(m => m.ElectricityValue, null, new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="row hide-if-missing">
+            <div class="form-group form-group--col-12">
+                <div class="col-md-8">
+                    @Html.LabelFor(m => m.WarmnessValue, new {@class = "control-label"})
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.WarmnessValue, new {@class = "form-control"})
+                        <span class="input-group-addon">
+                                                <b>kwh/(m²*a)</b>
+                                            </span>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(m => m.WarmnessValue, null, new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="row hide-if-missing">
+            <div class="form-group form-group--col-12">
+                <div class="col-md-8">
+                    @Html.LabelFor(m => m.ValueRating, new {@class = "control-label"})
+                </div>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(m => m.ValueRating, new {@class = "form-control"})
+                </div>
+                @Html.ValidationMessageFor(m => m.ValueRating, null, new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>@Resource.Heatings</legend>
+                    @{ Html.RenderAction("GetHeatings", "Property", new {id = Model.Id});}
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>@Resource.Beaconings</legend>
+                    @{ Html.RenderAction("GetBeaconings", "Property", new {id = Model.Id});}
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="row">
+            <a class="form__submit" href="@Url.Action("Step7", new {id = Model.Id})">
+                <i class="fa fa-angle-left"></i> @Resource.Back</a>
+            <button type="submit" class="form__submit">
+                @Resource.Next <i class="fa fa-angle-right"></i>
+            </button>
+        </div>
+    }
+</div>

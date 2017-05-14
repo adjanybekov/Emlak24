@@ -1,0 +1,76 @@
+.select2-selection--single
+  background-color: #fff
+  border: 1px solid $input-border
+  .has-error &
+    border: 1px solid $dangerColor
+  .has-success &
+    border: 1px solid $succesColor
+  +form-control-focus
+
+  &:focus
+    border: 1px solid $brandColor
+    outline: none
+  .site__panel &:focus
+    border: 1px solid #fff
+  .form--banner-sidebar:not(.form--white) &:focus
+    border: none
+    box-shadow: none
+
+  .form--banner-sidebar:not(.form--white) &
+    background: rgba(255, 255, 255, 0.7)
+    border: none
+
+  .select2-selection__rendered
+    color: #444
+    line-height: 38px
+
+  .select2-selection__clear
+    cursor: pointer
+    float: right
+    font-weight: bold
+
+  .select2-selection__placeholder
+    color: $defaultColor
+
+  .select2-selection__arrow
+    height: 36px
+    position: absolute
+    top: 1px
+    right: 1px
+    width: 30px
+    border-left: 1px solid $input-border
+    .form--banner-sidebar:not(.form--white) &
+      border-left: none
+    b
+      &:before
+        display: block
+        width: 100%
+        height: 100%
+        color: #595959
+        +font-awesome(14px, '\f0dc')
+        padding: 7px 0 0 11px
+        text-align: left
+
+&[dir="rtl"]
+  .select2-selection--single
+    .select2-selection__clear
+      float: left
+
+    .select2-selection__arrow
+      left: 1px
+      right: auto
+
+&.select2-container--disabled
+  .select2-selection--single
+    background-color: #eee
+    cursor: default
+
+    .select2-selection__clear
+      display: none
+
+&.select2-container--open
+  .select2-selection--single
+    .select2-selection__arrow
+      b:before
+        content: "\f0d8"
+        padding: 4px 0 0 11px

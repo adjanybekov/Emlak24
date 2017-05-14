@@ -1,0 +1,16 @@
+﻿@model bool?
+@if (Model.HasValue)
+{
+    if (Model.Value)
+    {
+        <i class="fa fa-check text-success"></i>
+    }
+    else
+    {
+        <i class="fa fa-close text-danger"></i>
+    }
+}
+else
+{
+    <i class="fa fa-question-circle text-warning"></i>
+}

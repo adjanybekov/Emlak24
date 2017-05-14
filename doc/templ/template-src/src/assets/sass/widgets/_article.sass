@@ -1,0 +1,360 @@
+/*------------------------------------------------------------------
+  * Article widget
+  + Article / .article
+    -- Article grid / .article--grid
+    -- Article sidebar / .article--sidebar
+    -- Article list / .article--list
+    -- Article details / .article--details
+    -- Article footer / .article--footer
+  ==============================================================*/
++b(article)
+  +e(photo)
+    position: relative
+    display: block
+    img
+      max-width: 100%
+      width: 100%
+
+  +e(item-info)
+    margin-left: 20px
+    margin-right: auto
+  +e(item-title)
+    font-size: 20px
+    color: $defaultColor
+    margin: -8px 0 0 0
+    display: inline-block
+    font-weight: 600
+    &:hover
+      color: $defaultColor
+    @media (max-width: $screen-xs-max)
+      margin-top: 21px
+      font-size: 16px
+      line-height: 1.4
+    a
+      color: $defaultColor
+
+  +e(intro)
+    margin: 6px 0 14px 0
+    @media (max-width: $screen-xs-max)
+      margin-top: 5px
+      line-height: 1.4
+      overflow: hidden
+      position: relative
+
+  +e(more)
+    +button-default
+    margin: 10px 0 10px 0
+    font-size: 12px
+    width: auto
+    @media (max-width: $screen-xs-max)
+      width: auto
+
+  +e(time)
+    +absolute($top: 0, $right: 0)
+    background: $defaultColor
+    color: #fff
+    display: block
+    width: 50px
+    text-align: center
+    padding: 10px 0
+    line-height: 1
+    font-weight: 600
+    text-transform: uppercase
+    @media (max-width: $screen-xs-max)
+      right: 0
+    strong
+      display: block
+      font-size: 20px
+
+  +e(btn-more)
+    +button-more
+    @media (max-width: $screen-xs-max)
+      margin-top: 30px
+
+  +e(comment)
+    float: right
+    color: $defaultColor
+    margin: 8px 0 0
+    &:hover
+      color: $defaultColor
+    .fa
+      color: $brandColor
+      margin: 0 21px 0 0
+      font-size: 25px
+
+  +e(tags)
+    a
+      color: $brandColor
+      text-decoration: underline
+      margin-left: 5px
+  +e(preview)
+    margin: 30px 0 0
+    position: relative
+    display: block
+    img
+      max-width: 100%
+      display: block
+      margin: 0 auto
+
+    iframe
+      max-width: 100%
+      @media (max-width: $screen-md-max)
+        height: 360px
+      @media (max-width: $screen-sm-max)
+        height: 315px
+
+  +e(preview-play)
+    position: absolute
+    background: rgba(0, 0, 0, 0.7)
+    top: 50%
+    left: 50%
+    width: 76px
+    height: 76px
+    margin: -80px 0 0 -38px
+    text-align: center
+    border: none
+    &:before
+      +font-awesome(3em, '\f0da')
+      color: #fff
+    @media (max-width: $screen-xs-max)
+      display: none
+
+  +e(footer)
+    border-top: 1px solid #dedede
+    border-bottom: 1px solid #dedede
+    padding: 20px 0
+    margin: 46px 0 0
+    +clearfix
+    .article__tags
+      margin: 10px 0 !important
+      float: left
+
+  +e(body)
+    margin-top: 30px
+    p
+      margin: 13px 0
+
+    iframe
+      max-width: 100%
+      @media (max-width: $screen-md-max)
+        height: 360px
+      @media (max-width: $screen-sm-max)
+        height: 315px
+    blockquote
+      font-style: italic
+      margin: 13px 0 10px 60px
+      display: block
+      @media (max-width: $screen-sm-max)
+        margin-left: 20px
+
+    ul
+      margin: 15px 0
+      li
+        margin: 10px 0
+    img
+      max-width: 100%
+      @media (max-width: $screen-xs-max)
+        float: none!important
+        margin: 0 auto 10px !important
+        display: block
+
+  +e(item-header)
+    display: flex
+    justify-content: space-between
+  +e(actions)
+    opacity: 0
+    visibility: hidden
+    transition: 0.3s
+    +when('article:hover', true)
+      opacity: 1
+      visibility: visible
+    @media (max-width: $screen-md-max)
+      opacity: 1
+      visibility: visible
+
+  +e(link)
+    font-size: 13px
+    color: $brandColor
+    border: none
+    background: none
+    text-transform: uppercase
+    vertical-align: top
+
+  +m(grid)
+    +e(item-title)
+      margin: 14px 0 0 0
+      line-height: 1.2
+    +e(intro)
+      @media (max-width: $screen-xs-max)
+        margin-bottom: 5px
+    +e(more)
+      margin-bottom: 0
+      margin-top: 0
+  +m(sidebar)
+    +e(item-title)
+      line-height: 1.2
+    +e(time)
+      font-size: 14px
+      color: $defaultColor
+      margin: 5px 0
+      display: block
+      background: none
+      position: relative
+      top: auto
+      right: auto
+      text-align: left
+      width: auto
+      padding: 0
+
+    +e(details)
+      width: 100%
+      padding: 0
+
+    +e(item-title)
+      margin-top: 0
+    +e(intro)
+      font-weight: normal
+      margin-bottom: 0
+    +e(more)
+      margin: 0
+
+  +m(list)
+    position: relative
+    +e(time)
+      position: relative
+      right: auto
+
+    +e(item-title)
+      margin: 0
+      display: block
+      &:hover
+        box-shadow: none
+      @media (max-width: $screen-xs-max)
+        margin-top: 0
+
+    +e(tags)
+      margin: 2px 0 0
+
+    +e(preview)
+      @media (max-width: $screen-xs-max)
+        margin-bottom: 0
+    +e(intro)
+      margin: 20px 0 0 0
+      @media (max-width: $screen-xs-max)
+        margin: 20px 0 0 0
+        &:after
+          background: linear-gradient(to bottom,  rgba(#f6f6f6, 0) 0%, rgba(#f6f6f6, 1) 100%) /* W3C */
+
+    +e(more)
+      margin-bottom: 0
+    +e(comment)
+      @media (max-width: $screen-md-max)
+        position: absolute
+        bottom: 35px
+        right: 0
+        line-height: 25px
+        vertical-align: top
+      @media (max-width: $screen-xs-max)
+        bottom: 0
+  +m(details)
+    +e(time)
+      position: relative
+      right: auto
+    +e(item-header)
+      margin-top: 30px
+
+    +e(item-title)
+      margin: 0
+      display: block
+      &:hover
+        box-shadow: none
+      @media (max-width: $screen-xs-max)
+        top: 0
+
+    +e(tags)
+      margin: 2px 0 0
+    +e(footer)
+      @media (max-width: $screen-sm-max)
+        display: none
+    +e(comment)
+      @media (max-width: $screen-md-max)
+        display: none
+
+
+  //  footer article
+  +m(footer)
+    width: 100%
+
+    +e(details)
+      width: 100%
+      padding: 0
+
+    +e(time)
+      font-size: 14px !important
+      color: #808080 !important
+      display: block
+      background: none
+      position: relative
+      top: auto
+      right: auto
+      text-align: left
+      width: auto
+      padding: 0
+
+    +e(btn-more)
+      font-size: 12px
+      color: #bebebe
+      border: 2px solid $footerColor
+      padding: 5px 10px
+      margin: 10px 0
+      width: 120px
+      background: none
+      &:before
+        content: ""
+        margin: 0
+
+    +e(item-title)
+      margin-bottom: 0 !important
+      margin-top: 0
+      font-size: 15px
+      &:hover
+        border-bottom: none
+        box-shadow: none
+        text-decoration: underline
+        color: #bebebe
+
+  +m(feed)
+    +e(item-title)
+      margin: 0
+      line-height: 1.2
+      font-size: 17px
+    +e(photo)
+      +make-column($md: 3, $xs: 12)
+      padding: 0
+    +e(intro)
+      font-size: 13px
+    +e(details)
+      +make-column($md: 9, $xs: 12)
+      @media (max-width: $screen-sm-max)
+        padding: 0
+        margin-top: 15px
+
+    +e(more)
+      margin-bottom: 0
+      margin-top: 0
+      border-width: 1px
+
+  +m(management)
+    +e(item-title)
+      margin: 14px 0 0 0
+      line-height: 1.2
+      font-size: 17px
+
+    +e(intro)
+      font-size: 13px
+      @media (max-width: $screen-xs-max)
+        margin-bottom: 5px
+    +e(more)
+      margin-bottom: 0
+      margin-top: 0
+      border-width: 1px

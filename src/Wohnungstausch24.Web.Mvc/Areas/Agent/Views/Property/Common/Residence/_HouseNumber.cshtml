@@ -1,0 +1,8 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step1.Base.Step1Residence
+
+<div class="form-group">
+    @Html.LabelFor(m => m.HouseNumber, new { @class = "control-label" })
+    @Html.TextBoxFor(m => m.HouseNumber, new { @class = "form-control ", placeholder = Resource.Property_Add_Address_HouseNumber })
+    @Html.ValidationMessageFor(m => m.HouseNumber, null, new { @class = "text-danger" })
+</div>

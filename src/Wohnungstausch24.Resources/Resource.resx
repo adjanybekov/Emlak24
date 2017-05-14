@@ -1,0 +1,2818 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SearchProfile_AddNewClient_AddAboutMe" xml:space="preserve">
+    <value>über mich</value>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Akzeptieren</value>
+  </data>
+  <data name="AddBalconyViewModel_BalconyType" xml:space="preserve">
+    <value>Balkonart</value>
+  </data>
+  <data name="AddBalconyViewModel_Direction" xml:space="preserve">
+    <value>Ausrichtung</value>
+  </data>
+  <data name="AddBalconyViewModel_Level" xml:space="preserve">
+    <value>Etage</value>
+  </data>
+  <data name="AddBalconyViewModel_SightType" xml:space="preserve">
+    <value>Blick</value>
+  </data>
+  <data name="AddBalconyViewModel_Size" xml:space="preserve">
+    <value>Größe</value>
+  </data>
+  <data name="AddBathroomViewModel" xml:space="preserve">
+    <value>Badezimmerdetails</value>
+  </data>
+  <data name="AddBathroomViewModel_HasBidet" xml:space="preserve">
+    <value>Bidet</value>
+  </data>
+  <data name="AddBathroomViewModel_HasShower" xml:space="preserve">
+    <value>Dusche</value>
+  </data>
+  <data name="AddBathroomViewModel_HasTub" xml:space="preserve">
+    <value>Badewanne</value>
+  </data>
+  <data name="AddBathroomViewModel_HasUrinal" xml:space="preserve">
+    <value>Pissoir</value>
+  </data>
+  <data name="AddBathroomViewModel_HasWindow" xml:space="preserve">
+    <value>Tageslichtbad mit Fenster</value>
+  </data>
+  <data name="AddBathroomViewModel_Size" xml:space="preserve">
+    <value>Größe</value>
+  </data>
+  <data name="AddBeaconingViewModel_BeaconingType" xml:space="preserve">
+    <value>Heizungsart</value>
+  </data>
+  <data name="AddDistanceToViewModel_Distance" xml:space="preserve">
+    <value>Entfernung</value>
+  </data>
+  <data name="AddDistanceToViewModel_DistanceType" xml:space="preserve">
+    <value>Entfernung zu</value>
+  </data>
+  <data name="AddFiles" xml:space="preserve">
+    <value>Datei hinzufügen</value>
+  </data>
+  <data name="AddHeatingViewModel_HeatingType" xml:space="preserve">
+    <value>Heizungsart</value>
+  </data>
+  <data name="Property_Step9_AdditionalIformation" xml:space="preserve">
+    <value>weitere Informationen</value>
+  </data>
+  <data name="AddKitchenViewModel" xml:space="preserve">
+    <value>zur Küche</value>
+  </data>
+  <data name="AddMixedLandViewModel_PlotArea" xml:space="preserve">
+    <value>Grundstücksgröße</value>
+  </data>
+  <data name="AddMixedLandViewModel_SeparableFrom" xml:space="preserve">
+    <value>teilbar ab</value>
+  </data>
+  <data name="AddMixedLandViewModel_TotalArea" xml:space="preserve">
+    <value>Gesamtfläche</value>
+  </data>
+  <data name="AddMixedLandViewModel_TypeOfUse" xml:space="preserve">
+    <value>Nutzungsart</value>
+  </data>
+  <data name="AddparkingSpaceViewModel_ParkType" xml:space="preserve">
+    <value>Stellplatzart</value>
+  </data>
+  <data name="AddparkingSpaceViewModel_Quantity" xml:space="preserve">
+    <value>Anzahl</value>
+  </data>
+  <data name="AddparkingSpaceViewModel_RentPrice" xml:space="preserve">
+    <value>Parkplatzpreis</value>
+  </data>
+  <data name="AddProperty_Step4_UnderGroundType" xml:space="preserve">
+    <value>Keller vorhanden ?</value>
+  </data>
+  <data name="AddTextInAnotherLanguageViewModel_Description" xml:space="preserve">
+    <value>Beschreibung in anderer Sprache</value>
+  </data>
+  <data name="AddTextInAnotherLanguageViewModel_LanguageCode" xml:space="preserve">
+    <value>Ländercode</value>
+  </data>
+  <data name="Add_Beaconing_Title" xml:space="preserve">
+    <value>Befeuerungsarten</value>
+  </data>
+  <data name="Add_Heating_Title" xml:space="preserve">
+    <value>Heizungsarten</value>
+  </data>
+  <data name="Add_Kitchen_Title" xml:space="preserve">
+    <value>Küche hinzufügen</value>
+  </data>
+  <data name="General_Table_Add_new" xml:space="preserve">
+    <value>Neu anlegen</value>
+  </data>
+  <data name="Add_New_Agent" xml:space="preserve">
+    <value>Mitarbeiter anlegen</value>
+  </data>
+  <data name="Add_New_Property" xml:space="preserve">
+    <value>Neues Objekt anlegen</value>
+  </data>
+  <data name="Add_Properties_Persons" xml:space="preserve">
+    <value>Personen hinzufügen</value>
+  </data>
+  <data name="Add_Property_Areas" xml:space="preserve">
+    <value>Flächen</value>
+  </data>
+  <data name="Add_Property_Balconies" xml:space="preserve">
+    <value>Balkone</value>
+  </data>
+  <data name="Add_Property_Distance" xml:space="preserve">
+    <value>Distanz</value>
+  </data>
+  <data name="Add_Property_ParkingSpaces" xml:space="preserve">
+    <value>Stellplätze</value>
+  </data>
+  <data name="Add_Property_ParkPlaces" xml:space="preserve">
+    <value>Parkplätze</value>
+  </data>
+  <data name="Add_Property_Rooms" xml:space="preserve">
+    <value>Zimmer</value>
+  </data>
+  <data name="Add_Property_Sight" xml:space="preserve">
+    <value>Blick</value>
+  </data>
+  <data name="Add_Sight_View_Title" xml:space="preserve">
+    <value>Ausblick</value>
+  </data>
+  <data name="Add_Text_In_Another_Language" xml:space="preserve">
+    <value>Beschreibung in anderer Sprache hinzufügen</value>
+  </data>
+  <data name="Common_Age" xml:space="preserve">
+    <value>Alter</value>
+  </data>
+  <data name="Property_Step8_AgeGroup" xml:space="preserve">
+    <value>Altersklasse</value>
+  </data>
+  <data name="AgencyServiceType_BasicServices" xml:space="preserve">
+    <value>Grundrissservice</value>
+  </data>
+  <data name="AgencyServiceType_ContractSignature" xml:space="preserve">
+    <value>Vertragsunterzeichnung</value>
+  </data>
+  <data name="AgencyServiceType_CreateObjectRetrieveFiles" xml:space="preserve">
+    <value>Objekt anlegen, Dateien einholen</value>
+  </data>
+  <data name="AgencyServiceType_Description" xml:space="preserve">
+    <value>Beschreibungen erstellen</value>
+  </data>
+  <data name="AgencyServiceType_DocumentProcessingResearch" xml:space="preserve">
+    <value>Dokumentenbearbeitung/Recherche</value>
+  </data>
+  <data name="AgencyServiceType_DrivesAway_Fahrtweg" xml:space="preserve">
+    <value>Anfahrt</value>
+  </data>
+  <data name="AgencyServiceType_ElaborateVideo" xml:space="preserve">
+    <value>aufwendiges Video</value>
+  </data>
+  <data name="AgencyServiceType_EvaluationMarketAssessment" xml:space="preserve">
+    <value>Bewertung/Markteinschätzung</value>
+  </data>
+  <data name="AgencyServiceType_Insertion" xml:space="preserve">
+    <value>Insertion</value>
+  </data>
+  <data name="AgencyServiceType_ObjectRecordingExposeService" xml:space="preserve">
+    <value>Objektaufnahme = Exposéservice</value>
+  </data>
+  <data name="AgencyServiceType_Optimization2D" xml:space="preserve">
+    <value>Grundrissoptimierung 2D-Farbe</value>
+  </data>
+  <data name="AgencyServiceType_Optimization3D" xml:space="preserve">
+    <value>Grundrissoptimierung 3D-Farbe</value>
+  </data>
+  <data name="AgencyServiceType_PriceEstimate" xml:space="preserve">
+    <value>Preisschätzung</value>
+  </data>
+  <data name="AgencyServiceType_ProfessionalPhotos" xml:space="preserve">
+    <value>Fotoservice</value>
+  </data>
+  <data name="AgencyServiceType_ReasonedPriceEstimation" xml:space="preserve">
+    <value>Begründete Preiseinschätzung</value>
+  </data>
+  <data name="AgencyServiceType_Selection" xml:space="preserve">
+    <value>Selektion(Unterschiede Ausselektieren oder Prüfen, ggf.Schufa usw. einholen)</value>
+  </data>
+  <data name="AgencyServiceType_Sightseeing" xml:space="preserve">
+    <value>Besichtigungsservice</value>
+  </data>
+  <data name="AgencyServiceType_Sightseeing2" xml:space="preserve">
+    <value>Besichtigung Sammeltermin</value>
+  </data>
+  <data name="AgencyServiceType_SimpleVideo" xml:space="preserve">
+    <value>einfaches Video</value>
+  </data>
+  <data name="AgencyServiceType_TermCoordination" xml:space="preserve">
+    <value>Terminkoordination</value>
+  </data>
+  <data name="AgencyServiceType_TrafficReports" xml:space="preserve">
+    <value>Verkehrswertgutachten</value>
+  </data>
+  <data name="AgencyServiceType_VisitSingleDate" xml:space="preserve">
+    <value>Besichtigung Einzeltermin</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_AddressAddOn" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_ApprovalOfAddress" xml:space="preserve">
+    <value>Adresse veröffentlichen</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_CompanyName" xml:space="preserve">
+    <value>Name des Unternehmens</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_EmailFeedBack" xml:space="preserve">
+    <value>E-Mail-Feedback</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_EmailOther" xml:space="preserve">
+    <value>andere Mailadressen</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_EmailPrivate" xml:space="preserve">
+    <value>Private Mailadresse</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_FreeTextArray" xml:space="preserve">
+    <value>Freitext</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_OtherPhone" xml:space="preserve">
+    <value>andere Telefonnummer</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_PhoneDirectAccess" xml:space="preserve">
+    <value>Durchwahl</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_PhoneFax" xml:space="preserve">
+    <value>Faxnummer</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_PhonePrivate" xml:space="preserve">
+    <value>Privatnummer</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_SalutationMessage" xml:space="preserve">
+    <value>Anredetext</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_SalutationType" xml:space="preserve">
+    <value>Anrede</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="AgentSettingsContactViewModel_Url" xml:space="preserve">
+    <value>Werbseiten-URL</value>
+  </data>
+  <data name="Agent_Accounts" xml:space="preserve">
+    <value>Anbieteraccount</value>
+  </data>
+  <data name="Agent_AddAgencyDescription" xml:space="preserve">
+    <value>Bitte tragen Sie eine kurze Beschreibung über Ihr Unternehmen ein.</value>
+  </data>
+  <data name="Agent_AddAgencyName" xml:space="preserve">
+    <value>Bitte tragen Sie den Unternehmensnamen ein</value>
+  </data>
+  <data name="Agent_Home_EditUserAgencyInfo" xml:space="preserve">
+    <value>Sind Sie Immobilienmakler?</value>
+  </data>
+  <data name="Agent_Home_EditUserInformations" xml:space="preserve">
+    <value>Über mich</value>
+  </data>
+  <data name="Agent_Home_EditUserSocialInformations" xml:space="preserve">
+    <value>Welche Sozialen Netzwerke nutzen Sie?</value>
+  </data>
+  <data name="Agent_Listing_Match" xml:space="preserve">
+    <value>passende Objekte</value>
+  </data>
+  <data name="Agent_SidebarMenu_Search_Profiles" xml:space="preserve">
+    <value>Gesuche</value>
+  </data>
+  <data name="Property_Step3_AllInRent" xml:space="preserve">
+    <value>Pauschalmiete</value>
+  </data>
+  <data name="Property_Step3_AllInRentPrice" xml:space="preserve">
+    <value>Pauschalmietpreis</value>
+  </data>
+  <data name="Are_You_Sure" xml:space="preserve">
+    <value>Sind Sie sicher?</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>zurück</value>
+  </data>
+  <data name="BalconyTerraceArea" xml:space="preserve">
+    <value>Fläche aller Balkone und Terrassen</value>
+  </data>
+  <data name="BalconyType" xml:space="preserve">
+    <value>Balkonart</value>
+  </data>
+  <data name="Basement_area" xml:space="preserve">
+    <value>Kellerfläche</value>
+  </data>
+  <data name="Bathroom" xml:space="preserve">
+    <value>Badezimmer</value>
+  </data>
+  <data name="Beaconings" xml:space="preserve">
+    <value>Befeuerungsarten</value>
+  </data>
+  <data name="Beaconing_Type" xml:space="preserve">
+    <value>Befeuerungsart hinzufügen</value>
+  </data>
+  <data name="Branch" xml:space="preserve">
+    <value>Niederlassung</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Zurücksetzen</value>
+  </data>
+  <data name="CancelUpload" xml:space="preserve">
+    <value>Upload abbrechen</value>
+  </data>
+  <data name="Choose_level" xml:space="preserve">
+    <value>Etage auswählen</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Zurücksetzen</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Name des Unternehmens</value>
+  </data>
+  <data name="CompleteInformations" xml:space="preserve">
+    <value>Informationen vervollständigen</value>
+  </data>
+  <data name="ConditionArtType" xml:space="preserve">
+    <value>Zustand</value>
+  </data>
+  <data name="Confirm_Password" xml:space="preserve">
+    <value>Passwort bestätigen</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="Current_rent_information" xml:space="preserve">
+    <value>aktuelle Mietkonditionen</value>
+  </data>
+  <data name="DateOfIssue" xml:space="preserve">
+    <value>Ausstellungsdatum</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>löschen</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>gelöscht</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="DescriptionInAnotherLanguage" xml:space="preserve">
+    <value>Beschreibung in andere Sprache</value>
+  </data>
+  <data name="DesignType" xml:space="preserve">
+    <value>Bauweise</value>
+  </data>
+  <data name="DetailedSearch_SaveSearch" xml:space="preserve">
+    <value>Suche speichern</value>
+  </data>
+  <data name="Detailed_Search" xml:space="preserve">
+    <value>Detailsuche</value>
+  </data>
+  <data name="DetailResidence_IsKitchenFitted" xml:space="preserve">
+    <value>Einbauküche</value>
+  </data>
+  <data name="DetailResidence_IsKitchenOpen" xml:space="preserve">
+    <value>offene Küche</value>
+  </data>
+  <data name="DetailResidence_IsKitchenPantry" xml:space="preserve">
+    <value>Pantryküche</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Ausrichtung</value>
+  </data>
+  <data name="DistanceInKm" xml:space="preserve">
+    <value>Abstand in KM</value>
+  </data>
+  <data name="DistanceType" xml:space="preserve">
+    <value>Entfernung zu</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Dokumente</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="Education" xml:space="preserve">
+    <value>Ausbildung</value>
+  </data>
+  <data name="ElectricityValue" xml:space="preserve">
+    <value>Stromverbrauchswert</value>
+  </data>
+  <data name="Common_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmploymentStatus" xml:space="preserve">
+    <value>Beschäftigungsverhältnis</value>
+  </data>
+  <data name="EmploymentStatus_Employee" xml:space="preserve">
+    <value>Angestellter</value>
+  </data>
+  <data name="EmploymentStatus_Pensioneer" xml:space="preserve">
+    <value>Pensioniert</value>
+  </data>
+  <data name="EmploymentStatus_Retired" xml:space="preserve">
+    <value>Im Ruhestand</value>
+  </data>
+  <data name="EmploymentStatus_SelfEmployed" xml:space="preserve">
+    <value>Selbstständiger</value>
+  </data>
+  <data name="EmploymentStatus_Student" xml:space="preserve">
+    <value>Schüler/Student</value>
+  </data>
+  <data name="EmploymentStatus_Unemployed" xml:space="preserve">
+    <value>Arbeitssuchend</value>
+  </data>
+  <data name="EnergyCertificateType" xml:space="preserve">
+    <value>Energiepassart</value>
+  </data>
+  <data name="EnergyConsumptionParameter" xml:space="preserve">
+    <value>Energieverbrauchskennwert</value>
+  </data>
+  <data name="EnergyType" xml:space="preserve">
+    <value>Energie-Typ</value>
+  </data>
+  <data name="Enum_AgeGroup_New" xml:space="preserve">
+    <value>Neubau</value>
+  </data>
+  <data name="Enum_AgeGroup_Old" xml:space="preserve">
+    <value>Altbau</value>
+  </data>
+  <data name="Enum_AllotmentType_FullyDeveloped" xml:space="preserve">
+    <value>Erschließungsart</value>
+  </data>
+  <data name="Enum_AllotmentType_Locality" xml:space="preserve">
+    <value>Ortsüblich erschlossen</value>
+  </data>
+  <data name="Enum_AllotmentType_PartlyColsed" xml:space="preserve">
+    <value>Teilerschlossen</value>
+  </data>
+  <data name="Enum_AllotmentType_Untapped" xml:space="preserve">
+    <value>Unerschlossen</value>
+  </data>
+  <data name="Enum_BalconyType_Balcony" xml:space="preserve">
+    <value>Balkonart</value>
+  </data>
+  <data name="Enum_BalconyType_Terrace" xml:space="preserve">
+    <value>Terrasse</value>
+  </data>
+  <data name="Enum_BalconyType_TinyBalcony" xml:space="preserve">
+    <value>Loggia</value>
+  </data>
+  <data name="Enum_BeaconingType_AirHeatPump" xml:space="preserve">
+    <value>Luft-Wärmepumpe</value>
+  </data>
+  <data name="Enum_BeaconingType_Alternative" xml:space="preserve">
+    <value>Alternative Energien</value>
+  </data>
+  <data name="Enum_BeaconingType_Block" xml:space="preserve">
+    <value>Blockheizungkraftwerk</value>
+  </data>
+  <data name="Enum_BeaconingType_Coal" xml:space="preserve">
+    <value>Kohle</value>
+  </data>
+  <data name="Enum_BeaconingType_Electronic" xml:space="preserve">
+    <value>Elektro</value>
+  </data>
+  <data name="Enum_BeaconingType_Far" xml:space="preserve">
+    <value>Fernwärme</value>
+  </data>
+  <data name="Enum_BeaconingType_Gas" xml:space="preserve">
+    <value>Gas</value>
+  </data>
+  <data name="Enum_BeaconingType_GeothermalEnergy" xml:space="preserve">
+    <value>Erdwärme</value>
+  </data>
+  <data name="Enum_BeaconingType_LiquidGas" xml:space="preserve">
+    <value>Flüssiggas</value>
+  </data>
+  <data name="Enum_BeaconingType_Oil" xml:space="preserve">
+    <value>Oel</value>
+  </data>
+  <data name="Enum_BeaconingType_Pellet" xml:space="preserve">
+    <value>Pelletheizung</value>
+  </data>
+  <data name="Enum_BeaconingType_Solar" xml:space="preserve">
+    <value>Solar</value>
+  </data>
+  <data name="Enum_BeaconingType_WaterElectronic" xml:space="preserve">
+    <value>Wasserboiler</value>
+  </data>
+  <data name="Enum_BeaconingType_Wood" xml:space="preserve">
+    <value>Holz</value>
+  </data>
+  <data name="Enum_BuildingType_BaulandOhneBPlan" xml:space="preserve">
+    <value>Bauland Ohne B-Plan</value>
+  </data>
+  <data name="Enum_BuildingType_Bplan" xml:space="preserve">
+    <value>B-Plan vorhanden</value>
+  </data>
+  <data name="Enum_BuildingType_Maintenance" xml:space="preserve">
+    <value>Bauerwartungsland</value>
+  </data>
+  <data name="Enum_BuildingType_NewardShip34" xml:space="preserve">
+    <value>Umgebungsbebauung gemäß §34 BauGB</value>
+  </data>
+  <data name="Enum_BuildingType_NoBuilding" xml:space="preserve">
+    <value>unbebaut</value>
+  </data>
+  <data name="Enum_BuildingType_ProductiveArea35" xml:space="preserve">
+    <value>Außengebiet nach § 35 BauGB</value>
+  </data>
+  <data name="Enum_BuildingType_Specifications" xml:space="preserve">
+    <value>Länderspezifisch</value>
+  </data>
+  <data name="Enum_ConditionArtType_Abrissobject" xml:space="preserve">
+    <value>Abrissobjekt</value>
+  </data>
+  <data name="Enum_ConditionArtType_Altbau" xml:space="preserve">
+    <value>Altbau</value>
+  </data>
+  <data name="Enum_ConditionArtType_AsNew" xml:space="preserve">
+    <value>Neuwertig</value>
+  </data>
+  <data name="Enum_ConditionArtType_ByAppointment" xml:space="preserve">
+    <value>nach Vereinbarung</value>
+  </data>
+  <data name="Enum_ConditionArtType_CaredFor" xml:space="preserve">
+    <value>gepflegt</value>
+  </data>
+  <data name="Enum_ConditionArtType_Discovered" xml:space="preserve">
+    <value>Saniert</value>
+  </data>
+  <data name="Enum_ConditionArtType_FirstOccupation" xml:space="preserve">
+    <value>Erstbezug</value>
+  </data>
+  <data name="Enum_ConditionArtType_Modernized" xml:space="preserve">
+    <value>Modernisiert</value>
+  </data>
+  <data name="Enum_ConditionArtType_NeedToBeRenovated" xml:space="preserve">
+    <value>renovierungsbedürftig</value>
+  </data>
+  <data name="Enum_ConditionArtType_NewConstruction" xml:space="preserve">
+    <value>Neubau</value>
+  </data>
+  <data name="Enum_ConditionArtType_Older" xml:space="preserve">
+    <value>Sanierungsbedürftig</value>
+  </data>
+  <data name="Enum_ConditionArtType_Projected" xml:space="preserve">
+    <value>projektiert</value>
+  </data>
+  <data name="Enum_ConditionArtType_Rohbau" xml:space="preserve">
+    <value>Rohbau</value>
+  </data>
+  <data name="Enum_CurrencyType_Euro" xml:space="preserve">
+    <value>Euro</value>
+  </data>
+  <data name="Enum_DesignType_ElementsOfWood" xml:space="preserve">
+    <value>Holzbauweise</value>
+  </data>
+  <data name="Enum_DesignType_Massive" xml:space="preserve">
+    <value>massiv</value>
+  </data>
+  <data name="Enum_DesignType_Precast" xml:space="preserve">
+    <value>Fertigbauweise</value>
+  </data>
+  <data name="Enum_DistanceType_Airport" xml:space="preserve">
+    <value>Flughafen</value>
+  </data>
+  <data name="Enum_DistanceType_Bus" xml:space="preserve">
+    <value>Bus</value>
+  </data>
+  <data name="Enum_DistanceType_Center" xml:space="preserve">
+    <value>Zentrum</value>
+  </data>
+  <data name="Enum_DistanceType_Children" xml:space="preserve">
+    <value>Kindergärten</value>
+  </data>
+  <data name="Enum_DistanceType_ComprehensiveSchool" xml:space="preserve">
+    <value>Gesamtschule</value>
+  </data>
+  <data name="Enum_DistanceType_DistancesSports" xml:space="preserve">
+    <value>Entfernungen Sport</value>
+  </data>
+  <data name="Enum_DistanceType_DistanzZuSport" xml:space="preserve">
+    <value>Entfernung Sport</value>
+  </data>
+  <data name="Enum_DistanceType_Fernbahnhof" xml:space="preserve">
+    <value>Fernbahnhof</value>
+  </data>
+  <data name="Enum_DistanceType_Gymnasium" xml:space="preserve">
+    <value>Gymnasium</value>
+  </data>
+  <data name="Enum_DistanceType_Highway" xml:space="preserve">
+    <value>Autobahn</value>
+  </data>
+  <data name="Enum_DistanceType_MainHousing" xml:space="preserve">
+    <value>Wohngebiet</value>
+  </data>
+  <data name="Enum_DistanceType_PrimarySchool" xml:space="preserve">
+    <value>Grundschule</value>
+  </data>
+  <data name="Enum_DistanceType_Purchasing" xml:space="preserve">
+    <value>Einkaufsmöglichkeiten</value>
+  </data>
+  <data name="Enum_DistanceType_Restaurants" xml:space="preserve">
+    <value>Gaststätten</value>
+  </data>
+  <data name="Enum_DistanceType_SecondarySchool" xml:space="preserve">
+    <value>Realschule</value>
+  </data>
+  <data name="Enum_DistanceType_UsBahn" xml:space="preserve">
+    <value>S-Bahn</value>
+  </data>
+  <data name="Enum_EnergyCertificateType_IsAvailable" xml:space="preserve">
+    <value>verfügbar</value>
+  </data>
+  <data name="Enum_EnergyCertificateType_IsNotNecessary" xml:space="preserve">
+    <value>nicht nötig</value>
+  </data>
+  <data name="Enum_EnergyCertificateType_Missing" xml:space="preserve">
+    <value>nicht vorhanden</value>
+  </data>
+  <data name="Enum_EnergyType_Kfw60" xml:space="preserve">
+    <value>KFW60</value>
+  </data>
+  <data name="Enum_EnergyType_Lowenergyhouse" xml:space="preserve">
+    <value>Niedrigenergiehaus</value>
+  </data>
+  <data name="Enum_EnergyType_Newbuilding" xml:space="preserve">
+    <value>Neubau</value>
+  </data>
+  <data name="Enum_EnergyType_Passivehouse" xml:space="preserve">
+    <value>Passivhaus</value>
+  </data>
+  <data name="Enum_EnergyType_Standardkfw40" xml:space="preserve">
+    <value>KFW40</value>
+  </data>
+  <data name="Enum_Epart_Consumption" xml:space="preserve">
+    <value>Verbrauchsausweis</value>
+  </data>
+  <data name="Enum_Epart_Demand" xml:space="preserve">
+    <value>Bedarfsausweis</value>
+  </data>
+  <data name="Enum_FeatureCategory_Default" xml:space="preserve">
+    <value>einfach</value>
+  </data>
+  <data name="Enum_FeatureCategory_Luxury" xml:space="preserve">
+    <value>luxus</value>
+  </data>
+  <data name="Enum_FeatureCategory_Raised" xml:space="preserve">
+    <value>gehoben</value>
+  </data>
+  <data name="Enum_FeatureType_AtticSpace" xml:space="preserve">
+    <value>Dachbodenfläche</value>
+  </data>
+  <data name="Enum_FeatureType_HasAirCondition" xml:space="preserve">
+    <value>Klimaanlage</value>
+  </data>
+  <data name="Enum_FeatureType_HasAlarmSystem" xml:space="preserve">
+    <value>Alarmanlage</value>
+  </data>
+  <data name="Enum_FeatureType_HasAttic" xml:space="preserve">
+    <value>Dachboden</value>
+  </data>
+  <data name="Enum_FeatureType_HasBicycleRoom" xml:space="preserve">
+    <value>Fahrradraum</value>
+  </data>
+  <data name="Enum_FeatureType_HasBidet" xml:space="preserve">
+    <value>Bidet</value>
+  </data>
+  <data name="Enum_FeatureType_HasCableDucts" xml:space="preserve">
+    <value>Kabelkanäle</value>
+  </data>
+  <data name="Enum_FeatureType_HasCableSatTv" xml:space="preserve">
+    <value>Kabel-/Sat-TV</value>
+  </data>
+  <data name="Enum_FeatureType_HasCamera" xml:space="preserve">
+    <value>Kamerasystem</value>
+  </data>
+  <data name="Enum_FeatureType_HasChimney" xml:space="preserve">
+    <value>Kamin</value>
+  </data>
+  <data name="Enum_FeatureType_HasElevator" xml:space="preserve">
+    <value>Aufzug</value>
+  </data>
+  <data name="Enum_FeatureType_HasGermanTvByAntenna" xml:space="preserve">
+    <value>Hausantenne/DVBT</value>
+  </data>
+  <data name="Enum_FeatureType_HasInternet" xml:space="preserve">
+    <value>Breitbandzugang vorhanden</value>
+  </data>
+  <data name="Enum_FeatureType_HasLibrary" xml:space="preserve">
+    <value>Bücherei</value>
+  </data>
+  <data name="Enum_FeatureType_HasPoliceCall" xml:space="preserve">
+    <value>Polizeiruf vorhanden</value>
+  </data>
+  <data name="Enum_FeatureType_HasRollerBlind" xml:space="preserve">
+    <value>Rollläden</value>
+  </data>
+  <data name="Enum_FeatureType_HasSauna_de" xml:space="preserve">
+    <value>Sauna</value>
+  </data>
+  <data name="Enum_FeatureType_HasShower" xml:space="preserve">
+    <value>Dusche</value>
+  </data>
+  <data name="Enum_FeatureType_HasStorageRoom" xml:space="preserve">
+    <value>Abstellraum</value>
+  </data>
+  <data name="Enum_FeatureType_HasSwimmingPool" xml:space="preserve">
+    <value>Schwimmbad/Pool</value>
+  </data>
+  <data name="Enum_FeatureType_HasTub" xml:space="preserve">
+    <value>Badewanne</value>
+  </data>
+  <data name="Enum_FeatureType_HasUrinal" xml:space="preserve">
+    <value>Urinal</value>
+  </data>
+  <data name="Enum_FeatureType_HasWashDryingRoom" xml:space="preserve">
+    <value>Wasch-Trockenraum</value>
+  </data>
+  <data name="Enum_FeatureType_HasWindow" xml:space="preserve">
+    <value>Bad mit Fenster</value>
+  </data>
+  <data name="Property_Detail_HasWinterGarden" xml:space="preserve">
+    <value>Wintergarten</value>
+  </data>
+  <data name="Enum_FeatureType_IsBarrierFree" xml:space="preserve">
+    <value>barrierefrei</value>
+  </data>
+  <data name="Enum_FeatureType_IsSeniorFocused" xml:space="preserve">
+    <value>seniorengerecht</value>
+  </data>
+  <data name="Enum_FeatureType_IsWheelchairAccessible" xml:space="preserve">
+    <value>rollstuhlgerecht</value>
+  </data>
+  <data name="Enum_FlatType_Apartment" xml:space="preserve">
+    <value>Apartment</value>
+  </data>
+  <data name="Enum_FlatType_AtticApartment" xml:space="preserve">
+    <value>Attikawohnung</value>
+  </data>
+  <data name="Enum_FlatType_AtticFloor" xml:space="preserve">
+    <value>Dachgeschoss</value>
+  </data>
+  <data name="Enum_FlatType_FloorAppartment" xml:space="preserve">
+    <value>Etagenwohnung</value>
+  </data>
+  <data name="Enum_FlatType_Gallery" xml:space="preserve">
+    <value>Galerie</value>
+  </data>
+  <data name="Enum_FlatType_GroundFloor" xml:space="preserve">
+    <value>Erdgeschosswohnung</value>
+  </data>
+  <data name="Enum_FlatType_HolidayApartment" xml:space="preserve">
+    <value>Ferienwohnung</value>
+  </data>
+  <data name="Enum_FlatType_LoftStudioAtelier" xml:space="preserve">
+    <value>Loft-Studio-Atelier</value>
+  </data>
+  <data name="Enum_FlatType_Maisonette" xml:space="preserve">
+    <value>Maisonette</value>
+  </data>
+  <data name="Enum_FlatType_NoInformation" xml:space="preserve">
+    <value>Keine Angabe</value>
+  </data>
+  <data name="Enum_FlatType_Penthouse" xml:space="preserve">
+    <value>Penthouse</value>
+  </data>
+  <data name="Enum_FlatType_RoofCoatings" xml:space="preserve">
+    <value>Rohdachboden</value>
+  </data>
+  <data name="Enum_FlatType_Souterrain" xml:space="preserve">
+    <value>Souterrainwohnung</value>
+  </data>
+  <data name="Enum_FlatType_Terraces_Terraces" xml:space="preserve">
+    <value>Terrassenwohnung</value>
+  </data>
+  <data name="Enum_FloorType_Carpet" xml:space="preserve">
+    <value>Teppich</value>
+  </data>
+  <data name="Enum_FloorType_DoubleFloor" xml:space="preserve">
+    <value>Doppelboden</value>
+  </data>
+  <data name="Enum_FloorType_FlagginBoards" xml:space="preserve">
+    <value>Fliesen</value>
+  </data>
+  <data name="Enum_FloorType_Granite" xml:space="preserve">
+    <value>Granit</value>
+  </data>
+  <data name="Enum_FloorType_Laminate" xml:space="preserve">
+    <value>Laminat</value>
+  </data>
+  <data name="Enum_FloorType_Linoleum" xml:space="preserve">
+    <value>Linoleum</value>
+  </data>
+  <data name="Enum_FloorType_Marble" xml:space="preserve">
+    <value>Marmor</value>
+  </data>
+  <data name="Enum_FloorType_Parquet" xml:space="preserve">
+    <value>Parkett</value>
+  </data>
+  <data name="Enum_FloorType_Plastic" xml:space="preserve">
+    <value>Kunststoff</value>
+  </data>
+  <data name="Enum_FloorType_ReadilyParquet" xml:space="preserve">
+    <value>Fertigparkett</value>
+  </data>
+  <data name="Enum_FloorType_Screed" xml:space="preserve">
+    <value>Estrich</value>
+  </data>
+  <data name="Enum_FloorType_Stone" xml:space="preserve">
+    <value>Steinböden</value>
+  </data>
+  <data name="Enum_FloorType_Terracotta" xml:space="preserve">
+    <value>Terrakotta</value>
+  </data>
+  <data name="Enum_FurnishType_Full" xml:space="preserve">
+    <value>vollmöbliert</value>
+  </data>
+  <data name="Enum_FurnishType_Partial" xml:space="preserve">
+    <value>teilmöbliert</value>
+  </data>
+  <data name="Enum_Gender_Female" xml:space="preserve">
+    <value>Weiblich</value>
+  </data>
+  <data name="Enum_Gender_Male" xml:space="preserve">
+    <value>Männlich</value>
+  </data>
+  <data name="Enum_Gender_None" xml:space="preserve">
+    <value>egal</value>
+  </data>
+  <data name="Enum_GeoDirection_East" xml:space="preserve">
+    <value>Ost</value>
+  </data>
+  <data name="Enum_GeoDirection_North" xml:space="preserve">
+    <value>Nord</value>
+  </data>
+  <data name="Enum_GeoDirection_NorthEast" xml:space="preserve">
+    <value>Nordost</value>
+  </data>
+  <data name="Enum_GeoDirection_NorthWest" xml:space="preserve">
+    <value>Nordwest</value>
+  </data>
+  <data name="Enum_GeoDirection_South" xml:space="preserve">
+    <value>Süd</value>
+  </data>
+  <data name="Enum_GeoDirection_SouthEast" xml:space="preserve">
+    <value>Südost</value>
+  </data>
+  <data name="Enum_GeoDirection_SouthWest" xml:space="preserve">
+    <value>Südwest</value>
+  </data>
+  <data name="Enum_GeoDirection_West" xml:space="preserve">
+    <value>West</value>
+  </data>
+  <data name="Enum_HeatingType_Center" xml:space="preserve">
+    <value>Zentralheizung</value>
+  </data>
+  <data name="Enum_HeatingType_Far" xml:space="preserve">
+    <value>Fernwärme</value>
+  </data>
+  <data name="Enum_HeatingType_Ground" xml:space="preserve">
+    <value>Fußbodenheizung</value>
+  </data>
+  <data name="Enum_HeatingType_Level" xml:space="preserve">
+    <value>Etagenheizung</value>
+  </data>
+  <data name="Enum_HeatingType_None" xml:space="preserve">
+    <value>nicht vorhanden</value>
+  </data>
+  <data name="Enum_HeatingType_Oven" xml:space="preserve">
+    <value>Ofenheizung</value>
+  </data>
+  <data name="Enum_HouseType_Townhouse" xml:space="preserve">
+    <value>Reihenhaus</value>
+  </data>
+  <data name="Enum_KitchenType_Fitted" xml:space="preserve">
+    <value>Einbauküche</value>
+  </data>
+  <data name="Enum_KitchenType_Open" xml:space="preserve">
+    <value>Offene Küche</value>
+  </data>
+  <data name="Enum_KitchenType_Pantry" xml:space="preserve">
+    <value>Küchenzeile</value>
+  </data>
+  <data name="Enum_ListingStatus_Active" xml:space="preserve">
+    <value>aktiv</value>
+  </data>
+  <data name="Enum_ListingStatus_Draft" xml:space="preserve">
+    <value>Entwurf</value>
+  </data>
+  <data name="Enum_ListingStatus_OnHold" xml:space="preserve">
+    <value>in Prüfung</value>
+  </data>
+  <data name="Enum_None" xml:space="preserve">
+    <value>keine</value>
+  </data>
+  <data name="Enum_ObjectTypes_FlatRent" xml:space="preserve">
+    <value>Mietwohnung</value>
+  </data>
+  <data name="Enum_ObjectTypes_FlatSale" xml:space="preserve">
+    <value>Eigentumswohnung</value>
+  </data>
+  <data name="Enum_ObjectTypes_HouseRent" xml:space="preserve">
+    <value>Haus Miete</value>
+  </data>
+  <data name="Enum_ObjectTypes_HouseSale" xml:space="preserve">
+    <value>Haus Kauf</value>
+  </data>
+  <data name="Enum_ObjectTypes_LandRent" xml:space="preserve">
+    <value>Grundstück Pacht</value>
+  </data>
+  <data name="Enum_ObjectTypes_LandSale" xml:space="preserve">
+    <value>Grundstück Kauf</value>
+  </data>
+  <data name="Enum_OrganizationType_Ag" xml:space="preserve">
+    <value>AG</value>
+  </data>
+  <data name="Enum_OrganizationType_GmbH" xml:space="preserve">
+    <value>GmbH</value>
+  </data>
+  <data name="Enum_OrganizationType_Other" xml:space="preserve">
+    <value>weitere Verbände</value>
+  </data>
+  <data name="Enum_OrganizationType_SingleOwned" xml:space="preserve">
+    <value>Einzelunternehmen</value>
+  </data>
+  <data name="Enum_ParkspaceType_BasementGarage" xml:space="preserve">
+    <value>Tiefgaragenstellplatz</value>
+  </data>
+  <data name="Enum_ParkspaceType_CarPark" xml:space="preserve">
+    <value>Parkhaus</value>
+  </data>
+  <data name="Enum_ParkspaceType_Carport" xml:space="preserve">
+    <value>Carport</value>
+  </data>
+  <data name="Enum_ParkspaceType_Duplex" xml:space="preserve">
+    <value>Duplex</value>
+  </data>
+  <data name="Enum_ParkspaceType_FreeSpace" xml:space="preserve">
+    <value>Außenstellplatz</value>
+  </data>
+  <data name="Enum_ParkspaceType_Garage" xml:space="preserve">
+    <value>Garage</value>
+  </data>
+  <data name="Enum_PositionInBuilding_Back" xml:space="preserve">
+    <value>hinten</value>
+  </data>
+  <data name="Enum_PositionInBuilding_Front" xml:space="preserve">
+    <value>vorne</value>
+  </data>
+  <data name="Enum_PositionInBuilding_Left" xml:space="preserve">
+    <value>links</value>
+  </data>
+  <data name="Enum_PositionInBuilding_Right" xml:space="preserve">
+    <value>rechts</value>
+  </data>
+  <data name="Enum_PropertyType_Flat" xml:space="preserve">
+    <value>Wohnung</value>
+  </data>
+  <data name="Enum_PropertyType_House" xml:space="preserve">
+    <value>Haus</value>
+  </data>
+  <data name="Enum_PropertyType_Land" xml:space="preserve">
+    <value>Grundstück</value>
+  </data>
+  <data name="Enum_PublisherType_ActualTenant" xml:space="preserve">
+    <value>aktueller Mieter</value>
+  </data>
+  <data name="Enum_PublisherType_ContactPersonWorkingForOwner" xml:space="preserve">
+    <value>Makler/andere Kontaktperson</value>
+  </data>
+  <data name="Enum_PublisherType_Owner" xml:space="preserve">
+    <value>Eigentümer</value>
+  </data>
+  <data name="Enum_RoofType_Crowdwalkroof" xml:space="preserve">
+    <value>anderes Dach</value>
+  </data>
+  <data name="Enum_RoofType_Flatroof" xml:space="preserve">
+    <value>Flachdach</value>
+  </data>
+  <data name="Enum_RoofType_Mansarddach" xml:space="preserve">
+    <value>Mansarddach</value>
+  </data>
+  <data name="Enum_RoofType_Pultdach" xml:space="preserve">
+    <value>Pultdach</value>
+  </data>
+  <data name="Enum_RoofType_Pyramidendach" xml:space="preserve">
+    <value>Pyramidendach</value>
+  </data>
+  <data name="Enum_RoofType_Saddleroof" xml:space="preserve">
+    <value>Saddleroof</value>
+  </data>
+  <data name="Enum_RoofType_Walmdach" xml:space="preserve">
+    <value>Walmdach</value>
+  </data>
+  <data name="Enum_SalutationType_Mr" xml:space="preserve">
+    <value>Herr</value>
+  </data>
+  <data name="Enum_SalutationType_Mrs" xml:space="preserve">
+    <value>Frau</value>
+  </data>
+  <data name="Enum_SalutationType_Ms" xml:space="preserve">
+    <value>Frau</value>
+  </data>
+  <data name="Enum_SightType_Distance" xml:space="preserve">
+    <value>Fernblick</value>
+  </data>
+  <data name="Enum_SightType_Lake" xml:space="preserve">
+    <value>Seeblick</value>
+  </data>
+  <data name="Enum_SightType_Mountain" xml:space="preserve">
+    <value>Berge</value>
+  </data>
+  <data name="Enum_SightType_Not_Defined" xml:space="preserve">
+    <value>Keine Angabe</value>
+  </data>
+  <data name="Enum_SightType_Sea" xml:space="preserve">
+    <value>See-/Meerblick</value>
+  </data>
+  <data name="Enum_TypeOfMerchandising_Rent" xml:space="preserve">
+    <value>Miete</value>
+  </data>
+  <data name="Enum_TypeOfMerchandising_Sale" xml:space="preserve">
+    <value>Verkauf</value>
+  </data>
+  <data name="Enum_TypeOfUse_Business" xml:space="preserve">
+    <value>Gewerbe</value>
+  </data>
+  <data name="Enum_TypeOfUse_Investment" xml:space="preserve">
+    <value>Anlage</value>
+  </data>
+  <data name="Enum_TypeOfUse_Living" xml:space="preserve">
+    <value>Wohnimmobilie</value>
+  </data>
+  <data name="Enum_UndergroundType_Complete" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="Enum_UndergroundType_NotUnderground" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="Enum_UndergroundType_Partial" xml:space="preserve">
+    <value>teilunterkellert</value>
+  </data>
+  <data name="Environment_description" xml:space="preserve">
+    <value>Ausstattungsbeschreibung</value>
+  </data>
+  <data name="Epart" xml:space="preserve">
+    <value>Energiepassart
+</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="Facebook" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="FeatureCategory" xml:space="preserve">
+    <value>Ausstattungskategorie</value>
+  </data>
+  <data name="FieldOfResponsibility" xml:space="preserve">
+    <value>Verantwortungsbereich</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Erste</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Vorname</value>
+  </data>
+  <data name="Flat_Type" xml:space="preserve">
+    <value>Wohnungsart</value>
+  </data>
+  <data name="FloorTypes" xml:space="preserve">
+    <value>Bodenbeläge</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Passwort vergessen?</value>
+  </data>
+  <data name="ForgotPasswordViewModel_Email_Enter_your_e_mail" xml:space="preserve">
+    <value>E-Mail-Adresse eingeben</value>
+  </data>
+  <data name="For_Holiday_Use" xml:space="preserve">
+    <value>als Ferienobjekt nutzbar</value>
+  </data>
+  <data name="For_Industrial_Use" xml:space="preserve">
+    <value>gewerbliche Nutzung möglich</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Von</value>
+  </data>
+  <data name="Garden_area" xml:space="preserve">
+    <value>Gartengröße</value>
+  </data>
+  <data name="Common_Gender" xml:space="preserve">
+    <value>Geschlecht</value>
+  </data>
+  <data name="General_Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="General_Description" xml:space="preserve">
+    <value>Allgemeine Beschreibung</value>
+  </data>
+  <data name="General_Fax_Number" xml:space="preserve">
+    <value>Faxnummer</value>
+  </data>
+  <data name="General_Flat" xml:space="preserve">
+    <value>Wohnung</value>
+  </data>
+  <data name="General_House" xml:space="preserve">
+    <value>Haus</value>
+  </data>
+  <data name="General_IsWorkingForAnAgency" xml:space="preserve">
+    <value>Sind Sie Makler?</value>
+  </data>
+  <data name="General_Operation_Failed" xml:space="preserve">
+    <value>Fehlgeschlagen</value>
+  </data>
+  <data name="General_Operation_Successfull" xml:space="preserve">
+    <value>Erfolgreich durchgeführt</value>
+  </data>
+  <data name="General_Other_Comments" xml:space="preserve">
+    <value>sonstige Hinweise</value>
+  </data>
+  <data name="General_Password" xml:space="preserve">
+    <value>Passwort bestätigen</value>
+  </data>
+  <data name="General_Services" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="General_Settings" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="General_Submit" xml:space="preserve">
+    <value>Absenden</value>
+  </data>
+  <data name="General_The__0__must_be_at_least__2__characters_long" xml:space="preserve">
+    <value>Der Wert im Feld {0} muss mindestens {2} Zeichen lang sein.</value>
+  </data>
+  <data name="General_View" xml:space="preserve">
+    <value>Aussicht</value>
+  </data>
+  <data name="Geo_Direction" xml:space="preserve">
+    <value>Ausrichtung</value>
+  </data>
+  <data name="Germany" xml:space="preserve">
+    <value>Deutschland</value>
+  </data>
+  <data name="Good_Sales_Header" xml:space="preserve">
+    <value>Nachmieter finden, während Sie Ihr neues Objekt suchen</value>
+  </data>
+  <data name="Good_Sales_Text" xml:space="preserve">
+    <value>Durch die Möglichkeit, Angebote und Gesuche kostenlos einzustellen, sehen Sie nur auf Wohnungstausch24 eine Vielzahl an Angeboten, die auf anderen Portalen noch gar nicht zu sehen sind. Fragen Sie den Eigentümer, welche Kriterien er an einen neuen Mieter legen würde und sprechen ob er im Falle eines neuen Mieters eine andere Miete ansetzen würde. Gerne sprechen wir diese Details mit Ihrem Vermieter ab.</value>
+  </data>
+  <data name="GooglePlus" xml:space="preserve">
+    <value>GooglePlus</value>
+  </data>
+  <data name="HasAirCondition" xml:space="preserve">
+    <value>Klimaanlage</value>
+  </data>
+  <data name="HasAlarmSystem" xml:space="preserve">
+    <value>Alarmanlage</value>
+  </data>
+  <data name="HasAttic" xml:space="preserve">
+    <value>Dachboden</value>
+  </data>
+  <data name="HasBalcony" xml:space="preserve">
+    <value>Hat die angebotene Immobilie Balkone oder Terrassen?</value>
+  </data>
+  <data name="HasBicycleRoom" xml:space="preserve">
+    <value>Fahrradraum</value>
+  </data>
+  <data name="HasCableDucts" xml:space="preserve">
+    <value>Kabelkanäle</value>
+  </data>
+  <data name="HasCableSatTv" xml:space="preserve">
+    <value>Kabelanschluss/SAT-TV</value>
+  </data>
+  <data name="HasCamera" xml:space="preserve">
+    <value>Kamerasystem</value>
+  </data>
+  <data name="HasChimney" xml:space="preserve">
+    <value>Kamin</value>
+  </data>
+  <data name="HasElevator" xml:space="preserve">
+    <value>Aufzug</value>
+  </data>
+  <data name="HasGermanTvByAntenna" xml:space="preserve">
+    <value>Hausantenne</value>
+  </data>
+  <data name="HasGuestToilet" xml:space="preserve">
+    <value>Gäste-WC</value>
+  </data>
+  <data name="HasHousingPermission" xml:space="preserve">
+    <value>Wohnungsberechtigungsschein erforderlich</value>
+  </data>
+  <data name="HasInternet" xml:space="preserve">
+    <value>Breitbandzugang</value>
+  </data>
+  <data name="HasLibrary" xml:space="preserve">
+    <value>Bibliothek</value>
+  </data>
+  <data name="HasPoliceCall" xml:space="preserve">
+    <value>Polizeiruf</value>
+  </data>
+  <data name="HasRollerBlind" xml:space="preserve">
+    <value>Rollladen</value>
+  </data>
+  <data name="HasSauna" xml:space="preserve">
+    <value>Sauna</value>
+  </data>
+  <data name="HasSeparateToilet" xml:space="preserve">
+    <value>separates WC</value>
+  </data>
+  <data name="HasStorageRoom" xml:space="preserve">
+    <value>Abstellraum</value>
+  </data>
+  <data name="HasSwimmingPool" xml:space="preserve">
+    <value>Pool</value>
+  </data>
+  <data name="HasWashDryingRoom" xml:space="preserve">
+    <value>Wasch- /Trockenraum</value>
+  </data>
+  <data name="HasWinterGarden" xml:space="preserve">
+    <value>Wintergarten</value>
+  </data>
+  <data name="Has_Positive_Rating" xml:space="preserve">
+    <value>positive Bonitätsauskunft wird erwartet</value>
+  </data>
+  <data name="Has_Statement_Of_Lord" xml:space="preserve">
+    <value>Mietschuldenfreiheitsbescheinigung wird erwartet</value>
+  </data>
+  <data name="Has_View" xml:space="preserve">
+    <value>Ausblick hinzufügen</value>
+  </data>
+  <data name="Have_Pets" xml:space="preserve">
+    <value>Haustiere im Haushalt?</value>
+  </data>
+  <data name="Headline" xml:space="preserve">
+    <value>Überschrift</value>
+  </data>
+  <data name="Heatings" xml:space="preserve">
+    <value>Heizungsarten</value>
+  </data>
+  <data name="Heating_Type" xml:space="preserve">
+    <value>Heizungsart</value>
+  </data>
+  <data name="Hi" xml:space="preserve">
+    <value>Hallo</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Startseite</value>
+  </data>
+  <data name="Home_Detail_Object_Descriptions" xml:space="preserve">
+    <value>Objektbeschreibung</value>
+  </data>
+  <data name="HouseForSale_DistanceCost_abstand_distance_costs_" xml:space="preserve">
+    <value>abstand(distance costs)</value>
+  </data>
+  <data name="HouseForSale_MaintenanceCosts_hausgeld" xml:space="preserve">
+    <value>Hausgeld</value>
+  </data>
+  <data name="HouseForSale_MaintenanceSavings_ruecklagenetto" xml:space="preserve">
+    <value>ruecklagenetto</value>
+  </data>
+  <data name="HouseForSale_OrientationPricePerSqm_" xml:space="preserve">
+    <value>Richtpreis pro m²</value>
+  </data>
+  <data name="HouseType" xml:space="preserve">
+    <value>Haustyp</value>
+  </data>
+  <data name="HouseType_ApartmentHouse" xml:space="preserve">
+    <value>Wohnhaus</value>
+  </data>
+  <data name="HouseType_BeachHouse" xml:space="preserve">
+    <value>STRANDHAUS</value>
+  </data>
+  <data name="HouseType_Berghuette" xml:space="preserve">
+    <value>BERGHUETTE</value>
+  </data>
+  <data name="HouseType_Bungalow" xml:space="preserve">
+    <value>BUNGALOW</value>
+  </data>
+  <data name="HouseType_Castle" xml:space="preserve">
+    <value>SCHLOSS</value>
+  </data>
+  <data name="HouseType_CastleBurg" xml:space="preserve">
+    <value>BURG</value>
+  </data>
+  <data name="HouseType_Chalet" xml:space="preserve">
+    <value>CHALET</value>
+  </data>
+  <data name="HouseType_DetachedHouse" xml:space="preserve">
+    <value>EINFAMILIENHAUS</value>
+  </data>
+  <data name="HouseType_DoubleHouses" xml:space="preserve">
+    <value>DOPPELHAUSHAELFTE</value>
+  </data>
+  <data name="HouseType_Farmhouse" xml:space="preserve">
+    <value>Farmhaus</value>
+  </data>
+  <data name="HouseType_Finca" xml:space="preserve">
+    <value>FINCA</value>
+  </data>
+  <data name="HouseType_FinishedHouse" xml:space="preserve">
+    <value>FERTIGHAUS</value>
+  </data>
+  <data name="HouseType_HolidayHouse" xml:space="preserve">
+    <value>FERIENHAUS</value>
+  </data>
+  <data name="HouseType_Landhaus" xml:space="preserve">
+    <value>LANDHAUS</value>
+  </data>
+  <data name="HouseType_LaubeDatscheGartenhaus" xml:space="preserve">
+    <value>LAUBE-DATSCHE-GARTENHAUS</value>
+  </data>
+  <data name="HouseType_MansHouse" xml:space="preserve">
+    <value>HERRENHAUS</value>
+  </data>
+  <data name="HouseType_MoreFamilyHouse" xml:space="preserve">
+    <value>MEHRFAMILIENHAUS</value>
+  </data>
+  <data name="HouseType_Reiheneck" xml:space="preserve">
+    <value>REIHENECK</value>
+  </data>
+  <data name="HouseType_Resthof" xml:space="preserve">
+    <value>RESTHOF</value>
+  </data>
+  <data name="HouseType_Rustico" xml:space="preserve">
+    <value>RUSTICO</value>
+  </data>
+  <data name="HouseType_Series" xml:space="preserve">
+    <value>REIHENEND</value>
+  </data>
+  <data name="HouseType_Series2" xml:space="preserve">
+    <value>REIHENMITTEL</value>
+  </data>
+  <data name="HouseType_Stadthaus" xml:space="preserve">
+    <value>STADTHAUS</value>
+  </data>
+  <data name="HouseType_Townhouse" xml:space="preserve">
+    <value>REIHENHAUS</value>
+  </data>
+  <data name="HouseType_TwoFamilyHouse" xml:space="preserve">
+    <value>ZWEIFAMILIENHAUS</value>
+  </data>
+  <data name="HouseType_Villa" xml:space="preserve">
+    <value>VILLA</value>
+  </data>
+  <data name="IamAgent" xml:space="preserve">
+    <value>Ich bin Immobilienmakler</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Bild</value>
+  </data>
+  <data name="Imprint" xml:space="preserve">
+    <value>Impressum</value>
+  </data>
+  <data name="IncludedHotWater" xml:space="preserve">
+    <value>Warmwasser enthalten</value>
+  </data>
+  <data name="Common_Income" xml:space="preserve">
+    <value>Einkommen</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Informationen</value>
+  </data>
+  <data name="Input" xml:space="preserve">
+    <value>Eingabe</value>
+  </data>
+  <data name="Inside_Courtage" xml:space="preserve">
+    <value>Innenprovision</value>
+  </data>
+  <data name="IsApartmentTower" xml:space="preserve">
+    <value>Hochhhaus</value>
+  </data>
+  <data name="IsBarrierFree" xml:space="preserve">
+    <value>barrierefrei</value>
+  </data>
+  <data name="IsGardenUtilizationPossible" xml:space="preserve">
+    <value>Garten/-mitbenutzung</value>
+  </data>
+  <data name="IsKitchenFitted" xml:space="preserve">
+    <value>Einbauküche</value>
+  </data>
+  <data name="IsKitchenOpen" xml:space="preserve">
+    <value>offene Küche</value>
+  </data>
+  <data name="IsSeniorFocused" xml:space="preserve">
+    <value>seniorengerecht</value>
+  </data>
+  <data name="IsSubject_To_Comission" xml:space="preserve">
+    <value>Provisionspflichtiges Angebot</value>
+  </data>
+  <data name="IsWheelchairAccessible" xml:space="preserve">
+    <value>stufenloser Zugang</value>
+  </data>
+  <data name="Is_Construction_Year_Projected" xml:space="preserve">
+    <value>Ist das Objekt projektiert?</value>
+  </data>
+  <data name="Is_Smoker" xml:space="preserve">
+    <value>Ist Raucher?</value>
+  </data>
+  <data name="Is_Smoking_Allowed" xml:space="preserve">
+    <value>Ist das Rauchen erlaubt?</value>
+  </data>
+  <data name="Is_the_actual_terminated" xml:space="preserve">
+    <value>aktueller Mietvertrag gekündigt?</value>
+  </data>
+  <data name="Kitchen_Type" xml:space="preserve">
+    <value>Küchenmerkmale</value>
+  </data>
+  <data name="LandForSale_CommissionFeeInclTaxes_provisionbrutto" xml:space="preserve">
+    <value>provisionbrutto</value>
+  </data>
+  <data name="LandForSale_CommissionFeeToBePaidByTheBuyer_aussen_courtage" xml:space="preserve">
+    <value>Käuferprovision</value>
+  </data>
+  <data name="LandForSale_CommissionFeeToBePaidByTheOwner_innen_courtage" xml:space="preserve">
+    <value>Innenprovision</value>
+  </data>
+  <data name="LandForSale_CommissionNotice_courtage_hinweis" xml:space="preserve">
+    <value>Courtagehinweis</value>
+  </data>
+  <data name="LandForSale_Currency_waehrung" xml:space="preserve">
+    <value>Währung</value>
+  </data>
+  <data name="LandForSale_FreeTextPrice_freitext_preis" xml:space="preserve">
+    <value>Freitext zum Preis</value>
+  </data>
+  <data name="LandForSale_OnDemand_attribut_Auf_Anfrage" xml:space="preserve">
+    <value>auf Anfrage</value>
+  </data>
+  <data name="LandForSale_PurchasePricePerSquaremeter_kaufpreis_pro_qm" xml:space="preserve">
+    <value>Kaufpreis pro m²</value>
+  </data>
+  <data name="LandType_Business_GEWERBE" xml:space="preserve">
+    <value>GEWERBE</value>
+  </data>
+  <data name="LandType_CountryForg_LAND_FORSTWIRSCHAFT" xml:space="preserve">
+    <value>LAND_FORSTWIRSCHAFT</value>
+  </data>
+  <data name="LandType_IndustryGewerbepark_GEWERBEPARK" xml:space="preserve">
+    <value>GEWERBEPARK</value>
+  </data>
+  <data name="LandType_IndustryIndustrie_INDUSTRIE" xml:space="preserve">
+    <value>INDUSTRIE</value>
+  </data>
+  <data name="LandType_Leisure_FREIZEIT" xml:space="preserve">
+    <value>FREIZEIT</value>
+  </data>
+  <data name="LandType_Living_WOHNEN" xml:space="preserve">
+    <value>WOHNEN</value>
+  </data>
+  <data name="LandType_Mixed_GEMISCHT" xml:space="preserve">
+    <value>GEMISCHT</value>
+  </data>
+  <data name="LandType_Society_SEELIEGENSCHAFT" xml:space="preserve">
+    <value>SEELIEGENSCHAFT</value>
+  </data>
+  <data name="LandType_SpecialUse_SONDERNUTZUNG" xml:space="preserve">
+    <value>SONDERNUTZUNG</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Sprachen</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Letzte</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Nachname</value>
+  </data>
+  <data name="LastRenovationDate" xml:space="preserve">
+    <value>zuletzt renoviert am</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Etage</value>
+  </data>
+  <data name="Linkedin" xml:space="preserve">
+    <value>Linkedin</value>
+  </data>
+  <data name="ListingType" xml:space="preserve">
+    <value>Immobilienart</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Lage</value>
+  </data>
+  <data name="Location_description" xml:space="preserve">
+    <value>Lagebeschreibung</value>
+  </data>
+  <data name="LoginToYourAccount" xml:space="preserve">
+    <value>Anmelden</value>
+  </data>
+  <data name="Luxury" xml:space="preserve">
+    <value>luxus</value>
+  </data>
+  <data name="MaxNumberOfMembers" xml:space="preserve">
+    <value>Maximale Anzahl der Mitglieder</value>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>Medien</value>
+  </data>
+  <data name="MinIncome" xml:space="preserve">
+    <value>Einkommen</value>
+  </data>
+  <data name="Mission" xml:space="preserve">
+    <value>So einfach geht das Sie machen eine Immobilie frei, wenn Sie eine andere gefunden haben? Ob Verkauf oder Vermietung, Gewerbe, Anlage oder Wohnen. Bei uns können Sie auch anbieten, was erst frei wird, wenn Sie gefunden haben, was Sie suchen.</value>
+  </data>
+  <data name="Mission_Header" xml:space="preserve">
+    <value>Immobilientausch24</value>
+  </data>
+  <data name="MySettings" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="NetYield" xml:space="preserve">
+    <value>Rendite</value>
+  </data>
+  <data name="NetYieldActual" xml:space="preserve">
+    <value>Rendite-Ist</value>
+  </data>
+  <data name="NetYieldDebit" xml:space="preserve">
+    <value>Rendite-Soll</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>weiter</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="NotAUserYet" xml:space="preserve">
+    <value>Noch kein Mitglied?</value>
+  </data>
+  <data name="Not_Deleted" xml:space="preserve">
+    <value>nicht gelöscht!</value>
+  </data>
+  <data name="NumberOfSeparateToilets" xml:space="preserve">
+    <value>Anzahl separate WC</value>
+  </data>
+  <data name="Number_Of_Bathrooms" xml:space="preserve">
+    <value>Anzahl Badezimmer</value>
+  </data>
+  <data name="Number_Of_Bedrooms" xml:space="preserve">
+    <value>Anzahl Schlafzimmer</value>
+  </data>
+  <data name="Number_Of_Living_Bedrooms" xml:space="preserve">
+    <value>Anzahl Wohnräume</value>
+  </data>
+  <data name="Number_Of_Rooms" xml:space="preserve">
+    <value>Anzahl Zimmer</value>
+  </data>
+  <data name="Num_Of_Units" xml:space="preserve">
+    <value>Anzahl Einheiten</value>
+  </data>
+  <data name="Object_description" xml:space="preserve">
+    <value>Objektbeschreibung</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Optionen</value>
+  </data>
+  <data name="OtherMembers" xml:space="preserve">
+    <value>Andere Mitbewohner</value>
+  </data>
+  <data name="Other_Area" xml:space="preserve">
+    <value>sonstige Flächen</value>
+  </data>
+  <data name="Other_details" xml:space="preserve">
+    <value>weitere Details</value>
+  </data>
+  <data name="Outside_Courtage" xml:space="preserve">
+    <value>Außenprovision</value>
+  </data>
+  <data name="Pages" xml:space="preserve">
+    <value>Seiten</value>
+  </data>
+  <data name="ParkingSpace" xml:space="preserve">
+    <value>Stellplatz</value>
+  </data>
+  <data name="ParkType" xml:space="preserve">
+    <value>Parkplatztyp</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="Pet_Species" xml:space="preserve">
+    <value>Haustier - Art</value>
+  </data>
+  <data name="PhoneNumber_1" xml:space="preserve">
+    <value>Telefonnummer 1</value>
+  </data>
+  <data name="PhoneNumber_2" xml:space="preserve">
+    <value>Telefonnummer 2</value>
+  </data>
+  <data name="PleaseChoose" xml:space="preserve">
+    <value>bitte auswählen</value>
+  </data>
+  <data name="Please_Contact_To_Your_Agency_Manager" xml:space="preserve">
+    <value>Bitte kontaktieren Sie Ihren zuständigen Unternehmensadministrator, um Ihren Account freischalten zu lassen.</value>
+  </data>
+  <data name="Please_wait_while_your_files_are_being_processed" xml:space="preserve">
+    <value>Bitte warten, während die Dateien komprimiert werden.</value>
+  </data>
+  <data name="PositionInCompany" xml:space="preserve">
+    <value>Position im Unternehmen</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Zurück</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Preis</value>
+  </data>
+  <data name="PrimaryEnegySource" xml:space="preserve">
+    <value>Primäre Energiequelle</value>
+  </data>
+  <data name="Profession" xml:space="preserve">
+    <value>Beruf</value>
+  </data>
+  <data name="PropertyAddStepAddDate" xml:space="preserve">
+    <value>Bitte Datum angeben</value>
+  </data>
+  <data name="PropertyAddStepAddPrice" xml:space="preserve">
+    <value>Bitte Preis angeben</value>
+  </data>
+  <data name="PropertyManagement" xml:space="preserve">
+    <value>Hausverwaltung</value>
+  </data>
+  <data name="PropertyType" xml:space="preserve">
+    <value>Immobilienart</value>
+  </data>
+  <data name="Property_AddNewProperty" xml:space="preserve">
+    <value>neues Objekt anlegen</value>
+  </data>
+  <data name="Property_Add_AcceptBailLetter" xml:space="preserve">
+    <value>Akzeptieren Sie auch eine Mietbürgschaft?</value>
+  </data>
+  <data name="Property_Add_AdditionalCosts" xml:space="preserve">
+    <value>Nebenkosten
+</value>
+  </data>
+  <data name="Property_Add_Address_HouseNumber" xml:space="preserve">
+    <value>Hausnummer</value>
+  </data>
+  <data name="Property_Add_Address_IsAddressPublic" xml:space="preserve">
+    <value>Objektadresse veröffentlicht</value>
+  </data>
+  <data name="Property_Add_Address_LocationLevel1" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="Property_Add_Address_LocationLevel2" xml:space="preserve">
+    <value>Region (Stadt/Kreis)</value>
+  </data>
+  <data name="Property_Add_Address_LocationLevel3" xml:space="preserve">
+    <value>Stadtteil/Gemeinde</value>
+  </data>
+  <data name="Property_Add_Address_SelectedPropertySubType" xml:space="preserve">
+    <value>Objektart</value>
+  </data>
+  <data name="Property_Add_Address_Street" xml:space="preserve">
+    <value>Straße</value>
+  </data>
+  <data name="Property_Add_Address_ZipCode" xml:space="preserve">
+    <value>Postleitzahl</value>
+  </data>
+  <data name="Property_Add_AreaMinValue" xml:space="preserve">
+    <value>Mindestfläche</value>
+  </data>
+  <data name="Property_Add_Bail" xml:space="preserve">
+    <value>Kaution</value>
+  </data>
+  <data name="Property_Add_BailText" xml:space="preserve">
+    <value>Kaution-text</value>
+  </data>
+  <data name="Property_Add_BasicRent" xml:space="preserve">
+    <value>Basismiete</value>
+  </data>
+  <data name="Property_Add_Clearence" xml:space="preserve">
+    <value>Abstand</value>
+  </data>
+  <data name="Property_Add_ClearenceText" xml:space="preserve">
+    <value>Abstand Freitext</value>
+  </data>
+  <data name="Property_Step3_Cold_Rent" xml:space="preserve">
+    <value>Kaltmiete</value>
+  </data>
+  <data name="Property_Add_CourtageHowMuchPay" xml:space="preserve">
+    <value>Für die erfolgreiche Vermittlung eines geeigneten Käufers wäre ich bereit eine Innenprovision an den vermittelnden Makler zu zahlen.</value>
+  </data>
+  <data name="Property_Add_Current_Cold_Rent" xml:space="preserve">
+    <value>aktuelle Kaltmiete</value>
+  </data>
+  <data name="Property_Add_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Property_Add_Duration" xml:space="preserve">
+    <value>Minimum Mietdauer</value>
+  </data>
+  <data name="Property_Add_Earliest_Date" xml:space="preserve">
+    <value>Frühester Einzug</value>
+  </data>
+  <data name="Property_Add_FreeTextavailablefrom" xml:space="preserve">
+    <value>verfügbar ab
+</value>
+  </data>
+  <data name="Property_Add_FreeTextPrice" xml:space="preserve">
+    <value>Preis - Text</value>
+  </data>
+  <data name="Property_Add_FreeTexts" xml:space="preserve">
+    <value>Freitexte</value>
+  </data>
+  <data name="Property_Add_FurnishType_Select" xml:space="preserve">
+    <value>Möblierungsart</value>
+  </data>
+  <data name="Property_Add_HeatingCosts" xml:space="preserve">
+    <value>Heizkosten
+</value>
+  </data>
+  <data name="Property_Add_Income" xml:space="preserve">
+    <value>Mindesthaushaltseinkommen netto/Monat</value>
+  </data>
+  <data name="Property_Add_IntroducedByAgent" xml:space="preserve">
+    <value>Mein Angebot an Mitglieder mit passenden Suchprofilen senden. Makler dürfen mich kontaktieren, wenn ein Bestandskunde Interesse an meinem Angebot hat.</value>
+  </data>
+  <data name="Property_Add_IsAllowedToBeIntroducedByAgent" xml:space="preserve">
+    <value>Mein Angebot an Mitglieder mit passenden Suchprofilen senden. Makler dürfen mich kontaktieren, wenn ein Bestandskunde Interesse an meinem Angebot hat.</value>
+  </data>
+  <data name="Property_Add_IsDateFlexible" xml:space="preserve">
+    <value>Ist der Bezugstermin flexibel?</value>
+  </data>
+  <data name="Property_Add_IsFlatSharePossible" xml:space="preserve">
+    <value>WG-geeignet
+</value>
+  </data>
+  <data name="Property_Add_IsFurnished" xml:space="preserve">
+    <value>möbliert</value>
+  </data>
+  <data name="Property_Add_IsHeatingCostsIncluded" xml:space="preserve">
+    <value>Heizkosten enthalten</value>
+  </data>
+  <data name="Property_Add_IsPriceOnDemand" xml:space="preserve">
+    <value>Preis auf Anfrage</value>
+  </data>
+  <data name="Property_Add_IsRentedOut" xml:space="preserve">
+    <value>aktuell vermietet?</value>
+  </data>
+  <data name="Property_Add_Is_Currently_Rented" xml:space="preserve">
+    <value>aktuell vermietet?</value>
+  </data>
+  <data name="Property_Add_Latest_Date" xml:space="preserve">
+    <value>spätester Bezugstermin</value>
+  </data>
+  <data name="Property_Add_Level" xml:space="preserve">
+    <value>Etage auswählen</value>
+  </data>
+  <data name="Property_Add_ListingHeader" xml:space="preserve">
+    <value>Objektüberschrift</value>
+  </data>
+  <data name="Property_Add_LivingArea" xml:space="preserve">
+    <value>Wohnfläche  (m2)</value>
+  </data>
+  <data name="Property_Add_MaxAgeOfPerson" xml:space="preserve">
+    <value>Maximale Personenzahl</value>
+  </data>
+  <data name="Property_Add_MaxNumberOfChildren" xml:space="preserve">
+    <value>maximale Anzahl Kinder</value>
+  </data>
+  <data name="Property_Add_MaxNumberOfPersons" xml:space="preserve">
+    <value>Maximale Personenzahl</value>
+  </data>
+  <data name="Property_Add_NumberOfLevels" xml:space="preserve">
+    <value>Anzahl Etagen</value>
+  </data>
+  <data name="Property_Add_Orientation_Price" xml:space="preserve">
+    <value>Richtpreis (wird nicht veröffentlicht, wird aber für das Matching benötigt)</value>
+  </data>
+  <data name="Property_Add_PetsAllowed" xml:space="preserve">
+    <value>Haustiere sind erlaubt</value>
+  </data>
+  <data name="Property_Add_PositionInBuilding" xml:space="preserve">
+    <value>Lage im Bau</value>
+  </data>
+  <data name="Property_Add_PreferredAgeOfChildren" xml:space="preserve">
+    <value>Bevorzugte Anzahl Kinder</value>
+  </data>
+  <data name="Property_Add_PrefferedGender" xml:space="preserve">
+    <value>Bevorzugtes Geschlecht bei der Mieterwahl</value>
+  </data>
+  <data name="Property_Add_Price" xml:space="preserve">
+    <value>Preis</value>
+  </data>
+  <data name="Property_Add_PublisherType" xml:space="preserve">
+    <value>Ich selbst bin:</value>
+  </data>
+  <data name="Property_Add_RentalPricePerSqm" xml:space="preserve">
+    <value>Mietpreis pro m²</value>
+  </data>
+  <data name="Property_Add_SelectedCountry" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="Property_Add_SpeakToOwner" xml:space="preserve">
+    <value>Haben Sie mit dem Vermieter über die Höhe der neuen Miete gesprochen?</value>
+  </data>
+  <data name="Property_Add_Step3_When_Is_The_0_Available" xml:space="preserve">
+    <value>Wann ist das/die {0} verfügbar. </value>
+  </data>
+  <data name="Property_Add_SubUrb_Select" xml:space="preserve">
+    <value>Stadtteil/Gemeinde hinzufügen, falls nicht enthalten</value>
+  </data>
+  <data name="Property_Add_Terminated_On" xml:space="preserve">
+    <value>gekündigt zum</value>
+  </data>
+  <data name="Property_Add_TotalArea" xml:space="preserve">
+    <value>Gesamtfläche</value>
+  </data>
+  <data name="Property_Add_UsefulArea" xml:space="preserve">
+    <value>Nutzfläche</value>
+  </data>
+  <data name="Property_Add_WarmRent" xml:space="preserve">
+    <value>Warmmiete
+</value>
+  </data>
+  <data name="Property_Detail_Agent_Info_Phone" xml:space="preserve">
+    <value>Tel.</value>
+  </data>
+  <data name="Property_Detail_HFS_Price" xml:space="preserve">
+    <value>Preis</value>
+  </data>
+  <data name="Property_EditProperty" xml:space="preserve">
+    <value>Objekt bearbeiten</value>
+  </data>
+  <data name="Property_Steps_Basic" xml:space="preserve">
+    <value>Stammdaten</value>
+  </data>
+  <data name="Property_Steps_Buildings" xml:space="preserve">
+    <value>Bebauung</value>
+  </data>
+  <data name="Property_Steps_Date_And_Prices" xml:space="preserve">
+    <value>Bezug und Preis</value>
+  </data>
+  <data name="Property_Steps_Energy" xml:space="preserve">
+    <value>Energieausweis</value>
+  </data>
+  <data name="Property_Steps_Features" xml:space="preserve">
+    <value>Ausstattung</value>
+  </data>
+  <data name="Property_Steps_Location" xml:space="preserve">
+    <value>Umgebung</value>
+  </data>
+  <data name="Property_Steps_Media" xml:space="preserve">
+    <value>Medien</value>
+  </data>
+  <data name="Property_Steps_Sizes" xml:space="preserve">
+    <value>Größen</value>
+  </data>
+  <data name="Property_Steps_Tenant_Criteria" xml:space="preserve">
+    <value>Mieterkriterien</value>
+  </data>
+  <data name="PurchasePrice" xml:space="preserve">
+    <value>Stellplatzkaufpreis</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Anzahl</value>
+  </data>
+  <data name="Ranged_BalconyTerraceArea" xml:space="preserve">
+    <value>Fläche aller Balkone und Terrassen</value>
+  </data>
+  <data name="Ranged_GardenArea" xml:space="preserve">
+    <value>Gartengröße</value>
+  </data>
+  <data name="Ranged_NumberOfBathRooms" xml:space="preserve">
+    <value>Anzahl Badezimmer</value>
+  </data>
+  <data name="Ranged_NumberOfLivingBedroom" xml:space="preserve">
+    <value>Anzahl Wohnräume</value>
+  </data>
+  <data name="Ranged_NumberOfLivingBedrooms" xml:space="preserve">
+    <value>Anzahl Schlafzimmer</value>
+  </data>
+  <data name="Ranged_NumberOfLivingRooms" xml:space="preserve">
+    <value>Anzahl Wohnräume
+</value>
+  </data>
+  <data name="Ranged_NumberOfParkingLots" xml:space="preserve">
+    <value>Anzahl Stellplätze</value>
+  </data>
+  <data name="Ranged_NumberOfRooms" xml:space="preserve">
+    <value>Anzahl Zimmer</value>
+  </data>
+  <data name="Ranged_NumberOfSeparateToilets" xml:space="preserve">
+    <value>Anzahl separate Toiletten</value>
+  </data>
+  <data name="Ranged_PlotArea" xml:space="preserve">
+    <value>Grundstücksgröße</value>
+  </data>
+  <data name="Ranged_ResidentialArea" xml:space="preserve">
+    <value>Wohnfläche</value>
+  </data>
+  <data name="Ranged_TotalArea" xml:space="preserve">
+    <value>Gesamtfläche</value>
+  </data>
+  <data name="Ranged_YearOfConstruction" xml:space="preserve">
+    <value>Baujahr</value>
+  </data>
+  <data name="Remember_me" xml:space="preserve">
+    <value>mich erinnern?</value>
+  </data>
+  <data name="Rental_Income_Actual" xml:space="preserve">
+    <value>aktuelle Mieteinnahmen IST (Jahr)</value>
+  </data>
+  <data name="Rental_Income_Debit" xml:space="preserve">
+    <value>aktuelle Mieteinnahmen SOLL (Jahr)</value>
+  </data>
+  <data name="Rent_Subsidy" xml:space="preserve">
+    <value>Mietzuschläge</value>
+  </data>
+  <data name="ResetPasswordViewModel_ConfirmPassword_Confirm_password" xml:space="preserve">
+    <value>Passwort bestätigen</value>
+  </data>
+  <data name="Enum_FieldOfResponsibility_Acquisitions" xml:space="preserve">
+    <value>Akquise</value>
+  </data>
+  <data name="Enum_FieldOfResponsibility_Letting" xml:space="preserve">
+    <value>Vermietung</value>
+  </data>
+  <data name="RoofType" xml:space="preserve">
+    <value>Dachform</value>
+  </data>
+  <data name="Safety" xml:space="preserve">
+    <value>Sicherheit</value>
+  </data>
+  <data name="Save_Money_Header" xml:space="preserve">
+    <value>Doppelte Miete sparen</value>
+  </data>
+  <data name="Save_Money_Text" xml:space="preserve">
+    <value>Sie beschreiben Ihr Gesuch und außerdem hinterlegen Sie die Daten ihrer aktuell bewohnten Immobilie.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Suche</value>
+  </data>
+  <data name="Showing_Page__0__c__1__" xml:space="preserve">
+    <value>Zeige Seite: {0} von {1} Seiten.</value>
+  </data>
+  <data name="SightType" xml:space="preserve">
+    <value>Aussichtsart</value>
+  </data>
+  <data name="Sight_View" xml:space="preserve">
+    <value>Aussicht</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>anmelden</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>registrieren</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Größe</value>
+  </data>
+  <data name="Skype" xml:space="preserve">
+    <value>Skype</value>
+  </data>
+  <data name="Spaces" xml:space="preserve">
+    <value>Flächen</value>
+  </data>
+  <data name="Step3LandForSale_Empheteusis_Empheteusis" xml:space="preserve">
+    <value>Erbpacht</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Erfolg</value>
+  </data>
+  <data name="Sure_To_Delete" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie löschen möchten?</value>
+  </data>
+  <data name="TenantSearch" xml:space="preserve">
+    <value>Gesuchsprofile durchstöbern</value>
+  </data>
+  <data name="Tenant_Details" xml:space="preserve">
+    <value>Mieterdetails</value>
+  </data>
+  <data name="Tercet" xml:space="preserve">
+    <value>Dreizeiler</value>
+  </data>
+  <data name="The_password_and_confirmation_password_do_not_match_" xml:space="preserve">
+    <value>Die Passwörter stimmen nicht überein</value>
+  </data>
+  <data name="TotalIncome" xml:space="preserve">
+    <value>Gesamteinkommen</value>
+  </data>
+  <data name="TotalNumberOfMembers" xml:space="preserve">
+    <value>Gesamtzahl der Mieter</value>
+  </data>
+  <data name="Twitter" xml:space="preserve">
+    <value>Twitter</value>
+  </data>
+  <data name="TypeOfMerchandising" xml:space="preserve">
+    <value>Vermarktungsart</value>
+  </data>
+  <data name="TypeOfUse" xml:space="preserve">
+    <value>Nutzungsart</value>
+  </data>
+  <data name="UltimateEnergyDemand" xml:space="preserve">
+    <value>Endenergieverbrauch</value>
+  </data>
+  <data name="ValidUntil" xml:space="preserve">
+    <value>gültig bis</value>
+  </data>
+  <data name="ValueRating" xml:space="preserve">
+    <value>Energiekennwert</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>Details ansehen</value>
+  </data>
+  <data name="ViewSightViewModel_SightType" xml:space="preserve">
+    <value>Aussichtsart</value>
+  </data>
+  <data name="View_More" xml:space="preserve">
+    <value>weitere Optionen anzeigen</value>
+  </data>
+  <data name="WarmnessValue" xml:space="preserve">
+    <value>Wärmekennwert</value>
+  </data>
+  <data name="Xtimes" xml:space="preserve">
+    <value>Faktor</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="YouCanSaveYourDetailedSearchCriteriasForLaterUse" xml:space="preserve">
+    <value>Sie können die Suche speichern und später wieder aufrufen, wenn Sie eingeloggt sind.</value>
+  </data>
+  <data name="YourAgentInformationsNotSaved" xml:space="preserve">
+    <value>Ihre Anbieterinformationen konnten nicht gespeichert werden</value>
+  </data>
+  <data name="YourAgentInformationsSaved" xml:space="preserve">
+    <value>Ihre Anbieterinformationen wurden gespeichert</value>
+  </data>
+  <data name="YourSearchCriteriasSavedSuccessfully" xml:space="preserve">
+    <value>Ihr Gesuch wurde erfolgreich abgespeichert</value>
+  </data>
+  <data name="General_Reset_Form" xml:space="preserve">
+    <value>Zurücksetzen</value>
+  </data>
+  <data name="Home_Menu_Insurance" xml:space="preserve">
+    <value>Versicherung</value>
+  </data>
+  <data name="Home_Menu_Loan" xml:space="preserve">
+    <value>Darlehen</value>
+  </data>
+  <data name="Upload_your_profile_picture" xml:space="preserve">
+    <value>Profilbild hochladen</value>
+  </data>
+  <data name="Home_TenantSearch_CompanyName" xml:space="preserve">
+    <value>Firmenname</value>
+  </data>
+  <data name="Home_Menu_Electricity" xml:space="preserve">
+    <value>Strom</value>
+  </data>
+  <data name="Home_Menu_Finance_and_Insurance" xml:space="preserve">
+    <value>Versicherungen und Baufinanzierungen</value>
+  </data>
+  <data name="Home_Menu_Gas" xml:space="preserve">
+    <value>Gas</value>
+  </data>
+  <data name="Home_Menu_Holiday" xml:space="preserve">
+    <value>Reisen</value>
+  </data>
+  <data name="Home_Menu_Hotels" xml:space="preserve">
+    <value>Hotels</value>
+  </data>
+  <data name="Home_Menu_Internet_And_DSL" xml:space="preserve">
+    <value>Internet &amp;DSL</value>
+  </data>
+  <data name="Home_Menu_Rent_A_Car" xml:space="preserve">
+    <value>Autovermietung</value>
+  </data>
+  <data name="Agent_Sidebar_AddListing" xml:space="preserve">
+    <value>Objekt anlegen</value>
+  </data>
+  <data name="Agent_Sidebar_Dashboard" xml:space="preserve">
+    <value>Benutzeroberfläche</value>
+  </data>
+  <data name="Agent_Sidebar_MyListings" xml:space="preserve">
+    <value>Meine Angebote</value>
+  </data>
+  <data name="Property_Index_ChangeStatus" xml:space="preserve">
+    <value>Status ändern</value>
+  </data>
+  <data name="Property_Step3_CommonCharge" xml:space="preserve">
+    <value>Hausgeld</value>
+  </data>
+  <data name="Property_Step8_ConstructionYear" xml:space="preserve">
+    <value>Baujahr</value>
+  </data>
+  <data name="Property_Step3_CourtageAdvice" xml:space="preserve">
+    <value>Provisionshinweis</value>
+  </data>
+  <data name="Property_Step9_FlatNumber" xml:space="preserve">
+    <value>Wohnungsnummer</value>
+  </data>
+  <data name="Property_Step4_HasParkingSpace" xml:space="preserve">
+    <value>Parkplatz vorhanden</value>
+  </data>
+  <data name="Property_Index_InReview" xml:space="preserve">
+    <value>In Prüfung</value>
+  </data>
+  <data name="Property_Step3_MaintenanceSavings" xml:space="preserve">
+    <value>Rücklagen</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Monat</value>
+  </data>
+  <data name="Property_Step3_RentInfo" xml:space="preserve">
+    <value>Miete</value>
+  </data>
+  <data name="Property_Step9_SaveAndPublish" xml:space="preserve">
+    <value>Speichern und veröffentlichen</value>
+  </data>
+  <data name="View_Less" xml:space="preserve">
+    <value>erweiterte Optionen ausblenden</value>
+  </data>
+  <data name="Property_Add_RentSubsidy" xml:space="preserve">
+    <value>Mietzuzahlung</value>
+  </data>
+  <data name="RollerBlindType" xml:space="preserve">
+    <value>Rollladenart</value>
+  </data>
+  <data name="InternetType" xml:space="preserve">
+    <value>DSL Typ</value>
+  </data>
+  <data name="Enum_RollerBlindType_Manual" xml:space="preserve">
+    <value>manuell</value>
+  </data>
+  <data name="Enum_RollerBlindType_Electric" xml:space="preserve">
+    <value>elektrisch</value>
+  </data>
+  <data name="Enum_RollerBlindType_PartlyElectric" xml:space="preserve">
+    <value>teilweise elektrisch</value>
+  </data>
+  <data name="Property_Step9_SpeedOfInternet" xml:space="preserve">
+    <value>Internetgeschwindigkeit</value>
+  </data>
+  <data name="Property_Step9_HasHousingPermission" xml:space="preserve">
+    <value>Wohnberechtigungsschein erforderlich</value>
+  </data>
+  <data name="Add_New_Beaconing" xml:space="preserve">
+    <value>Befeuerungsart hinzufügen</value>
+  </data>
+  <data name="Add_New_Heating" xml:space="preserve">
+    <value>Heizungsart hinzufügen</value>
+  </data>
+  <data name="Property_Step1Land_FloorFraction" xml:space="preserve">
+    <value>Flurstück</value>
+  </data>
+  <data name="Property_Step1Land_Floor" xml:space="preserve">
+    <value>Flur</value>
+  </data>
+  <data name="Property_Step3_CommissionWarningText" xml:space="preserve">
+    <value>Wenn ein (anderer) Makler den beurkundenden Käufer an Sie vermittelt: Wie viel wären Sie bereit zu zahlen bzw. abzugeben?</value>
+  </data>
+  <data name="Property_Step4_MixedLands_Separable" xml:space="preserve">
+    <value>teilbar</value>
+  </data>
+  <data name="Property_Step4_MixedLands_Plot" xml:space="preserve">
+    <value>Grundstück</value>
+  </data>
+  <data name="Property_Step4_mixedlands" xml:space="preserve">
+    <value>Grundstück mit verschiedenen Nutzungsarten/ Aufteilung</value>
+  </data>
+  <data name="Property_Add_New_Mixed_land" xml:space="preserve">
+    <value>gemischte Grundstücksflächen anlegen</value>
+  </data>
+  <data name="Email_Register_Activate_Your_Account_Button_Text" xml:space="preserve">
+    <value>Account aktivieren</value>
+  </data>
+  <data name="Email_Register_Title_Welcome_to_wt24" xml:space="preserve">
+    <value>Willkommen bei Immotausch24</value>
+  </data>
+  <data name="Email_Register_Your_Account_Created_Information" xml:space="preserve">
+    <value>Ihr Mitgliedskonto wurde erfolgreich erstellt. Um sich anmelden zu können und anzufangen, Angebote und Gesuche zu hinterlegen, bitten wir Sie, zunächst Ihr Mitgliedskonto zu aktivieren. Sie können dann bereits in wenigen Augenblicken auch kostenlos vollständige Wohnungen und Häuser anlegen und veröffentlichen. Sie suchen nach einer Wohnimmobilie? Benutzen Sie die Detailsuche, wenn Sie angemeldet sind. Dann können Sie die Speicherfunktion nutzen und Ihr Gesuch bzw. Suchprofil speichern. Anbieter können Sie dann direkt finden und kontaktieren.</value>
+  </data>
+  <data name="Email_Please_do_not_reply_directly_to_this_email" xml:space="preserve">
+    <value>Bitte antworten Sie nicht direkt auf diese E-Mail. Sie erreichen uns, indem Sie eine Nachricht an ... senden.</value>
+  </data>
+  <data name="Email_Register_Connect_With_Us" xml:space="preserve">
+    <value>Mit uns verbinden</value>
+  </data>
+  <data name="Email_Register_Header_Text" xml:space="preserve">
+    <value>Immotausch24. Finde Wohnimmobilien, -angebote, -gesuche und kompetente Partner</value>
+  </data>
+  <data name="Email_Register_Mail_Title" xml:space="preserve">
+    <value>Mitgliedsaccount bestätigen</value>
+  </data>
+  <data name="Email_Register_Thanks" xml:space="preserve">
+    <value>Vielen Dank</value>
+  </data>
+  <data name="Email_Register_The_wt24_Team" xml:space="preserve">
+    <value>Ihr Immotausch24-Team</value>
+  </data>
+  <data name="An_error_occurred_while_processing_your_request" xml:space="preserve">
+    <value>Während dem Prozess ist ein Fehler aufgetreten.</value>
+  </data>
+  <data name="Please_Check_Your_Email_Account_To_Confirm_Your_Email_Address" xml:space="preserve">
+    <value>Bitte überprüfen Sie Ihr E-Mail-Account und bestätigen Sie Ihre E-Mail-Adresse.</value>
+  </data>
+  <data name="RegistrationSuccessful" xml:space="preserve">
+    <value>Registrierung erfolgreich durchgeführt</value>
+  </data>
+  <data name="Confirm_Email" xml:space="preserve">
+    <value>Bestätigungsmail</value>
+  </data>
+  <data name="Thank_you_for_confirming_your_email" xml:space="preserve">
+    <value>Danke, dass Sie Ihre E-Mail-Adresse bestätigt haben.</value>
+  </data>
+  <data name="Please_Click_here_to_Log_in" xml:space="preserve">
+    <value>Bitte klicken Sie hier um sich anzumelden.</value>
+  </data>
+  <data name="Property_Step7Land_BuldingBank" xml:space="preserve">
+    <value>Breite der Grundstücksfront</value>
+  </data>
+  <data name="Property_Step7Land_BuldingType" xml:space="preserve">
+    <value>bebaubar nach</value>
+  </data>
+  <data name="Property_Step7Land_AllotmentType" xml:space="preserve">
+    <value>Erschließungstyp</value>
+  </data>
+  <data name="Property_Step7_AmountOfAllotment" xml:space="preserve">
+    <value>Erschließungsumfang</value>
+  </data>
+  <data name="Property_Step7_AmountOfAllotment_electricity" xml:space="preserve">
+    <value>Strom</value>
+  </data>
+  <data name="Property_Step7_AmountOfAllotment_Water" xml:space="preserve">
+    <value>Wasser</value>
+  </data>
+  <data name="Property_Step7_AmountOfAllotment_Gaz" xml:space="preserve">
+    <value>Gas</value>
+  </data>
+  <data name="Property_Step7Land_Exploitation_quotient" xml:space="preserve">
+    <value>Ausnutzungskennziffer</value>
+  </data>
+  <data name="Home_Index_Realsetates" xml:space="preserve">
+    <value>Immobilien</value>
+  </data>
+  <data name="Home_Index_RealEstateDescription" xml:space="preserve">
+    <value>Unsere Makler-Partner sind lizensierte Profis, die sich darauf spezialisiert haben, die geeignete Immobilie für den Käufer zu suchen und zu finden um dann den tatsächlichen Verkehrs- und Marktwert zu ermitteln und den Kaufpreis im Sinne des Auftraggebers zu verhandeln. Unsere Partner werden Ihre Immobilie gerne verkaufen. Unsere Partner verfügen über das Wissen und die Erfahrung, die nötig ist, um den besten Preis in angemessener Zeit für Ihre Immobilie zu erwirtschaften.</value>
+  </data>
+  <data name="Home_Index_Featured" xml:space="preserve">
+    <value>Top Objekte</value>
+  </data>
+  <data name="Home_Index_Recent" xml:space="preserve">
+    <value>neue Angebote</value>
+  </data>
+  <data name="Home_Index_Popular" xml:space="preserve">
+    <value>beliebteste Angebote</value>
+  </data>
+  <data name="Home_Index_MoreProperties" xml:space="preserve">
+    <value>Mehr Objekte anzeigen</value>
+  </data>
+  <data name="Home_Index_SubmitNow" xml:space="preserve">
+    <value>Absenden</value>
+  </data>
+  <data name="Home_Index_OurPartners" xml:space="preserve">
+    <value>Unsere Partner</value>
+  </data>
+  <data name="Home_Index_PartnersDescription" xml:space="preserve">
+    <value>Unsere Partner ermöglichen eine große Vielfalt an digitalen und persönlichen Services auf höchstem professionellen Niveau unter Einbringung jahrzehntelanger Erfahrung im Bereich Bewertung, Vermittlung und Vermarktung von Immobilien. Und das in allen Bereichen rund um das Thema Immobilie Mieten und Vermieten, Kaufen und Verkaufen, Umziehen, Einziehen, Wohnen und Einrichten.</value>
+  </data>
+  <data name="Home_Index_Newsletters" xml:space="preserve">
+    <value>Newsletter</value>
+  </data>
+  <data name="Home_Index_OurAgents" xml:space="preserve">
+    <value>Unsere Mitarbeiter</value>
+  </data>
+  <data name="Home_Search_ListingEstate" xml:space="preserve">
+    <value>Veröffentlichte Angebote</value>
+  </data>
+  <data name="Home_Search_Found" xml:space="preserve">
+    <value>Ergebnisliste</value>
+  </data>
+  <data name="Home_Search_Sortby" xml:space="preserve">
+    <value>Sortieren nach</value>
+  </data>
+  <data name="Home_SearchResult_AddedDate" xml:space="preserve">
+    <value>Datum der Veröffentlichung</value>
+  </data>
+  <data name="Home_SearchResult_TimeEnding" xml:space="preserve">
+    <value>endende Angebote zuerst</value>
+  </data>
+  <data name="Home_SearchResult_TimeNewly" xml:space="preserve">
+    <value>neueste Anzeigen</value>
+  </data>
+  <data name="Home_SearchResult_PriceHighest" xml:space="preserve">
+    <value>Preis absteigend</value>
+  </data>
+  <data name="Home_SearchResult_DistanceNearest" xml:space="preserve">
+    <value>Entfernung (näheste)</value>
+  </data>
+  <data name="Home_SearchResult_ConditionUsed" xml:space="preserve">
+    <value>Baujahr aufsteigend</value>
+  </data>
+  <data name="Home_SearchResult_ConditionNew" xml:space="preserve">
+    <value>Baujahr absteigend</value>
+  </data>
+  <data name="Home_SearchResult_BestMatch" xml:space="preserve">
+    <value>passendste</value>
+  </data>
+  <data name="Home_SearchResult_PriceLowest" xml:space="preserve">
+    <value>Preis aufsteigend</value>
+  </data>
+  <data name="Home_Search_Filter" xml:space="preserve">
+    <value>Suchfilter</value>
+  </data>
+  <data name="Home_Search_FindKeysText" xml:space="preserve">
+    <value>Finde Deine neue Immobilie nach den genauen Suchkriterien.</value>
+  </data>
+  <data name="Home_Search_Reset" xml:space="preserve">
+    <value>Zurücksetzen</value>
+  </data>
+  <data name="Home_DetailedSearch_AvailableFrom" xml:space="preserve">
+    <value>frühester Bezug</value>
+  </data>
+  <data name="Ranged_Price" xml:space="preserve">
+    <value>Preisbereich</value>
+  </data>
+  <data name="Account_Confirm_Email_To_Logon" xml:space="preserve">
+    <value>Sie benötigen eine bestätigte E-Mail-Adresse um sich anzumelden.</value>
+  </data>
+  <data name="TenantSearch_PetsAllowed" xml:space="preserve">
+    <value>Haustiere erlaubt</value>
+  </data>
+  <data name="Home_DetailedSearch_AvailableTo" xml:space="preserve">
+    <value>spätester Bezug</value>
+  </data>
+  <data name="DetailedSearch_IsDateFlexible" xml:space="preserve">
+    <value>Flexibler Einzug</value>
+  </data>
+  <data name="FileUpload_File_is_too_large" xml:space="preserve">
+    <value>Datei ist zu groß</value>
+  </data>
+  <data name="FileUpload_File_is_too_small" xml:space="preserve">
+    <value>Datei ist zu klein</value>
+  </data>
+  <data name="FileUpload_File_type_not_allowed" xml:space="preserve">
+    <value>Dateityp wird nicht unterstützt</value>
+  </data>
+  <data name="FileUpload_Maximum_number_of_files_exceeded" xml:space="preserve">
+    <value>Höchstzahl an Dateien überschritten</value>
+  </data>
+  <data name="User_Panel_Personal_Informations" xml:space="preserve">
+    <value>Persönliche Informationen</value>
+  </data>
+  <data name="General_Save" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="Home_DetailedSearch_Are_Pets_Allowed" xml:space="preserve">
+    <value>Haustiere erlaubt</value>
+  </data>
+  <data name="GlobalAgencyName" xml:space="preserve">
+    <value>Name des Anbieters</value>
+  </data>
+  <data name="ShortMob" xml:space="preserve">
+    <value>Mob.:</value>
+  </data>
+  <data name="Bathrooms" xml:space="preserve">
+    <value>Badezimmer</value>
+  </data>
+  <data name="Property_Detail_Area" xml:space="preserve">
+    <value>Fläche</value>
+  </data>
+  <data name="Property_Detail_Filter" xml:space="preserve">
+    <value>Filtern nach</value>
+  </data>
+  <data name="Property_Detail_FilterText" xml:space="preserve">
+    <value>Finde Deine neue Immobilie nach den genauen Suchkriterien.</value>
+  </data>
+  <data name="Property_Detail_MyListings" xml:space="preserve">
+    <value>Meine Angebote</value>
+  </data>
+  <data name="Property_Detail_NumberOfBalconies" xml:space="preserve">
+    <value>Anzahl Balkone</value>
+  </data>
+  <data name="Property_Detail_NumberOfTerraces" xml:space="preserve">
+    <value>Anzahl Terrasse</value>
+  </data>
+  <data name="Property_Detail_NumberOfTinyBalconies" xml:space="preserve">
+    <value>Anzahl Loggien</value>
+  </data>
+  <data name="Property_Detail_Num_Of_Apartment_Units" xml:space="preserve">
+    <value>Anzahl Wohneinheiten</value>
+  </data>
+  <data name="Property_Detail_Pictures" xml:space="preserve">
+    <value>Bilder</value>
+  </data>
+  <data name="Property_Detail_PlotArea" xml:space="preserve">
+    <value>Grundstücksgröße</value>
+  </data>
+  <data name="Property_Detail_Rooms" xml:space="preserve">
+    <value>Zimmer</value>
+  </data>
+  <data name="ShortTel" xml:space="preserve">
+    <value>Tel.:</value>
+  </data>
+  <data name="PropertiesPartial_Commisssion" xml:space="preserve">
+    <value>Teilweise Provision</value>
+  </data>
+  <data name="Property_Detail_Contact_Agent" xml:space="preserve">
+    <value>Anbieter kontaktieren</value>
+  </data>
+  <data name="Property_Detail_DescriptionInAnotherLanguages" xml:space="preserve">
+    <value>Beschreibung in anderer Sprache</value>
+  </data>
+  <data name="Property_Detail_Distances" xml:space="preserve">
+    <value>Entfernungen</value>
+  </data>
+  <data name="Property_Detail_EnergyCertificateTypes" xml:space="preserve">
+    <value>Energieklasse</value>
+  </data>
+  <data name="Property_Detail_Features" xml:space="preserve">
+    <value>Ausstattung</value>
+  </data>
+  <data name="Property_Detail_Garages" xml:space="preserve">
+    <value>Garagen</value>
+  </data>
+  <data name="Property_Detail_PriceAndCostsText" xml:space="preserve">
+    <value>Seien Sie schlau und vergleichen Sie noch heute die Energieanbieter. Bei uns finden Sie deutlich günstigere Anbieter und Konditionen. Überprüfen Sie, wieviel Sie bereits jetzt oder spätestens nach dem Umzug sparen können. Wir haben nahezu alle Tarife im Vergleichsrechner, und darüber hinaus unseren Haustarif, den Sie nur über uns bekommen können. Folgen Sie diesem Link: Energievergleichsrechner</value>
+  </data>
+  <data name="Property_Detail_PricesAndCosts" xml:space="preserve">
+    <value>Preise und Kosten</value>
+  </data>
+  <data name="Property_Detail_PropertyMap" xml:space="preserve">
+    <value>Karte</value>
+  </data>
+  <data name="Property_Detail_SimilarProperties" xml:space="preserve">
+    <value>ähnliche Immobilien</value>
+  </data>
+  <data name="Property_Detail_StreetView" xml:space="preserve">
+    <value>Streetview</value>
+  </data>
+  <data name="Property_Detail_WhatDoesMovingCost" xml:space="preserve">
+    <value>Was kostet mein Umzug?</value>
+  </data>
+  <data name="Propery_AgentInfo_ContactForm" xml:space="preserve">
+    <value>Kontaktformular</value>
+  </data>
+  <data name="Propery_AgentInfo_Message" xml:space="preserve">
+    <value>Nachricht</value>
+  </data>
+  <data name="Propery_AgentInfo_Telephone" xml:space="preserve">
+    <value>Telefonnummer</value>
+  </data>
+  <data name="Propery_AgentInfo_Text" xml:space="preserve">
+    <value>Wohnberechtigungsschein erforderlich</value>
+  </data>
+  <data name="Propery_AgentInfo_YourName" xml:space="preserve">
+    <value>Erschließungstyp</value>
+  </data>
+  <data name="The_Address_Info_Is_Not_Shared" xml:space="preserve">
+    <value>Die genaue Adresse wurde nicht veröffentlicht.</value>
+  </data>
+  <data name="Please_Change_Your_Password_On_First_Login" xml:space="preserve">
+    <value>Ändern Sie Ihr Passwort bei der ersten Anmeldung</value>
+  </data>
+  <data name="Create_Agent_Your_Password" xml:space="preserve">
+    <value>Dein Passwort</value>
+  </data>
+  <data name="Create_Agent_Your_Username_Email" xml:space="preserve">
+    <value>Dein Benutzername/Deine E-Mail-Adresse</value>
+  </data>
+  <data name="Email_Not_Confirmed" xml:space="preserve">
+    <value>E-Mail-Adresse nicht bestätigt</value>
+  </data>
+  <data name="DetailSearch_SaveSearchProfile_AlertText" xml:space="preserve">
+    <value>Sie können die eingegebenen Gesuchskriterien speichern und Ihre Interessentenkriterien hinterlegen. Im Speichermodus gelangen Sie durch bestätigen der Suche zu unserer Registrierungsseite und erhalten bereits in wenigen Minuten Ihren Profilzugang.</value>
+  </data>
+  <data name="DetailSearch_SaveSearchProfile_AlertTitle" xml:space="preserve">
+    <value>Suchkriterien speichern</value>
+  </data>
+  <data name="Detail_NoEntry" xml:space="preserve">
+    <value>kein Eintrag</value>
+  </data>
+  <data name="HasGrannyPart" xml:space="preserve">
+    <value>Einliegerwohnung</value>
+  </data>
+  <data name="Property_Step1Land_Boundary" xml:space="preserve">
+    <value>Länge Straßenfront</value>
+  </data>
+  <data name="Property_Step3_WillingToPay" xml:space="preserve">
+    <value>Ich bin bereit, eine Innenprovision zu zahlen, wenn einer der Maklerpartner von Immotausch24 einen Käufer für mindestens 98% des Angebotspreises bringt.</value>
+  </data>
+  <data name="Enum_EnergyType_MinimumEnergieCosthouse" xml:space="preserve">
+    <value>Niedrigenergiehaus</value>
+  </data>
+  <data name="Home_Menu_Price_Comparison" xml:space="preserve">
+    <value>Vergleichsrechner</value>
+  </data>
+  <data name="OrganizationType_Bfw" xml:space="preserve">
+    <value>Bfw</value>
+  </data>
+  <data name="OrganizationType_BVFI" xml:space="preserve">
+    <value>BVFI</value>
+  </data>
+  <data name="OrganizationType_Cei" xml:space="preserve">
+    <value>Cei</value>
+  </data>
+  <data name="OrganizationType_Ddiv" xml:space="preserve">
+    <value>Ddiv</value>
+  </data>
+  <data name="OrganizationType_Fiabci" xml:space="preserve">
+    <value>Fiabci</value>
+  </data>
+  <data name="OrganizationType_Gdw" xml:space="preserve">
+    <value>Gdw</value>
+  </data>
+  <data name="OrganizationType_Genossenschaftsverband" xml:space="preserve">
+    <value>Genossenschaftsverband</value>
+  </data>
+  <data name="OrganizationType_Ivd" xml:space="preserve">
+    <value>Ivd</value>
+  </data>
+  <data name="OrganizationType_Zia" xml:space="preserve">
+    <value>Zia</value>
+  </data>
+  <data name="OrganizationTyppe_Cepi" xml:space="preserve">
+    <value>Cepi</value>
+  </data>
+  <data name="SearchProfile_Add_Tenant_Informations" xml:space="preserve">
+    <value>Interessenteninformationen hinterlegen</value>
+  </data>
+  <data name="Contact_Agent_NumberOfPersons" xml:space="preserve">
+    <value>Anzahl Personen im Haushalt</value>
+  </data>
+  <data name="Contact_Agent_Your_Message_Has_Been_Sent_Successfully" xml:space="preserve">
+    <value>Ihre Anfrage wurde erfolgreich versendet.</value>
+  </data>
+  <data name="Common_Phone" xml:space="preserve">
+    <value>Telefonnummer</value>
+  </data>
+  <data name="Common_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Common_NumberOfChildren" xml:space="preserve">
+    <value>Anzahl Kinder</value>
+  </data>
+  <data name="Social_FacebookUrl" xml:space="preserve">
+    <value>http://facebook.com</value>
+  </data>
+  <data name="Social_GooglePlusUrl" xml:space="preserve">
+    <value>http://google.com</value>
+  </data>
+  <data name="Social_TwitterUrl" xml:space="preserve">
+    <value>http://twitter.com</value>
+  </data>
+  <data name="Common_Message" xml:space="preserve">
+    <value>Nachricht</value>
+  </data>
+  <data name="Common_Contact_Email" xml:space="preserve">
+    <value>contact@immotausch24.com</value>
+  </data>
+  <data name="Contact_Agent_Mail_Title" xml:space="preserve">
+    <value>Anbieter kontaktieren</value>
+  </data>
+  <data name="Add_New_Search_Profile" xml:space="preserve">
+    <value>Suchprofil erstellen</value>
+  </data>
+  <data name="Enum_QualificationType_DINEN15733" xml:space="preserve">
+    <value>DIN EN 15733</value>
+  </data>
+  <data name="Enum_QualificationType_GeprüfterImmobilienmakler" xml:space="preserve">
+    <value>Geprüfter Immobilienmakler</value>
+  </data>
+  <data name="Enum_QualificationType_GeprüfteSachverständige" xml:space="preserve">
+    <value>Geprüfte/r Sachverständige/r</value>
+  </data>
+  <data name="Enum_QualificationType_ImmobilienfachwirtIn" xml:space="preserve">
+    <value>Immobilienfachwirt/-in</value>
+  </data>
+  <data name="Enum_QualificationType_ImmobilienkaufmannFrau" xml:space="preserve">
+    <value>Immobilienkaufmann/-frau</value>
+  </data>
+  <data name="Enum_QualificationType_ImmobilienökonomIn" xml:space="preserve">
+    <value>Immobilienökonom/-in</value>
+  </data>
+  <data name="Enum_QualificationType_MRICS" xml:space="preserve">
+    <value>MRICS</value>
+  </data>
+  <data name="Enum_QualificationType_SachverständigeRöbuv" xml:space="preserve">
+    <value>Sachverständige/r ö.b.u.v.</value>
+  </data>
+  <data name="Enum_FieldOfResponsibility_CommunicationEntertainmentContracting" xml:space="preserve">
+    <value>Vermittlung Fernseh-/Internetverträge</value>
+  </data>
+  <data name="Enum_FieldOfResponsibility_EnergyContracting" xml:space="preserve">
+    <value>Energieberatung</value>
+  </data>
+  <data name="Enum_FieldOfResponsibility_Moving" xml:space="preserve">
+    <value>Umzug</value>
+  </data>
+  <data name="Enum_FieldOfResponsibility_PropertyManagement" xml:space="preserve">
+    <value>Verwaltung</value>
+  </data>
+  <data name="Enum_FieldOfResponsibility_Sale" xml:space="preserve">
+    <value>Verkauf</value>
+  </data>
+  <data name="Enum_PositionInCompany_Ceo" xml:space="preserve">
+    <value>Geschäftsführer</value>
+  </data>
+  <data name="Enum_PositionInCompany_Customer" xml:space="preserve">
+    <value>Kunde</value>
+  </data>
+  <data name="Enum_PositionInCompany_HeadOfAcquisitions" xml:space="preserve">
+    <value>Leiter Akquise</value>
+  </data>
+  <data name="Enum_PositionInCompany_HeadOfInvestment" xml:space="preserve">
+    <value>Leiter Investment</value>
+  </data>
+  <data name="Enum_PositionInCompany_HeadOfLetting" xml:space="preserve">
+    <value>Leiter Vermietung</value>
+  </data>
+  <data name="Enum_PositionInCompany_HeadOfSale" xml:space="preserve">
+    <value>Verkaufsleiter</value>
+  </data>
+  <data name="Enum_PositionInCompany_Inbound" xml:space="preserve">
+    <value>Telefonbetreuung</value>
+  </data>
+  <data name="Enum_PositionInCompany_KeyAccountManager" xml:space="preserve">
+    <value>Kundenberater</value>
+  </data>
+  <data name="Enum_PositionInCompany_LettingAgent" xml:space="preserve">
+    <value>Makler Vermietung</value>
+  </data>
+  <data name="Enum_PositionInCompany_MarketingManager" xml:space="preserve">
+    <value>Vermarktungsmanager</value>
+  </data>
+  <data name="Enum_PositionInCompany_Outbound" xml:space="preserve">
+    <value>Kundenkontakt</value>
+  </data>
+  <data name="Enum_PositionInCompany_PropertyManager" xml:space="preserve">
+    <value>Hausverwalter</value>
+  </data>
+  <data name="Enum_PositionInCompany_SalesAgent" xml:space="preserve">
+    <value>Makler Verkauf</value>
+  </data>
+  <data name="Enum_PositionInCompany_Secretary" xml:space="preserve">
+    <value>Assistenz</value>
+  </data>
+  <data name="Show_Filter" xml:space="preserve">
+    <value>de Show Filter</value>
+  </data>
+  <data name="Enum_PropertyType_WazRoom" xml:space="preserve">
+    <value>deEnum_PropertyType_Room</value>
+  </data>
+  <data name="Enum_PeriodType_Day" xml:space="preserve">
+    <value>deEnum_PeriodType_Day</value>
+  </data>
+  <data name="Enum_PeriodType_Month" xml:space="preserve">
+    <value>deEnum_PeriodType_Month</value>
+  </data>
+  <data name="Enum_PeriodType_Week" xml:space="preserve">
+    <value>deEnum_PeriodType_Week</value>
+  </data>
+  <data name="General_Close" xml:space="preserve">
+    <value>deGeneral_Close</value>
+  </data>
+  <data name="Enum_ClientDocumentType_Einkommensnachweis" xml:space="preserve">
+    <value>Einkommensnachweis</value>
+  </data>
+  <data name="Enum_ClientDocumentType_Mietschuldenfreiheitsbescheinigung" xml:space="preserve">
+    <value>Mietschuldenfreiheitsbescheinigung</value>
+  </data>
+  <data name="Enum_ClientDocumentType_SchufaAuskuft" xml:space="preserve">
+    <value>Schufa Auskuft</value>
+  </data>
+  <data name="Enum_ClientDocumentType_Selbstauskunft" xml:space="preserve">
+    <value>Selbstauskunft</value>
+  </data>
+  <data name="SearchPropfile_AddNewClient_EditDocuments" xml:space="preserve">
+    <value>deSearchPropfile_AddNewClient_EditDocuments</value>
+  </data>
+  <data name="Property_Detail_ColdRent" xml:space="preserve">
+    <value>Kaltmiete</value>
+  </data>
+  <data name="Property_Step3_AdditionalIformation" xml:space="preserve">
+    <value>weitere Informationen</value>
+  </data>
+  <data name="Property_Step9_Access" xml:space="preserve">
+    <value>Zugang</value>
+  </data>
+</root>

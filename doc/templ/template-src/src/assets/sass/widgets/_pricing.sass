@@ -1,0 +1,138 @@
+/*------------------------------------------------------------------
+  * Pricing
+  + Pricing / .pricing
+  ==============================================================*/
+// style for page elements
++b(pricing)
+  margin-top: 25px
+  +e(title)
+    font-size: 46px
+    color: $defaultColor
+    font-weight: 600
+    text-transform: uppercase
+    @media (max-width: $screen-xs-max)
+      font-size: 26px
+  +e(row)
+    +make-row
+    @media (min-width: $screen-lg-min)
+      min-height: 600px
+  +e(col3)
+    +make-block-item($xs: 12, $sm: 6, $md: 4)
+  +e(col4)
+    +make-block-item($xs: 12, $sm: 6, $md: 3)
+    .pricing__feature
+      margin: 0 15%
+  +e(col5)
+    +make-block-item($xs: 2.4)
+    padding: 0
+  +e(item)
+    border: 3px solid #dedede
+    transition: 0.1s
+    margin-bottom: 35px
+    @media (min-width: $screen-lg-min)
+      &:hover
+        border: 5px solid $brandColor
+        transform:  scaleY(1) translateY(-20px)
+        .pricing__currency
+          font-size: 32px
+          top: -33px
+        .pricing__period
+          font-size: 22px
+        .pricing__summa
+          font-size: 92px
+    +m(col)
+      border: 0
+      @media (min-width: $screen-lg-min)
+        &:hover
+          border: none
+          transform:  none
+          .pricing__currency
+            font-size: 24px
+            top: -22px
+          .pricing__period
+            font-size: 16px
+          .pricing__summa
+            font-size: 60px
+      .pricing__total
+        height: 104px
+    .pricing__feature
+      margin: 0 15%
+  +e(table)
+    border: 3px solid #dedede
+    transition: 0.1s
+    margin: 0 15px
+    @media (max-width: $screen-sm-max)
+      overflow-x: auto
+    +clearfix
+    &:hover
+      border: 3px solid $brandColor
+  +e(table-wrap)
+    min-width: 940px
+  +e(type)
+    text-align: center
+    font-size: 24px
+    font-weight: 600
+    padding: 14px 0
+    +m(head)
+      padding: 25px 0
+    +m(heading)
+      font-weight: 400
+      padding: 25px 0
+  +e(total)
+    background: $brandColor
+    padding: 1px 0 7px
+    text-align: center
+    vertical-align: top
+    font-weight: 600
+    margin-bottom: 33px
+    margin-left: -3px
+    margin-right: -3px
+    position: relative
+    color: $onBrandColor
+  +e(currency)
+    font-size: 24px
+    position: relative
+    top: -22px
+    transition: 0.1s
+  +e(summa)
+    font-size: 60px
+    transition: 0.1s
+  +e(period)
+    font-size: 16px
+    transition: 0.1s
+  +e(favorite)
+    position: absolute
+    top: -30px
+    right: 5%
+    background: #f3bc65
+    font-size: 11px
+    font-weight: 600
+    text-transform: uppercase
+    border-radius: 60px
+    width: 60px
+    display: block
+    height: 60px
+    line-height: 1
+    padding: 19px 0
+  +e(list)
+    margin-bottom: 0
+  +e(feature)
+    margin: 0 26%
+    border-bottom: 1px solid #dedede
+    text-align: center
+    padding: 10px 0
+    &:last-child
+      border-bottom: none
+    strong
+      margin-right: 5px
+    .fa-check
+      color: $brandColor
+    +m(heading)
+      text-align: left
+  +e(actions)
+    text-align: center
+    padding: 22px 0 51px
+
+  +e(button)
+    +button-action
+

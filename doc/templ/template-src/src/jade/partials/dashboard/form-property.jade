@@ -1,0 +1,41 @@
++widget('Add new property', null, 'dashboard')
+  // BEGIN Favorites
+  section.form-property.form-property--dashboard
+    // Nav tabs
+    ul.nav.form-property__tabs(role='tablist')
+      li.active(role='presentation')
+        a(href='#basic', aria-controls='basic', role='tab', data-toggle='tab') Basic
+      li(role='presentation')
+        a.js-location-tab(href='#Location', aria-controls='Location', role='tab', data-toggle='tab') Location
+      li(role='presentation')
+        a(href='#Extra', aria-controls='Extra', role='tab', data-toggle='tab') Extra
+      li(role='presentation')
+        a.js-location-tab(href='#Hidden', aria-controls='Hidden', role='tab', data-toggle='tab') Hidden
+      li(role='presentation')
+        a(href='#Photo', aria-controls='Photo', role='tab', data-toggle='tab') Photo
+      li(role='presentation')
+        a(href='#Status', aria-controls='Status', role='tab', data-toggle='tab') Status
+      li(role='presentation')
+        a(href='#Co-agency', aria-controls='Co-agency', role='tab', data-toggle='tab') Co-agency
+      li(role='presentation')
+        a(href='#Portfolio', aria-controls='Portfolio', role='tab', data-toggle='tab') Portfolio
+    // Tab panes
+    .tab-content.form-property__content
+      #basic.tab-pane.active(role='tabpanel')
+        include form--property/form--basic
+      #Location.tab-pane(role='tabpanel')
+        include form--property/form--location
+      #Extra.tab-pane(role='tabpanel')
+        include form--property/form--extra
+      #Hidden.tab-pane(role='tabpanel')
+        include form--property/form--hidden
+      #Photo.tab-pane(role='tabpanel')
+        include form--property/form--photo
+      #Status.tab-pane(role='tabpanel')
+        include form--property/form--status
+      #Co-agency.tab-pane(role='tabpanel')
+        include form--property/form--agency
+      #Portfolio.tab-pane(role='tabpanel')
+        include form--property/form--portfolio
+
+

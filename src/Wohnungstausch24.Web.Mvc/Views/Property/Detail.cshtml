@@ -1,0 +1,284 @@
+﻿@using System.Globalization
+@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base
+@using Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Flat
+@using Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.House
+@using Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Land
+@using Wohnungstausch24.Resources
+@model DetailListing
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- BEGIN BREADCRUMBS-->
+<nav class="breadcrumbs">
+    <div class="container">
+        <ul>
+            <li class="breadcrumbs__item">
+                <a href="" class="breadcrumbs__link">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="" class="breadcrumbs__link">Listing estate</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="" class="breadcrumbs__link">1600 Pennsylvania Ave NW</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- END BREADCRUMBS-->
+<div class="center">
+    <div class="container">
+        <div class="row">
+            <div class="site site--main">
+                <div class="property">
+                    @Html.Partial("Detail/_MediaPartial")
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>@Model.ListingHeader</h1>
+                            <h2>@Model.FullAddress</h2>
+                        </div>
+                    </div>
+                    @if (Model is DetailFlatForRent)
+                    {
+                        @Html.Partial("Detail/Residence/Flat/ForRent/_Prices", (DetailResidence)Model)
+                    }
+                    @if (Model is DetailFlatForSale)
+                    {
+                        @Html.Partial("Detail/Residence/Flat/ForSale/_Prices", (DetailResidence)Model)
+                    }
+                    @if (Model is DetailHouseForRent)
+                    {
+                        @Html.Partial("Detail/Residence/House/ForRent/_Prices", (DetailHouseForRent)Model)
+                    }
+                    @if (Model is DetailHouseForSale)
+                    {
+                        @Html.Partial("Detail/Residence/House/ForSale/_Prices", (DetailHouseForSale)Model)
+                    }
+                    @if (Model is DetailLandForSale)
+                    {
+                        @Html.Partial("Detail/Land/ForSale/_Prices", (DetailLandForSale)Model)
+                    }
+                    @if (Model is DetailResidence)
+                    {
+                        if (Model is DetailFlatForRent)
+                        {
+                            @Html.Partial("Detail/Residence/Flat/ForRent/_ObjectInformations", (DetailFlatForRent)Model)
+                        }
+                        if (Model is DetailFlatForSale)
+                        {
+                            @Html.Partial("Detail/Residence/Flat/ForSale/_ObjectInformations", (DetailFlatForSale)Model)
+                        }
+                        if (Model is DetailHouseForRent)
+                        {
+                            @Html.Partial("Detail/Residence/House/ForRent/_ObjectInformations", (DetailHouseForRent)Model)
+                        }
+                        if (Model is DetailHouseForSale)
+                        {
+                            @Html.Partial("Detail/Residence/House/ForSale/_ObjectInformations", (DetailHouseForSale)Model)
+                        }
+                    }
+                    @if (Model is DetailResidence)
+                    {
+                        @Html.Partial("Detail/Residence/_Area", (DetailResidence)Model)
+                    }
+                    @if (Model is DetailResidence)
+                    {
+                        @Html.Partial("Detail/Residence/_Rooms", (DetailResidence)Model)
+                    }
+                    @if (Model is DetailResidence)
+                    {
+                        @Html.Partial("Detail/Residence/_Balconies", (DetailResidence)Model)
+                    }
+                    @if (Model is DetailResidence)
+                    {
+                        @Html.Partial("Detail/Residence/_Garages", (DetailResidence)Model)
+                    }
+                    @if (Model is DetailResidence)
+                    {
+                        @Html.Partial("Detail/Residence/_Bathrooms", (DetailResidence)Model)
+                    }
+                    @if (Model is DetailResidence)
+                    {
+                        @Html.Partial("Property/_PropertyFeaturesPartial", (DetailResidence)Model)
+                    }
+                    @if (Model is DetailResidence)
+                    {
+                        if (Model is DetailFlatForRent)
+                        {
+                            @Html.Partial("Detail/Residence/Flat/ForRent/_PricesAndCosts", (DetailFlatForRent)Model)
+                        }
+                        if (Model is DetailFlatForSale)
+                        {
+                            @Html.Partial("Detail/Residence/Flat/ForSale/_PricesAndCosts", (DetailFlatForSale)Model)
+                        }
+                        if (Model is DetailHouseForRent)
+                        {
+                            @Html.Partial("Detail/Residence/House/ForRent/_PricesAndCosts", (DetailHouseForRent)Model)
+                        }
+                        if (Model is DetailHouseForSale)
+                        {
+                            @Html.Partial("Detail/Residence/House/ForSale/_PricesAndCosts", (DetailHouseForSale)Model)
+                        }
+                    }
+                    @if (Model is DetailLandForSale)
+                    {
+                        @Html.Partial("Detail/Land/ForSale/_PricesAndCosts", (DetailLandForSale)Model)
+                    }
+                    @if (Model is DetailResidence)
+                    {
+                        @Html.Partial("Detail/Residence/_EnergyCertificates", (DetailResidence)Model)
+                    }
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">@Resource.Home_Detail_Object_Descriptions</div>
+                                <div class="panel-body">
+
+                                    <div class="panel-group" id="collapse" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="collapse-heading-one">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                                        @Resource.Description
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse-one" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapse-heading-one">
+                                                <div class="panel-body">
+                                                    @Model.Description
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="collapse-heading-two">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-two" aria-expanded="false" aria-controls="collapse-two">
+                                                        @Resource.Environment_description
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse-two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-two">
+                                                <div class="panel-body">
+                                                    @Model.EnvironmentDescription
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="collapse-heading-three">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-three" aria-expanded="false" aria-controls="collapse-three">
+                                                        @Resource.Location_description
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse-three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-three">
+                                                <div class="panel-body">
+                                                    @Model.LocationDescription
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="collapse-heading-four">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-four" aria-expanded="false" aria-controls="collapse-four">
+                                                        @Resource.Other_details
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse-four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-four">
+                                                <div class="panel-body">
+                                                    @Model.OtherDetails
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">@Resource.Property_Detail_DescriptionInAnotherLanguages</div>
+                                <div class="panel-body">
+                                    <ul style="margin-bottom: 15px;" class="nav nav-tabs">
+                                        @foreach (var objectTextInAnotherLanguage in Model.ObjectTextInAnotherLanguages)
+                                        {
+                                            <li class="active">
+                                                <a href="#@("translation_" + objectTextInAnotherLanguage.LanguageCode)" data-toggle="tab" aria-expanded="true">
+                                                    <img src="/Content/assets/img/flags/@(objectTextInAnotherLanguage.LanguageCode + ".png")" alt="" />
+                                                    @(new CultureInfo(objectTextInAnotherLanguage.LanguageCode).NativeName)
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                    <div id="myTabContent" class="tab-content">
+                                        @foreach (var objectTextInAnotherLanguage in Model.ObjectTextInAnotherLanguages)
+                                        {
+                                            <div id="@("translation_" + objectTextInAnotherLanguage.LanguageCode)" class="tab-pane fade active in">
+                                                @objectTextInAnotherLanguage.Description
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">@Resource.Property_Detail_Distances</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        @foreach (var distance in Model.Distances)
+                                        {
+                                            <div class="col-md-6">
+                                                <div class="col-md-6">@distance.DistanceType.GetDisplayName()</div>
+                                                <div class="col-md-6">@distance.DistanceInKm km.</div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if (Model.IsAddressPublic)
+                {
+                    @Html.Partial("_DetailGoogleMapPartial")
+                }
+                else
+                {
+                    <h2>@Resource.The_Address_Info_Is_Not_Shared</h2>
+                }
+                <div class="widget js-widget widget--details">
+                    <div class="widget__content">
+                        @if (Model.AgentViewModel.ApprovalOfAddress.GetValueOrDefault(false))
+                        {
+                            @Html.Partial("_AgentInformations", Model.AgentViewModel)
+                        }
+                        @Html.Partial("_ContactAgentForm", Model.ContactAgentModel)
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            @if (Model.AgentViewModel.ApprovalOfAddress.GetValueOrDefault(false))
+            {
+                         <!-- BEGIN SIDEBAR-->
+                <div class="sidebar">
+                    @Html.Partial("_PropertyAgentSideBar", Model)
+                </div>
+            <!-- END SIDEBAR-->
+            }
+
+            <div class="clearfix"></div>
+            @Html.Partial("_SimilarPropertiesPartial", Model)
+        </div>
+    </div>
+</div>

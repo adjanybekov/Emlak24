@@ -1,0 +1,84 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'contacts';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Contact us
+  // END BREADCRUMBS
+  .map.map--contacts
+    .map__buttons
+      button.map__change-map.js-map-btn(type='button') Address Map
+    .map__wrap
+      .map__view.js-map-canvas-contact(data-infobox-theme='white')
+
+block center
+  +widget('Contact Us', 'Use the information provided below to reach us OR leave us a message using contact form.', 'landing')
+    .contacts
+      .row
+        .contacts__column
+          .contacts__address
+            address.contacts__address-item
+              span.contacts__address-title NEW YORK
+              dl.contacts__address-column
+                dt.contacts__address-column__title Address:
+                dd
+                  | 80 Franklin Street
+                  br
+                  | New York, NY 10013
+                  br
+                  | USA
+
+              dl.contacts__address-column
+                dt.contacts__address-column__title Telephone:
+                dd
+                  | +1 202 555 0135
+                  br
+                  | +1 202 555 0135
+                dt.contacts__address-column__title Fax:
+                dd
+                  | +1 202 555 0135
+
+              dl.contacts__address-column
+                dt.contacts__address-column__title Email:
+                dd
+                  a(href='mailto:') hello@realtyspace.com
+                  br
+                  br
+                dt.contacts__address-column__title  Skype:
+                dd
+                  a(href='') jobisdone
+
+          .contacts__form
+            .alert.alert-info Attention! This form requires working php server for successful submit!
+            - var formType = 'contacts';
+            include partials/chunks/form
+
+        .contacts__column
+          .contacts__body
+            h4 Contact Us to Sign Up for an Open House
+            p
+              | Founded in August of 2008 and based in San Francisco, California, RealtySpace is a trusted community marketplace for people to list, discover, and book unique accommodations around
+              a(href='#')  the world
+              |  &mdash; online or from a mobile phone.
+            p
+              | Whether an apartment for a night, a castle for a week, or a villa for a month, RealtySpace connects people to unique travel experiences, at any price point, in more than 190 countries. And with world-class customer service, RealtySpace is the easiest way for people to monetize their extra sp
+
+          .contacts__social
+            .social.social--worker.social--contacts
+              span.contacts__social-title Our social profiles:
+              a.social__item(href='#')
+                i.fa.fa-facebook
+              a.social__item(href='#')
+                i.fa.fa-twitter
+              a.social__item(href='#')
+                i.fa.fa-google-plus
+
+  .clearfix

@@ -1,0 +1,80 @@
+form.form.form--flex.form--property.form--extra.js-form-property
+  .row
+    .form-group
+      label.control-label(for='in-35') Tenure
+      select.form-control#in-35(required, name='contract_type', data-placeholder='---')
+        option(label=' ')
+        option(value='Sale') Freehold
+        option(value='Rent') Leasehold
+
+    .form-group
+      label.control-label(for='in-39') No. of Car Parks
+      input.form-control#in-39(type='number', placeholder='', required)
+
+    .form-group
+      label.control-label(for='in-32') Monthly Maintenance Fee
+      select.form-control#in-32(required, name='property_type', data-placeholder='---')
+        option(label=' ')
+        option(value='Residential') Privat apartment
+        option(value='SOHO') SOHO
+        option(value='Commercial') Commercial
+        option(value='Industrial') Industrial
+        option(value='Land') Land
+
+
+    .form-group
+      label.control-label(for='in-30') Front Measurement
+      input.form-control#in-10(type='number', placeholder='', required)
+
+    .form-group
+      label.control-label(for='in-31') Depth Measurement
+      input.form-control#in-11(type='number', placeholder='', required)
+
+    .form-group
+      label.control-label(for='in-datetime-3') Leasehold Expire Date
+      input.js-datetimerange.form-control(
+          type='text',
+          id='in-datetime-3',
+          data-start-date='12/03/2015',
+          data-end-date='12/22/2015',
+          data-time-picker='true'
+          data-single-picker='true'
+        )
+
+    .form-group.form-group--col-12.form-group--inline
+      label.control-label Close To
+      - var options = ['Elevator', 'Lift', 'Open Space', 'Road Frontage', 'Toilet']
+
+      ul.form__check
+        each option, i in options
+          li
+            input(type='checkbox', name='agent', id='in-check-' + i, class='in-checkbox')
+            label(for='in-check-' + i, class='in-label')= option
+    hr
+    .form-group
+      label.control-label(for='in-33') Internet
+      select.form-control#in-33(required, name='property_type', data-placeholder='---')
+        option(label=' ')
+        option(value='Residential') P1 Wimax
+        option(value='SOHO') SOHO
+        option(value='Commercial') Commercial
+        option(value='Industrial') Industrial
+        option(value='Land') Land
+
+    .form-group.form-group--inline.form-group--bottom.form-group--col-9
+      label.control-label Feature
+      - var features = ['Astro', 'Cooking Allowed', 'Telephone Connected']
+
+      ul.form__check
+        each feature, i in features
+          li
+            input(type='checkbox', name='agent', id='in-feature-' + i, class='in-checkbox')
+            label(for='in-feature-' + i, class='in-label')= feature
+
+
+    .form-group.form-group--col-12
+      label.control-label(for='in-remark') Remark
+      textarea.form-control#in-remark Testing Property 6 is a property listing created for testing purpose. Testing Property 6 does not exist since it is just for testing purpose. Please ignore this listing.
+
+  .row
+    button.form__submit Next

@@ -1,0 +1,41 @@
+﻿@using Wohnungstausch24.Resources
+@model System.Collections.Generic.List<Wohnungstausch24.Models.ViewModels.Agent.Settings.AddBranchModel>
+
+<div class="col-md-12" id="branches-data-div">
+    <div class="form-group--col-12">
+        <table class="table table-responsive table-stripped">
+            <thead>
+                <tr>
+                    <th colspan="4">
+                        <div class="row">
+                            <div class="col-md-8">
+                                Add New
+                            </div>
+                            <div class="col-md-4">
+                                <a class="btn btn-xs btn-primary pull-right" href="#" data-toggle="modal" data-target="#add-branch-modal">Add New <i class="fa fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>@Resource.Options</th>
+            </tr>
+            @for (var i = 1; i <= Model.Count(); i++)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@Model[i - 1].Name</td>
+                    <td>@Model[i - 1].Address</td>
+                    <td>
+                        <a href="@Url.Action("DeleteBranch","Agency",new {id = Model[i - 1].Id})" class="btn btn--action wt24-branch-confirmation"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

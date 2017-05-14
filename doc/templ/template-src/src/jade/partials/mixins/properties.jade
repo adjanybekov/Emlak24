@@ -1,0 +1,95 @@
+mixin price(modificator)
+  span.properties__price(class = modificator ? 'properties__price--' + modificator : '')
+    | $#{locals.data.properties[i].acf_price}
+    if locals.data.properties[i].type_offer == 'rent'
+      span.properties__price-period /month
+
+
+mixin properties(i, modifier, dataSr, showParams)
+  - var projects = modifier === 'grid properties--projects';
+  - var introOnThumb = ['list', 'management'].indexOf(modifier) === -1;
+  - var introOnList = 'list' === modifier;
+  .properties(data-sr=dataSr, class= modifier ? 'properties--' + modifier : '')
+    .properties__thumb
+      if modifier == 'sidebar'
+        a.item-photo.item-photo--static(href='property_details.html')
+          if locals.data.properties[i].acf_images.length
+            img(src='#{path.media}/properties/554x360/#{locals.data.properties[i].acf_images[0]}.jpg', alt='')
+          else
+            img(src='#{path.img}/no-image--554x360.jpg', alt='')
+
+          figure.item-photo__hover
+            span.item-photo__more View Details
+      else
+        a.item-photo(href='property_details.html')
+          if locals.data.properties[i].acf_images.length
+            img(src='#{path.media}/properties/554x360/#{locals.data.properties[i].acf_images[0]}.jpg', alt='')
+          else
+            img(src='#{path.img}/no-image--554x360.jpg', alt='')
+          if showParams
+            figure.item-photo__hover.item-photo__hover--params.item-photo__hover--bottom
+              span.properties__param-type #{ locals.data.property_types[locals.data.properties[i].property_type]}
+              span.properties__param
+                span.properties__param-column
+                  span.properties__param-label Area:
+                  span.properties__param-value #{locals.data.properties[i].acf_area} m2
+                span.properties__param-column
+                  span.properties__param-label Beds:
+                  span.properties__param-value #{locals.data.properties[i].acf_bedrooms}
+                span.properties__param-column
+                  span.properties__param-label Baths:
+                  span.properties__param-value #{locals.data.properties[i].acf_bathrooms}
+          else
+            figure.item-photo__hover.item-photo__hover--params
+              span.properties__params Built-Up - #{locals.data.properties[i].builtUp} Sq Ft
+              span.properties__params Land Size - #{locals.data.properties[i].landSize} Sq Ft
+              if introOnThumb
+                span.properties__intro #{_.truncate(locals.data.properties[i].post_content, {length: 100})}
+              span.properties__time Added date: #{locals.data.properties[i].added} days ago
+              if introOnThumb
+                span.properties__more View details
+
+
+
+      if modifier != 'sidebar'
+        if locals.data.properties[i].type_offer
+          span.properties__ribon For #{locals.data.properties[i].type_offer}
+    // end of block .properties__thumb
+
+    .properties__details
+      .properties__info
+        if modifier == 'sidebar'
+          a.properties__address(href='property_details.html') #{locals.data.properties[i].acf_location.address.street}, #{locals.data.properties[i].acf_location.address.city}
+          //+price
+        else
+          a.properties__address(href='property_details.html')
+            span.properties__address-street #{locals.data.properties[i].acf_location.address.street}
+            span.properties__address-city #{locals.data.properties[i].acf_location.address.city}
+
+          .properties__offer
+            .properties__offer-column
+              .properties__offer-label Commision
+              .properties__offer-value
+                if locals.data.properties[i].commision.rm
+                  strong  $#{locals.data.properties[i].commision.rm}
+                else if locals.data.properties[i].commision.percent
+                  strong  #{locals.data.properties[i].commision.percent}%
+
+            .properties__offer-column
+              unless projects
+                .properties__offer-value
+                  strong $#{locals.data.properties[i].acf_price}
+                  if locals.data.properties[i].type_offer == 'rent'
+                    span.properties__offer-period /month
+          .properties__params--mob
+            a.properties__more(href='#') View details
+            span.properties__params Built-Up - #{locals.data.properties[i].builtUp} Sq Ft
+            span.properties__params Land Size - #{locals.data.properties[i].landSize} Sq Ft
+
+      if introOnList
+        .properties__intro
+          p #{_.truncate(locals.data.properties[i].post_content, {length: 350})}
+
+        a.properties__more(href='property_details.html') View details
+    // end of block .properties__info
+  // end of block .properties__item

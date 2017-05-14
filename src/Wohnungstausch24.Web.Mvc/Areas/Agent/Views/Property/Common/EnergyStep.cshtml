@@ -1,0 +1,94 @@
+﻿@using System.Web.Mvc.Html
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Models.ViewModels.Listings.Steps.Step7.Flat
+@using Wohnungstausch24.Models.ViewModels.Listings.Steps.Step7.House
+@using Wohnungstausch24.Models.ViewModels.Listings.Steps.Step8.Flat
+@using Wohnungstausch24.Models.ViewModels.Listings.Steps.Step8.House
+@using Wohnungstausch24.Models.ViewModels.Listings.Steps.Step8.Room
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step8.Base.Step8Residence
+@{
+    ViewBag.Title = "Step7";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+    var viewData = new ViewDataDictionary {TemplateInfo = new TemplateInfo {HtmlFieldPrefix = Model.GetType().Name} };
+}
+
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">@Resource.Add_New_Property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    @if (Model is Step8FlatForRent )
+                    {
+                        @Html.Partial("FlatForRent/_Steps", Model.StepsProgressModel)
+                        viewData["action"]= "Step8";
+                    }
+                    @if (Model is Step7FlatForSale)
+                    {
+                        @Html.Partial("FlatForSale/_Steps", Model.StepsProgressModel)
+                        viewData["action"] = "Step7";
+                    }
+                    @if (Model is Step8HouseForRent)
+                    {
+                        @Html.Partial("HouseForRent/_Steps", Model.StepsProgressModel)
+                        viewData["action"] = "Step8";
+                    }
+                    @if (Model is Step7HouseForSale)
+                    {
+                        @Html.Partial("HouseForSale/_Steps", Model.StepsProgressModel)
+                        viewData["action"] = "Step7";
+                    }
+                    @if (Model is Step8RoomForRent)
+                    {
+                        @Html.Partial("RoomForRent/_Steps", Model.StepsProgressModel)
+                        viewData["action"] = "Step8";
+                    }
+                    @Html.Partial("Common/_EnergyPartial",Model,viewData)
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("_AddHeatingPartial", Model.AddHeatingViewModel);
+@Html.Partial("_AddBeaconingModalPartial", Model.AddBeaconingViewModel)
+@section scripts
+{
+    <script>
+        var selector = "@($"#{Model.GetType().Name}_{Html.IdFor(m => m.EnergyCertificateType)}")";;
+        handleEnergyCertificate();
+        $(selector).on('change', handleEnergyCertificate);
+        function handleEnergyCertificate() {
+            var selected = $(selector).find(":selected");
+            if (selected.val() === '@((int) EnergyCertificateType.Missing)') {
+                $(".hide-if-missing").hide('slow');
+                $(".show-if-missing").show('slow');
+                $(".hide-if-missing" + " :input").prop("disabled", true);
+                $(".show-if-missing" + " :input").prop("disabled", false);
+            } else {
+                $(".hide-if-missing").show('slow');
+                $(".show-if-missing").hide('slow');
+                $(".hide-if-missing" + " :input").prop("disabled", false);
+                $(".show-if-missing" + " :input").prop("disabled", true);
+            }
+        }
+        var ShowHeatingLoader = function () {
+            $('#addHeatingModal').modal('toggle');
+            showLoader("#heating-area-data-div");
+        }
+        var HideHeatingLoader = function () {
+            hideLoader("#heating-area-data-div");
+        }
+        var ShowBeaconingLoader = function () {
+            $('#addBeaconingModal').modal('toggle');
+            showLoader("#beaconing-area-data-div");
+        }
+        var HideBeaconingLoader = function () {
+            hideLoader("#beaconing-area-data-div");
+        }
+        SweetAjax("#heating-area-data-div", ".wt24-heating-confirmation");
+        SweetAjax("#beaconing-area-data-div", ".wt24-beaconing-confirmation");
+    </script>
+}

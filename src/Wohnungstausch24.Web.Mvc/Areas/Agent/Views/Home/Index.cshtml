@@ -1,0 +1,18 @@
+﻿@using Wohnungstausch24.Models.ViewModels.Agent
+@model AgentHomePageViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- BEGIN LISTING-->
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            @{Html.RenderAction("Progress", "Settings"); }
+        </div>
+    </div>
+</div>
+<!-- END LISTING--><!-- END AFTER CENTER SECTION-->
+

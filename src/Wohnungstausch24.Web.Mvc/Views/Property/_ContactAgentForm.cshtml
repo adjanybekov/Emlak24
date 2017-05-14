@@ -1,0 +1,75 @@
+﻿@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base.ContactAgentModel
+
+<h3>@Resource.Propery_AgentInfo_ContactForm</h3>
+<hr/>
+@using (Html.BeginForm("SendMail", "Property", FormMethod.Post, new {area = "", @class = "form form--flex form--auth js-register-form js-parsley"}))
+{
+    @Html.HiddenFor(m => m.ListingId)
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <i class="fa fa-exclamation-circle"></i> @Resource.Propery_AgentInfo_Text
+    </div>
+    <div class="row">
+        <div class="form-group form-group--col-4">
+            @Html.LabelFor(m => m.Name, new {@class = "control-label"})
+            @Html.TextBoxFor(m => m.Name, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Name, null, new {@class = "text-danger"})
+        </div>
+        <div class="form-group form-group--col-4">
+            @Html.LabelFor(m => m.PhoneNumber, new {@class = "control-label"})
+            @Html.TextBoxFor(m => m.PhoneNumber, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.PhoneNumber, null, new {@class = "text-danger"})
+        </div>
+        <div class="form-group form-group--col-4">
+            @Html.LabelFor(m => m.Email, new {@class = "control-label"})
+            @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Email, null, new {@class = "text-danger"})
+        </div>
+        <div class="form-group form-group--col-4">
+            @Html.LabelFor(m => m.NumberOfPersons, new {@class = "control-label"})
+            @Html.TextBoxFor(m => m.NumberOfPersons, new {@class = "form-control"})
+        </div>
+        <div class="form-group form-group--col-4">
+            @Html.LabelFor(m => m.Gender, new {@class = "control-label"})
+            @Html.EnumDropDownListFor(m => m.Gender, Resource.PleaseChoose, new {@class = "form-control"})
+        </div>
+        <div class="form-group form-group--col-4">
+            @Html.LabelFor(m => m.Income, new {@class = "control-label"})
+            @Html.TextBoxFor(m => m.Income, new {@class = "form-control"})
+        </div>
+        <div class="form-group form-group--col-4">
+            @Html.LabelFor(m => m.NumberOfChildren, new {@class = "control-label"})
+            @Html.TextBoxFor(m => m.NumberOfChildren, new {@class = "form-control"})
+        </div>
+        <div class="form-group form-group--col-4">
+            @Html.LabelFor(m => m.Age, new {@class = "control-label"})
+            @Html.TextBoxFor(m => m.Age, new {@class = "form-control"})
+        </div>
+        <div class="form-group form-group--col-4">
+            @Html.LabelFor(m => m.EmploymentStatus, new {@class = "control-label"})
+            @Html.EnumDropDownListFor(m => m.EmploymentStatus, Resource.PleaseChoose, new {@class = "form-control"})
+        </div>
+        <div class="form-group form-group--col-4">
+            @Html.LabelFor(m => m.IsSmoker, new {@class = "control-label"})
+            @Html.CheckBoxFor(m => m.IsSmoker, new {@class = "in-checkbox", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger"})
+        </div>
+        <div class="form-group form-group--col-4">
+            @Html.LabelFor(m => m.HasPets, new {@class = "control-label"})
+            @Html.ToggleButtonFor(m => m.HasPets, new ToggleOptions {OnShowClass = "pet-species"})
+        </div>
+        <div class="form-group form-group--col-12 pet-species" id="pet_species">
+            @Html.LabelFor(m => m.PetsFreeText, new {@class = "control-label"})
+            @Html.TextBoxFor(m => m.PetsFreeText, new {@class = "form-control"})
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Text, new {@class = "control-label"})
+            @Html.TextAreaFor(m => m.Text, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Text, null, new {@class = "text-danger"})
+        </div>
+    </div>
+    <div class="row">
+        <button type="submit" class="form__submit">@Resource.General_Submit</button>
+    </div>
+}

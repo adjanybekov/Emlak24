@@ -1,0 +1,40 @@
+// ====
+// Lily
+// ====
+.hover-lily .item-photo
+  overflow: hidden
+  display: block
+  position: relative
+  text-decoration: none
+  img
+    +translate3d(-40px, 0, 0)
+    +transition(opacity $hover-effect-speed, transform $hover-effect-speed)
+    max-width: none
+    width: -webkit-calc(100% + 50px)
+    width: calc(100% + 50px)
+    opacity: 1
+  .item-photo__hover
+    text-align: left
+  .item-photo__more
+    margin: 15px 0 0 -80px
+    top: 50%
+    position: absolute
+    left: 50%
+    width: 150px
+    display: block
+    text-align: center
+    background: $highlightColor
+    color: $defaultColor
+    font-size: 15px
+    text-transform: uppercase
+    padding: 5px 0
+    opacity: 0
+    +transition-delay($hover-effect-delay)
+    +transition-duration($hover-effect-speed)
+    +translate3d(0, 40px, 0)
+  &:hover
+    img
+      opacity: .7
+    .item-photo__more
+      +translate3d(0, 0, 0)
+      opacity: 1

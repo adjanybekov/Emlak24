@@ -1,0 +1,19 @@
+include ../../mixins/map--location
+
+form.form.form--flex.form--property.form--hidden.js-form-property
+
+  +mapLocation('dashboard hidden')
+
+  .row
+    .form-group.form-group--col-12
+      label.control-label(for='in-41') Unit no
+      input.form-control#in-41(required, type='text', name='', value='Text')
+    .form-group.form-group--col-12
+      label.control-label(for='in-42') Address
+      input.form-control#in-42(required, type='text', name='', value='Text')
+    .form-group.form-group--col-12
+      label.control-label(for='in-43') Hidden remarks
+      textarea.form-control#in-43
+
+  .row
+    button.form__submit Next

@@ -1,0 +1,91 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Agent.Settings.AgentSettingsSocialViewModel
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+
+<!-- BEGIN LISTING-->
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            @{ Html.RenderAction("Progress", "Settings"); }
+            <div class="widget__header">
+                <h2 class="widget__title">@Model.Message</h2>
+            </div>
+            <div class="widget__content">
+                @using (Html.BeginForm("Social", "Settings", new {area = "Agent"}, FormMethod.Post, new {@class = "form form--flex form--profile js-form"}))
+                {
+                    @Html.AntiForgeryToken()
+                    <header class="form__header">
+                        <h3 data-rel="#form-block-2" class="form__title js-form-title">Contact</h3>
+                    </header>
+                    <div id="form-block-2" class="form__block js-form-block">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">@Html.LabelFor(m => m.Facebook, new {@class = "control-label"})</div>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div class="input-group-addon hidden-xs">https://facebook.com/</div>
+                                        @Html.TextBoxFor(m => m.Facebook, new {@class = "form-control", placeholder = "Username"})
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-facebook-square"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">@Html.LabelFor(m => m.Twitter, new {@class = "control-label"})</div>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div class="input-group-addon hidden-xs">https://twitter.com/</div>
+                                        @Html.TextBoxFor(m => m.Twitter, new {@class = "form-control", placeholder = "Username"})
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-twitter-square"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">@Html.LabelFor(m => m.Linkedin, new {@class = "control-label"})</div>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div class="input-group-addon hidden-xs">https://www.linkedin.com/</div>
+                                        @Html.TextBoxFor(m => m.Linkedin, new {@class = "form-control", placeholder = "Username"})
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-linkedin-square"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">@Html.LabelFor(m => m.GooglePlus, new {@class = "control-label"})</div>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div class="input-group-addon hidden-xs">https://plus.google.com/</div>
+                                        @Html.TextBoxFor(m => m.GooglePlus, new {@class = "form-control", placeholder = "Username"})
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-google-plus-square"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="form__submit">Save & Continue <i class="fa fa-angle-right"></i></button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

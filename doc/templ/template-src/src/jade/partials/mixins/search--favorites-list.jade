@@ -1,0 +1,47 @@
+mixin searchFavoritesList(title, limit, type, btn, btnLink, btnClass)
+  +widget(title, null, 'dashboard', btn, btnLink, btnClass)
+    // BEGIN Favorites
+    .listing--items.listing--list
+      .site__panel
+        .site__filter
+          .form-group
+            label.control-label(for='in-listing-name') Filter by name:
+            .form-control--select
+              select.form-control.js-in-select(id='in-listing-name')
+                each favorite, i in locals.data.favorites.search
+                  option #{favorite.title}
+
+          .form-group
+            label.control-label(for='in-listing-category') Filter by category:
+            .form-control--select
+              select.form-control.js-in-select(id='in-listing-category')
+                each favorite, i in locals.data.favorites.search
+                  option #{favorite.category}
+      .listing__list
+        - var i;
+        each favorite, i in locals.data.favorites.search
+          dl.listing__item
+            dt.listing__title #{favorite.title}
+            dd.listing__body
+              .listing__category #{favorite.category}
+              ul.listing__list
+                li.listing__param Keyword: #[strong Penthouse]
+                li.listing__param Listing Type: #[strong For sale]
+                li.listing__param Propert Type: #[strong Private apartment]
+                li.listing__param Tenure: #[strong Estate]
+                li.listing__param Bedrooms: #[strong 3]
+                li.listing__param Agent: #[strong Josh Hartnett]
+                li.listing__param Location administrative level 1: #[strong Malaysia]
+                li.listing__param Location administrative level 2: #[strong Kuala Lumpur]
+                li.listing__param Price: #[strong RM 50,000 - RM 400,000]
+                li.listing__param Commision: #[strong 2% - 6%]
+                li.listing__param Area: #[strong 65 Sq Ft - 135 Sq Ft]
+                li.listing__param Date: #[strong 15/03/2016 - 23/03/2016]
+
+              button.listing__view View & Edit
+              button.listing__delete Delete
+
+          // end of block .listing__item
+      .widget__footer
+        a.widget__more Show more
+    // END listing

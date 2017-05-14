@@ -1,0 +1,264 @@
+/**
+ ** A stylesheet for use with Bootstrap 3.x
+ ** @author: Dan Grossman http://www.dangrossman.info/
+ ** @copyright: Copyright (c) 2012-2015 Dan Grossman. All rights reserved.
+ ** @license: Licensed under the MIT license. See http://www.opensource.org/licenses/mit-license.php
+ ** @website: https://www.improvely.com/
+
+/* Container Appearance
+
+.daterangepicker
+  position: absolute
+  background: #fff
+  top: 100px
+  left: 20px
+  padding: 50px 50px 40px
+  margin-top: 0
+  width: 278px
+  border: none
+  box-shadow: none
+  font-size: 15px
+
+  @media (max-width: $screen-xs-max)
+    padding: 15px
+    width: auto
+
+  &.dropup
+    margin-top: -5px
+    &:before
+      top: initial
+      bottom: -7px
+      border-bottom: initial
+      border-top: 7px solid #ccc
+    &:after
+      top: initial
+      bottom: -6px
+      border-bottom: initial
+      border-top: 6px solid #fff
+  &.dropdown-menu
+    max-width: none
+    z-index: 3000
+    @media (max-width: $screen-xs-max)
+      right: 25px!important
+  &.single
+    .ranges, .calendar
+      float: none
+  .calendar
+    display: none
+    //max-width: 350px
+    //margin: 4px
+  &.show-calendar .calendar
+    display: block
+  .calendar
+    &.single .calendar-table
+      border: none
+    th, td
+      white-space: nowrap
+      text-align: center
+      min-width: 40px
+      @media (max-width: $screen-xs-max)
+        min-width: 30px
+  .calendar-table
+    padding: 4px
+  table
+    width: 100%
+    margin: 0
+  thead
+    border-bottom: 1px solid $border-color
+  td, th
+    text-align: center
+    width: 40px
+    height: 40px
+    white-space: nowrap
+    cursor: pointer
+    @media (max-width: $screen-xs-max)
+      width: 30px
+      height: 30px
+  td
+    &.off
+      color: #999
+      background: #fff
+      &.in-range, &.start-date, &.end-date
+        color: #999
+        background: #fff
+    &.disabled
+      color: #999
+      cursor: not-allowed
+      text-decoration: line-through
+  option.disabled
+    color: #999
+    cursor: not-allowed
+    text-decoration: line-through
+  td.available:hover, th.available:hover
+    background: #eee
+  td
+    &.in-range
+      background: #ebf4f8
+      border-radius: 0
+    &.start-date
+      //border-radius: 40px 0 0 40px
+    &.end-date
+      //border-radius: 0 40px 40px 0
+    &.start-date.end-date
+      //border-radius: 40px
+    &.active
+      background-color: #357ebd
+      border-color: #3071a9
+      color: #fff
+      &:hover
+        background-color: #357ebd
+        border-color: #3071a9
+        color: #fff
+    &.week
+      font-size: 80%
+      color: #ccc
+  th.week
+    font-size: 80%
+    color: #ccc
+  select
+    display: inline-block
+    padding: 3px 6px
+    border: 1px solid $border-color
+    &.monthselect, &.yearselect
+      font-size: 12px
+      padding: 1px
+      height: auto
+      margin: 0
+      cursor: default
+    &.monthselect
+      margin-right: 2%
+      width: 56%
+    &.yearselect
+      width: 40%
+    &.hourselect, &.minuteselect, &.secondselect, &.ampmselect
+      width: 70px
+      margin-bottom: 0
+      color: $defaultColor
+      margin-left: 10px
+      @media (max-width: $screen-xs-max)
+        width: 55px
+        margin-left: 0
+    &.ampmselect
+      margin-left: 15px
+      @media (max-width: $screen-xs-max)
+        margin-left: 8px
+  th.month
+    width: auto
+    font-size: 20px
+    color: $brandColor
+    font-weight: 600
+  .input-mini
+    border: 1px solid #ccc
+    border-radius: 4px
+    color: #555
+    display: block
+    height: 30px
+    line-height: 30px
+    vertical-align: middle
+    margin: 0 0 5px 0
+    padding: 0 6px 0 28px
+    width: 100%
+    &.active
+      border: 1px solid #357ebd
+  .daterangepicker_input
+    .input-mini
+      display: none
+    i
+      position: absolute
+      left: 8px
+      top: 8px
+      font-size: 20px
+      color: $defaultColor
+    .fa-calendar
+      display: none
+    position: relative
+  .calendar-time
+    text-align: center
+    margin: 5px auto
+    line-height: 30px
+    position: relative
+    padding-left: 28px
+    color: #fff
+    select.disabled
+      color: #ccc
+      cursor: not-allowed
+  .ranges
+    display: none
+    font-size: 11px
+    float: none
+    margin: 4px
+    text-align: left
+    ul
+      list-style: none
+      margin: 0 auto
+      padding: 0
+      width: 100%
+    li
+      font-size: 13px
+      background: #f5f5f5
+      border: 1px solid #f5f5f5
+      color: #08c
+      padding: 3px 12px
+      margin-bottom: 8px
+      border-radius: 5px
+      cursor: pointer
+      &.active, &:hover
+        background: #08c
+        border: 1px solid #08c
+        color: #fff
+
+/* Calendars
+
+/* Text Input Above Each Calendar
+
+/* Time Picker
+
+/* Predefined Ranges
+
+/*  Larger Screen Styling
+@media (min-width: 564px)
+  .daterangepicker
+    width: auto
+    .ranges ul
+      width: 160px
+    &.single .ranges ul
+      width: 100%
+    .calendar
+      &.left .calendar-table
+        border-right: none
+        border-top-right-radius: 0
+        border-bottom-right-radius: 0
+      &.right .calendar-table
+        border-left: none
+        border-top-left-radius: 0
+        border-bottom-left-radius: 0
+      &.left
+        clear: left
+        margin-right: 60px
+        @media (max-width: $screen-xs-max)
+          margin-right: 0
+      @media (max-width: $screen-xs-max)
+
+        margin: 0 auto !important
+        width: 300px!important
+        float: none!important
+    &.single
+      .calendar.left
+        clear: none
+        margin-right: 0
+      .ranges, .calendar
+        float: left
+    .calendar.right
+      margin-left: 0
+    .left .daterangepicker_input, .calendar.left .calendar-table
+      padding-right: 12px
+    .ranges, .calendar
+      float: left
+
+@media (min-width: 730px)
+  .daterangepicker
+    .ranges
+      width: auto
+      float: left
+    .calendar.left
+      clear: none

@@ -1,0 +1,108 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base.DetailResidence
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">@Resource.Property_Detail_Area</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-1">Area Icon</div>
+                    <div class="col-md-11">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-6">@Html.LabelFor(c => c.LivingArea, new { @class = "control-label" })</div>
+                                    <div class="col-md-6 col-xs-6">
+                                        @if (Model.LivingArea <= 0)
+                                        {
+                                            <div>@Resource.Detail_NoEntry</div>
+                                        }
+                                        else
+                                        {
+                                            <div>@Html.DisplayFor(m => m.LivingArea) m<sup>2</sup></div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-6">
+                                        @Html.LabelFor(c => c.BasementArea, new { @class = "control-label" })
+                                    </div>
+                                    <div class="col-md-6 col-xs-6">
+                                        @if (Model.BasementArea <= 0)
+                                        {
+                                            <div>@Resource.Detail_NoEntry</div>
+                                        }
+                                        else
+                                        {
+                                            <div>@Html.DisplayFor(m => m.BasementArea) m<sup>2</sup></div>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-6">@Html.LabelFor(c => c.UsefulArea, new { @class = "control-label" })</div>
+                                    <div class="col-md-6 col-xs-6">
+                                        @if (Model.UsefulArea <= 0)
+                                        {
+                                            <div>@Resource.Detail_NoEntry</div>
+                                        }
+                                        else
+                                        {
+                                            <div>@Html.DisplayFor(m => m.UsefulArea) m<sup>2</sup></div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-6">@Html.LabelFor(c => c.AtticSpace, new { @class = "control-label" })</div>
+                                    <div class="col-md-6 col-xs-6">
+                                        @if (Model.AtticSpace <= 0)
+                                        {
+                                            <div>@Resource.Detail_NoEntry</div>
+                                        }
+                                        else
+                                        {
+                                            <div>@Html.DisplayFor(m => m.AtticSpace) m<sup>2</sup></div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-6">@Html.LabelFor(c => c.TotalArea, new { @class = "control-label" })</div>
+                                    <div class="col-md-6 col-xs-6">
+                                        @if (Model.TotalArea <= 0)
+                                        {
+                                            <div>@Resource.Detail_NoEntry</div>
+                                        }
+                                        else
+                                        {
+                                            <div>@Html.DisplayFor(m => m.TotalArea, new { disabled = "disabled" }) m<sup>2</sup></div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-6">@Html.LabelFor(c => c.PlotArea, new { @class = "control-label" })</div>
+                                    <div class="col-md-6 col-xs-6">
+                                        @if (Model.PlotArea <= 0)
+                                        {
+                                            <div>@Resource.Detail_NoEntry</div>
+                                        }
+                                        else
+                                        {
+                                            <div>@Html.DisplayFor(m => m.PlotArea) m<sup>2</sup></div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

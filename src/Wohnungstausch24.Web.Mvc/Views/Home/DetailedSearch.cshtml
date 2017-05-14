@@ -1,0 +1,292 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.DetailedSearchResultsModel
+@{
+    var viewData = new ViewDataDictionary { TemplateInfo = new TemplateInfo { HtmlFieldPrefix = Model.GetType().Name } };
+    var authenticated = User.Identity.IsAuthenticated;
+}
+<div class="center">
+    <div class="container">
+        <div class="row" id="detailed-search-container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Resource.Detailed_Search</div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("DetailedSearch", "Home", FormMethod.Post, new { @class = "form form--flex form--search js-search-form form--white" }))
+                    {
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                @Html.LabelFor(m => m.SelectedTypeOfMerchandising, new { @class = "control-label" })
+                                @Html.DropDownListFor(m => m.SelectedTypeOfMerchandising, Model.MerchandisingTypes, Resource.PleaseChoose, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.SelectedTypeOfMerchandising, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                @Html.LabelFor(m => m.SelectedPropertyType, new { @class = "control-label" })
+                                @Html.DropDownListFor(m => m.SelectedPropertyType, Model.PropertyTypes, Resource.PleaseChoose, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.SelectedPropertyType, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" id="detail-search-locationlevel1">
+                                @Html.LabelFor(m => m.SelectedLocationLevel1, new { @class = "control-label" })
+                                @Html.DropDownListFor(m => m.SelectedLocationLevel1, Model.Locationlevel1, Resource.PleaseChoose, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <span class="control-label">@Resource.Location</span>
+                                <div class="dropdown dropdown--select">
+                                    <button type="button" data-toggle="dropdown" data-placeholder="@Resource.Location" class="dropdown-toggle js-select-checkboxes-btn">@Resource.Location</button>
+                                    <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                        <div class="region-select">
+                                            <ul class="js-checkboxes-tree bonsai region-select__list" id="locations">
+                                                @Html.Partial("_LocationsTreeView",Model)
+                                            </ul>
+                                            <div class="region-select__buttons">
+                                                <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                                <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                            </div>
+                                        </div>
+                                        <!-- end of block .region-select-->
+                                    </div>
+                                    <!-- end of block .dropdown-menu-->
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        if (Model.DetailedSearchFlatForRent != null)
+                        {
+                            viewData.TemplateInfo.HtmlFieldPrefix = Model.DetailedSearchFlatForRent.GetType().Name;
+                            @Html.Partial("_DetailSearchResidence", Model.DetailedSearchFlatForRent, viewData)
+                        }
+                        else if (Model.DetailedSearchFlatForSale != null)
+                        {
+                            viewData.TemplateInfo.HtmlFieldPrefix = Model.DetailedSearchFlatForSale.GetType().Name;
+                            @Html.Partial("_DetailSearchResidence", Model.DetailedSearchFlatForSale, viewData)
+                        }
+                        else if (Model.DetailedSearchHouseForRent != null)
+                        {
+                            viewData.TemplateInfo.HtmlFieldPrefix = Model.DetailedSearchHouseForRent.GetType().Name;
+                            @Html.Partial("_DetailSearchResidence", Model.DetailedSearchHouseForRent, viewData)
+                        }
+                        else if (Model.DetailedSearchHouseForSale != null)
+                        {
+                            viewData.TemplateInfo.HtmlFieldPrefix = Model.DetailedSearchHouseForSale.GetType().Name;
+                            @Html.Partial("_DetailSearchResidence", Model.DetailedSearchHouseForSale, viewData)
+                        }
+                        else if (Model.DetailedSearchLandForSale != null)
+                        {
+                            viewData.TemplateInfo.HtmlFieldPrefix = Model.DetailedSearchLandForSale.GetType().Name;
+                            @Html.Partial("_DetailSearchLfsPartial", Model, viewData)
+                        }
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form__buttons form__buttons--double">
+                                    <a href="@Url.Action("Index","Home")" class="form__reset">@Resource.Cancel</a>
+                                    <button type="submit" class="form__submit">@Resource.Search</button>
+                                </div>
+                            </div>
+                                <div class="col-md-4">
+                                    @Html.CheckBoxFor(m => m.SaveSearch, new { @class = "in-checkbox" })
+                                    @Html.LabelFor(m => m.SaveSearch, new { @class = "in-label" })
+                                    <div id="search-name">
+                                        @Html.LabelFor(m => m.SearchName, new { @class = "control-label" })
+                                        @Html.TextBoxFor(m => m.SearchName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="loading"></div>
+        </div>
+        <div class="site__main">
+            <div class="widget js-widget widget--main">
+                <div class="widget__content">
+                    <div class="listing listing--list js-properties-list">
+                        @foreach (var item in Model.SummaryViewModels)
+                        {
+                            @Html.Partial("_ListingSearchResult", item)
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        var locationLevel1 = $('#@Html.IdFor(m => m.SelectedLocationLevel1)');
+        var locations = $('#locations');
+
+        locationLevel1.change(function () {
+            $("#detailed-search-container").addClass("loading-overlay");
+            var request = $.ajax({
+                url: '@Url.Action("GetLocationLevelTree", "Locations", new {area = ""})',
+                method: "GET",
+                data: { id: $(this).val() },
+                contentType: "application/json",
+                dataType: "html"
+            });
+            request.done(function (data) {
+                locations.html(data);
+                $('#locations').bonsai('update');
+                initSearch('.js-search-form');
+                $("#detailed-search-container").removeClass("loading-overlay");
+            });
+            request.fail(function (jqXHR, textStatus) {
+                alert("Request failed: " + textStatus);
+                $("#detailed-search-container").removeClass("loading-overlay");
+            });
+        });
+
+        var features = $("#features");
+        initSearch('.js-search-form');
+
+        function initSearch(container) {
+            /**
+             * Helper function for rendering checkboxes inside dropdowns
+             ==============================================================*/
+            var $container = $(container);
+            var $selectCheckboxes = $container.find('.js-select-checkboxes');
+            var $selectCheckboxesDropdown = $container.find('.js-select-checkboxes');
+            var $inputsSelect = $container.find('select');
+            var $inputsCheckbox = $container.find('input[type="checkbox"]');
+
+            $selectCheckboxes.each(function () {
+                var $this = $(this);
+                var $showBtn = $(this).prev('.js-select-checkboxes-btn');
+                var $showBtnPlaceholder = $showBtn.data('placeholder');
+
+                $this.find('.in-checkbox')
+                    .change(function () {
+                        var $parentGroup, resultHtml, location = [];
+
+                        $parentGroup = $(this).closest('.js-select-checkboxes');
+                        $($parentGroup)
+                            .find('.in-checkbox:checked')
+                            .each(function () {
+                                var $label = $("label[for='" + this.id + "']");
+                                var name = $label.text();
+                                location.push(name);
+                            });
+                        resultHtml = location.join(', ') || $showBtnPlaceholder;
+                        $($showBtn).text(resultHtml);
+                    });
+            });
+
+
+            $('.js-select-checkboxes-reset')
+                .on('click',
+                    function () {
+                        var $this = $(this),
+                            $selectCheckboxesDropdown = $this.closest('.js-select-checkboxes');
+
+                        $selectCheckboxesDropdown
+                            .find('input[type="checkbox"]')
+                            .prop({
+                                checked: false,
+                                indeterminate: false
+                            });
+                        $selectCheckboxesDropdown
+                            .find('input[type="checkbox"]')
+                            .first()
+                            .trigger('change');
+
+                    });
+
+            $('.js-select-checkboxes-accept')
+                .on('click',
+                    function () {
+                        var $this = $(this),
+                            $selectCheckboxesDropdown = $this.closest('.js-select-checkboxes');
+
+                        $selectCheckboxesDropdown
+                            .closest('.dropdown')
+                            .removeClass('open');
+                    });
+
+            // Button "Clear All" (reset form)
+            $('.js-form-reset')
+                .on('click',
+                    function () {
+                        $inputsSelect.each(function (i, item) {
+                            $(item).find('option').removeAttr('selected');
+                            $(item).trigger('change');
+                        });
+
+                        $inputsCheckbox.prop({
+                            checked: false,
+                            indeterminate: false
+                        });
+
+                        // trigger event for custom menu dropdown
+                        $selectCheckboxesDropdown.each(function (i, selectCheckboxes) {
+                            $(selectCheckboxes)
+                                .find('input[type="checkbox"]')
+                                .first()
+                                .trigger('change');
+                        });
+
+                    });
+
+
+            $('body')
+                .on('click',
+                    '.js-dropdown-menu',
+                    function (e) {
+                        e.stopPropagation();
+                    });
+
+            /***************************************************************
+             * Example usage of tree plugin and checkbox plugins
+             * to render a nice location tree
+             *
+             * For customizing the tree options see
+             * http://aexmachina.info/jquery-bonsai
+             *
+             * For customizing checkbox options see
+             * https://github.com/aexmachina/jquery-qubit
+             ==============================================================*/
+            var checkboxesTree = $('.js-checkboxes-tree');
+            if (checkboxesTree.length) {
+                checkboxesTree.bonsai();
+                checkboxesTree.qubit();
+            }
+
+            //  listeners
+            $inputsSelect.on('change', triggerFormChange);
+            $inputsCheckbox.on('change', triggerFormChange);
+
+            function triggerFormChange() {
+                $container.trigger('formChange');
+            }
+        }
+
+        var url = '@Url.Action("DetailedSearch", "Home")';
+        $("#detailed-search-container").removeClass("loading-overlay");
+        $("#@Html.IdFor(m => m.SelectedPropertyType)")
+            .change(function () {
+                window.location = url +"?" +"pt=" +$(this).find(":selected").val() +"&mt=" +'@(Model.SelectedTypeOfMerchandising)';
+                $("#detailed-search-container").addClass("loading-overlay");
+            });
+
+        $("#@Html.IdFor(m => m.SelectedTypeOfMerchandising)")
+            .change(function () {
+                window.location = url +"?" +"pt=" +'@(Model.SelectedPropertyType)' +"&mt=" +$(this).find(":selected").val();
+                $("#detailed-search-container").addClass("loading-overlay");
+            });
+
+        if ($('#@Html.IdFor(m => m.SaveSearch)')) {
+            $("#search-name").toggle($('#@Html.IdFor(m => m.SaveSearch)').is(':checked'));
+            $('#@Html.IdFor(m => m.SaveSearch)').change(function () {
+                $("#search-name").toggle(this.checked);
+                var authenticated = @authenticated.ToString().ToLower();
+                if (this.checked && authenticated===false) {
+                    swal({
+                        title: "@Html.Raw(Resource.DetailSearch_SaveSearchProfile_AlertTitle)",
+                        text: "@Html.Raw(Resource.DetailSearch_SaveSearchProfile_AlertText)",
+                        type: "info",
+                        closeOnConfirm: false
+                    });
+                }
+            });
+        }
+    </script>
+}

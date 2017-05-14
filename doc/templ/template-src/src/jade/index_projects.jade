@@ -1,0 +1,46 @@
+extends index
+block config
+  - var bodyClass = 'scroll-animation';
+  - var page = 'index_projects';
+
+block before_center
+
+  +widget('<span class="title-thin">Find your</span> home', null, 'landing widget--bg')
+    - var searchType = 'wide';
+    - var searchRangeSlider = true;
+    include partials/widgets/form--search
+
+
+  +widget('<span class="title-thin">Latest</span> Listing', 'Our agents are licensed professionals that specialise in searching, evaluating and negotiating the purchase of property on behalf of the buyer. They will sell you real estate. Insights, tips & how-to guides on selling property and preparing your home or investment property for sale and working to maximise your sale price.', 'landing widget--gray')
+    // BEGIN PROPERTIES INDEX
+    .listing.listing--grid
+      - var i = 4;
+      while i++ < 10
+        .listing__item
+          +properties(i, 'grid')
+    .widget__footer
+      a.widget__more(href='properties_listing_list.html') More listings
+
+    // END PROPERTIES INDEX
+
+  +widget('<span class="title-thin">Featured</span> Projects', 'Our agents are licensed professionals that specialise in searching, evaluating and negotiating the purchase of property on behalf of the buyer. They will sell you real estate. Insights, tips & how-to guides on selling property and preparing your home or investment property for sale and working to maximise your sale price.', 'landing')
+    // BEGIN PROPERTIES INDEX
+    .listing.listing--grid
+      - var i = 4;
+      while i++ < 10
+        .listing__item
+          +properties(i, 'grid properties--projects')
+    .widget__footer
+      a.widget__more(href='properties_listing_list.html') More listings
+    // END PROPERTIES INDEX
+
+  +widget(
+      '<span class="title-thin">Our</span> Agents',
+      'Our agents are licensed professionals that specialise in searching, evaluating and negotiating the purchase of property on behalf of the buyer. They will sell you real estate. Insights, tips & how-to guides on selling property and preparing your home or investment property for sale and working to maximise your sale price.',
+      'landing widget--gray'
+    )
+
+    // BEGIN SECTION WORKER INDEX
+    +worker(0, 'card')
+
+  // END SECTION WORKER INDEX

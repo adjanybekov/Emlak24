@@ -1,0 +1,22 @@
+.comment__item-body.js-comment-item
+  .comment__avatar
+    img(src='#{path.media}/avatars/#{avatar}.jpg', alt='')
+  .comment__item-right
+    button.comment__item-btn Edit
+    button.comment__item-btn Delete
+
+  .comment__info
+    span.comment__author Janiel Vasconcelos
+    span.comment__date Oct 3, 2014 at 3:23pm
+
+    .comment__content
+      if commentWarning
+          h4.comment__warning-title Your comment is awaiting moderation.
+          p.comment__warning-text
+            | Working on local and international brands, we use all available artistic means which allow us to find the best solution for our clients. Mixing photography, illustration, 3D and CGI all seamlessly together, we are able to create styled images fitted perfectly for each project.
+      else
+        p
+          | Working on local and international brands, we use all available artistic means which allow us to find the best solution for our clients. Mixing photography, illustration, 3D and CGI all seamlessly together, we are able to create styled images fitted perfectly for each project.
+
+    button.comment__reply.js-comment-reply Reply
+// end of block .comment__item-body

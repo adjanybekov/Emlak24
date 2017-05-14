@@ -1,0 +1,65 @@
+// BEGIN FOOTER
+footer.footer
+  .container
+    .footer__wrap
+      .footer__col.footer__col--first
+        +widget('Menu', null, 'footer')
+          nav.nav.nav--footer
+            a(href='index.html') Home
+            a(href='properties_listing_grid.html') Realty
+            a(href='agents_listing_grid.html') Agents
+            a(href='gallery.html') Gallery
+            a(href='blog.html') Blog
+            a(href='pricing.html') Pricing
+            a(href='contacts.html') Contacts
+            a(href='feature_ui.html') UI
+          // end of block .nav-footer
+
+        +widget('About', null, 'footer')
+          aside.widget_text.
+            <div class="textwidget">
+              RealtySpace is the leader in online real estate and operator of the WK of real estate web site for consumers and real estate professionals. Real Estate of websites captures more than 20 million monthly visitors
+              <p>RealtySpace is the leader in online real estate and operator of the WK of real</p>
+              <p><a>Read more</a></p>
+            </div>
+
+        +widget('Social', null, 'footer')
+          .social.social--footer
+            a.social__item(href='#')
+              i.fa.fa-facebook
+
+            a.social__item(href='#')
+              i.fa.fa-twitter
+
+            a.social__item(href='#')
+              i.fa.fa-google-plus
+          // end of block .social-footer
+      // end of block .footer__col-first
+
+      .footer__col.footer__col--second
+        include ../widgets/address
+
+        - var formType = 'footer';
+        include ../widgets/feedback
+      //end of block .footer__col-second
+
+      .footer__col.footer__col--third
+        +widget('Latest Articles', null, 'footer')
+          include ../mixins/article
+          .listing.listing--footer
+            - var i = -1;
+            while ++i < 3
+              .listing__item
+                - var articleType = 'sidebar';
+                +article(i, 'footer')
+
+          a.widget__more(href='blog.html')  More articles
+      // end of block .footer__col-third
+
+      .clearfix
+      span.footer__copyright
+        | &copy; #{new Date().getFullYear()} RealtySpace. All rights reserved
+      // end of block .footer__copyright
+
+// end of block .footer
+// END FOOTER

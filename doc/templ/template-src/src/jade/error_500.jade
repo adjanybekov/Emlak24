@@ -1,0 +1,11 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = 'main--white';
+  - var page = 'error_500';
+
+block center
+  +widget(null, null, 'landing')
+    include partials/mixins/form--search
+    +formSearch('error-status', 'Please enter a search query')
+
+  +widget('500 Error. Internal error.', 'The Server Encountered an internal error or misconfiguration and was unable to complete your request. Please contact the server administrator, and inform them of the time the error occurred, and anything you might have done that may have caused the error.', 'landing widget--sep')

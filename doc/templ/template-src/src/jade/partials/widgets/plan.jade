@@ -1,0 +1,116 @@
+.plan.js-plan
+  nav.plan__nav
+    button.plan__nav-btn.plan__nav-btn--overview.js-plan-nav-overview.active(type='button', data-chart='all') Overview
+    button.plan__nav-btn.js-plan-nav.active(type='button', data-chart=0) Block 15
+    button.plan__nav-btn.js-plan-nav(type='button', data-chart=1) Block 15a
+    button.plan__nav-btn.js-plan-nav(type='button', data-chart=2) Block 15b
+  .plan__table
+    .plan__table-legend
+      .plan__heading-floor Unit
+      .plan__heading-unit Flat
+
+    .plan__head.js-plan-head
+      each chart, ch in locals.data.salesChart
+        .plan__head-wrap.js-plan-head-wrap(data-chart=ch)
+          each head, i in chart.headings
+            .plan__heading(class='plan__heading--' + head.cssClass, data-column=i)
+              if i % 6 == 0
+                .plan__options.plan__options--cell
+                  .plan__option.plan__option--orientation
+                  .plan__option.plan__option--commission-rate
+                  .plan__option.plan__option--discounts
+
+              .plan__heading-index #{head.index}
+              .plan__heading-title #{head.title}
+
+    .plan__number.js-plan-number
+      each chart, ch in locals.data.salesChart
+        .plan__number-wrap.js-plan-number-wrap(data-chart=ch)
+          each row, i in chart.rows
+            .plan__number-cell= i
+
+    .plan__wrap.js-plan-wrap.dragscroll
+      each chart, ch in locals.data.salesChart
+        table.plan__body.js-plan-body(data-cell-count=chart.rows[0].length, data-chart=ch)
+          each row, i in chart.rows
+            tr
+              each item, j in row
+                td.plan__cell.js-plan-cell(class='plan__cell--' + item.cssClass, data-row=i, data-cell=j , data-id=item.id )
+                  .plan__item(class='plan__item--' + item.status )
+                    unless item.cssClass == 'empty'
+                      if (item.cssClass == 'custom')
+                        .plan__custom(class=(item.attr ? ' plan__custom--w' + item.attr.width + ' plan__custom--h' + item.attr.height : '' ))
+                          .plan__custom-label #{item.attr.title}
+                      .plan__options.plan__options--cell
+                        .plan__option(class='plan__option--' + item.options)
+
+                      if item.status == 'available'
+                        .plan__price RM #{item.price}
+                      else
+                        .plan__state(class='plan__state--' + item.state ) #{item.state}
+
+  .plan__legend
+    .plan__units
+      .plan__unit-column
+        .plan__unit.plan__unit--available
+        .plan__legend-label Available
+      .plan__unit-column
+        .plan__unit.plan__unit--reserved
+        .plan__legend-label Reserved
+      .plan__unit-column
+        .plan__unit.plan__unit--not-available
+        .plan__legend-label Not Available
+      .plan__unit-column
+        .plan__unit.plan__unit--no-unit
+        .plan__legend-label No such Unit
+
+    .plan__options.plan__options--legend
+      .plan__option-column
+        .plan__option.plan__option--orientation
+        .plan__legend-label displaying orientation
+      .plan__option-column
+        .plan__option.plan__option--car-parks
+        .plan__legend-label car parks
+      .plan__option-column
+        .plan__option.plan__option--commission-rate
+        .plan__legend-label commission rate
+      .plan__option-column
+        .plan__option.plan__option--discounts
+        .plan__legend-label discounts
+
+  #modal-plan-detail.modal.modal--plan.fade(tabindex='-1', role='dialog')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+
+        .modal-body
+          h3.plan__title Block 15, Unit 26, Floor 43, C1a
+          .plan__slider
+            +slider_small('slider--small js-slick-plan', null, [])
+
+          .plan__details
+            .plan__contact
+              dl
+                dt Purchaser:
+                dd Justin Graham
+              dl
+                dt Purchaser contact:
+                dd justin.g@gmail.com
+              dl.plan__contact-agent
+                dt Sold by agent:
+                dd Lisa Wemert
+              dl
+                dt  Agent contact:
+                dd lisicika_w@gmail.com
+            .plan__info
+              dl.plan__info-price
+                dt Price
+                dd RM #[strong 2,900,000]
+              dl
+                dt Date of booking
+                dd 18/03/2016
+
+
+

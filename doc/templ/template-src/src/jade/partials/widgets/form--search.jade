@@ -1,0 +1,174 @@
+//- Search partial
+    Accept values
+      @searchType:
+        [sidebar] - Search on sidebar
+        [map-sidebar] - on map's sidebar
+        [map-sidebar search--map-dark] - on map's sidebar darked
+        [map-bottom] - on map's at bottom
+        [index] - on index page, default
+// BEGIN SEARCH
+
+include ../mixins/region
+
+- var advancedMode = !(['banner-sidebar', 'map-bottom', 'banner-sidebar form--dark', 'banner-sidebar form--white'].indexOf(searchType) > -1);
+
+form.form.form--flex.form--search.js-search-form(action='properties_listing_list.html', class='form--' + searchType)
+  .row
+    .form-group
+      label.control-label(for='in-keyword') Keyword
+      input.form-control(type='text', id='in-keyword', placeholder='Text')
+
+    .form-group
+      label.control-label(for='in-contract-type') Listing Type
+      select.form-control(id='in-contract-type', data-placeholder= searchType === 'banner-sidebar' ? 'Contract type' : '---')
+        option(label=' ')
+        option Sale
+        option Rent
+
+    .form-group
+      span.control-label Property type
+      .dropdown.dropdown--select
+        button.dropdown-toggle.js-select-checkboxes-btn(type='button', data-toggle='dropdown', data-placeholder= searchType === 'banner-sidebar' ? 'Property type' : '---')= searchType === 'banner-sidebar' ? 'Property type' : '---'
+        .dropdown-menu.js-dropdown-menu.js-select-checkboxes
+          ul
+            li
+              input#checkbox_type_1.in-checkbox(type='checkbox', name='checkbox_type_1')
+              label.in-label(for='checkbox_type_1', data-toggle='tooltip', data-placement='left', title='Tooltip on top') Privat apartment
+            li
+              input#checkbox_type_2.in-checkbox(type='checkbox', name='checkbox_type_2')
+              label.in-label(for='checkbox_type_2', data-toggle='tooltip', data-placement='top', title='Tooltip on top') Apartment
+            li
+              input#checkbox_type_3.in-checkbox(type='checkbox', name='checkbox_type_3')
+              label.in-label(for='checkbox_type_3', data-toggle='tooltip', data-placement='bottom', title='Tooltip on top') Cottage
+            li
+              input#checkbox_type_4.in-checkbox(type='checkbox', name='checkbox_type_4')
+              label.in-label(for='checkbox_type_4', data-toggle='tooltip', data-placement='bottom', title='Tooltip on top') Flat
+            li
+              input#checkbox_type_5.in-checkbox(type='checkbox', name='checkbox_type_5')
+              label.in-label(for='checkbox_type_5', data-toggle='tooltip', data-placement='bottom', title='Tooltip on top') House
+            li
+              input#checkbox_type_6.in-checkbox(type='checkbox', name='checkbox_type_6')
+              label.in-label(for='checkbox_type_6', data-toggle='tooltip', data-placement='bottom', title='Tooltip on top') Condominium
+            li
+              input#checkbox_type_7.in-checkbox(type='checkbox', name='checkbox_type_7')
+              label.in-label(for='checkbox_type_7', data-toggle='tooltip', data-placement='bottom', title='Tooltip on top') Cottage
+            li
+              input#checkbox_type_8.in-checkbox(type='checkbox', name='checkbox_type_8')
+              label.in-label(for='checkbox_type_8', data-toggle='tooltip', data-placement='bottom', title='Tooltip on top') Flat
+            li
+              input#checkbox_type_9.in-checkbox(type='checkbox', name='checkbox_type_9')
+              label.in-label(for='checkbox_type_9', data-toggle='tooltip', data-placement='bottom', title='Tooltip on top') Cottage
+            li
+              input#checkbox_type_10.in-checkbox(type='checkbox', name='checkbox_type_10')
+              label.in-label(for='checkbox_type_10', data-toggle='tooltip', data-placement='bottom', title='Tooltip on top') Condominium
+          // end of block .dropdown-menu
+
+    if advancedMode
+      .form-group
+        label.control-label(for='in-tenure-type') Tenure
+        select.form-control(id='in-tenure-type', data-placeholder= 'Any tenure')
+          option(label=' ')
+          option Tenure
+          option Tenure
+
+      .form-group
+        label.control-label(for='in-bedrooms-type') Bedrooms
+        select.form-control(id='in-bedrooms-type', data-placeholder= '---')
+          option(label=' ')
+          option 1
+          option 2
+
+    .form-group
+      span.control-label Location level 1
+      .dropdown.dropdown--select
+        button.dropdown-toggle.js-select-checkboxes-btn(type='button', data-toggle='dropdown', data-placeholder='States') States
+        .dropdown-menu.js-dropdown-menu.js-select-checkboxes
+          +region('states')
+        // end of block .dropdown-menu
+
+    if advancedMode
+      .form-group
+        span.control-label Location level 2
+        .dropdown.dropdown--select
+          button.dropdown-toggle.js-select-checkboxes-btn(type='button', data-toggle='dropdown', data-placeholder='Location') Locations
+          .dropdown-menu.js-dropdown-menu.js-select-checkboxes
+            +region('location')
+          // end of block .dropdown-menu
+
+      .form-group
+        label.control-label(for='in-favorites-search-type') Favorite searches
+        select.form-control(id='in-favorites-search-type', data-placeholder= searchType === 'banner-sidebar' ? 'Contract type' : '---')
+          option(label=' ')
+          option Kuala Lumpur - 1 flat
+          option 2
+
+      .form-group
+        label.control-label(for='in-favorites-categories-type') Favorite categories
+        select.form-control(id='in-favorites-categories-type', data-placeholder= searchType === 'banner-sidebar' ? 'Contract type' : '---')
+          option(label=' ')
+          option Luxury
+          option 2
+
+      .form-group
+        label.control-label(for='in-favorites-users-type') Favourite users
+        select.form-control(id='in-favorites-users-type', data-placeholder= searchType === 'banner-sidebar' ? 'Contract type' : '---')
+          option(label=' ')
+          option Josh Hartnett
+          option 2
+
+    .form-group
+      label.control-label(for='in-datetime') Date Range
+      input.js-datetimerange.form-control(
+      type='text',
+      id='in-datetime',
+      data-start-date='12/03/2015',
+      data-end-date='12/22/2015',
+      data-time-picker='true'
+      data-single-picker='false'
+      )
+
+    .form-group
+      .form__mode
+        button.form__mode-btn.js-input-mode(type='button', data-mode='input') Input
+
+      label.control-label(for='range_price') Price
+      .form__ranges
+        input#range_price.js-search-range.form__ranges-in
+      .form__inputs.js-search-inputs
+          input.form-control.js-field-range(type='text', id='in-price-from', placeholder='From', data-input-type='from')
+          input.form-control.js-field-range(type='text', id='in-price-to', placeholder='To', data-input-type='to')
+
+    .form-group
+      .form__mode
+        button.form__mode-btn.js-input-mode(type='button', data-mode='input') Input
+
+      label.control-label(for='range_area') Area
+      .form__ranges
+        input#range_area.js-search-range.form__ranges-in
+      .form__inputs.js-search-inputs
+          input.form-control.js-field-range(type='text', id='in-area-from', placeholder='From', data-input-type='from')
+          input.form-control.js-field-range(type='text', id='in-area-to', placeholder='To', data-input-type='to')
+
+    if advancedMode
+      .form-group
+        .form__mode
+          button.form__mode-btn.js-input-commision(type='button', data-mode='percent') Percent
+          button.form__mode-btn.js-input-mode(type='button', data-mode='input') Input
+
+        label.control-label(for='range_area') Commision
+        .form__ranges
+          input#range_commision.js-search-range.form__ranges-in
+        .form__inputs.js-search-inputs
+            input.form-control.js-field-range(type='text', id='in-commision-from', placeholder='From', data-input-type='from')
+            input.form-control.js-field-range(type='text', id='in-commision-to', placeholder='To', data-input-type='to')
+
+    .form__buttons( class= searchType !== 'banner-sidebar' ? 'form__buttons--double' : '' )
+      unless searchType === 'banner-sidebar'
+        button.form__reset.js-form-reset(type='button') Reset
+      button.form__submit(type='submit') Search
+      if searchType === 'sidebar'
+        button.form__favorite(type='button') Add search to favorites
+
+// end of block
+// END SEARCH
+

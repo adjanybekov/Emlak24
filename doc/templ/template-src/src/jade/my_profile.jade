@@ -1,0 +1,41 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = 'compact my_profile';
+  - var page = 'my_profile';
+  - var user = true;
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Agent profile
+  // END BREADCRUMBS
+block center
+  .row
+    .site.site--main
+      header.site__header
+        h1.site__title Agent profile
+        h2.site__headline Add and edit listing information
+      .site__panel
+        span.site__header-text
+          | Flexible configuration and editing forms, add and edit listing information, photos and location of the position
+
+      .site__main
+        +widget(null, null, 'main')
+          include partials/dashboard/form--profile
+    .sidebar
+      +widget(null, null, 'sidebar widget--first-no-head', 'Show profile', null, 'toggle')
+        - var userType = 'sidebar-advanced';
+        include partials/chunks/sidebar/worker_profile
+      +widget('Our agents', 'Find your apartment or house on the exact key parameters.', 'sidebar widget--dark', 'Show worker', null, 'toggle')
+        .listing.listing--sidebar
+          - var i = -1;
+          while i++ < 2
+            .listing__item
+              +worker(i, 'sidebar')
+
+    .clearfix

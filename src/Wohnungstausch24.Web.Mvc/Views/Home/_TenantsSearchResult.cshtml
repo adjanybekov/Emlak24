@@ -1,0 +1,70 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Search.TenantSearch.TenantSearchAndDetailViewModel
+
+@foreach (var item in Model.TenantList)
+{
+    <div class="listing__item">
+        <div class="properties properties--list">
+            <div class="properties__thumb">
+                <a href="@Url.Action("TenantDetail", "Home", new {id = item.ClientId})" class="item-photo">
+                    <img src="@{ Html.RenderAction("GetProfilePicturePathByUserId", "File", new {id = item.UserId}); }" alt="" class="img img-responsive img-thumbnail" style="max-width: 280px" />
+                </a>
+            </div>
+            <!-- end of block .properties__thumb-->
+            <div class="properties__details">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="properties__address">
+                            <span class="properties__address-street">@item.Headline</span>
+                            <span class="properties__address-city">@item.Name</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="properties__intro">
+                    <p>@item.About</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="control-label">@Resource.Price</div>
+                        <div class="text-primary">
+                            <strong>&euro;@item.PriceFrom.GetValueOrDefault()</strong>
+                            <strong>-</strong>
+                            <strong>&euro;@item.PriceTo.GetValueOrDefault()</strong>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="control-label">@Resource.Common_Income</div>
+                        <div class="text-primary">
+                            <strong>@item.Income</strong><span class="properties__offer-period">/month</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="control-label">@Resource.Property_Detail_Area</div>
+                        <div class="text-primary">
+                            <strong>@item.AreaFrom-@item.AreaTo</strong>m<sup>2</sup>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="control-label">@Resource.Number_Of_Living_Bedrooms</div>
+                        <div class="text-primary">
+                            <strong>@item.NumberOfLivingRoomsFrom.GetValueOrDefault()</strong>
+                            <strong>-</strong>
+                            <strong>@item.NumberOfLivingRoomsTo.GetValueOrDefault()</strong>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="control-label">@Resource.General_Date</div>
+                        <div class="text-primary">
+                            <strong>@item.AvailableFrom.GetValueOrDefault().ToShortDateString()-@item.AvailableTo.GetValueOrDefault().ToShortDateString()</strong>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("TenantDetail", "Home", new {id = item.ClientId})" class="properties__more" target="_blank">
+                    <i class="fa fa-eye"></i> @Resource.ViewDetails
+                </a>
+            </div>
+        </div>
+    </div>
+    }

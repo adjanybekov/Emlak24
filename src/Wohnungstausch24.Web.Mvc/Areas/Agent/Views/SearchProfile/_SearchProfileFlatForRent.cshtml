@@ -1,0 +1,48 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.Flat.DetailedSearchFlatForRent
+
+<li>
+    @Resource.TypeOfMerchandising:
+    <strong>
+        @TypeOfMerchandising.Rent.GetDisplayName()
+    </strong>
+</li>
+<li>
+    @Resource.PropertyType:
+    <strong>
+        @PropertyType.Flat.GetDisplayName()
+    </strong>
+</li>
+<li>
+    @Resource.Level:
+    <strong>
+        @Model.Level.From - @Model.Level.To
+    </strong>
+</li>
+
+<li>
+    @Resource.Property_Add_NumberOfLevels:
+    <strong>
+        @Model.NumberOfLevels.From - @Model.NumberOfLevels.To
+    </strong>
+</li>
+<li>
+    @Resource.Is_Smoking_Allowed:
+    <strong>
+        @Html.DisplayFor(m=>m.IsSmokingAllowed)
+    </strong>
+</li>
+<li>
+    @Resource.Property_Add_PetsAllowed:
+    <strong>
+        @Html.DisplayFor(m=>m.IsPetsAllowed)
+    </strong>
+</li>
+<li>
+    @Resource.HasHousingPermission:
+    <strong>
+        @Html.DisplayFor(m=>m.HasHousingPermission)
+    </strong>
+</li>

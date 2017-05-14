@@ -1,0 +1,38 @@
+/*------------------------------------------------------------------
+  * Style for region select block
+  + Region Select / .region-select
+  ==============================================================*/
++b(region-select)
+  padding: 8px 6px
+  label.in-label
+    margin-left: 10px
+    padding-left: 25px
+    font-size: 14px
+    color: $defaultColor
+    +text-overflow
+    margin-bottom: 0
+    padding-top: 0
+    @media (max-width: $screen-xs-max)
+      margin-left: -10px
+    &:before
+      top: 4px
+  ul
+    padding: 0 !important
+  +e(list)
+    max-height: 250px
+    overflow: auto
+  +e(buttons)
+    padding: 10px 6px
+    display: flex
+    justify-content: space-between
+  +e(btn)
+    +button-default
+    padding: 4px 10px
+    width: 47%
+    margin: 0
+    +m(reset)
+      padding-left: 8px
+      &:before
+        +font-awesome(1em, '\f00d')
+        font-size: 12px
+        margin: 0 5px 0 0

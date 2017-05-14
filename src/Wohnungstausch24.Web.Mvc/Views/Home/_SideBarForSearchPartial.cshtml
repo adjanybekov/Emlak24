@@ -1,0 +1,82 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Search.BasicSearch.BasicSearchViewModel
+
+<div class="sidebar">
+    <div class="widget js-widget widget--sidebar">
+        <div class="widget__header">
+            <h2 class="widget__title">@Resource.Home_Search_Filter</h2>
+            <h5 class="widget__headline">@Resource.Home_Search_FindKeysText </h5><a class="widget__btn js-widget-btn widget__btn--toggle">Show filter</a>
+        </div>
+        <div class="widget__content">
+            @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "form form--flex form--search js-search-form form--sidebar" }))
+            {
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.SelectedTypeOfMerchandising, new { @class = "control-label" })
+                        @Html.DropDownListFor(m => m.SelectedTypeOfMerchandising, Model.MerchandisingTypes, Resource.PleaseChoose, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.SelectedTypeOfMerchandising, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.SelectedPropertyType, new { @class = "control-label" })
+                        @Html.DropDownListFor(m => m.SelectedPropertyType, Model.PropertyTypes, Resource.PleaseChoose, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.SelectedPropertyType, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.SelectedLocationLevel1, new { @class = "control-label" })
+                        @Html.DropDownListFor(m => m.SelectedLocationLevel1, Model.Locationlevel1, Resource.PleaseChoose, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <span class="control-label">@Resource.Location</span>
+                        <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="Locations" class="dropdown-toggle js-select-checkboxes-btn">Locations</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                <div class="region-select">
+                                    <ul class="js-checkboxes-tree bonsai region-select__list" id="locations">
+                                        @Html.Partial("_LocationsTreeView",Model)
+                                    </ul>
+                                    <div class="region-select__buttons">
+                                        <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                                        <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Locations, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <div class="form__mode">
+                            <button type="button" data-mode="input" class="form__mode-btn js-input-mode">@Resource.Input</button>
+                        </div>
+                        @Html.LabelFor(m => m.PriceRange, new { @class = "control-label" })
+                        <div class="form__ranges">
+                            @Html.TextBoxFor(m => m.PriceRange, new { placeholder = "From", data_input_type = "from", @class = "js-search-range form__ranges-in", id = "range_price" })
+                        </div>
+                        <div class="form__inputs js-search-inputs">
+                            @Html.TextBoxFor(m => m.PriceFrom, new { placeholder = "From", data_input_type = "from", @class = "form-control js-field-range", id = "in-price-from" })
+                            @Html.TextBoxFor(m => m.PriceTo, new { placeholder = "To", data_input_type = "to", @class = "form-control js-field-range", id = "in-price-to" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form__mode">
+                            <button type="button" data-mode="input" class="form__mode-btn js-input-mode">@Resource.Input</button>
+                        </div>
+                        @Html.LabelFor(m => m.AreaRange, new { @class = "control-label" })
+                        <div class="form__ranges">
+                            @Html.TextBoxFor(m => m.AreaRange, new { id = "range_area", @class = "js-search-range form__ranges-in" })
+                        </div>
+                        <div class="form__inputs js-search-inputs">
+                            @Html.TextBoxFor(m => m.AreaFrom, new { placeholder = "From", data_input_type = "from", @class = "form-control js-field-range" })
+                            @Html.TextBoxFor(m => m.AreaTo, new { placeholder = "To", data_input_type = "to", @class = "form-control js-field-range" })
+                        </div>
+                    </div>
+                    <div class="form__buttons form__buttons--double">
+                        <button type="button" class="form__reset js-form-reset">@Resource.Home_Search_Reset</button>
+                        <button type="submit" class="form__submit">@Resource.Search</button>
+                    </div>
+                </div>
+                <br />
+                @Html.ActionLink(@Resource.Detailed_Search, "DetailedSearch", "Home", null, new { @class = "button__action btn-block" })
+            }
+        </div>
+    </div>
+</div>

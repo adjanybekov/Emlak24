@@ -1,0 +1,444 @@
+/*------------------------------------------------------------------
+  * Properties
+  + Properites / .properties
+    -- Properites index / .properties--index
+    -- Properites grid / .properties--grid
+    -- Properites similar / .properties--similar
+    -- Properites workers / .properties--workers
+    -- Properites sidebar / .properties--sidebar
+    -- Properites list / .properties--list
+    -- Properites gallery / .properties--gallery
+  ==============================================================*/
++b(properties)
+  +e(thumb)
+    position: relative
+  +e(info)
+    background: #fff
+    border-top: none
+    padding: 15px 30px
+    transition: 0.5s
+    @media (max-width: $screen-md-max)
+      padding: 10px
+  +e(address)
+    font-size: 17px
+    color: $defaultColor
+    display: block
+    padding-bottom: 15px
+    margin-bottom: 10px
+    @media (max-width: $screen-md-max)
+      height: auto
+      &:hover
+        color: $defaultColor
+    +m(simple)
+      margin-bottom: 15px
+      border-bottom: none
+
+  +e(address-street)
+    font-weight: 600
+    display: block
+
+  +e(address-city)
+    display: block
+
+  +e(params)
+    color: #fff
+    text-transform: uppercase
+    display: block
+    @media (max-width: $screen-xs-max)
+      color: $defaultColor
+      font-size: 14px
+    +m(mob)
+      display: none
+      @media (max-width: $screen-xs-max)
+        display: block
+        margin-top: 15px
+
+  +e(intro)
+    color: $grayColor
+    font-size: 14px
+    margin-top: 5px
+    display: block
+
+  +e(price)
+    color: $brandHighlightColor
+    font-size: 20px
+    font-weight: 700
+    padding: 0
+
+  +e(time)
+    color: $brandColor
+    font-style: italic
+    margin-top: 15px
+    display: block
+
+  +e(price-period)
+    font-weight: 400
+    font-size: 15px
+    @media (max-width: $screen-md-min)
+      display: inline
+
+  +e(more)
+    float: right
+    color: $grayColor
+    text-transform: uppercase
+    font-size: 12px
+    padding: 5px 10px
+    border: 1px solid $grayColor
+    margin-top: -27px
+    align-self: flex-end
+    &:hover
+      text-decoration: none
+
+    @media (max-width: $screen-xs-max)
+      margin-top: 5px
+
+  +e(ribon)
+    +ribon
+    top: 18px
+    +m(status)
+      background: #c8e6c9
+      top: 55px
+      color: #222
+      &:after
+        border-top: 5px solid darken(#c8e6c9, 10%)
+    +m(done)
+      background: #ffecb3
+      &:after
+        border-top: 5px solid darken(#ffecb3, 10%)
+  +e(header)
+
+  +e(right)
+    float: right
+    margin-right: -5px
+
+  +e(offer)
+    color: $brandColor
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+  +e(offer-label)
+  +e(offer-value)
+    line-height: 1
+    padding-bottom: 5px
+    strong
+      font-size: 25px
+
+  +e(param)
+    padding: 0
+    margin: 0
+    font-size: 14px
+    display: flex
+    justify-content: space-between
+  +e(param-label)
+    display: block
+    font-weight: normal
+    margin-right: 3px
+    padding-bottom: 3px
+    color: $grayColor
+  +e(param-value)
+    display: block
+    color: #fff
+    font-weight: 600
+    &:after
+      content: ","
+      margin-right: 5px
+    &:last-child:after
+      content: ""
+
+  +e(param-type)
+    color: #fff
+    text-transform: uppercase
+    font-weight: 600
+  +e(param-column)
+    margin-bottom: 0
+    float: left
+
+  +e(state)
+    font-size: 13px
+    text-transform: uppercase
+    color: $defaultColor
+    float: left
+    position: relative
+    &:before
+      content: " "
+      display: inline-block
+      width: 6px
+      height: 6px
+      border-radius: 6px
+      background: $brandColor
+      margin: 0 5px 0 0
+      position: relative
+      top: -1px
+    +m(hidden)
+      &:before
+        background: #c5cbd2
+
+    +m(highlight)
+      &:before
+        background: $highlightColor
+
+    +m(hidden)
+      &:before
+        background: #c5cbd2
+
+    +m(pending)
+      &:before
+        background: $highlightColor
+      &:after
+        content: " "
+        display: inline-block
+        width: 6px
+        height: 3px
+        border-radius: 6px 6px 0 0
+        background: #c5cbd2
+        position: absolute
+        left: -1px
+        top: 76px
+        transform: rotateZ(-50deg)
+
+  +e(item-header)
+    display: flex
+    justify-content: space-between
+  +e(actions)
+    opacity: 0
+    visibility: hidden
+    transition: 0.3s
+    +when('properties:hover', true)
+      opacity: 1
+      visibility: visible
+
+    @media (max-width: $screen-md-max)
+      opacity: 1
+      visibility: visible
+
+  +e(actions-dropdown)
+    display: inline-block
+  +e(dropdown-toggle)
+    +btn
+    color: $brandColor
+    position: relative
+    top: -5px
+
+  +e(dropdown-menu)
+    z-index: 20
+    left: auto
+    right: 0
+    background: #fff
+    width: 150px
+    padding: 10px 15px
+    &:before
+      left: auto
+      right: 8px
+  +e(dropdown-link)
+    +btn
+    font-size: 13px
+    color: $brandColor
+    text-transform: uppercase
+    vertical-align: top
+  +e(link)
+    +btn
+    font-size: 13px
+    color: $brandColor
+    text-transform: uppercase
+    vertical-align: top
+    padding: 3px
+
+  +e(pay)
+    +button-action
+    margin-left: 0
+    margin-bottom: 7px
+
+  +m(projects)
+    background: #fff
+    +e(info)
+      background: #f5f5f5
+  // properties grid
+  +m(grid)
+    @media (min-width: $screen-lg-min)
+      &:hover
+        margin: 0
+        .properties__info
+          background: $defaultColor
+          border-color: $defaultColor
+        .properties__address
+          color: #fff
+          background-image: url("../img/bg-border-dotted-horizontal--hover.png")
+          background-repeat: repeat-x
+        .properties__time
+          color: $highlightColorOnDark
+        .properties__offer
+          color: $highlightColorOnDark
+        .properties__more
+          color: #fff
+        .item-photo__more
+          opacity: 1
+          transform: scale(1)
+        .item-photo__hover
+          opacity: 1
+        .item-photo img
+          transform: scale(1.1)
+          //width: 110%
+          //max-width: 110%
+        .item-photo--static img
+          width: 100%
+          max-width: 100%
+    +e(intro)
+      //display: none
+    +e(params)
+      font-size: 14px
+    +e(time)
+      font-size: 13px
+      margin-top: 5px
+    +e(more)
+      font-size: 11px
+      padding: 3px 5px
+      margin-top: -23px
+      @media (max-width: $screen-xs-max)
+        margin-top: 0
+    +e(header)
+      margin: 0
+      +clearfix
+    +e(address)
+      background: url("../img/bg-border-dotted-horizontal.png") 0 100% repeat-x
+      @media (min-width: $screen-lg-min)
+        &:hover
+          color: #fff
+          text-decoration: none
+          background-image: url("../img/bg-border-dotted-horizontal--hover.png")
+
+  // sidebar popular properties
+  +m(sidebar)
+    +e(price)
+      padding: 0 0 5px
+      font-size: 17px
+      text-align: left
+      color: $brandColor
+      display: block
+
+    +e(thumb)
+      +make-xs-column(7)
+
+      padding: 0
+      img
+        display: block
+
+    +e(info)
+      border: none
+      padding: 0
+      background: none!important
+    +e(address)
+      clear: both
+      color: $defaultColor!important
+      padding: 15px 0 0
+      height: auto
+      background: none !important
+
+
+  +m(list)
+    &:hover .item-photo__hover
+      opacity: 1
+    +e(thumb)
+      +make-block-item($md: 6, $lg: 4)
+      padding: 0
+      position: relative
+      top: 7px
+      @media (max-width: $screen-sm-max)
+        top: 0
+    +e(details)
+      +make-block-item($md: 6, $lg: 8)
+      @media (max-width: $screen-sm-max)
+        padding: 0
+    +e(ribon)
+      @media (max-width: $screen-sm-max)
+        right: -5px
+
+    +e(photo)
+      margin: 0
+
+    +e(info)
+      border: none
+      padding: 0
+      margin: 0
+      position: relative
+      display: flex
+      justify-content: space-between
+      background: url("../img/bg-border-dotted-horizontal.png") 0 100% repeat-x
+      +when('properties:hover', true)
+        background: url("../img/bg-border-dotted-horizontal.png") 0 100% repeat-x
+        border-color: none
+
+      @media (max-width: $screen-md-max)
+        flex-wrap: wrap
+        background: none !important
+
+    +e(intro)
+      @media (max-width: $screen-xs-max)
+        display: none
+    +e(offer)
+      width: 50%
+      @media (max-width: $screen-md-max)
+        width: 100%
+    +e(address)
+      margin: 0
+      padding: 0 10px 0 0
+      max-height: 81px
+      overflow: hidden
+      height: auto
+      color: $defaultColor !important
+      background: none !important
+      @media (max-width: $screen-md-max)
+        max-height: none
+        background: url("../img/bg-border-dotted-horizontal.png") 0 100% repeat-x !important
+        width: 100%
+        padding-bottom: 10px
+        margin-bottom: 10px
+      @media (max-width: $screen-sm-max)
+        margin-top: 15px
+
+    +e(params)
+      +m(mob)
+        width: 100%
+    +e(more)
+      float: none
+      +when('properties:hover', true)
+        color: $grayColor
+      @media (max-width: $screen-xs-max)
+        display: none
+        +when('params--mob')
+          display: block
+          float: right
+
+  +m(management)
+    +e(info)
+      padding: 15px 0
+      background: none !important
+      border: none !important
+    +e(address)
+      background: url("../img/bg-border-dotted-horizontal.png") 0 100% repeat-x !important
+      color: $defaultColor !important
+      @media (min-width: $screen-lg-min)
+        &:hover
+          text-decoration: none
+    +e(time)
+      font-size: 13px
+    +e(params)
+      font-size: 13px
+
+    .item-photo__hover--params
+      padding: 15px 10px
+
+    +e(ribon)
+      font-size: 12px
+  +m(simple)
+    +e(intro)
+      @media (min-width: $screen-lg-min)
+        display: none
+    +e(offer-column)
+      @media (min-width: $screen-lg-min)
+        &:first-of-type
+          display: none
+    +e(time)
+      margin-top: 0
+    +e(more)
+      @media (min-width: $screen-lg-min)
+        display: none

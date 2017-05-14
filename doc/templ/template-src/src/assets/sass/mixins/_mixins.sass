@@ -1,0 +1,45 @@
+//  container element
+=container($gutter: $grid-gutter-width)
+  margin-right: auto
+  margin-left: auto
+  padding-left: $gutter / 2
+  padding-right: $gutter / 2
+  +clearfix
+  @media (min-width: $screen-xs)
+    width: $screen-xs
+  @media (min-width: $screen-sm-min)
+    width: $container-sm
+  @media (min-width: $screen-md-min)
+    width: $container-md
+  @media (min-width: $screen-lg-min)
+    width: $container-lg
+
+
+=make-overflow-shadow
+  &:after
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    background: linear-gradient(to bottom,  rgba(#fff, 0) 0%, rgba(#fff, 1) 100%) /* W3C */
+    height: 20px
+    z-index: 5
+    content: " "
+    display: block
+
+
+@keyframes wobble-reverse
+  0%
+    transform: translateX(0%)
+  15%
+    transform: translateX(25%) rotate(5deg)
+  30%
+    transform: translateX(-20%) rotate(-3deg)
+  45%
+    transform: translateX(15%) rotate(3deg)
+  60%
+    transform: translateX(-10%) rotate(-2deg)
+  75%
+    transform: translateX(5%) rotate(1deg)
+  100%
+    transform: translateX(0%)

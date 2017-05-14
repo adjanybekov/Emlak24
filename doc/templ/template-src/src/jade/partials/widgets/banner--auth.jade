@@ -1,0 +1,36 @@
+.banner.js-banner-slider(class=bannerType)
+  // BEGIN SLIDER
+  .slider.slider--dots.slider--auth
+    .slider__block.js-slick-slider
+      .slider__item
+        .slider__preview
+          .slider__img
+            img(data-lazy='#{path.media}/banner/banner-4.jpg', src='#{path.img}/lazy-image.jpg' alt='')
+          .slider__container
+            .container
+              .row
+                .slider__caption
+                  h1.banner__title.banner__title--5 Welcome to RealtySpace.
+                  h4.banner__subtitle Save your favourite properties or searches, stay up-to-date with alerts, and receive customized recommendations! Signing up for a RealtySpace.com login gives you access to all of the features of the website.
+                  ul.banner__features
+                    li Save properties to your My Property list
+                    li Get alerts when new properties matching your search criteria come on the market
+                    li View statistics for properties
+
+    // end of block .slider__block
+  // END SLIDER
+  .banner__container.banner__container--auth
+    .container
+      .row
+        .banner__sidebar
+          h4.banner__sidebar-title.banner__sidebar-title--visible Sign Up For Free.
+          include ../chunks/banner__form
+          .social.social--join
+            | Join with:
+            a.social__item
+              .fa.fa-facebook
+            a.social__item
+              .fa.fa-twitter
+            a.social__item
+              .fa.fa-google-plus
+        // end of block .banner__form

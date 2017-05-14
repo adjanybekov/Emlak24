@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1F8B1F7C-C525-44D2-8C0C-D7AABB002338}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wohnungstausch24.Models</RootNamespace>
+    <AssemblyName>Wohnungstausch24.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\lib\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\lib\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entites\Listings\Objects\Residence\Flat\Room\IRoom.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Flat\Room\IRoomForRent.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Flat\Room\Room.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Flat\Room\RoomForRent.cs" />
+    <Compile Include="Entites\ClientDocument.cs" />
+    <Compile Include="Entites\Qualification.cs" />
+    <Compile Include="Enums\ClientDocumentType.cs" />
+    <Compile Include="Enums\PeriodType.cs" />
+    <Compile Include="Enums\QualificationType.cs" />
+    <Compile Include="ViewModels\Email\CreateAgentMailViewModel.cs" />
+    <Compile Include="Entites\AgencyBranch.cs" />
+    <Compile Include="Entites\RangedEntity.cs" />
+    <Compile Include="Entites\Person.cs" />
+    <Compile Include="Entites\SearchProfiles\Base\SearchProfileListing.cs" />
+    <Compile Include="Entites\SearchProfiles\Base\SearchProfileResidence.cs" />
+    <Compile Include="Entites\SearchProfiles\Base\ISearchProfileListing.cs" />
+    <Compile Include="Entites\SearchProfiles\Base\ISearchProfileListingForRent.cs" />
+    <Compile Include="Entites\SearchProfiles\Base\ISearchProfileListingForSale.cs" />
+    <Compile Include="Entites\SearchProfiles\Base\ISearchProfileResidence.cs" />
+    <Compile Include="Entites\SearchProfiles\Base\ISearchProfileResidenceForRent.cs" />
+    <Compile Include="Entites\SearchProfiles\Base\ISearchProfileResidenceForSale.cs" />
+    <Compile Include="Entites\SearchProfiles\Flat\SearchProfileFlat.cs" />
+    <Compile Include="Entites\SearchProfiles\Flat\SearchProfileFlatForRent.cs" />
+    <Compile Include="Entites\SearchProfiles\Flat\SearchProfileFlatForSale.cs" />
+    <Compile Include="Entites\SearchProfiles\Flat\ISearchProfileFlat.cs" />
+    <Compile Include="Entites\SearchProfiles\Flat\ISearchProfileFlatForRent.cs" />
+    <Compile Include="Entites\SearchProfiles\Flat\ISearchProfileFlatForSale.cs" />
+    <Compile Include="Entites\SearchProfiles\House\SearchProfileHouse.cs" />
+    <Compile Include="Entites\SearchProfiles\House\SearchProfileHouseForRent.cs" />
+    <Compile Include="Entites\SearchProfiles\House\SearchProfileHouseForSale.cs" />
+    <Compile Include="Entites\SearchProfiles\House\ISearchProfileHouse.cs" />
+    <Compile Include="Entites\SearchProfiles\House\ISearchProfileHouseForRent.cs" />
+    <Compile Include="Entites\SearchProfiles\House\ISearchProfileHouseForSale.cs" />
+    <Compile Include="Entites\SearchProfiles\Land\SearchProfileLand.cs" />
+    <Compile Include="Entites\SearchProfiles\Land\SearchProfileLandForSale.cs" />
+    <Compile Include="Entites\SearchProfiles\Land\ISearchProfileLand.cs" />
+    <Compile Include="Entites\SearchProfiles\Land\ISearchProfileLandForSale.cs" />
+    <Compile Include="Entites\SearchProfiles\Tenant\Client.cs" />
+    <Compile Include="Entites\TenantFileType.cs" />
+    <Compile Include="Entites\UserFile.cs" />
+    <Compile Include="Enums\EnergyType.cs" />
+    <Compile Include="Enums\RollerBlindType.cs" />
+    <Compile Include="ViewModels\Agent\SearchProfile\AddNewClientViewModel.cs" />
+    <Compile Include="ViewModels\Agent\Settings\AddPersonViewModel.cs" />
+    <Compile Include="ViewModels\Agent\Settings\AgentSettingsTenantViewModel.cs" />
+    <Compile Include="ViewModels\Agent\Settings\PersonsViewModel.cs" />
+    <Compile Include="ViewModels\Agent\Settings\PersonViewModel.cs" />
+    <Compile Include="Common\Models.cs" />
+    <Compile Include="ViewModels\ClientViewModel.cs" />
+    <Compile Include="ViewModels\Email\RegistrationMailViewModel.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Room\DetailRoom.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Room\DetailRoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Room\IDetailRoom.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Room\IDetailRoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\ListingsDisplayViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Room\IStep1Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Room\IStep1RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Room\Step1Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Room\Step1RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Room\IStep2Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Room\IStep2RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Room\Step2Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Room\Step2RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Room\IStep3Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Room\IStep3RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Room\Step3Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Room\Step3RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Room\IStep4Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Room\IStep4RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Room\Step4Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Room\Step4RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Room\IStep5Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Room\IStep5RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Room\Step5Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Room\Step5RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Room\IStep6Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Room\IStep6RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Room\Step6Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Room\Step6RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Room\IStep7Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Room\IStep7RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Room\Step7Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Room\Step7RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Room\IStep8Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Room\IStep8RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Room\Step8Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Room\Step8RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Room\IStep9Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Room\IStep9RoomForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Room\Step9Room.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Room\Step9RoomForRent.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\DetailedSearchResultsModel.cs" />
+    <Compile Include="Entites\ListingFile.cs" />
+    <Compile Include="Entites\Listings\MixedLand.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\EmployeeStatusObject.cs" />
+    <Compile Include="ViewModels\Search\SearchModelBase.cs" />
+    <Compile Include="Entites\Wt24File.cs" />
+    <Compile Include="Enums\AgencyServiceType.cs" />
+    <Compile Include="Entites\Emphasis.cs" />
+    <Compile Include="Entites\EmphasisType.cs" />
+    <Compile Include="Entites\FieldOfResponsibility.cs" />
+    <Compile Include="Entites\Language.cs" />
+    <Compile Include="Entites\LanguageLevel.cs" />
+    <Compile Include="Entites\Organization.cs" />
+    <Compile Include="Entites\OrganizationType.cs" />
+    <Compile Include="Entites\PositionInCompany.cs" />
+    <Compile Include="Enums\AllotmentType.cs" />
+    <Compile Include="Enums\BuildingType.cs" />
+    <Compile Include="Enums\InternetType.cs" />
+    <Compile Include="Enums\SalutationType.cs" />
+    <Compile Include="ViewModels\Agent\AgentsListViewModel.cs" />
+    <Compile Include="ViewModels\Agent\AgentSummaryViewModel.cs" />
+    <Compile Include="Entites\Agency.cs" />
+    <Compile Include="Entites\Agent.cs" />
+    <Compile Include="Entites\Listings\Distance.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Heating.cs" />
+    <Compile Include="Entites\Listings\Sight.cs" />
+    <Compile Include="Enums\DistanceType.cs" />
+    <Compile Include="Entites\Listings\IListing.cs" />
+    <Compile Include="Entites\Listings\IListingForRent.cs" />
+    <Compile Include="Entites\Listings\IListingForSale.cs" />
+    <Compile Include="Entites\Listings\Objects\ILand.cs" />
+    <Compile Include="Entites\Listings\Objects\ILandForSale.cs" />
+    <Compile Include="Entites\Listings\Objects\Land.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Bathroom.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Beaconing.cs" />
+    <Compile Include="Enums\BeaconingType.cs" />
+    <Compile Include="Enums\BusinessType.cs" />
+    <Compile Include="Enums\PositionInBuilding.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Floor.cs" />
+    <Compile Include="Enums\HeatingType.cs" />
+    <Compile Include="Entites\Listings\ObjectTextInAnotherLanguage.cs" />
+    <Compile Include="Enums\AgeGroup.cs" />
+    <Compile Include="Entites\Listings\Balcony.cs" />
+    <Compile Include="Enums\BalconyType.cs" />
+    <Compile Include="Enums\EnergyCertificateType.cs" />
+    <Compile Include="Enums\Epart.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Flat\Flat.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Flat\IFlat.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Flat\FlatForRent.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Flat\FlatForSale.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Flat\IFlatForRent.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Flat\IFlatForSale.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\House\House.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\House\IHouse.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\House\HouseForRent.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\House\HouseForSale.cs" />
+    <Compile Include="Entites\Listings\Objects\LandForSale.cs" />
+    <Compile Include="Entites\Listings\IForRent.cs" />
+    <Compile Include="Entites\Listings\IForSale.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\House\IHouseForRent.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\House\IHouseForSale.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\IResidence.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\IResidenceForRent.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\IResidenceForSale.cs" />
+    <Compile Include="Enums\ConditionArtType.cs" />
+    <Compile Include="Enums\FloorType.cs" />
+    <Compile Include="Enums\KitchenType.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\ParkingSpace.cs" />
+    <Compile Include="Entites\Listings\Objects\Residence\Residence.cs" />
+    <Compile Include="Entites\Locations\LocationLevel3.cs" />
+    <Compile Include="Entites\Locations\Country.cs" />
+    <Compile Include="Entites\Locations\LocationLevel1.cs" />
+    <Compile Include="Entites\Locations\LocationLevel2.cs" />
+    <Compile Include="Entites\Listings\Listing.cs" />
+    <Compile Include="Enums\GeoDirection.cs" />
+    <Compile Include="Enums\HouseType.cs" />
+    <Compile Include="Enums\LandType.cs" />
+    <Compile Include="Enums\DesignType.cs" />
+    <Compile Include="Enums\FeatureCategory.cs" />
+    <Compile Include="Enums\ParkSpaceType.cs" />
+    <Compile Include="Enums\RoofType.cs" />
+    <Compile Include="Enums\UnderGroundType.cs" />
+    <Compile Include="Enums\CurrencyType.cs" />
+    <Compile Include="Enums\FlatType.cs" />
+    <Compile Include="Enums\FurnishType.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\ListingStatus.cs" />
+    <Compile Include="Enums\ObjectTypes.cs" />
+    <Compile Include="Enums\PublisherType.cs" />
+    <Compile Include="Enums\TypeOfUse.cs" />
+    <Compile Include="Enums\SightType.cs" />
+    <Compile Include="Images\DeleteResponse.cs" />
+    <Compile Include="Images\FileDto.cs" />
+    <Compile Include="ViewModels\Account\AccountViewModels.cs" />
+    <Compile Include="ViewModels\Account\ManageViewModels.cs" />
+    <Compile Include="Entites\ApplicationUser.cs" />
+    <Compile Include="Entites\Base\AuditableEntity.cs" />
+    <Compile Include="Entites\Base\Entity.cs" />
+    <Compile Include="Entites\Base\EntityBase.cs" />
+    <Compile Include="Entites\Base\EntityEnumBase.cs" />
+    <Compile Include="Entites\Base\IAuditableEntity.cs" />
+    <Compile Include="Entites\Base\IEntityBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Agent\AddAgentViewModel.cs" />
+    <Compile Include="ViewModels\Agent\AgentHomePageViewModel.cs" />
+    <Compile Include="ViewModels\Agent\BalconyViewModel.cs" />
+    <Compile Include="ViewModels\Agent\BathroomViewModel.cs" />
+    <Compile Include="ViewModels\Agent\BeaconingViewModel.cs" />
+    <Compile Include="ViewModels\Agent\CreateAgentViewModel.cs" />
+    <Compile Include="ViewModels\Agent\DistanceToViewModel.cs" />
+    <Compile Include="ViewModels\Agent\EditAgentViewModel.cs" />
+    <Compile Include="ViewModels\Agent\HeatingViewModel.cs" />
+    <Compile Include="ViewModels\Agent\MixedLandViewModel.cs" />
+    <Compile Include="ViewModels\Agent\TextInAnotherLanguageViewModel.cs" />
+    <Compile Include="ViewModels\Agent\ListingAgentViewModel.cs" />
+    <Compile Include="ViewModels\Agent\ParkSpaceViewModel.cs" />
+    <Compile Include="ViewModels\Agent\PropertyStepsViewModelBase.cs" />
+    <Compile Include="ViewModels\Agent\Settings\AgencySettingsStep1ViewModel.cs" />
+    <Compile Include="ViewModels\Agent\Settings\AgencySettingsStep2ViewModel.cs" />
+    <Compile Include="ViewModels\Agent\Settings\AgentSettingsBase.cs" />
+    <Compile Include="ViewModels\Agent\Settings\AgentSettingsContactViewModel.cs" />
+    <Compile Include="Enums\TypeOfMerchandising.cs" />
+    <Compile Include="Enums\EmploymentStatus.cs" />
+    <Compile Include="Enums\PropertyType.cs" />
+    <Compile Include="ViewModels\Agent\AgentSidebarViewModel.cs" />
+    <Compile Include="ViewModels\Agent\Settings\AgentSettingsSocialViewModel.cs" />
+    <Compile Include="ViewModels\Agent\StepsProgressModel.cs" />
+    <Compile Include="ViewModels\AddPropertyViewModel.cs" />
+    <Compile Include="ViewModels\Agent\ViewSightViewModel.cs" />
+    <Compile Include="ViewModels\ChooseTypeOfMerchandisingViewModel.cs" />
+    <Compile Include="ViewModels\ChooseTypeOfUseViewModel.cs" />
+    <Compile Include="ViewModels\Common\PagedListViewModel.cs" />
+    <Compile Include="ViewModels\InitListingViewModel.cs" />
+    <Compile Include="ViewModels\Landing\AgentDetailViewModel.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Flat\DetailedSearchFlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\IStepsForRent.cs" />
+    <Compile Include="ViewModels\Listings\IStepsForSale.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Base\ContactAgentModel.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Base\DetailedSearchListing.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Base\DetailedSearchResidence.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Base\IDetailedSearchListing.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Base\IDetailedSearchListingForRent.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Base\IDetailedSearchListingForSale.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Base\IDetailedSearchResidence.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Base\IDetailedSearchResidenceForRent.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Base\IDetailedSearchResidenceForSale.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Flat\DetailedSearchFlat.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Flat\DetailedSearchFlatForSale.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Flat\IDetailedSearchFlat.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Flat\IDetailedSearchFlatForRent.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Flat\IDetailedSearchFlatForSale.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\House\DetailedSearchHouse.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\House\DetailedSearchHouseForRent.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\House\DetailedSearchHouseForSale.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\House\IDetailedSearchHouse.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\House\IDetailedSearchHouseForRent.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\House\IDetailedSearchHouseForSale.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Land\DetailedSearchLand.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Land\DetailedSearchLandForSale.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Land\IDetailedSearchLand.cs" />
+    <Compile Include="ViewModels\Search\DetailedSearch\Land\IDetailedSearchLandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Step10ViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Step11ViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Step1ViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Step2ViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Step3ViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Step4ViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Step5ViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Step6ViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Base\EmploymentStatusViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Step7ViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Flat\IStep8Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Flat\IStep8FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Flat\IStep8FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Flat\Step8Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Flat\Step8FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Flat\Step8FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\House\IStep8House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\House\IStep8HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\House\IStep8HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\House\Step8House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\House\Step8HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\House\Step8HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Base\IStep8Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Base\IStep8ListingForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Base\IStep8ListingForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Base\IStep8Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Base\IStep8ResidenceForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Base\IStep8ResidenceForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Base\IStep8ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Land\IStep8Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Land\IStep8LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Land\Step8Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Land\Step8LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Base\Step8Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Base\Step8Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Base\Step8ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Flat\IStep11Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Flat\IStep11FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Flat\IStep11FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Flat\Step11Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Flat\Step11FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Flat\Step11FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\House\IStep11House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\House\IStep11HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\House\IStep11HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\House\Step11House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\House\Step11HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\House\Step11HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Base\IStep11Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Base\IStep11ListingForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Base\IStep11ListingForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Base\IStep11Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Base\IStep11ResidenceForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Base\IStep11ResidenceForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Base\IStep11ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Land\IStep11Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Land\IStep11LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Land\Step11Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Land\Step11LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Base\Step11Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Base\Step11Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step11\Base\Step11ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step8\Step8ViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Base\FloorViewModel.cs" />
+    <Compile Include="ViewModels\Location\CountryViewModel.cs" />
+    <Compile Include="ViewModels\Location\BaseModelWithId.cs" />
+    <Compile Include="ViewModels\Location\LocationViewModelLevel1.cs" />
+    <Compile Include="ViewModels\Location\LocationViewModelLevel2.cs" />
+    <Compile Include="ViewModels\Location\LocationViewModelLevel3.cs" />
+    <Compile Include="ViewModels\Property\AddBathroomViewModel.cs" />
+    <Compile Include="ViewModels\Property\AddBeaconingViewModel.cs" />
+    <Compile Include="ViewModels\Property\AddHeatingViewModel.cs" />
+    <Compile Include="ViewModels\Property\AddMixedLandViewModel.cs" />
+    <Compile Include="ViewModels\Property\AddTextInAnotherLanguageViewModel.cs" />
+    <Compile Include="ViewModels\Search\SearchProfiles\SearchProfilePagedListViewModel.cs" />
+    <Compile Include="ViewModels\Search\SearchProfileDetailViewModel.cs" />
+    <Compile Include="ViewModels\Search\TenantSearch\ClientSummaryViewModel.cs" />
+    <Compile Include="ViewModels\Search\TenantSearch\TenantResultViewModel.cs" />
+    <Compile Include="ViewModels\Search\TenantSearch\TenantSearchAndDetailViewModel.cs" />
+    <Compile Include="ViewModels\Search\TenantSearch\TenantSearchViewModel.cs" />
+    <Compile Include="ViewModels\SummaryViewModel.cs" />
+    <Compile Include="ViewModels\Property\AddKitchenViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Flat\IStep9Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Flat\IStep9FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Flat\IStep9FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Flat\Step9Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Flat\Step9FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Flat\Step9FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\House\IStep9House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\House\IStep9HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\House\IStep9HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\House\Step9House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\House\Step9HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\House\Step9HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Base\IStep9Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Base\IStep9ListingForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Base\IStep9ListingForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Base\IStep9Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Base\IStep9ResidenceForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Base\IStep9ResidenceForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Base\IStep9ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Land\IStep9Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Land\IStep9LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Land\Step9Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Land\Step9LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Base\Step9Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Base\Step9Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Base\Step9ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Flat\IStep10Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Flat\IStep10FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Flat\IStep10FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Flat\Step10Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Flat\Step10FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Flat\Step10FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\House\IStep10House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\House\IStep10HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\House\IStep10HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\House\Step10House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\House\Step10HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\House\Step10HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Base\IStep10Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Base\IStep10ListingForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Base\IStep10ListingForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Base\IStep10Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Base\IStep10ResidenceForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Base\IStep10ResidenceForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Base\IStep10ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Land\IStep10Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Land\IStep10LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Land\Step10Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Land\Step10LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Base\Step10Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Base\Step10Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step10\Base\Step10ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Flat\IStep7Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Flat\IStep7FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Flat\IStep7FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Flat\Step7Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Flat\Step7FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Flat\Step7FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\House\IStep7House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\House\IStep7HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\House\IStep7HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\House\Step7House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\House\Step7HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\House\Step7HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Base\IStep7Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Base\IStep7ListingForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Base\IStep7ListingForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Base\IStep7Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Base\IStep7ResidenceForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Base\IStep7ResidenceForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Base\IStep7ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Land\IStep7Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Land\IStep7LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Land\Step7Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Land\Step7LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Base\Step7Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Base\Step7Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step7\Base\Step7ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Flat\IStep6Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Flat\IStep6FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Flat\IStep6FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Flat\Step6Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Flat\Step6FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Flat\Step6FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\House\IStep6House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\House\IStep6HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\House\IStep6HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\House\Step6House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\House\Step6HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\House\Step6HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Base\IStep6Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Base\IStep6ListingForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Base\IStep6ListingForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Base\IStep6Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Base\IStep6ResidenceForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Base\IStep6ResidenceForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Base\IStep6ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Land\IStep6Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Land\IStep6LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Land\Step6Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Land\Step6LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Base\Step6Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Base\Step6Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step6\Base\Step6ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Flat\IStep5Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Flat\IStep5FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Flat\IStep5FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Flat\Step5Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Flat\Step5FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Flat\Step5FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\House\IStep5House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\House\IStep5HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\House\IStep5HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\House\Step5House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\House\Step5HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\House\Step5HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Base\IStep5Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Base\IStep5ListingForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Base\IStep5ListingForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Base\IStep5Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Base\IStep5ResidenceForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Base\IStep5ResidenceForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Base\IStep5ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Land\IStep5Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Land\IStep5LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Land\Step5Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Land\Step5LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Base\Step5Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Base\Step5Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step5\Base\Step5ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Flat\IStep4Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Flat\IStep4FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Flat\IStep4FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Flat\Step4Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Flat\Step4FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Flat\Step4FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\House\IStep4House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\House\IStep4HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\House\IStep4HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\House\Step4House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\House\Step4HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\House\Step4HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Base\IStep4Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Base\IStep4ListingForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Base\IStep4ListingForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Base\IStep4Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Base\IStep4ResidenceForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Base\IStep4ResidenceForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Base\IStep4ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Land\IStep4Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Land\IStep4LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Land\Step4Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Land\Step4LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Base\Step4Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Base\Step4Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step4\Base\Step4ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Flat\IStep3Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Flat\IStep3FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Flat\IStep3FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Flat\Step3Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Flat\Step3FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Flat\Step3FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\House\IStep3House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\House\IStep3HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\House\IStep3HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\House\Step3House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\House\Step3HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\House\Step3HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Base\IStep3Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Base\IStep3ListingForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Base\IStep3ListingForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Base\IStep3Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Base\IStep3ResidenceForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Base\IStep3ResidenceForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Base\IStep3ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Land\IStep3Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Land\IStep3LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Land\Step3Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Land\Step3LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Base\Step3Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Base\Step3Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step3\Base\Step3ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Flat\IStep2Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Flat\IStep2FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Flat\IStep2FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Flat\Step2Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Flat\Step2FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Flat\Step2FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\House\IStep2House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\House\IStep2HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\House\IStep2HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\House\Step2House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\House\Step2HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\House\Step2HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Base\IStep2Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Base\IStep2ListingForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Base\IStep2ListingForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Base\IStep2Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Base\IStep2ResidenceForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Base\IStep2ResidenceForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Base\IStep2ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Land\IStep2Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Land\IStep2LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Land\Step2Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Land\Step2LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Base\Step2Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Base\Step2Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step2\Base\Step2ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Flat\Step1FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Flat\Step1FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\House\IStep1House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\House\Step1House.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\House\IStep1HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\House\IStep1HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\House\Step1HouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\House\Step1HouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Base\IStep1ListingForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Base\IStep1ListingForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Base\IStep1Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Base\IStep1ResidenceForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Base\IStep1ResidenceForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Base\IStep1Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Land\IStep1LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Land\IStep1Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Land\Step1Land.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Land\Step1LandForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Base\Step1Listing.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Base\Step1Residence.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Flat\IStep1FlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Flat\IStep1FlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Flat\IStep1Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Base\IStep1ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\IStepsViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\IViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Flat\Step1Flat.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step1\Base\Step1ViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\Steps\Step9\Step9ViewModel.cs" />
+    <Compile Include="ViewModels\Listings\Steps\StepsViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\ViewModelBase.cs" />
+    <Compile Include="ViewModels\FileResponseModel.cs" />
+    <Compile Include="ViewModels\FileUploadResponse.cs" />
+    <Compile Include="ViewModels\ObjectData.cs" />
+    <Compile Include="ViewModels\HomePageViewModel.cs" />
+    <Compile Include="ViewModels\Search\BasicSearch\BasicSearchViewModel.cs" />
+    <Compile Include="ViewModels\Property\AddDistanceToViewModel.cs" />
+    <Compile Include="ViewModels\Property\AddparkingSpaceViewModel.cs" />
+    <Compile Include="ViewModels\Property\AddBalconyViewModel.cs" />
+    <Compile Include="ViewModels\Property\AddViewSightViewModel.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Base\IDetailListing.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Base\IDetailListingForRent.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Base\IDetailListingForSale.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Base\IDetailResidence.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Base\IDetailResidenceForRent.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Base\IDetailResidenceForSale.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Base\IDetailViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Base\DetailListing.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Base\DetailResidence.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Base\DetailViewModelBase.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Flat\IDetailFlat.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Flat\IDetailFlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Flat\IDetailFlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Flat\DetailFlat.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Flat\DetailFlatForRent.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Flat\DetailFlatForSale.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\House\IDetailHouse.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\House\IDetailHouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\House\IDetailHouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\House\DetailHouse.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\House\DetailHouseForRent.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\House\DetailHouseForSale.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Land\IDetailLand.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Land\IDetailLandForSale.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Land\DetailLand.cs" />
+    <Compile Include="ViewModels\Listings\ListingDetail\Land\DetailLandForSale.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wohnungstausch24.Core\Wohnungstausch24.Core.csproj">
+      <Project>{A79797CC-D009-482F-B4F8-EAFB2A82C802}</Project>
+      <Name>Wohnungstausch24.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wohnungstausch24.Resources\Wohnungstausch24.Resources.csproj">
+      <Project>{0004F6D4-50DB-4402-9511-2481FA74FEAA}</Project>
+      <Name>Wohnungstausch24.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\Search\DetailedSearch\Common\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

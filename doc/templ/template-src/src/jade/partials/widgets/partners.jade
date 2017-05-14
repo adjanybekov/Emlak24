@@ -1,0 +1,22 @@
++widget('<span class="title-thin">Our</span> Partners', 'At RS, our partners make great digital experiences possible by offering our products, consulting expertise and the products of our technology partners', 'landing')
+  // BEGIN PARTNERS
+  .partners#partners-slider
+    .partners__slider.js-slick-slider
+      - var i = 0;
+      - var companies = ['Elite Construction Group, LLC', 'Pro Era Limited', 'Otdelka Real Estate LTD', 'Fermer Realty Group', 'Pro Era Limited'];
+      while i < 5
+        a.partners__item
+          img(src='#{path.media}/partners/logo-company-#{++i}.png', alt='')
+          span.partners__name= companies[i-1]
+      a.partners__item
+        img(src='#{path.media}/partners/logo-company-3.png', alt='')
+        span.partners__name= companies[3]
+      a.partners__item
+        img(src='#{path.media}/partners/logo-company-2.png', alt='')
+        span.partners__name= companies[2]
+    .partners__controls
+      button.partners__arrow.partners__arrow--prev.js-partners-prev
+      button.partners__arrow.partners__arrow--next.js-partners-next
+    // end of block .partners__controls
+  // end of block .partners
+// END PARTNERS

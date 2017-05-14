@@ -1,0 +1,38 @@
+﻿@using Wohnungstausch24.Models.Enums
+@model Wohnungstausch24.Models.ViewModels.Search.TenantSearch.TenantSearchAndDetailViewModel
+
+<div class="center">
+    <div class="container">
+        <!-- BEGIN site-->
+        @Html.Partial("_TenantSearchSideBar", Model.TenantSearchViewModel)
+        <div class="site site--main">
+            <div class="site__main">
+                <div class="widget js-widget widget--main">
+                    <div class="widget__content">
+                        <div class="listing listing--list js-properties-list">
+                            @Html.Partial("_TenantsSearchResult", Model)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+        var selector = "#SelectedTypeOfMerchandising";
+        handleMerchandisingFields();
+        $(selector).on('change', handleMerchandisingFields);
+
+        function handleMerchandisingFields() {
+            var selected = $(selector).find(":selected");
+            if (selected.val() === '@(TypeOfMerchandising.Sale)') {
+                $(".hide-if-sale").hide('slow');
+            } else {
+                $(".hide-if-sale").show('slow');
+            }
+        }
+    </script>
+}

@@ -1,0 +1,66 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = 'scroll-animation slider--slideInUp';
+  - var page = 'index_not_available';
+
+block before_center
+  +widget
+    include partials/widgets/wide_slider
+
+  +widget('<span class="title-thin">Find your</span> home', 'Our agents are licensed professionals that specialise in searching, evaluating and negotiating the purchase of property on behalf of the buyer. They will sell you real estate. Insights, tips & how-to guides on selling property and preparing your home or investment property for sale and working to maximise your sale price.', 'landing')
+    - var searchType = 'wide form--wide-default';
+    - var searchRangeSlider = true;
+    include partials/widgets/form--search
+
+  +widget('Real estates', 'Our agents are licensed professionals that specialise in searching, evaluating and negotiating the purchase of property on behalf of the buyer. They will sell you real estate. Insights, tips & how-to guides on selling property and preparing your home or investment property for sale and working to maximise your sale price.', 'landing widget--gray')
+    .tab.tab--properties
+      // Nav tabs
+      ul.nav.tab__nav(role='tablist')
+        li.active
+          a.properties__btn.js-pgroup-tab(href='#tab-popular', aria-controls="tab-popular", role="tab", data-toggle="tab") Popular
+        li
+          a.properties__btn.js-pgroup-tab(href='#tab-recent',aria-controls="tab-recent", role="tab", data-toggle="tab") Recent
+        li
+          a.properties__btn.js-pgroup-tab(href='#tab-featured',aria-controls="tab-featured", role="tab", data-toggle="tab") Featured
+      // Tab panes
+      .tab-content
+        .tab-pane.in.active#tab-popular
+          .no-items
+            .fa.no-items__icon.fa-picture-o
+            span.no-items__title No property
+            span.no-items__title available
+        .tab-pane#tab-recent
+          .listing.listing--grid
+            - var i = 4;
+            while i++ < 10
+              .listing__item
+                +properties(i, 'grid')
+        .tab-pane#tab-featured
+          .listing.listing--grid
+            - var i = 3;
+            while i++ < 6
+              .listing__item
+                +properties(i, 'grid')
+
+
+
+    // END PROPERTIES INDEX
+  +widget('News & Blog', 'Find your apartment or house on the exact key parameters.', 'landing')
+    - var noItems = true;
+    - var articleType = 'index';
+    include partials/widgets/article
+  +widget(
+  'Our Agents',
+  'Our agents are licensed professionals that specialise in searching, evaluating and negotiating the purchase of property on behalf of the buyer. They will sell you real estate. Insights, tips & how-to guides on selling property and preparing your home or investment property for sale and working to maximise your sale price.',
+  'landing widget--gray'
+  )
+    section.worker.worker--index
+      .container
+        .worker__list(class=loadingOverlay)
+          .no-items
+            .fa.no-items__icon.fa-picture-o
+            span.no-items__title No agents available
+
+  +widget('Testimonials', 'Insights, tips & how-to guides on selling property and preparing your home or investment property for sale.', 'landing')
+    - var noItems = true;
+    include partials/widgets/review

@@ -1,0 +1,97 @@
+form.form.form--flex.form--profile.js-form
+  unless page == 'dashboard_profile'
+    header.form__header
+      h3.form__title.js-form-title(data-rel='#form-block-1') My Agency
+  .form__block.js-form-block#form-block-1
+    unless page == 'dashboard_profile'
+      .form__check.form__check--agent
+        input(type='checkbox', name='agent', id='in-agent', class='in-checkbox')
+        label(for='in-agent', class='in-label') I am an agent
+    .row
+      .form-group
+        label.control-label(for='in-1') Agency Name
+        input.form-control#in-1(required, name='agency_name', data-placeholder='---', value='Lara Group Agency')
+
+      .form-group
+        label.control-label(for='in-4') Country
+        include ../chunks/countries
+
+      .form-group
+        label.control-label(for='in-5') City
+        include ../chunks/cities
+
+      .form-group
+        label.control-label(for='in-6') Street
+        input.form-control#in-6(type='text', placeholder='Richmond', required)
+
+  header.form__header
+    h3.form__title.js-form-title(data-rel='#form-block-2') Contact
+  .form__block.js-form-block#form-block-2
+    .row
+      .form-group
+        label.control-label(for='in-7') First name
+        input.form-control#in-7(type='text', placeholder='', required, value='Adam')
+      .form-group
+        label.control-label(for='in-8') Last name
+        input.form-control#in-8(type='text', placeholder='', required, value='Svenson')
+      .form-group
+        label.control-label(for='in-9') Work Phone
+        input.form-control#in-9(type='text', placeholder='', required, value='+ (233) 710 32 45')
+      .form-group
+        label.control-label(for='in-10') Phone
+        input.form-control#in-10(type='text', placeholder='', required, value='+ (233) 710 32 45')
+      .form-group
+        label.control-label(for='in-11') Email
+        input.form-control#in-11(type='email', placeholder='', required, value='adam.svenson@realtyspace.com')
+      .form-group
+        label.control-label(for='in-12') Skype
+        input.form-control#in-12(type='text', placeholder='', required, value='Adam.Svenson.2015')
+
+  header.form__header
+    h3.form__title.js-form-title(data-rel='#form-block-3') About me
+  .form__block.js-form-block#form-block-3
+    .row
+      .form-group.form-group--description
+        label.control-label(for='in-13') Description
+        textarea.form-control.form-control--description#in-13(required, data-parsley-trigger='keyup', data-parsley-minlength='200', data-parsley-validation-threshold='10', data-parsley-minlength-message = 'You need to enter at least a 200 caracters long comment..')
+          | We do a lot of communicating online and have in-person meetings a several times a month. Our strengths are the support, encouragement, and diversity of perspective that we provide each other. In addition to making products, we each have a “job” within the Collective—secretary, web designer, social media, etc.—and knowing each other so well has helped with divvying up the workload and responsibilities. We understand that each of us is struggling to be a “real adult.” No one is doing something they absolutely despise. Each person has something super specific that they’re excellent at.
+  header.form__header
+    h3.form__title.js-form-title(data-rel='#form-block-4') My social networks
+  .form__block.js-form-block#form-block-4
+    .row
+      .form-group.form-group--social
+        label.control-label(for='facebook-field') Facebok
+        input.form-control#facebook-field(type='text', placeholder='', required, value='http://facebook.com/youraccount')
+      .form-group.form-group--social
+        label.control-label(for='twitter-field') Twitter
+        input.form-control#twitter-field(type='text', placeholder='', required, value='http://twitter.com/youraccount')
+      .form-group.form-group--social
+        label.control-label(for='Linkedin-field') Linkedin
+        input.form-control#Linkedin-field(type='text', placeholder='', required, value='http://linkedin.com/youraccount')
+
+  .row
+    button.form__submit Save changes
+hr
+form.form.form--flex.js-form
+  header.form__header
+    h3.form__title.js-form-title(data-rel='#form-block-5') Change your password
+  .form__block.js-form-block#form-block-5
+    .row
+      .col-sm-12.col-md-6.col-lg-4
+        .row
+          .form-group
+            label.control-label(for='in-14') Current Password
+            input.form-control#in-14(required, name='agency_name', data-placeholder='---', value='')
+        .row
+          .form-group
+            label.control-label(for='in-15') New Password
+            input.form-control#in-15(required, name='agency_name', data-placeholder='---', value='')
+        .row
+          .form-group
+            label.control-label(for='in-16') Confirm New Password
+            input.form-control#in-16(required, name='agency_name', data-placeholder='---', value='')
+      .col-sm-12.col-md-6.col-lg-8
+        h5 HINT
+        p Password hint. A reminder to you of how you made up your password. Some systems let you enter a password hint so that if you forget your password, the hint will be displayed to help jog your memory. For example, if your password is your child's birthday, you might use "Alfred" or "Nicole" as a reminder.
+  .row
+    button.form__submit Save password

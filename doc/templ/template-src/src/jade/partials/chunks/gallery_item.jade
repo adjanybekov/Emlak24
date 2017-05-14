@@ -1,0 +1,37 @@
+if galleryType == 'simple'
+  .properties
+    .properties__thumb
+      a.js-gallery-item.item-photo.item-photo--static(href='#{path.media}/properties/1168x550/#{locals.data.properties[i].acf_images[0]}.jpg', data-size="1168x550")
+        if locals.data.properties[i].acf_images.length
+          img(src='#{path.media}/properties/554x360/#{locals.data.properties[i].acf_images[0]}.jpg', alt='')
+        else
+          img(src='#{path.img}/no-image--554x360.jpg', alt='')
+
+        figure.item-photo__hover
+          span.item-photo__more View
+  // end of block .properties
+else
+  .properties
+    .properties__thumb
+      a.js-gallery-item.item-photo.item-photo--static(href='#{path.media}/properties/1168x550/#{locals.data.properties[i].acf_images[0]}.jpg',data-size="1168x550")
+        if locals.data.properties[i].acf_images.length
+          img(src='#{path.media}/properties/554x360/#{locals.data.properties[i].acf_images[0]}.jpg', alt='')
+        else
+          img(src='#{path.img}/no-image--554x360.jpg', alt='')
+
+    .properties__info
+      a.properties__address(href='#{path.media}/properties/1168x550/#{locals.data.properties[i].acf_images[0]}.jpg')
+        span.properties__address-street #{locals.data.properties[i].acf_location.address.street},
+        span.properties__address-city #{locals.data.properties[i].acf_location.address.city}
+
+      // end of block .properties__param
+      span.properties__price
+        | $#{locals.data.properties[i].acf_price}
+        if locals.data.properties[i].type_offer == 'rent'
+          span.properties__price-period per month
+
+      if propertyType == 'list'
+        .properties__intro
+          p #{_.truncate(locals.data.properties[i].post_content, {length: 300})}
+    // end of block .properties__info
+  // end of block .properties

@@ -1,0 +1,97 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Property.AddBalconyViewModel
+@{
+    var addBalconyAjaxOpts = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "balcony-area-data-div",
+        OnBegin = "showBalconyLoader",
+        OnComplete = "hideBalconyLoader"
+    };
+}
+
+
+<!-- Modal -->
+<div class="modal fade" id="addBalconyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">@Resource.Add_Property_Balconies</h4>
+            </div>
+            @using (Ajax.BeginForm("AddBalcony", "Property", null, addBalconyAjaxOpts, new { @class = "form form--flex" }))
+            {
+                @Html.HiddenFor(m => m.Id)
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Direction, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.EnumDropDownListFor(m => m.Direction, Resource.PleaseChoose, new { required = "", @class = "form-control js-in-select" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Direction, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.BalconyType, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.EnumDropDownListFor(m => m.BalconyType, Resource.PleaseChoose, new { required = "", @class = "form-control js-in-select" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.BalconyType, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.SightType, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.EnumDropDownListFor(m => m.SightType, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">@Html.LabelFor(m => m.Size, new { @class = "control-label" })</div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.Size, new { required = "", @class = "form-control" })
+                                    <div class="input-group-addon hidden-xs">
+                                        m<sup>2</sup>
+                                    </div>
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Size, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Level, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.Level, new { required = "",  @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Level, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resource.Cancel</button>
+                    <button type="submit" class="btn btn-primary">@Resource.OK</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

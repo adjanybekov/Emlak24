@@ -1,0 +1,316 @@
++b(widget)
+  +clearfix
+
+  .site__panel + .site__main > &:first-of-type
+    border-top: none
+    //margin-top: 20px
+  .listing__param + .site__main > &:first-of-type
+    margin-top: 20px
+    border-top: none
+  .widget__btn--goto + .site__main > &:first-of-type
+    @media (max-width: $screen-xs-max)
+      border-top: none
+  +e(footer)
+    display: flex
+
+  +e(more)
+    +button-more
+    margin-top: 40px
+    align-self: center
+    @media (max-width: $screen-xs-max)
+      margin-top: 30px
+  +e(btn)
+    +m(toggle)
+      +button-toggle
+      background: #e4e4e4
+      margin-top: -1px
+      display: none
+      @media (max-width: $screen-xs-max)
+        display: block
+    +m(goto)
+      +button-toggle
+      background: #fff
+      margin-top: 20px
+      display: none
+      @media (max-width: $screen-xs-max)
+        display: block
+
+  +m(dashboard)
+    background: #fff
+    padding: 40px
+    margin-top: 20px
+    &:first-of-type
+      margin-top: 0
+    @media (max-width: $screen-xs-max)
+      padding: 20px
+
+    +e(header)
+      display: flex
+      justify-content: space-between
+      align-items: center
+    +e(btn)
+      +button-default
+      white-space: inherit
+      line-height: 1
+      font-size: 12px
+      border-width: 1px
+      width: auto
+      margin-left: 10px
+      margin-right: 0
+
+      +m(action)
+        +button-action
+        white-space: inherit
+        margin-right: 0
+        width: auto
+
+    +e(title)
+      font-size: 24px
+      font-weight: bold
+      text-transform: uppercase
+      margin: 0
+      @media (max-width: $screen-xs-max)
+        font-size: 20px
+    +e(content)
+      +when('header + ')
+        margin-top: 50px
+        @media (max-width: $screen-xs-max)
+          margin-top: 30px
+
+  +m(main)
+    margin-top: 50px
+    border-top: 1px solid $input-border
+    @media (max-width: $screen-xs-max)
+      margin-top: 30px
+
+    +e(header)
+    +e(title)
+      font-size: 24px
+      font-weight: 600
+      text-transform: uppercase
+      margin: 40px 0 0 0
+      @media (max-width: $screen-xs-max)
+        font-size: 20px
+
+      +when('card--collapse')
+        position: relative
+        margin-top: 20px
+        font-family: $font-family-sans-serif
+        @media (max-width: $screen-xs-max)
+          font-size: 20px
+          padding: 0 0 0 35px
+          &:before
+            +font-awesome(14px, "\f067")
+            border: 1px solid $defaultColor
+            color: $defaultColor
+            display: inline-block
+            margin: -3px 0 0 0
+            font-weight: normal
+            text-align: center
+            width: 24px
+            line-height: 24px
+            height: 24px
+            position: absolute
+            top: 4px
+            left: 0
+            text-decoration: none
+          &.active
+            color: $brandColor
+          &.active:before
+            content: '\f068'
+    +e(content)
+      +when('header + ')
+        margin-top: 40px
+
+  +m(details)
+    margin-top: 30px
+    &:first-of-type
+      margin-top: 0
+      border-top: none
+
+    +e(title)
+      font-size: 20px
+      font-weight: 600
+      margin: 0
+    +e(content)
+      +when('header + ')
+        margin-top: 30px
+
+  +m(sidebar)
+    margin-top: 50px
+    &:first-of-type:not(.widget--first-no-head)
+      margin-top: 26px
+    @media (max-width: $screen-xs-max)
+      margin-top: 0
+      &.widget--opened
+        margin-top: 30px
+    +e(title)
+      color: $defaultColor
+      font-weight: 600
+      text-transform: uppercase
+      margin-top: 0
+      margin-bottom: 0
+      font-family: $font-family-title
+      font-size: 34px
+      text-align: left
+      @media (max-width: $screen-xs-max)
+        text-align: center
+        display: none
+
+    +e(headline)
+      +headline
+      font-size: 15px
+      text-transform: none
+      margin: 4px 0 0
+      line-height: 1.1
+      text-align: left
+      @media (max-width: $screen-xs-max)
+        text-align: center
+        display: none
+
+    +e(content)
+      padding: 25px 30px
+      background: #fff
+      border: 1px solid #dedede
+      +when('header + ')
+        margin-top: 11px
+      @media (max-width: $screen-xs-max)
+        display: none
+
+  +m(landing)
+    +e(header)
+      +header
+
+    +e(title)
+      +title
+
+    +e(headline)
+      +headline
+      text-transform: uppercase
+    +e(content)
+      +container
+      padding-bottom: 50px
+      @media (max-width: $screen-xs-max)
+        padding-bottom: 30px
+  +m(sidebar-dashboard)
+    +e(title)
+      color: $defaultColor
+      font-weight: 600
+      text-transform: uppercase
+      margin-top: 0
+      margin-bottom: 0
+      font-family: $font-family-title
+      font-size: 34px
+      text-align: left
+      @media (max-width: $screen-xs-max)
+        text-align: center
+
+    +e(header)
+
+    +e(headline)
+      +headline
+      font-size: 15px
+      text-transform: none
+      margin: 4px 0 0
+      line-height: 1.1
+      text-align: left
+      @media (max-width: $screen-xs-max)
+        text-align: center
+    +e(content)
+      background: #fff
+      padding: 20px
+      +clearfix
+      &:first-of-type
+        margin-top: 0
+
+  +m(first-no-head)
+    margin-top: 100px
+    @media (max-width: $screen-xs-max)
+      margin-top: 30px
+  +m(filter)
+    display: none
+    @media (max-width: $screen-xs-max)
+      display: block
+
+  +m(bg)
+    background: url("../img/bg-search.jpg") 50% 0 no-repeat $backgroundColor
+    padding-top: 15px
+    +e(header)
+      margin: 80px auto 50px
+      @media (max-width: $screen-xs-max)
+        margin: 30px auto
+
+  +m(gray)
+    background: $backgroundColor
+
+  +m(no-margin)
+    margin-top: 0
+
+  +m(no-border)
+    border-top: none
+
+  +m(sep)
+    border-top: 1px solid $input-border
+
+  +m(listing)
+    border-top: none
+    margin-top: 20px
+
+  +m(dark)
+    +e(content)
+      background: #e4e4e4
+  +m(collapsing)
+
+    @media (max-width: $screen-xs-max)
+      margin-top: 0
+      &.widget--opened
+        margin-top: 30px
+
+    +e(header)
+      @media (max-width: $screen-xs-max)
+        width: auto
+        margin: 0
+        padding: 0
+    +e(title)
+      @media (max-width: $screen-xs-max)
+        display: none
+    +e(headline)
+      @media (max-width: $screen-xs-max)
+        display: none
+    +e(content)
+      @media (max-width: $screen-xs-max)
+        display: none
+    +e(btn)
+      //display: none
+  +m(opened)
+    +e(title)
+      display: block
+    +e(headline)
+      display: block
+    +e(content)
+      display: block
+    +e(btn)
+      display: none
+  +m(achievement)
+    background: url('../img/bg-achievement.jpg') 0 0 no-repeat
+    @media (max-width: $screen-xs-max)
+      background: url('../img/bg-achievement--mob.jpg') 0 0 no-repeat
+      background-size: cover
+    @media (min-width: $screen-lg-min)
+      overflow: hidden
+  +m(footer)
+    +e(title)
+      +footer-title
+    +e(more)
+      border: 2px solid #bebebe
+      padding: 5px 10px
+      display: inline-block
+      &:hover
+        color: #bebebe
+      &:active
+        background: none
+
+.widget:not(.widget--sidebar-dashboard).widget--collapsing .widget__content
+  @media (max-width: $screen-xs-max)
+    margin-top: 30px
+    padding: 0

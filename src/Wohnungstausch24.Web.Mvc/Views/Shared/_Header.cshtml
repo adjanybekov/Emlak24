@@ -1,0 +1,71 @@
+﻿@using Wohnungstausch24.Core
+@using Wohnungstausch24.Models.ViewModels.Account
+@using Wohnungstausch24.Resources
+        <!-- BEGIN HEADER-->
+<header class="header header--brand">
+    <div class="container">
+        <div class="header__row">
+            <a href="@Url.Action("Index","Home")" class="header__logo">
+                <svg>
+                    <use xlink:href="#icon-logo--mob"></use>
+                </svg>
+            </a>
+            <div class="header__settings">
+                <div class="header__settings-column">
+                    <div class="dropdown dropdown--header">
+                        <button data-toggle="dropdown" type="button" class="dropdown-toggle dropdown__btn">
+                            <svg class="header__settings-icon">
+                                <use xlink:href="#icon-earth"></use>
+                            </svg><img src="@($"/Content/assets/img/flags/{CultureHelper.GetCurrentCulture()}.png")" />&nbsp;&nbsp;@CultureHelper.GetCurrentCulture()
+                        </button>
+                        <div class="dropdown__menu">
+                            <ul>
+                                @foreach (var lang in CultureHelper.GetAvailableCultures())
+                                {
+                                    <li class="dropdown__item">
+                                        <a class = "dropdown__link" href="@Url.Action("SetCulture", "Home", new {culture = lang.TwoLetterISOLanguageName, area = ""})">
+                                            <img src="@($"/Content/assets/img/flags/{lang.TwoLetterISOLanguageName}.png")" /> @lang.TwoLetterISOLanguageName
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header__contacts">
+                <a href="tel:+12025550135" class="header__phone">
+                    <svg class="header__phone-icon">
+                        <use xlink:href="#icon-phone"></use>
+                    </svg><span class="header__span">+1 202 555 0135</span>
+                </a>
+            </div>
+            <!-- end of block .header__contacts-->
+            <div class="header__social">
+                <div class="social social--header social--circles">
+                    <a href="#" class="social__item"><i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social__item">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social__item">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="auth auth--header">
+                @Html.Partial("_LoginPartial", new AccountModels())
+            </div>
+            <button type="button" class="header__navbar-toggle js-navbar-toggle">
+                <svg class="header__navbar-show">
+                    <use xlink:href="#icon-menu"></use>
+                </svg>
+                <svg class="header__navbar-hide">
+                    <use xlink:href="#icon-menu-close"></use>
+                </svg>
+            </button>
+            <!-- end of block .header__navbar-toggle-->
+        </div>
+    </div>
+</header>
+<!-- END HEADER-->

@@ -1,0 +1,13 @@
+nav.nav.nav--sidebar
+  ul.nav__list
+    each item in nav
+      if item.separator
+        li.nav__item
+          hr.nav__separator
+      else
+        li.nav__item
+          a.nav__link(href=item.url + '.html', class= page == item.url ? 'active' : '')
+            svg.nav__icon
+              use(xlink:href='#icon-' + item.icon)
+            | #{item.title}
+

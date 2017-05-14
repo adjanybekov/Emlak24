@@ -1,0 +1,26 @@
+mixin searchFavorites(title, limit, type, btn, btnLink, btnClass)
+  +widget(title, null, 'dashboard', btn, btnLink, btnClass)
+    // BEGIN listing
+    .listing--items.listing--accordion(role='tablist', aria-multiselectable='true')
+      - var i;
+      each favorite, i in locals.data.favorites.search
+        dl.listing__item
+          dt.listing__head(id='heading-#{i}', role='tab')
+            a.listing__title(data-toggle='collapse', href='#collapse-#{i}', aria-expanded='true', aria-controls='collapse-#{i}', class='collapsed')
+              | #{favorite.title}
+          dd.listing__body(id='collapse-#{i}', class='listing__content collapse', role='tabpanel', aria-labelledby='heading-#{i}')
+            ul.listing__list
+              li.listing__param Keyword: #[strong Penthouse]
+              li.listing__param Listing Type: #[strong For sale]
+              li.listing__param Propert Type: #[strong Private apartment]
+              li.listing__param Tenure: #[strong Estate]
+              li.listing__param Bedrooms: #[strong 3]
+              li.listing__param Agent: #[strong Josh Hartnett]
+              li.listing__param Location administrative level 1: #[strong Malaysia]
+              li.listing__param Location administrative level 2: #[strong Kuala Lumpur]
+              li.listing__param Price: #[strong RM 50,000 - RM 400,000]
+              li.listing__param Commision: #[strong 2% - 6%]
+              li.listing__param Area: #[strong 65 Sq Ft - 135 Sq Ft]
+              li.listing__param Date: #[strong 15/03/2016 - 23/03/2016]
+        // end of block .listing__item
+    // END listing

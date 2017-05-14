@@ -1,0 +1,92 @@
+// form controls
+
+// Common form controls
+//
+// Shared size and type resets for form controls. Apply `.form-control` to any
+// of the following form controls:
+//
+// select
+// textarea
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+
+=form-control
+  display: block
+  width: 100%
+  height: $input-height-base
+  // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  padding: $padding-base-vertical $padding-base-horizontal
+  font-size: $font-size-base
+  line-height: $line-height-base
+  color: $input-color
+  background-color: #fff
+  background-image: none
+  // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid $input-border
+  border-radius: $input-border-radius
+  position: relative
+  z-index: 5
+  // @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  +transition(border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s)
+  // Customize the `:focus` state to imitate native WebKit styles.
+  +form-control-focus
+  // Placeholder
+  +placeholder
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] &
+    cursor: not-allowed
+    background-color: $input-bg-disabled
+    opacity: 1
+    // iOS fix for unreadable disabled content
+  // [converter] extracted textarea& to textarea.form-control
+  &.parsley-error
+    border: 1px solid $dangerColor
+  &.parsley-success
+    border: 1px solid $succesColor
+$padding-base-horizontal: 20px
+
+select
+  display: block
+  width: 100%
+  padding: $padding-base-vertical $padding-base-horizontal
+  font-size: 16px
+  border-radius: 0!important
+  border-color: $input-border
+
+// make forms
+=make-from
+  +e(row)
+    +m(tel)
+      width: 48%
+      float: left
+      margin: 0 0 9px 0
+      @media (max-width: $screen-xs-max)
+        width: auto
+        float: none
+        margin: 0 0 9px
+    +m(email)
+      width: 48%
+      float: right
+      margin: 0 0 9px 0
+      @media (max-width: $screen-xs-max)
+        width: auto
+        float: none
+        margin: 0 0 9px

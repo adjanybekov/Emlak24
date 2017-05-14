@@ -1,0 +1,249 @@
+/*------------------------------------------------------------------
+  * Fix antialiasing for safari, mac os
+  ==============================================================*/
+body
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+.widget-bar
+  +make-block-item($sm: 12, $md: 6, $lg: 4)
+/*------------------------------------------------------------------
+  * Center wrap
+  + Center / .center
+  ==============================================================*/
+
++b(center)
+  background: $backgroundColor
+  position: relative
+  > .container > :last-child
+      padding-bottom: 50px
+      @media (max-width: $screen-xs-max)
+        padding-bottom: 30px
+  &--subpage
+    border-top: 1px solid #dedede
+  .main--white &
+    background: #fff!important
+
+/*------------------------------------------------------------------
+  * Main wrap
+  + Main / .main
+  ==============================================================*/
++b(main)
+  .main--white &
+    background: #fff!important
+    .container
+      background: #fff!important
+
+/*------------------------------------------------------------------
+  * Box wrap
+  + Box / .box
+  ==============================================================*/
++b(box)
+  position: relative
+
+.collapse
+  display: none
+  visibility: hidden
+
+.collapse.in
+  display: block
+  visibility: visible
+
+@media (min-width: $screen-sm-min)
+  .navbar-collapse.collapse
+    display: block !important
+    height: auto !important
+    padding-bottom: 0
+    overflow: visible !important
+    visibility: visible !important
+
+.compact .navbar__row
+  margin-top: 15px
+  margin-bottom: 15px
+  @media (max-width: $screen-xs-max)
+    margin: 0
+/*------------------------------------------------------------------
+  * Option enable header Color Brand
+  ==============================================================*/
+.header_color_brand
+  .navbar--header
+    background: $brandColor
+    &.header-fixed
+      box-shadow: 0 5px 0 rgba($brandColor, 0.2)
+  .navbar-collapse
+    background: $defaultColor
+  .navbar__nav > li > a
+    color: #fff
+    box-shadow: none
+  .auth__link
+    color: #fff
+  .auth__remember,
+  .auth__label
+    color: $defaultColor
+  .auth__title
+    color: $defaultColor
+  .auth__icon-user
+    fill: #fff
+
+  .navbar .navbar__nav > .active
+    @media (min-width: $screen-sm-min)
+      background: $highlightColor
+    > a
+      border: none
+  .navbar .navbar__nav > li:hover,
+  .navbar .navbar__nav > li:focus
+    @media (min-width: $screen-sm-min)
+      background: $highlightColor
+  .navbar__user-item
+    color: #fff
+//    header nav bar brand some chages when are fixed
+.header_color_brand .header-fixed
+  @media (min-width: $screen-sm-min)
+    .navbar .navbar__nav
+      background: none
+    .header__email,
+    .header__phone
+      color: #fff
+/*------------------------------------------------------------------
+  * Option enable header Color White
+  ==============================================================*/
+.header_color_white
+  .navbar
+    background: #fff
+    &.header-fixed
+      box-shadow: 0 2px 7px rgba(#000, 0.2)
+
+/*------------------------------------------------------------------
+  * Option enable header Color Gray
+  ==============================================================*/
+.header_color_gray
+  .navbar
+    background: #f6f6f6
+    &.header-fixed
+      box-shadow: 0 5px 0 rgba(#000, 0.2)
+
+//  style for boxed style
+/*------------------------------------------------------------------
+  * Option enable 'boxed'
+  ==============================================================*/
+.boxed
+  .box
+    width: 1300px
+    margin: 0 auto
+    padding: 0 10px
+    box-shadow: 0 0 15px rgba(#000, 0.3)
+    background-color: #fff
+    @media (max-width: $screen-md-max + 100)
+      width: auto
+      padding: 0
+
++b(site-wrap)
+  transition: 0.5s
+  //z-index: 10
+  background: #fff
+  position: relative
+  //transform: translate3d(0, 0, 0)
+  +clearfix
+  +m(move)
+    transform: translate3d(-300px, 0, 0)
+.section
+  .container
+    padding-bottom: 30px
+
+/*------------------------------------------------------------------
+  * Option enable bacground pattern
+  ==============================================================*/
+//  pattern
+.bg-brickwall
+  background: url($imgPath + "../img/patterns/brickwall.png")
+
+.bg-debut_light
+  background: url($imgPath + "../img/patterns/debut_light.png")
+
+.bg-diagonal_lines_01
+  background: url($imgPath + "../img/patterns/diagonal_lines_01.png")
+
+.bg-diagonal-noise
+  background: url($imgPath + "../img/patterns/diagonal-noise.png")
+
+.bg-dust_2X
+  background: url($imgPath + "../img/patterns/dust_2X.png")
+
+.bg-groovepaper
+  background: url($imgPath + "../img/patterns/groovepaper.png")
+
+.bg-little_pluses
+  background: url($imgPath + "../img/patterns/little_pluses.png")
+
+.bg-p4
+  background: url($imgPath + "../img/patterns/p4.png")
+
+.bg-p5
+  background: url($imgPath + "../img/patterns/p5.png")
+
+.bg-retina_dust
+  background: url($imgPath + "../img/patterns/retina_dust.png")
+
+.bg-ricepaper2
+  background: url($imgPath + "../img/patterns/ricepaper2.png")
+
+.bg-shl
+  background: url($imgPath + "../img/patterns/shl.png")
+
+.bg-squairy_light
+  background: url($imgPath + "../img/patterns/squairy_light.png")
+
+.bg-stardust_2X
+  background: url($imgPath + "../img/patterns/stardust_2X.png")
+
+.bg-subtle_dots
+  background: url($imgPath + "../img/patterns/subtle_dots.png")
+
+.bg-subtle_dots_2X
+  background: url($imgPath + "../img/patterns/subtle_dots_2X.png")
+
+.bg-white_brick_wall
+  background: url($imgPath + "../img/patterns/white_brick_wall.png")
+
+.bg-worn_dots
+  background: url($imgPath + "../img/patterns/worn_dots.png")
+
+// options show sidebar on left
+.sidebar-left
+  .property,
+  .page__content,
+  .site
+    float: right
+    @media (max-width: $screen-xs-max)
+      float: none
+// options show sidebar on right
+.sidebar-right
+  .property,
+  .page__content,
+  .site
+    float: left
+    @media (max-width: $screen-xs-max)
+      float: none
+// options show sidebar hide
+.fullwidth,
+.sidebar-hide
+  @media (min-width: $screen-lg-min)
+    .property,
+    .page__content,
+    .site
+      float: none
+      width: 100%
+    .sidebar
+      display: none
+
+
+.bs-example .label
+  margin-right: 5px
+
+hr
+  border-top: 1px solid $input-border
+
+.scroll-animation
+  @media (min-width: $screen-lg-min)
+    [data-sr]
+      visibility: hidden

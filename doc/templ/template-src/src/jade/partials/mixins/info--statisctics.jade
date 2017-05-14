@@ -1,0 +1,28 @@
+mixin infoStatistics(title, type, btn, btnLink, btnClass)
+  +widget(title, null, 'dashboard', btn, btnLink, btnClass)
+    section.info.info--statistics
+      .info__list
+        .info__column
+          .info__item
+            .info__title Total Transacted Properties
+            .info__value 561
+            .info__trend.info__trend--positive
+              | Up 3%
+              i.fa.fa-arrow-up
+        .info__column
+          .info__item
+            .info__title Total listings
+            .info__value 1,059
+            .info__trend.info__trend--negative
+              | Down 1%
+              i.fa.fa-arrow-down
+        .info__column
+          .info__item
+            .info__title Total liked
+            .info__value 3,922
+
+      if type == 'list'
+         .info__about
+            include ../mixins/statistics_table
+            +statisticsTable
+

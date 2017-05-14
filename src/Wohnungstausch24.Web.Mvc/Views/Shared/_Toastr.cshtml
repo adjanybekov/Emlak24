@@ -1,0 +1,33 @@
+﻿@using Wohnungstausch24.Core.Toastr
+
+@helper ShowToastMessages(Toastr toastr)
+{
+if (toastr != null)
+{
+        <script>
+            $(document).ready(function () {
+                toastr.options.closeButton = '@toastr.ShowCloseButton';
+                toastr.options.newestOnTop = '@toastr.ShowNewestOnTop';
+                toastr.options.positionClass = '@toastr.PositionClass';
+
+                @foreach (ToastMessage message in toastr.ToastMessages)
+        {
+          string toastTypeValue = message.ToastType.ToString().ToLowerInvariant();
+          @: var optionsOverride = { /* Add message specific options here */ };
+                          if (message.IsSticky)
+          {
+            @:optionsOverride.timeOut = 0;
+                            @:optionsOverride.extendedTimeout = 0;
+                          }
+          @:toastr['@toastTypeValue']('@message.Message', '@message.Title', optionsOverride);
+                        }
+            });
+        </script>
+}
+}
+
+@if (TempData.ContainsKey("Toastr"))
+{
+    Toastr toastr = TempData["Toastr"] as Toastr;
+    @ShowToastMessages(toastr)
+}

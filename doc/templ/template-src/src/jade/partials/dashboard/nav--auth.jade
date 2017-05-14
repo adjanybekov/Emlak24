@@ -1,0 +1,11 @@
+- var nav = locals.data.navDashboard;
+
+nav.nav.nav--auth
+  ul.nav__list
+    each item in nav
+      unless item.separator
+        li.nav__item
+          a.nav__link(href=item.url + '.html', class= page == item.url ? 'active' : '') #{item.title}
+
+    li.nav__item
+      a.nav__link(href='#') Log out

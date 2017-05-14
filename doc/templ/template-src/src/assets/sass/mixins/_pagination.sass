@@ -1,0 +1,76 @@
+/*------------------------------------------------------------------
+  * Pagination (multiple pages)
+  ==============================================================*/
+.pagination-custom
+  display: block
+  padding-left: 0
+  margin: 0
+  line-height: 1
+  > li
+    display: inline-block
+    // Remove list-style and block-level defaults
+    margin: 0 5px 0 0
+    &:last-child
+      margin-right: 0
+    > span
+      position: relative
+      float: left
+      // Collapse white-space
+      padding: $padding-base-vertical 5px
+      line-height: $line-height-base
+      text-decoration: none
+      color: $pagination-color
+      margin-left: -1px
+    > a
+      position: relative
+      float: left
+      // Collapse white-space
+      padding: $padding-base-vertical 5px
+      min-width: 33px
+      line-height: $line-height-base
+      text-decoration: none
+      color: $pagination-color
+      background-color: $pagination-bg
+      border: 1px solid $pagination-border
+      margin-left: -1px
+      text-align: center
+    &:first-child
+      > a,
+      > span
+        margin-left: 0
+    &.active-before,
+    &.active-after
+      @media (max-width: $screen-xs-max)
+        display: none
+
+  > li > a
+    &:hover,
+    &:focus
+      color: $pagination-hover-color
+      background-color: $pagination-hover-bg
+      border-color: $pagination-hover-border
+  > .active > a,
+  > .active > span
+    min-width: 33px
+    text-align: center
+    position: relative
+    top: -1px
+    &,
+    &:hover,
+    &:focus
+      z-index: 2
+      color: $pagination-active-color
+      background-color: $pagination-active-bg
+      border-color: $pagination-active-border
+      cursor: default
+  > .disabled
+    > span,
+    > span:hover,
+    > span:focus,
+    > a,
+    > a:hover,
+    > a:focus
+      color: $pagination-disabled-color
+      background-color: $pagination-disabled-bg
+      border-color: $pagination-disabled-border
+      cursor: not-allowed

@@ -1,0 +1,15 @@
+extends partials/layout/_base
+
+block config
+  - var bodyClass = 'scroll-animation';
+  - var page = 'index';
+  - var headerOverlay = 'header--overlay header--dark';
+  - var navbarOverlay = 'navbar--overlay';
+
+block before_center
+  block banner
+    +widget
+      - var bannerType = 'banner--wide';
+      include partials/widgets/banner--map
+  include partials/layout/properties_index
+  include partials/layout/index_content

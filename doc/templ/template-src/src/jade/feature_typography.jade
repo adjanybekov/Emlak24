@@ -1,0 +1,334 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = 'compact single-scom-property';
+  - var page = 'feature_typography';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Realty
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Typogrphy
+  // END BREADCRUMBS
+block center
+  .row
+    .site
+      header.site__header
+        h1.site__title Elements page
+        h2.site__headline Typography, list styles, buttons, forms, links and other elements
+      .site__panel
+        span.site__header-text
+          | This is the page what show how to use typography, list styles, buttons, forms, links, checkbox, radio butons, paragraph and caracter styles, columns, hr lines, images and other elements.
+      .site__body
+        .example--buttons
+          h2.site__title Typography
+          .row
+            .col-md-6
+              h1 H1 heading
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+
+            .col-md-6
+              h2 H2 heading
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+
+            .clearfix
+            .col-md-6
+              h3 H3 heading
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+
+            .col-md-6
+              h4 H4 heading
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+
+            .clearfix
+            .col-md-6
+              h5 H5 heading
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+
+            .col-md-6
+              h6 H6 heading
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+
+        .example--list
+          h2.site__title List styles
+          .row
+            .col-xs-6.col-lg-3
+              ul.ul-list.ul-list--default
+                li
+                  | Wireless Internet
+                li
+                  | Kitchen
+                li
+                  | Internet
+                li
+                  | Air Conditioning
+                li
+                  | Heating
+                li
+                  | Smoking Allowed
+                li
+                  | Wheelchair Accessible
+                li
+                  | Washer
+                li
+                  | Dryer
+                li
+                  | TV
+
+            .col-xs-6.col-lg-3
+              ul.ul-list.ul-list--disk
+                li
+                  | Wireless Internet
+                li
+                  | Kitchen
+                li
+                  | Internet
+                li
+                  | Air Conditioning
+                li
+                  | Heating
+                li
+                  | Smoking Allowed
+                li
+                  | Wheelchair Accessible
+                li
+                  | Washer
+                li
+                  | Dryer
+                li
+                  | TV
+
+            .col-xs-6.col-lg-3
+              ul.ul-list.ul-list--check
+                li
+                  | Wireless Internet
+                li
+                  | Kitchen
+                li
+                  | Internet
+                li
+                  | Air Conditioning
+                li
+                  | Heating
+                li
+                  | Smoking Allowed
+                li
+                  | Wheelchair Accessible
+                li
+                  | Washer
+                li
+                  | Dryer
+                li
+                  | TV
+            .col-xs-6.col-lg-3
+              ul.ul-list.ul-list--rounded-check
+                li
+                  | Wireless Internet
+                li
+                  | Kitchen
+                li
+                  | Internet
+                li
+                  | Air Conditioning
+                li
+                  | Heating
+                li
+                  | Smoking Allowed
+                li
+                  | Wheelchair Accessible
+                li
+                  | Washer
+                li
+                  | Dryer
+                li
+                  | TV
+          .row
+            .col-xs-6.col-lg-3
+              ul.ul-list.ul-list--arrow
+                li
+                  | Wireless Internet
+                li
+                  | Kitchen
+                li
+                  | Internet
+                li
+                  | Air Conditioning
+                li
+                  | Heating
+                li
+                  | Smoking Allowed
+                li
+                  | Wheelchair Accessible
+                li
+                  | Washer
+                li
+                  | Dryer
+                li
+                  | TV
+            .col-xs-6.col-lg-3
+              ul.ul-list.ul-list--star
+                li
+                  | Wireless Internet
+                li
+                  | Kitchen
+                li
+                  | Internet
+                li
+                  | Air Conditioning
+                li
+                  | Heating
+                li
+                  | Smoking Allowed
+                li
+                  | Wheelchair Accessible
+                li
+                  | Washer
+                li
+                  | Dryer
+                li
+                  | TV
+            .col-xs-6.col-lg-3
+              ul.ul-list.ul-list--x
+                li
+                  | Wireless Internet
+                li
+                  | Kitchen
+                li
+                  | Internet
+                li
+                  | Air Conditioning
+                li
+                  | Heating
+                li
+                  | Smoking Allowed
+                li
+                  | Wheelchair Accessible
+                li
+                  | Washer
+                li
+                  | Dryer
+                li
+                  | TV
+            .col-xs-6.col-lg-3
+              ol.ul-list.ul-list--ordered
+                li
+                  | Wireless Internet
+                li
+                  | Kitchen
+                li
+                  | Internet
+                li
+                  | Air Conditioning
+                li
+                  | Heating
+                li
+                  | Smoking Allowed
+                li
+                  | Wheelchair Accessible
+                li
+                  | Washer
+                li
+                  | Dryer
+                li
+                  | TV
+        .example--columns
+          h2.site__title Columns
+          .row
+            .col-md-6
+              h3 2 Columns
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+            .col-md-6
+              h3 2 Columns
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+          .row
+            .col-md-4
+              h3 3 Columns
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+            .col-md-4
+              h3 3 Columns
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+            .col-md-4
+              h3 3 Columns
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+          .row
+            .col-md-3
+              h3 4 Columns
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+            .col-md-3
+              h3 4 Columns
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+            .col-md-3
+              h3 4 Columns
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+            .col-md-3
+              h3 4 Columns
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+          .row
+            .col-md-3
+              h3 4 Columns
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+            .col-md-3
+              h3 4 Columns
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+            .col-md-6
+              h3 2 Columns
+              p
+                | Real estate is property consisting of land and the buildings on it, along with its natural resources such as crops, minerals, or water; immovable property of this nature; an interest vested in this; an item of real property; buildings or housing in general. Also: the business of real estate; the profession of buying, selling, or renting land, buildings or housing.
+        .example--dividers
+          h2.site__title Dividers
+          .row
+            .col-md-12
+              span.example__title 1 px solid, #808080
+              .example__dividers
+                hr.divider.divider--solid
+          .row
+            .col-md-12
+              span.example__title 1 px solid, #d0d0d0
+              .example__dividers
+                hr.divider.divider--solid-light
+          .row
+            .col-md-12
+              span.example__title 1 px dashed, #222222
+              .example__dividers
+                hr.divider.divider--dashed
+          .row
+            .col-md-12
+              span.example__title 1 px dotted, #222222
+              .example__dividers
+                hr.divider.divider--dotted
+
+        .example--dividers
+          h2.site__title Blockquotes &amp; Pullquotes
+          .content
+            h3 Quote Center
+            p
+              | Foy told us the home was purchased over 40 years ago before hammer even hit nail, and the original buyers were able to specify customizations and upgrades not seen in many other Eichlers. One of their requests was to have the knot-free redwood paneled walls extend into the open-air atrium at the center of the home. The home&rsquo;s stunning cathedral ceilings are beautiful redwood and give the home a warmth not usually associated with Eichlers.
+            blockquote
+              | &ldquo;When you walk in the front door, all the redwood creates a warmth,&rdquo; said Foy. &ldquo;It feels really homey. It&rsquo;s truly an &lsquo;aha!&rsquo; moment for a lot of people. Of course, the home appeals to Eichler lovers&mdash;but it also appeals to people who weren&rsquo;t prepared to like an Eichler.&rdquo;
+
+            p
+              | As with all Eichler homes, the integration of indoor space and outdoors is key. Floor-to-ceiling windows along the back of the house let in plenty of natural light and create a seamless flow. Extensively remodeled inside and out over the past couple of years, the home&rsquo;s current owners thoughtfully and faithfully documented all of the updates they&rsquo;ve made. The home&rsquo;s price tag reflects its Palo Alto address, and Foy told us the market at the epicenter of the Bay Area shows no signs of slowing. While the college city continues its red-hot pace, the agent told us he&rsquo;s also seen renewed interest in Palo Alto Eichlers
+
+    .clearfix

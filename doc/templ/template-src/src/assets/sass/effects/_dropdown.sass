@@ -1,0 +1,17 @@
+=dropdown-effects($el)
+  @media (min-width: $screen-sm-min)
+    @at-root #{$el}
+      visibility: hidden
+      animation-duration: .2s
+      animation-fill-mode: both
+    @at-root .navbar__item:hover > #{$el}
+      visibility: visible
+    @at-root .menu-default
+      .navbar__item:hover > #{$el},
+      .navbar__item.open > #{$el}
+        animation-name: fadeInUp
+
+    @each $effect in $animate-effects
+      @at-root .menu-#{$effect} .navbar__item:hover > #{$el}
+        animation-name: #{$effect}
+

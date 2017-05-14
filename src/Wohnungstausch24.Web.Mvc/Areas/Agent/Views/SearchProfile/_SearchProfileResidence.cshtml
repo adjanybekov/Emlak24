@@ -1,0 +1,166 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.Base
+@using Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.Flat
+@using Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.House
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.Base.DetailedSearchResidence
+
+<li>
+    @Resource.FeatureCategory:
+    <strong>
+        @Model.FeatureCategoryViewModels.Select(c => c.FeatureCategory.GetDisplayName()).StringJoin(", ")
+    </strong>
+</li>
+<li>
+    @Resource.FloorTypes:
+    <strong>
+        @Model.FloorViewModels.Select(c => c.FloorType.GetDisplayName()).StringJoin(", ")
+    </strong>
+</li>
+<li>
+    @Resource.Heating_Type:
+    <strong>
+        @Model.HeatingTypeViewModels.Select(c => c.HeatingType.GetDisplayName()).StringJoin(", ")
+    </strong>
+</li>
+<li>
+    @Resource.Beaconing_Type:
+    <strong>
+        @Model.BeaconingTypeViewModels.Select(c => c.BeaconingType.GetDisplayName()).StringJoin(", ")
+    </strong>
+</li>
+<li>
+    @Resource.ParkingSpace:
+    <strong>
+        @Model.ParkSpaceTypeViewModels.Select(c => c.ParkSpaceType.GetDisplayName()).StringJoin(", ")
+    </strong>
+</li>
+<li>
+    @Resource.Geo_Direction:
+    <strong>
+        @Model.AdjustmentBalconyTerrace.Select(c => c.GeoDirection.GetDisplayName()).StringJoin(", ")
+    </strong>
+</li>
+<li>
+    @Resource.SightType:
+    <strong>
+        @Model.SightTypeViewModels.Select(c => c.SightType.GetDisplayName()).StringJoin(", ")
+    </strong>
+</li>
+<li>
+    @Resource.Bathroom:
+    <strong>
+        @if (Model.HasShower)
+        {
+            @Resource.Enum_FeatureType_HasShower
+        }
+        @if (Model.HasBidet)
+        {
+            @Resource.Enum_FeatureType_HasBidet
+        }
+        @if (Model.HasTub)
+        {
+            @Resource.Enum_FeatureType_HasTub
+        }
+        @if (Model.HasUrinal)
+        {
+            @Resource.Enum_FeatureType_HasUrinal
+        }
+        @if (Model.HasWindow)
+        {
+            @Resource.Enum_FeatureType_HasWindow
+        }
+    </strong>
+</li><li>
+    @Resource.Kitchen_Type:
+    <strong>
+        @if (Model.IsKitchenPantry)
+        {
+            @Resource.Enum_KitchenType_Pantry
+        }
+        @if (Model.IsKitchenFitted)
+        {
+            @Resource.Enum_KitchenType_Fitted
+        }
+        @if (Model.IsKitchenOpen)
+        {
+            @Resource.Enum_KitchenType_Open
+        }
+    </strong>
+</li>
+@if (Model is DetailedSearchFlat)
+{
+    if (Model is DetailedSearchFlatForRent)
+    {
+        @Html.Partial("_SearchProfileFlatForRent", Model as DetailedSearchFlatForRent);
+    }
+    if (Model is DetailedSearchFlatForSale)
+    {
+        @Html.Partial("_SearchProfileFlatForSale", Model as DetailedSearchFlatForSale);
+    }
+}
+@if (Model is DetailedSearchHouse)
+{
+
+    if (Model is DetailedSearchHouseForRent)
+    {
+        @Html.Partial("_SearchProfileHouseForRent", Model as DetailedSearchHouseForRent);
+    }
+    if (Model is DetailedSearchHouseForSale)
+    {
+
+        @Html.Partial("_SearchProfileHouseForSale", Model as DetailedSearchHouseForSale);
+    }
+}
+<li>
+    @Resource.Ranged_YearOfConstruction:
+    <strong>
+        @Model.YearOfConstruction.From - @Model.YearOfConstruction.To
+    </strong>
+</li>
+
+<li>
+    @Resource.Ranged_ResidentialArea:
+    <strong>
+        @Html.DisplayFor(m => m.ResidentialArea)
+    </strong>
+</li>
+<li>
+    @Resource.BalconyTerraceArea:
+    <strong>
+        @Html.DisplayFor(m => m.BalconyTerraceArea)
+    </strong>
+</li>
+<li>
+    @Resource.Garden_area:
+    <strong>
+        @Html.DisplayFor(m => m.GardenArea)
+    </strong>
+</li>
+
+<li>
+    @Resource.Number_Of_Living_Bedrooms:
+    <strong>
+        @Model.NumberOfLivingRooms.From - @Model.NumberOfLivingRooms.To
+    </strong>
+</li>
+
+<li>
+    @Resource.Number_Of_Bathrooms:
+    <strong>
+        @Model.NumberOfBathRooms.From - @Model.NumberOfBathRooms.To
+    </strong>
+</li>
+<li>
+    @Resource.Ranged_NumberOfParkingLots:
+    <strong>
+        @Model.NumberOfParkingLots.From - @Model.NumberOfParkingLots.To
+    </strong>
+</li>
+
+<li>
+    @Resource.Ranged_NumberOfParkingLots:
+    <strong>
+        @Model.NumberOfParkingLots.From - @Model.NumberOfParkingLots.To
+    </strong>
+</li>

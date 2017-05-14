@@ -1,0 +1,146 @@
+/*------------------------------------------------------------------
+  * Brand color ($brandColor): #00bbaa
+  * Brand color dark ($brandColorDark): darken($brandColor, 10%)
+  * Highlight color ($highlightColor): #f3bc65
+  * Highlight Color Dark ($highlightColorDark): #d99221
+  * Default Color ($defaultColor): #2c3e50
+  * Gray Color ($grayColor): #a6a6a6
+  * Footer HeadColor ($brandHighlightColor): $brandColor
+  * Footer Social Color ($footerSocialColor): $brandHighlightColor
+  * Banner Line Color ($highlightColorOnDark): $brandColor
+  * On Brand Color ($onBrandColor): $defaultColor
+  * Button Color ($buttonColor): #222
+
+  * Brand Color Hover ($brandColorHover: lighten($brandColor, 10%)
+  * Highlight Color Hover ($highlightColorHover: lighten($highlightColor, 15%)
+  * PlaceholderColorOnDark ($placeholderColorOnDark): #bebebe
+
+  * Link color ($link-color): $brandColor
+  * Link hover color ($link-hover-color): $brandColorHover
+  * Link hover decoration ($link-hover-decoration): underline
+
+  * Footer Color ($footerColor): #bebebe
+
+  * Succes Color ($succesColor): $brandColor
+  * Warning Color ($warningColor): #f3bc65
+  * Danger Color ($dangerColor): #e95b35
+
+  ==============================================================*/
+
+$brandColor: #00bbaa !default
+$brandColorDark: darken($brandColor, 10%) !default
+$highlightColor: #f3bc65 !default
+$highlightColorDark: #d99221 !default
+$defaultColor: #2c3e50 !default
+$textColor: #606e7c !default
+$grayColor: #a6a6a6 !default
+$brandHighlightColor: $brandColor !default
+$footerSocialColor: $brandHighlightColor !default
+$highlightColorOnDark: $brandColor !default
+$onBrandColor: $defaultColor !default
+$buttonColor: #222 !default
+$featureTextColor: $textColor !default
+$backgroundColor: #f6f6f6 !default
+
+$brandColorHover: lighten($brandColor, 10%)
+$highlightColorHover: lighten($highlightColor, 15%)
+
+$placeholderColorOnDark:  #bebebe
+// style for links
+$link-color: $brandColor
+$link-hover-color: $brandColorHover
+$link-hover-decoration: underline
+
+a
+  color: $link-color
+  text-decoration: none
+  &.hover,
+  &:hover
+    color: $link-color
+  &.focus,
+  &:focus
+    color: $link-color
+  &.active,
+  &:active
+    color: $highlightColor
+    text-decoration: none
+  &.disabled,
+  &:disabled
+    cursor: not-allowed
+    color: #ccc
+p
+  color: $textColor
+
+// footer text color
+$footerColor: #bebebe
+
+$succesColor: $brandColor
+$warningColor: #f3bc65
+$dangerColor: #e95b35
+
+/*------------------------------------------------------------------
+  * Font family ($font-family-sans-serif): "Source Sans Pro", sans-serif
+  * Grid gutter width ($grid-gutter-width): 30px
+  * Container width ($container-large-desktop): 1170px + $grid-gutter-width
+  * Text Color ($text-color): $defaultColor
+  * Font size base ($font-size-base): 15px
+  * Line height base ($line-height-base): 1.6
+  * Padding base vertical ($padding-base-vertical): 6px
+  ==============================================================*/
+
+$font-family-sans-serif: "Source Sans Pro", sans-serif
+$font-family-title: 'Montserrat', sans-serif
+$font-family-title-thin: 'Montserrat Thin', sans-serif
+$grid-gutter-width: 30px
+
+$container-large-desktop: 1170px + $grid-gutter-width
+$text-color: $defaultColor
+
+$font-size-base: 15px
+$line-height-base: 1.6
+$padding-base-vertical: 6px
+
+// style for nav bar
+$navbar-default-bg: $brandColor
+$navbar-default-link-color: $defaultColor
+$navbar-default-link-active-color: #fff
+$navbar-default-link-active-bg: $brandColor
+$navbar-default-link-hover-color: #fff
+$navbar-default-link-hover-bg: $brandColor
+
+// style for inputs
+$input-border-radius: 0
+$input-border: #d6d6d6
+$input-bg: #fff
+$input-color: $defaultColor
+$input-border-focus: $brandColor
+$input-height-base: 38px
+$input-color-placeholder: $defaultColor
+
+$btn-border-radius: 0
+
+//style for inputs states
+$state-success-text: $brandColor
+$state-warning-text: $warningColor
+$state-danger-text: $dangerColor
+
+// style for pagination
+$pagination-disabled-color: #ccc
+$pagination-disabled-bg: none
+$pagination-disabled-border: none
+
+$pagination-hover-color: $highlightColor
+$pagination-hover-bg: none
+$pagination-hover-border: $highlightColor
+$pagination-active-color: #fff
+$pagination-active-bg: $highlightColor
+$pagination-active-border: $highlightColor
+
+$border-radius-base: 0
+$pagination-color: $defaultColor
+
+// style for popover
+$border-radius-large: 0
+
+// blockquote
+$blockquote-font-size: $font-size-base * 1.05

@@ -1,0 +1,26 @@
+mixin infoFinancials(title, limit, type, btn, btnLink, btnClass)
+  +widget(title, null, 'dashboard', btn, btnLink, btnClass)
+    section.info.info--financials
+      .info__list
+        .info__column
+          .info__item
+            .info__title Available Credits
+            .info__value.info__value--succes #[span.info__value-label RM] 1,800
+            .info__actions
+              a.info__more(href='dashboard_payment.html') Add credits
+              button.info__link Top-up history
+        .info__column
+          .info__item
+            .info__title Income
+            .info__value.info__value--small #[span.info__value-label RM] 17,505
+
+          .info__item
+            .info__title Expenses
+            .info__value.info__value--small #[span.info__value-label RM] 15,330
+        .info__column
+          .info__item
+            .info__title Current Balance
+            .info__value.info__value--info #[span.info__value-label RM] 2,175 #[i.fa.fa-arrow-up.info__value--positive]
+
+            .info__chart.info__chart--balance
+              canvas#current-balance.info__chart-balance

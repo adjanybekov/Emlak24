@@ -1,0 +1,10 @@
+extends dashboard
+
+block config
+  - var bodyClass = 'sidebar-left';
+  - var page = 'dashboard_favorites_agents';
+  - var user = true;
+
+block dashboard_main
+  include partials/mixins/agents--favorites
+  +agentsFavorites('Favorite agents', 8, 'list')

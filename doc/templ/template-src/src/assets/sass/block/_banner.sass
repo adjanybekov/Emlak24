@@ -1,0 +1,298 @@
+/*------------------------------------------------------------------
+  * Banner widget
+  + Banner / .banner
+    -- Banner wide / .banner--wide
+    -- Banner subpage / .banner--subpage
+    -- Banner play (special modifier for animation options) / .banner--play
+  ==============================================================*/
++b(banner)
+  position: relative
+  .container
+    background: none !important
+
+  +e(title)
+    font-size: 100px
+    color: #fff
+    font-weight: 900
+    margin: 0 80px 0 0
+    line-height: 1.05
+    @media (min-width: $screen-md-min)
+      transition: 0.5s
+      transform: translateY(-20px)
+      opacity: 0
+    @media (max-width: $screen-md-max)
+      font-size: 70px
+      margin: 0 120px 0 0
+    @media (max-width: $screen-sm-max)
+      font-size: 30px
+      margin: 25px 0 15px
+      display: none
+    +m(2)
+      font-size: 66px
+      font-family: $font-family-title
+      text-transform: uppercase
+      margin-top: 50px
+      span
+        font-family: $font-family-title-thin
+        color: $brandColor
+        font-size: 160px
+        font-weight: 200
+        display: block
+      @media (max-width: $screen-md-max)
+        font-size: 50px
+        margin-right: 0
+        span
+          font-size: 100px
+
+    +m(3)
+      font-size: 76px
+      font-family: $font-family-title-thin
+      text-transform: uppercase
+      margin-top: 50px
+      font-weight: 200
+      margin-right: 0
+      strong
+        font-family: $font-family-title
+        font-weight: 400
+
+      @media (max-width: $screen-md-max)
+        font-size: 50px
+
+    +m(4)
+      margin-right: 0
+      text-transform: uppercase
+      margin-top: 80px
+      line-height: 1
+      @media (max-width: $screen-md-max)
+        font-size: 50px
+      @media (max-width: $screen-sm-max)
+        display: none
+
+    +m(5)
+      font-size: 55px
+      font-family: $font-family-title
+      font-weight: 400
+      margin: 70px 0 0 0
+      @media (max-width: $screen-sm-max)
+        display: none
+
+  +e(title-span-1)
+    font-size: 50px
+  +e(title-span-2)
+    font-size: 100px
+    margin-top: -20px
+    display: block
+
+    @media (max-width: $screen-md-max)
+      font-size: 80px
+      margin-top: -10px
+  +e(title-span-3)
+    font-size: 40px
+    font-weight: 400
+    float: left
+    margin-left: 220px
+    margin-top: -14px
+    @media (max-width: $screen-md-max)
+      margin-left: 170px
+
+  +e(title-border-bottom)
+    height: 6px
+    background: #fff
+    width: 435px
+    margin-left: 10px
+    display: inline-block
+    @media (max-width: $screen-md-max)
+      width: 300px
+  +e(title-border-top)
+    height: 6px
+    background: #fff
+    width: 205px
+    display: inline-block
+    margin-right: 10px
+    float: left
+    @media (max-width: $screen-md-max)
+      width: 150px
+
+  +e(subtitle)
+    font-size: 24px
+    color: #fff
+    font-weight: 400
+    margin: 45px 80px 0 0
+    line-height: 1.7
+    transition: 0.5s
+    transition-delay: 0.3s
+    transform: translateY(-20px)
+    opacity: 0
+    @media (max-width: $screen-md-max)
+      margin: 45px 120px 0 0
+    @media (max-width: $screen-sm-max)
+      display: none
+    +m(2)
+      font-size: 17px
+    +m(4)
+      font-size: 20px
+      margin-top: 40px
+
+  +e(btn)
+    font-size: 30px
+    color: $highlightColorOnDark
+    margin: 68px 0 0 23px
+    display: block
+    text-transform: uppercase
+    font-weight: 600
+    transition: 0.5s
+    transition-delay: 0.3s
+    transform: translateX(100px)
+    opacity: 0
+    @media (max-width: $screen-md-max)
+      display: none
+  +e(arrow)
+    margin-top: -277px
+    @media (max-width: $screen-md-max)
+      display: none
+    svg
+      stroke: $highlightColorOnDark
+      width: 770px
+      height: 284px
+  +e(arrow-circle)
+    color: $highlightColorOnDark
+    margin: -71px 0 0 213px
+    font-size: 50px
+    opacity: 0
+    transition: 0.5s
+    @media (max-width: $screen-md-max)
+      display: none
+  +e(arrow-end)
+    stroke: $highlightColorOnDark
+    position: absolute
+    width: 30px
+    height: 30px
+    opacity: 0
+    margin: -272px 0 0 739px
+    @media (max-width: $screen-md-max)
+      display: none
+
+  +e(features)
+    color: #fff
+    list-style: disc
+    margin-left: 0
+    margin-top: 20px
+    font-size: 17px
+    @media (max-width: $screen-sm-max)
+      display: none
+    li
+      margin: 10px 0
+
+
+  +e(sidebar-title)
+    font-size: 30px
+    font-family: $font-family-title
+    font-weight: 400
+    color: #fff
+    margin: 30px 0
+    display: none
+    +m(visible)
+      display: block
+    @media (max-width: $screen-sm-max)
+      display: block
+
+  +m(subpage)
+    position: relative
+    overflow: hidden
+    +clearfix
+    +e(img)
+      position: absolute
+      top: 0
+      left: 50%
+      margin: 0 0 0 -984px
+
+    +e(title)
+      padding: 97px 0 122px
+      color: rgba(255, 255, 255, 0.4)
+      font-size: 300px
+      z-index: 10
+      position: relative
+      text-align: center
+      text-shadow: 0 0 35px rgba(0, 0, 0, 0.1)
+      margin: 0
+      font-weight: 600
+      @media (max-width: $screen-xs-max)
+        font-size: 120px
+
+  +m(wide)
+    +e(item)
+      background-repeat: no-repeat
+      background-size: cover
+      position: relative
+      padding: 200px 0 70px
+      z-index: 200
+      +clearfix
+      @media (max-width: $screen-sm-max)
+        height: auto
+        padding: 125px 0 30px
+      @media (max-width: $screen-xs-max)
+        padding-top: 45px
+    +e(caption)
+      +make-column($xs: 12, $md: 8)
+    +e(search)
+      +make-column($xs: 12, $md: 4)
+      position: relative
+      z-index: 360
+
+  +m(play)
+    +e(title)
+      transform: translateY(0px)
+      opacity: 1
+    +e(subtitle)
+      transform: translateY(0px)
+      opacity: 1
+    +e(btn)
+      transform: translateX(0px)
+      opacity: 1
+    +e(arrow-circle)
+      opacity: 1
+
+
+  +m(default)
+    +e(item)
+      padding: 50px 0
+      @media (max-width: $screen-sm-max)
+        padding: 30px 0 0
+      @media (max-width: $screen-xs-max)
+        padding: 15px 0 0
+
+  +m(slider)
+    +e(title)
+      transform: translateY(0px)
+      opacity: 1
+    +e(subtitle)
+      transform: translateY(0px)
+      opacity: 1
+    +e(btn)
+      transform: translateX(0px)
+      opacity: 1
+    +e(arrow-circle)
+      opacity: 1
+    +e(container)
+      position: absolute
+      top: 200px
+      left: 0
+      right: 0
+      @media (max-width: $screen-sm-max)
+        padding-top: 130px
+        top: 0
+        position: relative
+        background: url("../media-demo/banner/banner-1.jpg") 50% 0 no-repeat
+        background-size: cover
+      @media (max-width: $screen-xs-max)
+        padding-top: 60px
+        padding-bottom: 30px
+      +m(auth)
+        @media (max-width: $screen-sm-max)
+          background: url("../media-demo/banner/banner-4.jpg") 50% 0 no-repeat
+
+    +e(sidebar)
+      +make-column($xs: 12, $md: 4)
+      position: relative
+      z-index: 360
+      float: right!important

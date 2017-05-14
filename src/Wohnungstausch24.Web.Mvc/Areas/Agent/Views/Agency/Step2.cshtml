@@ -1,0 +1,164 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Agent.Settings.AgencySettingsStep2ViewModel
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+    var addBranchAjaxOptions = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "branches-data-div",
+        OnSuccess = "BranchesLoaded"
+    };
+}
+
+<!-- BEGIN LISTING-->
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            @{ Html.RenderAction("Progress", "Settings"); }
+            <div class="widget__header">
+                <h2 class="widget__title">Settings</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    <ul role="tablist" class="nav form-property__tabs">
+                        <li role="presentation" class=""><a href="@Url.Action("Step1","Agency")">Step1</a></li>
+                        <li role="presentation" class="active"><a href="#">Step2</a></li>
+                        <li role="presentation" class=""><a href="@Url.Action("Step3","Agency")">Step3</a></li>
+                    </ul>
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("Step2", "Agency", new { area = "Agent" }, FormMethod.Post, new { @class = "form form--flex form--profile js-form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(m => m.ProgressPercentage)
+                            <div class="row">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.YearOfEstablishment, new { @class = "control-label" })
+                                    @Html.TextBoxFor(m => m.YearOfEstablishment, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group form-group--description">
+                                    @Html.LabelFor(m => m.About, new { @class = "control-label" })
+                                    @Html.TextAreaFor(m => m.About, new { @class = "form-control form-control--description" })
+                                    @Html.ValidationMessageFor(m => m.About, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" id="kitchen-area-data-div">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Emphases</div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                @for (var i = 0; i < Model.Emphases.Count; i++)
+                                                {
+                                                    <div class="col-md-4">
+                                                        @Html.CheckBoxFor(m => m.Emphases[i].Selected, new { @class = "in-checkbox" })
+                                                        @Html.LabelFor(m => m.Emphases[i].Selected, Model.Emphases[i].EmphasisType.GetDisplayName(), new { @class = "in-label" })
+                                                        @Html.HiddenFor(m => m.Emphases[i].EmphasisType)
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" id="kitchen-area-data-div">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Organizations</div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                @for (var i = 0; i < Model.Organizations.Count; i++)
+                                                {
+                                                    <div class="col-md-4">
+                                                        @Html.CheckBoxFor(m => m.Organizations[i].Selected, new { @class = "in-checkbox" })
+                                                        @Html.LabelFor(m => m.Organizations[i].Selected, Model.Organizations[i].OrganizationType.GetDisplayName(), new { @class = "in-label" })
+                                                        @Html.HiddenFor(m => m.Organizations[i].OrganizationType)
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" id="kitchen-area-data-div">
+                                    @Html.LabelFor(m => m.OrganizationOther, new { @class = "control-label" })
+                                    @Html.TextBoxFor(m => m.OrganizationOther, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.OrganizationOther, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>Branches</h3>
+                                    <hr />
+                                    <div class="row">
+                                        @{Html.RenderAction("GetBranches", "Agency", new { id = Model.Id });}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a href="@Url.Action("Index", "Settings")" class="button__more ui__button ui__button--2 form__submit"><i class="fa fa-angle-left"></i> Cancel</a>
+                                <button class="form__submit" id="submit-button">Save & Continue<i class="fa fa-angle-right"></i></button>
+                            </div>
+                                            }
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="add-branch-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Branch</h4>
+            </div>
+            @using (Ajax.BeginForm("AddBranch", "Agency", null, addBranchAjaxOptions, new { @class = "form form--flex" }))
+            {
+                @Html.HiddenFor(m => m.Id)
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.AddBranchModel.Name, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.AddBranchModel.Name, new { @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.AddBranchModel.Name, null, new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.AddBranchModel.Address, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.AddBranchModel.Address, new { @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.AddBranchModel.Address, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">OK</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        var BranchesLoaded = function () {
+            $('#branches-data-div').collapse();
+            $('#add-branch-modal').modal('toggle');
+        }
+        SweetAjax('#branches-data-div', '.wt24-branch-confirmation');
+    </script>
+}

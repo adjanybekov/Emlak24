@@ -1,0 +1,75 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Account.AccountModels
+
+<nav class="breadcrumbs">
+    <div class="container">
+        <ul>
+            <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Home</a></li>
+            <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Register</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- END BREADCRUMBS-->
+<div class="center">
+    <div class="container">
+        <div class="row">
+            <section class="site">
+                <header class="site__header">
+                    <h1 class="site__title">Register</h1>
+                    <h2 class="site__headline">Sign up for a new account</h2>
+                </header>
+                <div class="site__main">
+                    <div class="widget js-widget widget--main widget--no-border">
+                        <div class="widget__content">
+                            <div class="auth auth--inline">
+                                <div class="auth__wrap auth__wrap--register">
+                                    <!-- BEGIN AUTH REGISTER-->
+                                    <h5 class="auth__title">Sign up for a new account</h5>
+                                    
+                                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form form--flex form--auth js-register-form js-parsley" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                                        <div class="row">
+                                            <div class="form-group form-group--col-6">
+                                                @Html.LabelFor(m=>m.RegisterViewModel.FirstName, new { @for= "register-name-inline", @class="control-label"})
+                                                @Html.TextBoxFor(m=>m.RegisterViewModel.FirstName,new { type = "text", name = "username", id = "register-name-inline", required="", @class="form-control"})
+                                            </div>
+                                            <div class="form-group form-group--col-6">
+                                                @Html.LabelFor(m=>m.RegisterViewModel.LastName, new { @for= "register-lastname-inline", @class="control-label"})
+                                                @Html.TextBoxFor(m=>m.RegisterViewModel.LastName, new { type = "text", name = "name", id = "register-lastname-inline", required="", @class="form-control"})
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-group--col-12">
+                                                @Html.LabelFor(m=>m.RegisterViewModel.Email, new { @for= "register-email-inline", @class="control-label"})
+                                                @Html.TextBoxFor(m=>m.RegisterViewModel.Email, new { type = "email", name = "email", id = "register-email-inline", required="", @class="form-control"})
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group form-group--col-6">
+                                                @Html.LabelFor(m => m.RegisterViewModel.Password, new { @for = "register-password-inline", @class = "control-label" })
+                                                @Html.PasswordFor(m => m.RegisterViewModel.Password, new { type = "password", name = "password", id = "register-password-inline", required = "", @class = "form-control" })
+                                            </div>
+                                            <div class="form-group form-group--col-6">
+                                                @Html.LabelFor(m => m.RegisterViewModel.ConfirmPassword, new { @class = "control-label"})
+                                                @Html.PasswordFor(m => m.RegisterViewModel.ConfirmPassword, new {type = "password", required = "", @class = "form-control"})
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form__options">
+                                                Back to<a href="@Url.Action("Login","Account")">@Resource.SignIn</a>
+                                            </div>
+                                            <button type="submit" class="form__submit">@Resource.SignUp</button>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

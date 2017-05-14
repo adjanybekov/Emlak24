@@ -1,0 +1,13 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.Flat.DetailedSearchFlatForRent
+
+<div class="col-md-6 col-sm-6 col-xs-12">
+    @Html.CheckBoxFor(m => m.IsSmokingAllowed, new { @class = "in-checkbox" })
+    @Html.LabelFor(m => m.IsSmokingAllowed, new { @class = "in-label" })
+</div>
+<div class="col-md-6 col-sm-6 col-xs-12">
+    @Html.CheckBoxFor(m => m.IsPetsAllowed, new { @class = "in-checkbox" })
+    @Html.LabelFor(m => m.IsPetsAllowed, new { @class = "in-label" })
+</div>
+

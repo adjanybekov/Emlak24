@@ -1,0 +1,88 @@
+/*------------------------------------------------------------------
+  * FAQ block styles
+  + FAQ / .faq
+    __ FAQ item / .faq__item
+    __ FAQ expander / .faq__expander
+    __ FAQ content / .faq__content
+    __ FAQ body / .faq__body
+    __ FAQ footer / .faq__footer
+    __ FAQ close / .faq__close
+  ==============================================================*/
++b(faq)
+  +e(item)
+    margin: 0 0 6px
+
+  +e(expander)
+    font-size: 20px
+    color: $brandColor
+    text-decoration: none
+    padding-left: 48px
+    position: relative
+    display: block
+    border: none
+    background: none
+    outline: none!important
+    font-weight: 600
+    &:before
+      +font-awesome(14px, '\f068')
+      border: 1px solid $brandColor
+      color: $brandColor
+      display: inline-block
+      margin: 1px 24px 0 0
+      font-weight: normal
+      text-align: center
+      width: 24px
+      line-height: 24px
+      height: 24px
+      position: absolute
+      top: 4px
+      left: 0
+      text-decoration: none
+    &:focus,
+    &:hover
+      text-decoration: none
+    &.collapsed
+      color: $defaultColor
+    &.collapsed:before
+      content: "\f067"
+      border: 1px solid $defaultColor
+      color: $defaultColor
+    @media (max-width: $screen-xs-max)
+      padding-left: 35px
+
+  +e(body)
+    margin: 26px 0 0 50px
+    padding: 19px 39px
+    background: #fff
+    border: 1px solid #dedede
+    @media (max-width: $screen-xs-max)
+      margin: 6px 0 0 35px
+      padding: 15px
+
+  +e(footer)
+    margin: 0 0 20px 50px
+    padding: 19px 39px
+    background: #fff
+    text-align: center
+    border: 1px solid #dedede
+    border-top: none
+    @media (max-width: $screen-xs-max)
+      margin-left: 35px
+
+
+  +e(close)
+    background: none
+    border: none
+    outline: none
+    color: $defaultColor
+    &:before
+      +font-awesome(14px, '\f00d')
+      border: 1px solid $defaultColor
+      color: $defaultColor
+      padding: 0 5px
+      display: inline-block
+      margin: 0 10px 0 0
+      font-weight: normal
+      text-align: center
+      width: 24px
+      height: 24px

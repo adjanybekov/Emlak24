@@ -1,0 +1,189 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'blog_details';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Blog
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Post
+  // END BREADCRUMBS
+block center
+  .row
+    .site.site--main
+      header.site__header
+        h1.site__title Blog
+        h2.site__headline Check out our new market updates
+
+      include partials/mixins/form--search
+      +formSearch('article-listing', 'Search your post')
+
+      button.widget__btn--goto.js-goto-btn(type='button', data-goto-target='.js-categories-article') Show blog categories
+
+      .site__main
+        +widget(null, null, 'main widget--no-margin')
+          .article.article--details
+            .article__item-header
+              time.article__time(datetime='2009-08-29')
+                | SEP
+                strong 02
+
+              .article__item-info
+                h3.article__item-title
+                  a(href='#') You&rsquo;ve been approved for a rental home. Now what?
+                .article__tags
+                  | Category:
+                  a(href='#') Villa for sale
+                  = ', '
+                  a(href='#') Florida
+                  = ', '
+                  a(href='#') Miami
+              a.article__comment(href='#')
+                i.fa.fa-comments
+                | 2 Comments
+            .clearfix
+            .article__body
+              img(src='#{path.media}/properties/1740x960/06.jpg', alt='')
+
+              p
+                strong
+                  | While Eichler homes are usually associated with the Mid-Century Modern heyday of the 1950s and 1960s, the legendary developer built homes well into the early &rsquo;70s. Built in 1972, this Palo Alto, CA, stunner has hit the market at $2,699,000 and is a prime example of the Mid-Century aesthetic extending into the initial years of the Me Decade.
+              p
+                | The four-bedroom, two-bathroom home offers 1,978 square feet of living space and a spacious backyard designed for entertaining.
+              p
+                | Listing agent Tim Foy said this home is from &ldquo;One of Eichler&rsquo;s last tracts. It may be the very last tract in Palo Alto.&rdquo;
+              p
+                | Foy told us the home was purchased over 40 years ago before hammer even hit nail, and the original buyers were able to specify customizations and upgrades not seen in many other Eichlers. One of their requests was to have the knot-free redwood paneled walls extend into the open-air atrium at the center of the home. The home&rsquo;s stunning cathedral ceilings are beautiful redwood and give the home a warmth not usually associated with Eichlers.
+              blockquote
+                | &ldquo;When you walk in the front door, all the redwood creates a warmth,&rdquo; said Foy. &ldquo;It feels really homey. It&rsquo;s truly an &lsquo;aha!&rsquo; moment for a lot of people. Of course, the home appeals to Eichler lovers&mdash;but it also appeals to people who weren&rsquo;t prepared to like an Eichler.&rdquo;
+              div.
+                <iframe width="853" height="480" src="https://www.youtube.com/embed/A22_jyRIv24?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+              p
+                | As with all Eichler homes, the integration of indoor space and outdoors is key. Floor-to-ceiling windows along the back of the house let in plenty of natural light and create a seamless flow. Extensively remodeled inside and out over the past couple of years, the home&rsquo;s current owners thoughtfully and faithfully documented all of the updates they&rsquo;ve made. The home&rsquo;s price tag reflects its Palo Alto address, and Foy told us the market at the epicenter of the Bay Area shows no signs of slowing. While the college city continues its red-hot pace, the agent told us he&rsquo;s also seen renewed interest in Palo Alto Eichlers:
+              ul
+                li Listing/content source
+                li Realtor.com real estate market reports
+                li Median age of inventory
+              p
+                i
+                  | &ldquo;High-tech professionals love these homes,&rdquo; he noted. &ldquo;We&rsquo;ve seen a resurgence in Eichler interest over the past five years, and the market for these homes has really heightened in the last couple of years.heightened in the last couple of years.&rdquo;
+              p
+                | Extensively remodeled inside and out over the past couple of years, the home&rsquo;s current owners thoughtfully and faithfully documented all of the updates they&rsquo;ve made.
+              h3 Active Listings Inventory
+              p
+                img(src='#{path.media}/properties/277x180/05.jpg', alt='', style='float: right; margin: 0 0 10px 10px;')
+                | The home&rsquo;s price tag reflects its Palo Alto address, and Foy told us the market at the epicenter of the Bay Area shows no signs of slowing. While the college city continues its red-hot pace, the agent told us he&rsquo;s also seen renewed interest in Palo Alto Eichlers.
+              p
+                | &ldquo;High-tech professionals love these homes,&rdquo; he noted. &ldquo;We&rsquo;ve seen a resurgence in Eichler interest over the past five years, and the market for these homes has really heightened in the last couple of years.&rdquo; Floor-to-ceiling windows along the back of the house let in plenty of natural light and create a seamless flow.
+              p
+                | Foy told us the home was purchased over 40 years ago before hammer even hit nail, and the original buyers were able to specify customizations and upgrades not seen in many other Eichlers. One of their requests was to have the knot-free redwood paneled walls extend into the open-air atrium at the center of the home. The home&rsquo;s stunning cathedral ceilings are beautiful redwood and give the home a warmth not usually associated with Eichlers.
+              p
+                | &ldquo;When you walk in the front door, all the redwood creates a warmth,&rdquo; said Foy. &ldquo;It feels really homey. It&rsquo;s truly an &lsquo;aha!&rsquo; moment for a lot of people. Of course, the home appeals to Eichler lovers&mdash;but it also appeals to people who weren&rsquo;t prepared to like an Eichler.&rdquo;
+              p
+                | As with all Eichler homes, the integration of indoor space and outdoors is key. Floor-to-ceiling windows along the back of the house let in plenty of natural light and create a seamless flow.
+              p
+                | Extensively remodeled inside and out over the past couple of years, the home&rsquo;s current owners thoughtfully and faithfully documented all of the updates they&rsquo;ve made.
+              div.player
+                video(poster="http://codefactory47.com/public/realtyspace/media/playercover.jpg" controls crossorigin)
+                  source(src="http://codefactory47.com/public/realtyspace/media/videotour.mp4" type="video/mp4")
+                  source(src="http://codefactory47.com/public/realtyspace/media/videotour.webm" type="video/webm")
+                //button.article__preview-play.js-player-play
+
+            .article__footer
+              .social.social--article
+                span Share this post:
+                a.social__item(href='#')
+                  i.fa.fa-facebook
+                a.social__item(href='#')
+                  i.fa.fa-twitter
+                a.social__item(href='#')
+                  i.fa.fa-google-plus
+              .article__tags
+                | Category:
+                a(href='#') Villa for sale
+                = ', '
+                a(href='#') Florida
+                = ', '
+                a(href='#') Miami
+          .comment
+            h3.comment__headline Comments (23)
+            .comment__wrap
+              ul.comment__list
+                li.comment__item
+                  - var avatar = '01';
+                  include partials/chunks/comment
+                li.comment__item
+                  - avatar = '02';
+                  include partials/chunks/comment
+                  ul.comment__children
+                    li.comment__item
+                      - var commentWarning = true;
+                      - avatar = '03';
+                      include partials/chunks/comment
+
+                li.comment__item
+                  - commentWarning = false;
+                  - avatar = '04';
+                  include partials/chunks/comment
+
+                li.comment__item
+                  - avatar = '05';
+                  include partials/chunks/comment
+                li.comment__item
+                  - avatar = '01';
+                  include partials/chunks/comment
+
+                  ul.comment__children
+                    li.comment__item
+                      - avatar = '02';
+                      include partials/chunks/comment
+
+                    li.comment__item
+                      - avatar = '03';
+                      include partials/chunks/comment
+
+                li.comment__item
+                  - avatar = '04';
+                  include partials/chunks/comment
+
+              .comment__footer
+                include partials/chunks/pagination
+
+                .comment__form
+                  h3.comment__form-title Leave a comment
+                  include partials/chunks/comment_form
+
+      // END site
+    // BEGIN SIDEBAR
+    .sidebar
+      +widget('Categories', 'Find your apartment or house on the exact key parameters.', 'sidebar', 'Show blog categories', null, 'toggle')
+        include partials/chunks/sidebar/blog_categories
+
+      +widget('Filter', 'Find your apartment or house on the exact key parameters.', 'sidebar', 'Show filter', null, 'toggle')
+        - var searchType = 'sidebar'
+        include partials/widgets/form--search
+
+      +widget('Popular estate', 'Find your apartment or house on the exact key parameters.', 'sidebar widget--dark', 'Show properties', null, 'toggle')
+        .listing.listing--sidebar
+          - var i = 0;
+          while i++ < 3
+            .listing__item
+              +properties(i, 'sidebar')
+      +widget('Our agents', 'Find your apartment or house on the exact key parameters.', 'sidebar widget--dark', 'Show workers', null, 'toggle')
+        .listing.listing--sidebar
+          - var i = -1;
+          while i++ < 2
+            .listing__item
+              +worker(i, 'sidebar')
+      +widget('News & Blog', 'Find your apartment or house on the exact key parameters.', 'sidebar', 'Show articles', null, 'toggle')
+        - var articleType = 'sidebar';
+        include partials/widgets/article
+    // END SIDEBAR
+    .clearfix

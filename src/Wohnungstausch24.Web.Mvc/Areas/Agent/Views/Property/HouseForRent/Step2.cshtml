@@ -1,0 +1,156 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step2.Step2ViewModel
+
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+
+    var addDistanceAjaxOpts = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "viewDetailsDistanceData",
+        OnBegin = "showDistanceLoader",
+        OnComplete = "hideDistanceLoader"
+    };
+
+    var addSightViewAjaxOpts = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "sightview-area-data-div",
+        OnBegin = "showSightLoader",
+        OnComplete = "hideSightLoader"
+    };
+}
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">@Resource.Add_New_Property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    @Html.Partial("HouseForRent/_Steps", Model.StepsProgressModel)
+                    <div class="form-property__content">
+                        <div id="Location" class="tab-pane">
+                            @using (Html.BeginForm("Step2", "Property", FormMethod.Post, new { @class = "form form--flex form--property-add js-form js-form-property" }))
+                            {
+                                @Html.HiddenFor(m => m.Id)
+                                @Html.ValidationSummary(false, null, new { @class = "text-danger" })
+                                <div class="map map--location map--dashboard js-map-location-dashboard">
+                                    <div class="map__block">
+                                        <div class="row map__autocomplete">
+                                            <div class="form-group form-group--autocomplete">
+                                                <label for="autocomplete-dashboard" class="control-label">GPS Mapping</label>
+                                                <input type="text" placeholder="" required id="autocomplete-dashboard" class="form-control js-autocomplete">
+                                            </div>
+                                            <button type="button" class="map__geolocation js-geolocate">
+                                                <svg>
+                                                    <use xlink:href="#icon-geolocation"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="map__buttons">
+                                            <button type="button" class="map__change-map js-map-btn">Address Map</button>
+                                        </div>
+                                        <div class="map__wrap">
+                                            <div data-infobox-theme="white" class="map__view map__view--property-form js-map"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group form-group--coords">
+                                            @Html.LabelFor(m => m.Step2HouseForRent.Latitude, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Step2HouseForRent.Latitude, new { @class = "form-control js-location-coords" })
+                                        </div>
+                                        <div class="form-group form-group--coords">
+                                            @Html.LabelFor(m => m.Step2HouseForRent.Longitude, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Step2HouseForRent.Longitude, new { @class = "form-control js-location-coords" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" id="sightViewAreaDiv">
+                                    @{ Html.RenderAction("GetViewSights", "Property", new { id = Model.Id });}
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            <legend>@Resource.Add_Property_Distance</legend>
+                                        </fieldset>
+                                        <div id="viewDetailsDistance">
+                                            @{ Html.RenderAction("GetDistanceTos", "Property", new { id = Model.Id });}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <a class="form__submit" href="@Url.Action("Step1", new {id=Model.Id})"><i class="fa fa-angle-left"></i>@Resource.Back</a>
+                                    <button type="submit" class="form__submit">@Resource.Next <i class="fa fa-angle-right"></i></button>
+                                </div>
+                                        }
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addSightViewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">@Resource.Add_Property_Sight</h4>
+            </div>
+            @using (Ajax.BeginForm("AddViewSight", "Property", null, addSightViewAjaxOpts, new { @class = "form form--flex" }))
+            {
+                @Html.HiddenFor(m => m.Id)
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Step2HouseForRent.AddViewSightViewModel.SightType, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.EnumDropDownListFor(m => m.Step2HouseForRent.AddViewSightViewModel.SightType, Resource.PleaseChoose, new { required = "", @class = "form-control js-in-select" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Step2HouseForRent.AddViewSightViewModel.SightType, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resource.Cancel</button>
+                    <button type="submit" class="btn btn-primary">@Resource.OK</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@Html.Partial("_AddDistanceModalPartial", Model.Step2HouseForRent.AddDistanceToViewModel)
+
+
+@section scripts
+{
+    <script>
+        var showDistanceLoader = function () {
+            $('#addDistanceModal').modal('toggle');
+            showLoader("#addDistanceModal");
+        }
+
+        var hideDistanceLoader = function () {
+            hideLoader("#addDistanceModal");
+        }
+
+        var showSightLoader = function () {
+            $('#addSightViewModal').modal('toggle');
+            showLoader("#addSightViewModal");
+        }
+
+        var hideSightLoader = function () {
+            hideLoader("#addSightViewModal");
+        }
+        SweetAjax("#viewDetailsDistanceData", ".wt24-distance-confirmation");
+        SweetAjax("#sightview-area-data-div", ".wt24-sightview-confirmation");
+    </script>
+}

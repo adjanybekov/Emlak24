@@ -1,0 +1,71 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.Enums
+@model Wohnungstausch24.Models.ViewModels.InitListingViewModel
+@{
+    ViewBag.Title = "ChooseType";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">Add new property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("ChoosePropertyType", "Property", FormMethod.Post, new { @class = "form form--flex form--property-add js-form js-form-property" }))
+                        {
+                            @Html.AntiForgeryToken();
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(m=>m.TypeOfUse)
+                            @Html.HiddenFor(m=>m.TypeOfMerchandising)
+                            <div class="row">
+                                <div class="form-group form-group--col-12 form-group--inline">
+                                    <div class="form-group form-group--col-6">
+                                        <label class="control-label">Select Property Type</label>
+                                    </div>
+                                    <div class="form-group--col-6">
+                                        <ul class="form__check">
+                                            <li>
+                                                @Html.RadioButtonFor(m => m.PropertyType, PropertyType.Flat, new { @class = "in-radio", id = PropertyType.Flat.ToString() })
+                                                @Html.Label(PropertyType.Flat.GetDisplayName(), new { @class = "in-label", @for = PropertyType.Flat.ToString() })
+                                            </li>
+                                            <li>
+                                                @Html.RadioButtonFor(m => m.PropertyType, PropertyType.House, new { @class = "in-radio", id = PropertyType.House.ToString() })
+                                                @Html.Label(PropertyType.House.GetDisplayName(), new { @class = "in-label", @for = PropertyType.House.ToString() })
+                                            </li>
+                                            @if (Model.TypeOfMerchandising == TypeOfMerchandising.Rent && Model.TypeOfUse==TypeOfUse.Living)
+                                            {
+                                                <li>
+                                                    @Html.RadioButtonFor(m => m.PropertyType, PropertyType.WazRoom, new { @class = "in-radio", id = PropertyType.WazRoom.ToString() })
+                                                    @Html.Label(PropertyType.WazRoom.GetDisplayName(), new { @class = "in-label", @for = PropertyType.WazRoom.ToString() })
+                                                </li>
+                                            }
+
+                                            @if (Model.TypeOfMerchandising==TypeOfMerchandising.Sale)
+                                            {
+                                                <li>
+                                                    @Html.RadioButtonFor(m => m.PropertyType, PropertyType.Land, new { @class = "in-radio", id = PropertyType.Land.ToString() })
+                                                    @Html.Label(PropertyType.Land.GetDisplayName(), new { @class = "in-label", @for = PropertyType.Land.ToString() })
+                                                </li>
+                                            }
+                                        </ul>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a class="form__submit" href="@Url.Action("TypeOfMerchandising", new {typeOfUse=Model.TypeOfUse})"><i class="fa fa-angle-left"></i> Back</a>
+                                <button type="submit" class="form__submit">Next <i class="fa fa-angle-right"></i></button>
+                            </div>
+                        }
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

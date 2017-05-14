@@ -1,0 +1,311 @@
+﻿@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Agent.Settings.AgencySettingsStep1ViewModel
+@{
+    var divDisplay = Model.IsAgent ? "" : "none";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            @{ Html.RenderAction("Progress", "Settings"); }
+            <div class="widget__header">
+                <h2 class="widget__title">Settings</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    <ul role="tablist" class="nav form-property__tabs">
+                        <li role="presentation" class="active"><a href="#">Step1</a></li>
+                        <li role="presentation" class=""><a href="@Url.Action("Step2","Agency")">Step2</a></li>
+                        <li role="presentation" class=""><a href="@Url.Action("Step3","Agency")">Step3</a></li>
+                    </ul>
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("Step1", "Agency", new { area = "Agent" }, FormMethod.Post, new { @class = "form form--flex form--profile js-form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(m => m.ProgressPercentage)
+                            <div id="form-block-2" class="form__block js-form-block">
+                                <div class="row">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.IsAgent, new { @class = "control-label" })
+                                        @Html.ToggleButtonFor(m => m.IsAgent)
+                                    </div>
+                                </div>
+                                <div class="row" id="agency-is-agent" style="display: @divDisplay">
+                                    <div class="form-group form-group">
+                                        @Html.LabelFor(m => m.CompanyName, new { @class = "control-label" })
+                                        @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.CompanyName, null, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group form-group">
+                                        @Html.LabelFor(m => m.BusinessType, new { @class = "control-label" })
+                                        @Html.EnumDropDownListFor(m => m.BusinessType, Resource.PleaseChoose, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.BusinessType, null, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group form-group">
+                                        @Html.LabelFor(m => m.OrganizationOther, new { @class = "control-label" })
+                                        @Html.TextBoxFor(m => m.OrganizationOther, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.OrganizationOther, null, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group form-group">
+                                        @Html.LabelFor(m => m.PhoneNumber, new { @class = "control-label" })
+                                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.PhoneNumber, null, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group form-group">
+                                        @Html.LabelFor(m => m.PhoneNumber2, new { @class = "control-label" })
+                                        @Html.TextBoxFor(m => m.PhoneNumber2, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.PhoneNumber2, null, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group form-group">
+                                        @Html.LabelFor(m => m.FaxNumber, new { @class = "control-label" })
+                                        @Html.TextBoxFor(m => m.FaxNumber, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FaxNumber, null, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group form-group">
+                                        @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="row">
+                                        <h3>Location</h3>
+                                        <hr />
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.SelectedCountry, new { @class = "control-label" })
+                                                    @Html.DropDownListFor(m => m.SelectedCountry, Model.Countries, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+                                                    @Html.ValidationMessageFor(m => m.SelectedCountry, null, new { @class = "text-danger" })
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.SelectedLocationlevel1, new { @class = "control-label" })
+                                                    @Html.DropDownListFor(m => m.SelectedLocationlevel1, Model.LocationsLevel1, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+                                                    @Html.ValidationMessageFor(m => m.SelectedLocationlevel1, null, new { @class = "text-danger" })
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.SelectedLocationlevel2, new { @class = "control-label" })
+                                                    @Html.DropDownListFor(m => m.SelectedLocationlevel2, Model.LocationsLevel2, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+                                                    @Html.ValidationMessageFor(m => m.SelectedLocationlevel2, null, new { @class = "text-danger" })
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.SelectedLocationlevel3, new { @class = "control-label" })
+                                                    @Html.DropDownListFor(m => m.SelectedLocationlevel3, Model.LocationsLevel3, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+                                                    @Html.ValidationMessageFor(m => m.SelectedLocationlevel3, null, new { @class = "text-danger" })
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.Street, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(m => m.Street, new { @class = "form-control ", placeholder = "Street" })
+                                                    @Html.ValidationMessageFor(m => m.Street, null, new { @class = "text-danger" })
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.HouseNumber, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(m => m.HouseNumber, new { @class = "form-control ", placeholder = Resource.Property_Add_Address_HouseNumber })
+                                                    @Html.ValidationMessageFor(m => m.HouseNumber, null, new { @class = "text-danger" })
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.ZipCode, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control ", placeholder = Resource.Property_Add_Address_ZipCode })
+                                                    @Html.ValidationMessageFor(m => m.ZipCode, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3>Social</h3>
+                                        <hr />
+                                        <div class="col-md-12">
+                                            <div class="col-md-4">@Html.LabelFor(m => m.Facebook, new { @class = "control-label" })</div>
+                                            <div class="col-md-8">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-facebook"></i>
+                                                    </div>
+                                                    <div class="input-group-addon hidden-xs">https://facebook.com/</div>
+                                                    @Html.TextBoxFor(m => m.Facebook, new { @class = "form-control", placeholder = "Username" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-4">@Html.LabelFor(m => m.Twitter, new { @class = "control-label" })</div>
+                                            <div class="col-md-8">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-twitter"></i>
+                                                    </div>
+                                                    <div class="input-group-addon hidden-xs">https://twitter.com/</div>
+                                                    @Html.TextBoxFor(m => m.Twitter, new { @class = "form-control", placeholder = "Username" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-4">@Html.LabelFor(m => m.Linkedin, new { @class = "control-label" })</div>
+                                            <div class="col-md-8">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-linkedin"></i>
+                                                    </div>
+                                                    <div class="input-group-addon hidden-xs">https://www.linkedin.com/</div>
+                                                    @Html.TextBoxFor(m => m.Linkedin, new { @class = "form-control", placeholder = "Username" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-4">@Html.LabelFor(m => m.GooglePlus, new { @class = "control-label" })</div>
+                                            <div class="col-md-8">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-google-plus"></i>
+                                                    </div>
+                                                    <div class="input-group-addon hidden-xs">https://plus.google.com/</div>
+                                                    @Html.TextBoxFor(m => m.GooglePlus, new { @class = "form-control", placeholder = "Username" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a href="@Url.Action("Index", "Settings")" class="button__more ui__button ui__button--2 form__submit"><i class="fa fa-angle-left"></i> Cancel</a>
+                                <button class="form__submit" id="submit-button">Save & Continue<i class="fa fa-angle-right"></i></button>
+                            </div>
+                        }
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script>
+        if ($('#@Html.IdFor(c => c.IsAgent)')) {
+            $('#@Html.IdFor(c => c.IsAgent)')
+                .change(function () {
+                    if ($(this).prop('checked')) {
+                        $('#agency-is-agent').show('slow');
+                    } else {
+                        sweetAlert({
+                            type: "warning",
+                            title: "Are You Sure?",
+                            text: "All your agency settings and agent informations will be deleted!",
+                            showCancelButton: true,
+                            confirmButtonColor: "#DD6B55",
+                            confirmButtonText: "Yes, delete it!",
+                            closeOnConfirm: true,
+                            closeOnCancel: false
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    $('#agency-is-agent').hide('slow');
+                                } else {
+                                    $('#@Html.IdFor(c => c.IsAgent)').bootstrapToggle('on');
+                                    sweetAlert("Cancelled", "Operation canceled", "error");
+                                }
+                            });
+                    }
+                });
+        }
+    </script>
+    <script type="text/javascript">
+        var locationLevel1 = $('#@Html.IdFor(m => m.SelectedLocationlevel1)');
+        var locationLevel2 = $('#@Html.IdFor(m => m.SelectedLocationlevel2)');
+        var locationLevel3 = $('#@Html.IdFor(m => m.SelectedLocationlevel3)');
+
+        $('#@Html.IdFor(m => m.SelectedCountry)')
+            .change(function () {
+
+                if (!$(this).val()) {
+                    resetDropdown(locationLevel1);
+                    resetDropdown(locationLevel2);
+                    resetDropdown(locationLevel3);
+                    return;
+                }
+                var request = $.ajax({
+                    url: '@Url.Action("GetLocationLevel1", "Locations", new {area = ""})',
+                    method: "GET",
+                    data: { countryId: $(this).val() },
+                    contentType: "application/json",
+                    dataType: "json"
+                });
+                request.done(function (data) {
+                    resetDropdown(locationLevel1);
+                    resetDropdown(locationLevel2);
+                    resetDropdown(locationLevel3);
+                    $.each(data,
+                        function (index, item) {
+                            locationLevel1.append($('<option></option>').val(item.Value).text(item.Text));
+                        });
+                });
+                request.fail(function (jqXHR, textStatus) {
+                    alert("Request failed: " + textStatus);
+                });
+            });
+
+        locationLevel1.change(function () {
+            if (!$(this).val()) {
+                resetDropdown(locationLevel2);
+                resetDropdown(locationLevel3);
+                return;
+            }
+            var request = $.ajax({
+                url: '@Url.Action("GetLocationLevel2", "Locations", new {area = ""})',
+                method: "GET",
+                data: { locationLevel1: $(this).val() },
+                contentType: "application/json",
+                dataType: "json"
+            });
+            request.done(function (data) {
+                resetDropdown(locationLevel2);
+                resetDropdown(locationLevel3);
+                $.each(data,
+                    function (index, item) {
+                        locationLevel2.append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+            });
+            request.fail(function (jqXHR, textStatus) {
+                alert("Request failed: " + textStatus);
+            });
+        });
+
+        locationLevel2.change(function () {
+            if (!$(this).val()) {
+                resetDropdown(locationLevel3);
+                return;
+            }
+            var request = $.ajax({
+                url: '@Url.Action("GetLocationLevel3", "Locations", new {area = ""})',
+                method: "GET",
+                data: { locationLevel2: $(this).val() },
+                contentType: "application/json",
+                dataType: "json"
+            });
+            request.done(function (data) {
+                resetDropdown(locationLevel3);
+                $.each(data,
+                    function (index, item) {
+                        locationLevel3.append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+            });
+            request.fail(function (jqXHR, textStatus) {
+                alert("Request failed: " + textStatus);
+            });
+        });
+
+        var resetDropdown = function (dropdown) {
+            dropdown.empty();
+            dropdown.append($('<option></option>').val(null).text('@Html.Raw(Resource.PleaseChoose)'));
+            dropdown.selectedIndex = 0;
+            dropdown.change();
+        }
+    </script>
+}

@@ -1,0 +1,47 @@
+﻿@model List<Wohnungstausch24.Models.ViewModels.Agent.ParkSpaceViewModel>
+@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Core.Extensions
+@using Wohnungstausch24.Resources
+
+
+<div id="viewDetailsParkPlaceData">
+    <div class="form-group form-group--col-12">
+        <table class="table table-responsive table-stripped">
+            <thead>
+            <tr>
+                <th colspan="5">
+                    <div class="row">
+                        <div class="col-md-8">
+                            @Resource.Add_Property_ParkPlaces
+                        </div>
+                        <div class="col-md-4">
+                            <a class="btn btn-xs btn-primary pull-right" href="#" data-toggle="modal" data-target="#addParkingSpaceModal">@Resource.General_Table_Add_new<i class="fa fa-plus"></i></a>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+            </thead>
+            <tr>
+                <th>#</th>
+                <th>@Resource.ParkType</th>
+                <th>@Resource.Quantity</th>
+                <th>@Resource.Price</th>
+                <th>@Resource.Options</th>
+            </tr>
+            @for (var i = 1; i <= Model.Count(); i++)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@Model[i - 1].ParkSpaceType.GetDisplayName()</td>
+                    <td>@Html.DisplayFor(m => Model[i - 1].Quantity, new {  @class = "form-control" })</td>
+                    <td>@Html.DisplayFor(m => Model[i - 1].RentPrice, new {  @class = "form-control" })</td>
+                    <td>
+                        <a href="@Url.Action("DeleteParkSpace","Property",new {id = Model[i - 1].Id})" class="btn btn--action wt24-parkspace-confirmation"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </table>
+        @Html.ValidationMessageFor(m => m, null, new { @class = "text-danger" })
+    </div>
+</div>
+<div class="loading"></div>

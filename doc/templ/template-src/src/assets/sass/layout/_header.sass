@@ -1,0 +1,194 @@
+/*------------------------------------------------------------------
+  * Header block
+  + Header / .header
+  __ Header social / .header__social
+  __ Header title / .header__title
+  __ Header address / .header__address
+  __ Header phone / .header__phone
+  __ Header email / .header__email
+  ==============================================================*/
++b(header)
+  z-index: 240
+  position: relative
+  background: $brandColor
+  color: #fff
+  +clearfix
+
+  +e(row)
+    padding: 0
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 50px
+
+  +e(settings)
+    display: flex
+    justify-content: space-between
+    @media (max-width: $screen-xs-max)
+      display: none
+
+  +e(settings-column)
+    margin-right: 50px
+    &:last-of-type
+      margin-right: 0
+    @media (max-width: $screen-md-max)
+      margin-right: 20px
+
+  +e(settings-icon)
+    width: 16px
+    height: 16px
+    position: relative
+    top: 4px
+    margin: -3px 10px 0 0
+    opacity: 0.5
+  +e(contacts)
+    background: rgba(#000, 0.1)
+    margin-left: auto
+    height: 100%
+    @media (max-width: $screen-sm-max)
+      margin-right: auto
+    @media (max-width: $screen-xs-max)
+      background: none !important
+      margin-left: 0
+      margin-right: 0
+  +e(social)
+    margin-top: -4px
+    margin-left: 30px
+    margin-right: auto
+    @media (max-width: $screen-sm-max)
+      display: none
+
+  +e(phone)
+    color: #fff
+    display: block
+    font-weight: 400
+    line-height: 1
+    padding: 15px 40px 0
+    &:hover
+      color: #fff
+    @media (max-width: $screen-xs-max)
+      padding: 15px 0 0
+  +e(phone-icon)
+    width: 16px
+    height: 14px
+    @media (max-width: $screen-xs-max)
+      width: 22px
+      height: 22px
+  +e(call)
+    text-align: center
+    padding: 5px 15px 0
+    &:before
+      +font-awesome(2.1em, '\f095')
+      color: #fff
+    @media (min-width: $screen-sm-min)
+      display: none
+
+  +e(logo)
+    text-align: center
+    line-height: 1
+    @media (min-width: $screen-sm-min)
+      display: none
+    svg
+      width: 50px
+      height: 35px
+    img
+      @media (max-width: $screen-xs-max)
+        width: 100px
+  +e(navbar-toggle)
+    background: none
+    border: none
+    height: 40px
+    width: 40px
+    padding: 0!important
+    border-radius: 20px
+    outline: none
+    &.collapsed
+      background: #fff
+      .header__navbar-show
+        display: none
+      .header__navbar-hide
+        display: block
+        fill: $brandColor
+      svg
+        fill: $brandColor
+    svg
+      width: 30px
+      height: 30px
+      margin-left: 5px
+
+    @media (min-width: $screen-sm-min)
+      display: none
+    @media (max-width: $screen-xs-max)
+      padding-top: 0
+      transform: translate(0px)
+
+  +e(navbar-show)
+    display: block
+
+  +e(navbar-hide)
+    fill: $brandColor !important
+    display: none
+  +e(span)
+    margin-left: 15px
+    @media (max-width: $screen-xs-max)
+      display: none
+
+    .auth__nav-btn &
+      margin-left: 5px
+  svg
+    fill: #fff
+
+  +m(none)
+    display: none
+  +m(overlay)
+    position: absolute
+    left: 0
+    right: 0
+    .boxed &
+      left: 10px
+      right: 10px
+    @media (max-width: $screen-xs-max)
+      display: block
+      background: none
+    +e(call)
+      display: none
+    +e(logo)
+      width: auto
+
+  +m(dark)
+    background: rgba(#000, 0.2)
+    color: #fff
+    svg
+      fill: #fff
+    +e(contacts)
+      background: rgba(#000, 0.2)
+
+  +m(white)
+    background: #fff
+    color: $defaultColor
+    svg
+      fill: $defaultColor
+    +e(contacts)
+      background: rgba(#000, 0.1)
+    +e(phone)
+      color: $defaultColor
+
+  +m(blue)
+    background: $defaultColor
+    color: #fff
+    svg
+      fill: #fff
+    +e(contacts)
+      background: none
+    +e(phone)
+      color: #fff
+    +e(navbar-hide)
+      fill: $defaultColor !important
+  +m(mob-opened)
+    &.header--dark,
+    &.header--white
+      background: none!important
+    +e(logo)
+      visibility: hidden
+    +e(contacts)
+      visibility: hidden

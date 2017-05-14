@@ -1,0 +1,42 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Account.AccountModels
+
+
+<div class="dropdown__menu auth__dropdown--login">
+    <!-- BEGIN AUTH LOGIN-->
+    <h5 class="auth__title">@Resource.LoginToYourAccount</h5>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl,area="" }, FormMethod.Post, new { @class = "form form--flex form--auth js-login-form js-parsley", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(m => m.LoginViewModel.Email, new { @class = "control-label", @for = "login-username-dropdown" })
+                @Html.TextBoxFor(m => m.LoginViewModel.Email, new { type = "text", name = "username", id = "login-username-dropdown", @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.LoginViewModel.Password, new { @class = "control-label", @for = "login-password-dropdown" })
+                @Html.PasswordFor(m => m.LoginViewModel.Password, new { type = "password", name = "password", id = "login-password-dropdown", required = "", @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form__options form__options--forgot">
+                <button type="button" class="js-user-restore">@Resource.ForgotPassword</button>
+            </div>
+            <button type="submit" class="form__submit">@Resource.SignIn</button>
+        </div>
+        <div class="form__remember">
+            @*@Html.CheckBoxFor(m => m.RememberMe, new { type = "checkbox" , id = "remember-in-dropdown", @class = "in-checkbox" })
+                @Html.LabelFor(m => m.RememberMe, new { @for = "remember-in-dropdown", @class = "in-label" })*@
+
+            @*<input type="checkbox" id="remember-in-dropdown" class="in-checkbox">
+                <label for="remember-in-dropdown" class="in-label">Remember me</label>*@
+        </div>
+        <div class="row">
+            <div class="form__options">
+                @Resource.NotAUserYet
+                <button type="button" class="js-user-register">@Resource.SignUp</button>
+            </div>
+        </div>
+    }
+</div>

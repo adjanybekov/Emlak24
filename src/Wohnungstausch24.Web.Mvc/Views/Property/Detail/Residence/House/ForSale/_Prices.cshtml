@@ -1,0 +1,84 @@
+﻿@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.House.DetailHouseForSale
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <div class="property__info">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-3">
+                                            <i class="fa fa-3x fa-euro text-primary"></i>
+                                        </div>
+                                        <div class="col-md-12 col-xs-6">
+                                            @Html.LabelFor(c => c.Price, new {@class = "control-label"})
+                                            <i class="fa fa-info-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top"></i>
+                                        </div>
+                                        <div class="col-md-12 col-xs-3">
+                                            @Html.DisplayFor(m => m.Price) <i class="fa fa-euro"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-3">
+                                            <i class="fa fa-3x flaticon-square-measument text-primary"></i>
+                                        </div>
+                                        <div class="col-md-12 col-xs-6">
+                                            @Html.LabelFor(c => c.LivingArea, new { @class = "control-label" })
+                                            <i class="fa fa-info-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on right"></i>
+                                        </div>
+                                        <div class="col-md-12 col-xs-3">
+                                            @Html.DisplayFor(m => m.LivingArea) m<sup>2</sup>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-3">
+                                            <i class="fa fa-3x flaticon-number-of-rooms text-primary"></i>
+                                        </div>
+                                        <div class="col-md-12 col-xs-6">
+                                            @Html.LabelFor(c => c.NumberOfRooms, new { @class = "control-label" })
+                                        </div>
+                                        <div class="col-md-12 col-xs-3">
+                                            @Html.DisplayFor(m => m.NumberOfRooms)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-3">
+                                            <i class="fa fa-3x flaticon-areas-sizes text-primary"></i>
+                                        </div>
+                                        <div class="col-md-12 col-xs-6">
+                                            @Html.LabelFor(c => c.PlotArea, new { @class = "control-label" })
+                                        </div>
+                                        <div class="col-md-12 col-xs-3">
+                                            @Html.DisplayFor(m => m.PlotArea)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <hr />
+                                <div class="col-md-4">Tag list???</div>
+                                <div class="col-md-8">
+                                    <div class="col-md-6">
+                                        <div class="col-md-12">@Html.LabelFor(c => c.EarliestAvailableDate, new { @class = "control-label" })</div>
+                                        <div class="col-md-12">@Model.EarliestAvailableDate.GetValueOrDefault().ToShortDateString()</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-12">@Html.LabelFor(c => c.LatestAvailableDate, new { @class = "control-label" })</div>
+                                        <div class="col-md-12">@Model.LatestAvailableDate.GetValueOrDefault().ToShortDateString()</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,28 @@
+- var i = 0;
+mixin regionItem(region, prefix)
+  input.in-checkbox(type='checkbox', name='location[]', value= region.title, id='region-select-' + prefix + '-' + i)
+  label.in-label(for='region-select-' + prefix + '-' + i++, data-toggle='tooltip', data-placement='top', title= region.title)
+    | #{region.title}
+
+mixin region(prefix)
+  .region-select
+    ul.js-checkboxes-tree.bonsai.region-select__list
+      each region in locals.data.regions
+        li
+          +regionItem(region, prefix)
+          if region.sub
+            ul
+              each subRegion in region.sub
+                li
+                  +regionItem(subRegion, prefix)
+                  if subRegion.sub
+                    ul
+                      each subSubRegion in subRegion.sub
+                        li
+                          +regionItem(subSubRegion, prefix)
+
+
+    .region-select__buttons
+      button.region-select__btn.region-select__btn--reset.js-select-checkboxes-reset(type='button') Clear
+      button.region-select__btn.js-select-checkboxes-accept(type='button') Accept
+  // end of block .region-select

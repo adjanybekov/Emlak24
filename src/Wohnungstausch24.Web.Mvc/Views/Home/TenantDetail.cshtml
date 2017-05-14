@@ -1,0 +1,128 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Search.TenantSearch.TenantSearchAndDetailViewModel
+
+
+<div class="center">
+    <div class="container">
+        <!-- BEGIN site-->
+        @Html.Partial("_TenantSearchSideBar", Model.TenantSearchViewModel)
+        <div class="site site--main">
+            <!--end of block .listing__param-->
+            <div class="site__main">
+                <div class="widget js-widget widget--main">
+                    <div class="widget__content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="widget js-widget widget--main" style="border-top: 10px">
+                                    <div class="widget__content">
+                                        <div data-sr="enter bottom move 80px, scale(0), over 0s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--list worker--details">
+                                            <div class="worker__photo">
+                                                <a href="agent_profile.html" class="item-photo item-photo--static">
+                                                    <img src="/Content/assets/media-demo/workers/worker-1.jpg" alt="Christopher Pakulla" class="photo">
+                                                    <figure class="item-photo__hover"><span class="item-photo__more">@Resource.ViewDetails</span></figure>
+                                                </a>
+                                            </div>
+                                            <div class="worker__intro">
+                                                <div class="worker__intro-head">
+                                                    <div class="worker__intro-name">
+                                                        <h3 class="worker__name fn">@Model.TenantResultViewModel.ClientViewModel.Name</h3>
+                                                        <div class="worker__post">Realtor, West USA Realty</div>
+                                                    </div>
+                                                    <div class="worker__intro-brand">
+                                                        <a class="worker__company"><img src="/Content/assets/media-demo/partners/logo-company-proera.png" alt="pro"></a>
+                                                        <div class="worker__company-name"> @Resource.GlobalAgencyName</div>
+                                                    </div>
+                                                    <!-- end of block .worker__listings-->
+                                                </div>
+                                                <div class="worker__intro-row">
+                                                    <div class="worker__intro-col">
+                                                        <div class="worker__contacts">
+                                                            <div class="tel"><span class="type">@Resource.ShortTel</span><a href="tel:+44(0)2035102390" class="uri value">+44 (0) 20 3510 2390</a></div>
+                                                            <div class="tel"><span class="type">@Resource.ShortMob</span><a href="tel:+44(0)30345207210" class="uri value">+44 (0) 303 4520 7210</a></div>
+                                                            <div class="email"><span class="type">@Resource.Common_Email</span><a href="mailto:rs@realtyspace.com" class="uri value">rs@realtyspace.com</a></div>
+                                                            <div ><span></span></div>
+                                                        </div>
+                                                        <!-- end of block .worker__contacts-->
+                                                    </div>
+                                                    <div class="worker__intro-col">
+                                                        <div class="social social--worker"><a href="#" class="social__item"><i class="fa fa-facebook"></i></a><a href="#" class="social__item"><i class="fa fa-linkedin"></i></a><a href="#" class="social__item"><i class="fa fa-twitter"></i></a><a href="#" class="social__item"><i class="fa fa-google-plus"></i></a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="worker__intro-row">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h3>@Model.TenantResultViewModel.ClientViewModel.Headline</h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="worker__descr">
+                                                        <p>
+                                                           @Model.TenantResultViewModel.ClientViewModel.AboutMe
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <!-- end of block .worker-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="property__params">
+                                  <ul class="property__params-list">
+                                        <li>@Resource.EmploymentStatus<strong> @Model.TenantResultViewModel.ClientViewModel.EmploymentStatus.GetDisplayName()</strong></li>
+                                        <li>@Resource.Profession<strong> @Model.TenantResultViewModel.ClientViewModel.Profession</strong></li>
+                                        <li>@Resource.MinIncome<strong> @Model.TenantResultViewModel.ClientViewModel.Income</strong></li>
+                                        <li>@Resource.Common_Gender<strong> @Model.TenantResultViewModel.ClientViewModel.Gender</strong></li>
+                                        <li>@Resource.Common_Age<strong> @Model.TenantResultViewModel.ClientViewModel.Age</strong></li>
+                                        <li>@Resource.TotalIncome<strong>€ @Model.TenantResultViewModel.TotalIncome</strong></li>
+                                        <li>@Resource.TotalNumberOfMembers<strong>@(Model.TenantResultViewModel.ClientViewModel.Persons.Count + 1)</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><b>@Resource.OtherMembers</b></div>
+                                <div class="panel-body">
+                                    <div class="property__info">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <table class="table table-responsive table-hover table-striped">
+                                                    <tr>
+                                                        <th>@Resource.EmploymentStatus</th>
+                                                        <th>@Resource.Profession</th>
+                                                        <th>@Resource.MinIncome</th>
+                                                        <th>@Resource.Common_Gender</th>
+                                                        <th>@Resource.Common_Age</th>
+                                                    </tr>
+                                                    @foreach (var person in Model.TenantResultViewModel.ClientViewModel.Persons)
+                                                    {
+                                                        <tr>
+                                                            <td>@person.EmploymentStatus.GetDisplayName()</td>
+                                                            <td>@person.Profession</td>
+                                                            <td>€ @person.Income</td>
+                                                            <td>@person.Gender</td>
+                                                            <td>@person.Age</td>
+                                                        </tr>
+                                                    }
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END site-->
+</div>
+

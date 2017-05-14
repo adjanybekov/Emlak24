@@ -1,0 +1,52 @@
++b(achievement)
+  +e(item)
+    +make-column($lg: 3, $sm: 3, $xs: 12)
+    text-align: center
+    +m(animate-end)
+      @media (min-width: $screen-lg-min)
+        .achievement__icon,
+        .achievement__name
+          transform: translateY(0)
+          opacity: 1
+  +e(icon)
+    fill: $grayColor
+    width: 40px
+    height: 40px
+    margin-top: 50px
+    @media (max-width: $screen-md-max)
+      margin-top: 30px
+
+    @media (min-width: $screen-lg-min)
+      transform: translateY(-30px)
+      opacity: 0
+      transition: 1s
+  +e(name)
+    color: $highlightColorOnDark
+    text-transform: uppercase
+    @media (max-width: $screen-xs-max)
+      font-size: 13px
+
+    @media (min-width: $screen-lg-min)
+      transform: translateY(30px)
+      opacity: 0
+      transition: 0.5s
+  +e(counter)
+    margin-top: 50px
+    color: $highlightColorOnDark
+    font-size: 64px
+    font-weight: 200
+    height: 102px
+    @media (min-width: $screen-lg-min)
+      display: none
+    @media (max-width: $screen-md-max)
+      font-size: 40px
+      margin-top: 0
+      height: 70px
+    @media (max-width: $screen-xs-max)
+      margin-top: 0
+      height: auto
+    +m(lg)
+      @media (max-width: $screen-md-max)
+        display: none
+      @media (min-width: $screen-lg-min)
+        display: block

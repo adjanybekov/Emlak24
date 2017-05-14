@@ -1,0 +1,12 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = 'main--white';
+  - var page = 'error_404';
+
+block center
+  +widget(null, null, 'landing')
+    include partials/mixins/form--search
+    +formSearch('error-status', 'Please enter a search query')
+
+  +widget('404 Error. Page Not Found.', 'We are sorry but the page you are looking for cannot be found on the server. It may be deleted or replaced. You can try search by another term.', 'landing widget--sep')
+

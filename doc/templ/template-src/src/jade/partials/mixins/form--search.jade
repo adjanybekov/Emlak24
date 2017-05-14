@@ -1,0 +1,10 @@
+mixin formSearch(modifier, placeholder)
+  // BEGIN SEARCH
+  form.form.form--search(class= modifier ? 'form--' + modifier : '')
+    .row
+      .form-group
+        label.control-label
+        input.form-control(type='text', placeholder=placeholder)
+        button.form__lens
+          span.glyphicon.glyphicon-search
+  // END SEARCH

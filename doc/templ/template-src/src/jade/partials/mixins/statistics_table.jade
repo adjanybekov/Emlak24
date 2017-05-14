@@ -1,0 +1,30 @@
+mixin statisticsTable
+  h4.info__about-title
+    | For Sale: 18
+    br
+    | Total of Selling Price: RM 29,270,800.00
+  .info__table-wrap
+    table.table.info__table
+      thead
+        tr
+          th Category
+          th No. of Listing
+          th Total of Selling Price
+      tbody
+        each item in locals.data.statistics[0]
+          tr
+            each value in item
+              td= value
+  .info__table-wrap
+
+    table.table.table--stripped.info__table
+      thead
+        tr
+          th Category
+          th No. of Listing
+          th Total of Selling Price
+      tbody
+        each item in locals.data.statistics[1]
+          tr
+            each value in item
+              td= value

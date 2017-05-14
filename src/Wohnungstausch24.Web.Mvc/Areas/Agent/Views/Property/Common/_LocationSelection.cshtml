@@ -1,0 +1,58 @@
+﻿@using Wohnungstausch24.Models.Entites.Listings.Objects.Residence
+@using Wohnungstausch24.Models.ViewModels.Listings.Steps.Step1.Base
+@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step1.Base.Step1Listing
+
+@{
+    var viewData = new ViewDataDictionary { TemplateInfo = new TemplateInfo { HtmlFieldPrefix = Model.GetType().Name } };
+    }
+
+<div class="row">
+        <div class="form-group">
+            @Html.LabelFor(m => m.ShowFullAddressInPublic, new { @class = "control-label" })
+            @Html.ToggleButtonFor(m => m.ShowFullAddressInPublic)
+            @Html.ValidationMessageFor(m => m.ShowFullAddressInPublic, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            @Html.LabelFor(m => m.SelectedCountry, new { @class = "control-label" })
+            @Html.DropDownListFor(m => m.SelectedCountry, Model.Countries, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+            @Html.ValidationMessageFor(m => m.SelectedCountry, null, new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.SelectedLocationlevel1, new { @class = "control-label" })
+            @Html.DropDownListFor(m => m.SelectedLocationlevel1, Model.LocationsLevel1, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+            @Html.ValidationMessageFor(m => m.SelectedLocationlevel1, null, new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.SelectedLocationlevel2, new { @class = "control-label" })
+            @Html.DropDownListFor(m => m.SelectedLocationlevel2, Model.LocationsLevel2, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+            @Html.ValidationMessageFor(m => m.SelectedLocationlevel2, null, new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Locationlevel3, new { @class = "control-label" })
+            @Html.DropDownListFor(m => m.Locationlevel3, Model.LocationsLevel3, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+            @Html.ValidationMessageFor(m => m.Locationlevel3, null, new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ZipCode, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control ", placeholder = Resource.Property_Add_Address_ZipCode })
+            @Html.ValidationMessageFor(m => m.ZipCode, null, new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Street, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Street, new { @class = "form-control ", placeholder = "Street" })
+            @Html.ValidationMessageFor(m => m.Street, null, new { @class = "text-danger" })
+        </div>
+        @if (Model is Step1Residence)
+        {
+            @Html.Partial("Common/Residence/_HouseNumber",Model as Step1Residence,viewData)
+        }
+        <div class="form-group">
+            @Html.LabelFor(m => m.SubUrbLeft, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.SubUrbLeft, new { @class = "form-control ", placeholder = "Suburb name" })
+            @Html.ValidationMessageFor(m => m.SubUrbLeft, null, new { @class = "text-danger" })
+        </div>
+    </div>

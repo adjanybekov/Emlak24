@@ -1,0 +1,23 @@
+mixin activityFeed(title, limit, type, btn, btnLink, btnClass)
+  +widget(title, null, 'dashboard', btn, btnLink, btnClass)
+    // BEGIN SECTION ACTIVITY
+    section.activity.activity--feed
+      ul.activity__list
+        li.activity__date 14.01.2016
+        each activity, i in locals.data.activities
+          if i < limit
+            if i == 5
+              li.activity__date 13.01.2016
+            if i == 10
+              li.activity__date 12.01.2016
+            else
+              li.activity__item
+                svg.activity__icon
+                  use(xlink:href='#icon-' + activity.icon)
+                .activity__time #{activity.time}
+
+                .activity__title!= activity.title
+
+      if type == 'list'
+        .widget__footer
+          a.widget__more Show more activity

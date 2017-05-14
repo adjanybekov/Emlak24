@@ -1,0 +1,245 @@
+///*------------------------------------------------------------------
+//  * Button Mixin
+//  ==============================================================*/
+
+
+// Button styles mixins
+// [loading] - add this class when start loading
+// [progress] - add this class when progress (optional)
+// [success] - add this class when ready
+
+//  button styles
+=button
+  display: inline-block
+  margin-bottom: 0
+  text-align: center
+  vertical-align: middle
+  cursor: pointer
+  background-image: none
+  // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  text-transform: uppercase
+  text-decoration: none
+  white-space: nowrap
+  +button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius)
+  +user-select(none)
+  padding-left: 15px
+  padding-right: 15px
+  font-weight: 700
+  font-size: 15px
+  &:hover,
+  &:focus,
+  &.active
+    color: $btn-default-color
+    text-decoration: none
+    outline: none
+  &:disabled,
+  &.disabled
+    cursor: not-allowed
+  &.progress
+    overflow: visible
+    height: auto
+    box-shadow: none
+    margin-bottom: 0
+
+// animation loadding
+@keyframes fa-spin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(359deg)
+
+
+// animation
+@-webkit-keyframes moveUp
+  0%
+    transform: translateY(50%)
+    opacity: 0
+  100%
+    opacity: 1
+    transform: translateY(0)
+
+
+@keyframes shake
+  0%, 100%
+    transform: translateX(0)
+  10%, 30%, 50%, 70%, 90%
+    transform: translateX(-10px)
+  20%, 40%, 60%, 80%
+    transform: translateX(10px)
+
+
+@keyframes scaleFromUp
+  0%
+    transform: scale(0)
+    opacity: 0
+  100%
+    opacity: 1
+    transform: scale(1)
+
+=button-loading-icon($class, $icon)
+  .button--loading-#{$class} &.button--loading
+    &:before
+      content: $icon
+
+// on loadings
+=button-loading
+  position: relative
+  &:after
+    content: ''
+    position: absolute
+    z-index: -1
+    transition: all 0.3s
+    left: 0
+    right: 0
+    text-align: center
+  &.button--loading
+    &:before
+      margin: 0 10px 0
+      +font-awesome(14px, '\f013')
+      animation: fa-spin 2s infinite linear
+  &.has-error,
+  &.error
+    animation: shake 0.5s
+    color: transparent !important
+    &:after
+      content: "Error!"
+      animation: scaleFromUp 0.5s
+      z-index: 1
+      color: $dangerColor
+  &.has-success,
+  &.success
+    color: transparent !important
+    &:after
+      content: "Success!"
+      animation: moveUp 0.5s
+      z-index: 1
+      color: $succesColor
+
+  +button-loading-icon('circle-o-notch', '\f1ce')
+  +button-loading-icon('refresh', '\f021')
+  +button-loading-icon('spinner', '\f110')
+
+=button-default
+  +button
+  +button-loading
+  text-decoration: none
+  border: 2px solid $defaultColor
+  //background: #fff
+  background: none
+  color: $defaultColor
+  &.hover,
+  &:hover
+    @media (min-width: $screen-md-min)
+      border-color: $highlightColor
+      color: $highlightColor
+  &:active,
+  &.active
+    transform: translate3d(0, 1px, 0)
+    border-color: $highlightColor
+    background: $highlightColor
+    color: #fff
+  &:disabled,
+  &.disabled
+    color: #ccc
+    border-color: #efefef
+
+=button-action
+  +button
+  +button-loading
+  border: none
+  border-bottom: 4px solid $highlightColorDark
+  background: $highlightColor
+  color: $buttonColor
+  &.hover,
+  &:hover
+    border-bottom: 4px solid $highlightColor
+    color: $buttonColor
+  &:active,
+  &.active
+    border-top: 4px solid $highlightColorDark
+    border-bottom: none
+    color: $buttonColor
+  &:disabled,
+  &.disabled
+    color: #ccc
+    background: #efefef
+    border-bottom: 4px solid #dedede
+
+=button-active
+  +button-loading
+  +button
+  border: 2px solid $brandColor
+  background: $brandColor
+  color: #fff
+  &:active,
+  &.active
+    transform: translate3d(0, 1px, 0)
+
+// @mixin button-more
+=button-more
+  +button-loading
+  border: 1px solid #d6d6d6
+  text-align: center
+  display: block
+  padding: 7px 20px
+  text-transform: uppercase
+  color: $defaultColor
+  text-decoration: none
+  vertical-align: middle
+  line-height: $line-height-base
+  font-weight: 600
+  margin: 0 auto
+  &.hover,
+  &:hover
+    border-color: $highlightColor
+    color: $highlightColor
+    text-decoration: none
+  &:active,
+  &.active
+    transform: translate3d(0, 1px, 0)
+    border-color: $highlightColor
+    background: $highlightColor
+    color: #fff
+  &:focus,
+  &.focus
+    text-decoration: none
+    outline: none
+  &:disabled,
+  &.disabled
+    cursor: not-allowed
+    color: #ccc
+    border-color: #efefef
+  &.progress
+    overflow: visible
+    height: auto
+    box-shadow: none
+    margin-bottom: 0
+
+
+=button-toggle($size-arrow: 26px)
+  font-size: 17px
+  color: $defaultColor
+  text-align: center
+  border: 1px solid $input-border
+  padding: 15px 0
+  background: #fff
+  text-transform: uppercase
+  width: 100%
+  font-weight: bold
+  outline: none
+  margin-top: 40px
+  cursor: pointer
+  &:hover
+    color: $defaultColor
+  &:after
+    +font-awesome(14px, '\f054')
+    border: 1px solid $defaultColor
+    margin-left: 10px
+    width: $size-arrow
+    height: $size-arrow
+    vertical-align: top
+    text-align: center
+    line-height: $size-arrow
+    padding: 0 0 0 2px
+  &.active:after
+    content: "\f078"

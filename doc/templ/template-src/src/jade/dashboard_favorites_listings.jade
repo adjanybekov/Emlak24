@@ -1,0 +1,11 @@
+extends dashboard
+
+block config
+  - var bodyClass = 'sidebar-left';
+  - var page = 'dashboard_favorites_listings';
+  - var user = true;
+
+block dashboard_main
+
+  include partials/mixins/listings--favorites
+  +listingsFavorites('Favorite Listings', 15, 'list')

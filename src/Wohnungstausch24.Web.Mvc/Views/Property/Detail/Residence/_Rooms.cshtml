@@ -1,0 +1,43 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base.DetailResidence
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">@Resource.Property_Detail_Rooms</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-1">Rooms Icon</div>
+                    <div class="col-md-11">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-8">@Html.LabelFor(c => c.NumberOfLivingBedrooms, new { @class = "control-label" })</div>
+                                    <div class="col-md-6 col-xs-4">
+                                        @Html.DisplayFor(m => m.NumberOfLivingBedrooms)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-8">@Html.LabelFor(c => c.NumberOfBedrooms, new { @class = "control-label" })</div>
+                                    <div class="col-md-6 col-xs-4">
+                                        @Html.DisplayFor(m => m.NumberOfBedrooms)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-8">@Html.LabelFor(c => c.NumberOfRooms, new { @class = "control-label" })</div>
+                                    <div class="col-md-6 col-xs-4">
+                                        @Html.DisplayFor(m => m.NumberOfRooms)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

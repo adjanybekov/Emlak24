@@ -1,0 +1,34 @@
++b(activity)
+  +e(date)
+    background: $brandColor
+    color: #fff
+    display: inline-block
+    padding: 0 15px
+    margin-top: 40px
+    @media (max-width: $screen-xs-max)
+      margin-top: 25px
+    &:first-of-type
+      margin-top: 0
+  +e(list)
+    +ul
+  +e(item)
+    display: flex
+    background: url("../img/bg-border-dotted-horizontal.png") 0 100% repeat-x
+    margin-top: 60px
+    padding-bottom: 20px
+    @media (max-width: $screen-xs-max)
+      margin-top: 20px
+  +e(icon)
+    width: 30px
+    height: 30px
+    fill: $defaultColor
+  +e(time)
+    text-align: center
+    width: 130px
+    color: $grayColor
+    @media (max-width: $screen-sm-max)
+      width: 75px
+  +e(title)
+    color: $defaultColor
+    flex: 1
+  +m(feed)

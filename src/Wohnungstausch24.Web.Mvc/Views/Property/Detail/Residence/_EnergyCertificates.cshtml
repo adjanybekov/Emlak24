@@ -1,0 +1,127 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base.DetailResidence
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">@Resource.Property_Detail_EnergyCertificateTypes</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="col-md-12">@Html.LabelFor(c => c.Heatings, new { @class = "control-label" })</div>
+                        <div class="col-md-12">
+                            @foreach (var heatingViewModel in Model.Heatings)
+                            {
+                                <p><i class="fa fa-check text-success"></i> @heatingViewModel.HeatingType.GetDisplayName()</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col-md-12">@Html.LabelFor(c => c.Beaconings, new { @class = "control-label" })</div>
+                        <div class="col-md-12">
+                            @foreach (var beaconing in Model.Beaconings)
+                            {
+                                <p><i class="fa fa-check text-success"></i> @beaconing.BeaconingType.GetDisplayName()</p>
+                            }
+                        </div>
+                    </div>
+                    
+                    @if (Model.PrimaryEnergySource != null)
+                    {
+                        <div class="col-md-4">
+                            <div class="col-md-12">@Html.LabelFor(c => c.PrimaryEnergySource, new { @class = "control-label" })</div>
+                            <div class="col-md-12"><i class="fa fa-check text-success"></i> @Model.PrimaryEnergySource.GetDisplayName()</div>
+                        </div>
+                    }
+                </div>
+                <div class="row">
+                    <hr />
+                    <div class="col-md-6">
+                        <table class="table table-responsive table-hover">
+                            <tr>
+                                <td>@Html.LabelFor(c => c.EnergyCertificateType, new { @class = "control-label" })</td>
+                                <td>
+                                    @Model.EnergyCertificateType.GetDisplayName()
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@Html.LabelFor(c => c.PropertySubType, new { @class = "control-label" })</td>
+                                <td>
+                                    Model.FlatType
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@Html.LabelFor(c => c.ConstructionYear, new { @class = "control-label" })</td>
+                                <td>
+                                    @Html.DisplayFor(c => c.ConstructionYear)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>energy-type ??? </td>
+                                <td>value</td>
+                            </tr>
+                            @if (Model.AgeGroup != null)
+                            {
+                                <tr>
+                                    <td>@Html.LabelFor(c => c.AgeGroup, new { @class = "control-label" })</td>
+                                    <td>
+                                        @Model.AgeGroup.GetDisplayName()
+                                    </td>
+                                </tr>
+                            }
+
+                            <tr>
+                                <td>@Html.LabelFor(c => c.ValidUntil, new { @class = "control-label" })</td>
+                                <td>
+                                    @Model.ValidUntil.GetValueOrDefault().ToShortDateString()
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-responsive table-hover">
+                            <tr>
+                                <td>@Html.LabelFor(c => c.EnergyConsumptionParameter, new { @class = "control-label" })</td>
+                                <td>
+                                    @Html.DisplayFor(c => c.EnergyConsumptionParameter) <span class="small">kwh/(m<sup>2</sup>*a)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@Html.LabelFor(c => c.IncludedHotWater, new { @class = "control-label" })</td>
+                                <td>
+                                    @Html.DisplayFor(c => c.IncludedHotWater)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@Html.LabelFor(c => c.UltimateEnergyDemand, new { @class = "control-label" })</td>
+                                <td>
+                                    @Html.DisplayFor(c => c.UltimateEnergyDemand) <span class="small">kwh/(m<sup>2</sup>*a)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@Html.LabelFor(c => c.ElectricityValue, new { @class = "control-label" })</td>
+                                <td>
+                                    @Html.DisplayFor(c => c.ElectricityValue) <span class="small">kwh/(m<sup>2</sup>*a)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@Html.LabelFor(c => c.WarmnessValue, new { @class = "control-label" })</td>
+                                <td>
+                                    @Html.DisplayFor(c => c.WarmnessValue) <span class="small">kwh/(m<sup>2</sup>*a)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@Html.LabelFor(c => c.ValueRating, new { @class = "control-label" })</td>
+                                <td>
+                                    @Html.DisplayFor(c => c.ValueRating)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

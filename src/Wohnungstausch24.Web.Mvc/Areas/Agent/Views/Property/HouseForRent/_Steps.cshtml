@@ -1,0 +1,13 @@
+﻿@using Wohnungstausch24.Resources
+@model  Wohnungstausch24.Models.ViewModels.Agent.StepsProgressModel
+<ul role="tablist" class="nav form-property__tabs">
+    <li role="presentation" class="@($"{(Model.Step == 1 ? "active" : "")}")"><a href="@($"{(Model.ListingId == 0 ? "#" : Url.Action("Step1", "Property", new {area = "Agent", id = Model.ListingId}))}")">@Resource.Property_Steps_Basic</a></li>
+    <li role="presentation" class="@($"{(Model.Step == 2 ? "active" : "")}")"><a href="@($"{(Model.ListingId == 0 ? "#" : Url.Action("Step2", "Property", new {area = "Agent", id = Model.ListingId}))}")">@Resource.Property_Steps_Location</a></li>
+    <li role="presentation" class="@($"{(Model.Step == 3 ? "active" : "")}")"><a href="@($"{(Model.ListingId == 0 ? "#" : Url.Action("Step3", "Property", new {area = "Agent", id = Model.ListingId}))}")">@Resource.Property_Steps_Date_And_Prices</a></li>
+    <li role="presentation" class="@($"{(Model.Step == 4 ? "active" : "")}")"><a href="@($"{(Model.ListingId == 0 ? "#" : Url.Action("Step4", "Property", new {area = "Agent", id = Model.ListingId}))}")">@Resource.Property_Steps_Sizes</a></li>
+    <li role="presentation" class="@($"{(Model.Step == 5 ? "active" : "")}")"><a href="@($"{(Model.ListingId == 0 ? "#" : Url.Action("Step5", "Property", new {area = "Agent", id = Model.ListingId}))}")">@Resource.Property_Steps_Media</a></li>
+    <li role="presentation" class="@($"{(Model.Step == 6 ? "active" : "")}")"><a href="@($"{(Model.ListingId == 0 ? "#" : Url.Action("Step6", "Property", new {area = "Agent", id = Model.ListingId}))}")">@Resource.Property_Add_FreeTexts</a></li>
+    <li role="presentation" class="@($"{(Model.Step == 7 ? "active" : "")}")"><a href="@($"{(Model.ListingId == 0 ? "#" : Url.Action("Step7", "Property", new {area = "Agent", id = Model.ListingId}))}")">@Resource.Property_Steps_Tenant_Criteria</a></li>
+    <li role="presentation" class="@($"{(Model.Step == 8 ? "active" : "")}")"><a href="@($"{(Model.ListingId == 0 ? "#" : Url.Action("Step8", "Property", new {area = "Agent", id = Model.ListingId}))}")">@Resource.Property_Steps_Energy</a></li>
+    <li role="presentation" class="@($"{(Model.Step == 9 ? "active" : "")}")"><a href="@($"{(Model.ListingId == 0 ? "#" : Url.Action("Step9", "Property", new {area = "Agent", id = Model.ListingId}))}")">@Resource.Property_Steps_Features</a></li>
+</ul>

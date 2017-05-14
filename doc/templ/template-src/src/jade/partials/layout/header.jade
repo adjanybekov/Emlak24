@@ -1,0 +1,99 @@
+// BEGIN HEADER
+header.header(class=headerOverlay)
+  .container
+    .header__row
+      a.header__logo(href='index.html')
+        svg
+          use(xlink:href='#icon-logo--mob')
+
+      .header__settings
+        .header__settings-column
+          .dropdown.dropdown--header
+            button.dropdown-toggle.dropdown__btn(data-toggle='dropdown', type='button')
+              svg.header__settings-icon
+                use(xlink:href='#icon-money')
+              | USD
+            .dropdown__menu
+              ul
+                li.dropdown__item
+                  a.dropdown__link(href='#') EUR
+                li.dropdown__item
+                  a.dropdown__link(href='#') RUB
+        // end of block .header__settings-column
+        .header__settings-column
+          .switch.switch--header
+            label M #[sup 2]
+              input(type="checkbox", checked)
+              span.lever
+              | Sq Ft
+        // end of block .header__settings-column
+        .header__settings-column
+          .dropdown.dropdown--header
+            button.dropdown-toggle.dropdown__btn(data-toggle='dropdown', type='button')
+              svg.header__settings-icon
+                use(xlink:href='#icon-earth')
+              | Eng
+            .dropdown__menu
+              ul
+                li.dropdown__item
+                  a.dropdown__link(href='#') Francais
+                li.dropdown__item
+                  a.dropdown__link(href='#') Italian
+                li.dropdown__item
+                  a.dropdown__link(href='#') Russian
+      .header__contacts
+        a.header__phone(href='tel:+12025550135')
+          svg.header__phone-icon
+            use(xlink:href='#icon-phone')
+          span.header__span +1 202 555 0135
+      // end of block .header__contacts
+
+      .header__social
+        .social.social--header.social--circles
+          a.social__item(href='#')
+            i.fa.fa-facebook
+          a.social__item(href='#')
+            i.fa.fa-twitter
+          a.social__item(href='#')
+            i.fa.fa-google-plus
+
+      .auth.auth--header
+        ul.auth__nav
+          if user
+            li.dropdown.auth__nav-item
+              button.dropdown-toggle.js-auth-nav-btn.auth__nav-btn(data-toggle='dropdown', type='button')
+                img.auth__avatar(src='#{path.media}/avatars/01.jpg', alt='')
+                span.auth__name  Hi Jenifer
+
+              .dropdown__menu.auth__dropdown--logged-in.js-user-logged-in
+                include ../dashboard/nav--auth
+          else
+            - var formType = 'dropdown';
+            li.dropdown.auth__nav-item
+              .dropdown__menu.auth__dropdown--restore
+                include ../chunks/auth/restore
+
+            li.dropdown.auth__nav-item
+              button.dropdown-toggle.js-auth-nav-btn.auth__nav-btn(data-toggle='dropdown', type='button')
+                svg.auth__icon-user
+                  use(xlink:href='#icon-user')
+                span.header__span  Log in /
+
+              .dropdown__menu.auth__dropdown--login
+                include ../chunks/auth/login
+
+            li.dropdown.auth__nav-item
+              button.dropdown-toggle.auth__nav-btn(data-toggle='dropdown', type='button')
+                span.header__span   Sign up
+              .dropdown__menu.auth__dropdown--register
+                include ../chunks/auth/register
+        // end of block .auth header
+
+      button.header__navbar-toggle.js-navbar-toggle(type='button')
+        svg.header__navbar-show
+          use(xlink:href='#icon-menu')
+        svg.header__navbar-hide
+          use(xlink:href='#icon-menu-close')
+      // end of block .header__navbar-toggle
+
+// END HEADER

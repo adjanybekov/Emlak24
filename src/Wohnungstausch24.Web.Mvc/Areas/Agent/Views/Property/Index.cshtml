@@ -1,0 +1,60 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingsDisplayViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">@Resource.PropertyManagement</h2><a href="@Url.Action("Add", "Property")" class="widget__btn js-widget-btn widget__btn--action">@Resource.Add_New_Property</a>
+            </div>
+            <div class="widget__content">
+                <div class="listing listing--grid">
+                    @foreach (var listingViewModel in Model.Items)
+                    {
+                        @Html.Partial("_MyListings", listingViewModel)
+                    }
+                </div>
+                @if (Model.Pager.EndPage > 1)
+                {
+                    <div class="row">
+                        <hr />
+                        <div class="col-md-6">
+                            <p class="pull-left">@string.Format(Resource.Showing_Page__0__c__1__, Model.Pager.CurrentPage, Model.Pager.TotalPages)</p>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="pagination pull-right">
+                                @if (Model.Pager.CurrentPage > 1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Index", "Property")">@Resource.First</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "Property", new {page = Model.Pager.CurrentPage - 1})">@Resource.Previous</a>
+                                    </li>
+                                }
+                                @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                                {
+                                    <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
+                                        <a href="@Url.Action("Index", "Property", new {page})">@page</a>
+                                    </li>
+                                }
+                                @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Index", "Property", new {page = Model.Pager.CurrentPage + 1})">@Resource.Next</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "Property", new {page = Model.Pager.TotalPages})">@Resource.Last</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

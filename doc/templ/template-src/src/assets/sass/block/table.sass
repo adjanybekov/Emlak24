@@ -1,0 +1,32 @@
++b(table)
+  border: 1px solid $input-border
+  > thead
+    background: $backgroundColor
+    > tr
+      background: $backgroundColor
+      &:nth-child(2n-1)
+        background: #fafafa
+      > th,
+      > td
+        border: 1px solid $input-border
+        padding: 20px 30px
+        @media (max-width: $screen-xs-max)
+          padding: 5px
+      > th
+        font-size: 13px
+        text-transform: uppercase
+        border-bottom-width: 1px !important
+
+  > tbody
+    > tr
+      > td
+        font-size: 15px
+        border: 1px solid $input-border
+        padding: 20px 30px
+        @media (max-width: $screen-xs-max)
+          padding: 5px
+  +m(stripped)
+    > tbody
+      > tr
+        &:nth-child(2n-1)
+          background: #e3f2fd

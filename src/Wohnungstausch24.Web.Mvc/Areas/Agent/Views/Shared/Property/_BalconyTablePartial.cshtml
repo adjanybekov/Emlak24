@@ -1,0 +1,49 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Core.Extensions
+@using Wohnungstausch24.Resources
+@model List<Wohnungstausch24.Models.ViewModels.Agent.BalconyViewModel>
+
+<div class="col-md-12" id ="balcony-area-data-div">
+    <div class="form-group form-group--col-12">
+        <table class="table table-responsive table-stripped">
+            <thead>
+                <tr>
+                    <th colspan="7">
+                        <div class="row">
+                            <div class="col-md-8">
+                                @Resource.Add_Property_Balconies
+                            </div>
+                            <div class="col-md-4">
+                                <a class="btn btn-xs btn-primary pull-right" href="#" data-toggle="modal" data-target="#addBalconyModal">@Resource.General_Table_Add_new<i class="fa fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tr>
+                <th>#</th>
+                <th>@Resource.Direction</th>
+                <th>@Resource.BalconyType</th>
+                <th>@Resource.SightType</th>
+                <th>@Resource.Level</th>
+                <th>@Resource.Size</th>
+                <th>@Resource.Options</th>
+            </tr>
+            @for (var i = 1; i <= Model.Count(); i++)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@Model[i - 1].Direction.GetDisplayName()</td>
+                    <td>@Model[i - 1].BalconyType.GetDisplayName()</td>
+                    <td>@Model[i - 1].SightType.GetDisplayName()</td>
+                    <td>@Html.DisplayFor(m => Model[i - 1].Level, new { @class = "" })</td>
+                    <td>@Html.DisplayFor(m => Model[i - 1].Size, new { @class = "" })</td>
+                    <td>
+                        <a href="@Url.Action("DeleteBalcony","Property",new {id = Model[i - 1].Id})" class="btn btn--action wt24-balcony-confirmation"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<div class="loading"></div>

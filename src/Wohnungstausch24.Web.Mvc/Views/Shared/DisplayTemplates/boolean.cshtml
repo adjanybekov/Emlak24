@@ -1,0 +1,17 @@
+﻿@using Wohnungstausch24.Resources
+@model bool?
+@if (Model.HasValue)
+{
+    if (Model.Value)
+    {
+        <span class="label label-success"><i class="fa fa-check"></i> @Resource.Yes</span>
+    }
+    else
+    {
+        <span class="label label-danger"><i class="fa fa-close"></i> @Resource.No</span>
+    }
+}
+else
+{
+    <span class="label label-info"><i class="fa fa-question-circle"></i> @Resource.Enum_SightType_Not_Defined</span>
+}

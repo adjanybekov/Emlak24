@@ -1,0 +1,64 @@
+.banner.js-banner-slider(class=bannerType)
+  // BEGIN SLIDER
+  .slider.slider--dots
+    .slider__block.js-slick-slider
+      .slider__item
+        .slider__preview
+          .slider__img
+            img(data-lazy='#{path.media}/banner/banner-1.jpg', src='#{path.img}/lazy-image.jpg' alt='')
+          .slider__container
+            .container
+              .row
+                .slider__caption
+                  h1.banner__title The Best Way to Find Your Perfect Home
+                  h3.banner__subtitle With over 700,000 active listings, Realtyspace has the largest inventory of apartments in the United States.
+
+      .slider__item
+        .slider__preview
+          .slider__img
+            img(data-lazy='#{path.media}/banner/banner-2.jpg', src='#{path.img}/lazy-image.jpg' alt='')
+          .slider__container
+            .container
+              .row
+                .slider__caption
+                  h1.banner__title.banner__title--2 Over than #[span 500 000] Happy Customers
+                  h4.banner__subtitle.banner__subtitle--2 After settling on a search location, you can narrow down your results by specifying preferences such as number of bedrooms and bathrooms, square footage, monthly rent, and whatever else you want to specify in the filter.
+
+      .slider__item
+        .slider__preview
+          .slider__img
+            img(data-lazy='#{path.media}/banner/banner-3.jpg', src='#{path.img}/lazy-image.jpg' alt='')
+          .slider__container
+            .container
+              .row
+                .slider__caption
+                  h1.banner__title.banner__title--3 Find the #[strong latest homes for sale, ] property news & real estate market data
+                  h4.banner__subtitle.banner__subtitle--2 RealtySpace.com is USA’s Number 1 property site for real estate.
+      .slider__item
+        .slider__preview
+          .slider__img
+            img(data-lazy='#{path.media}/banner/banner-4.jpg', src='#{path.img}/lazy-image.jpg' alt='')
+          .slider__container
+            .container
+              .row
+                .slider__caption
+                  h1.banner__title.banner__title--4
+                    span.banner__title-span-1 Find your
+                    span.banner__title-border-bottom
+                    span.banner__title-span-2 perfect home
+                    span.banner__title-border-top
+                    span.banner__title-span-3 We have 570,302 for you to choose from
+                  .clearfix
+                  h4.banner__subtitle.banner__subtitle--4 The Right Place To Buy, Sell, Rent or Let Property In All Of The World. Selling Property In USA Just Got Easier And Cheaper Thanks To RealtySpace.com. List a Property, Land Or Real Estate In Any Country.
+
+    // end of block .slider__block
+  // END SLIDER
+  .banner__container
+    .container
+      .row
+        .banner__sidebar
+          h4.banner__sidebar-title The Best Way to Find Your Perfect Home
+          - var searchType = 'banner-sidebar';
+          - var searchRangeSlider = true;
+          include form--search
+        // end of block .banner__search

@@ -1,0 +1,456 @@
+﻿@using Wohnungstausch24.Core
+@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step9.Step9ViewModel
+@{
+    ViewBag.Title = "Step9";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+    var addBathRoomAjax = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "bathroom-area-data-div",
+        OnSuccess = "BathroomLoaded"
+    };
+}
+
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">Add new property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    @Html.Partial("FlatForSale/_Steps", Model.StepsProgressModel)
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("Step9", "Property", FormMethod.Post, new { @class = "form form--flex form--property-add js-form js-form-property" }))
+                        {
+                            @Html.HiddenFor(m => m.Id)
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <div class="form-group--col-12">
+                                <div class="row">
+                                    <div class="col-md-4 col-xs-6">
+                                        @Html.LabelFor(m => m.Step9FlatForSale.FeatureCategory, new { @class = "control-label" })
+                                        @Html.EnumDropDownListFor(m => m.Step9FlatForSale.FeatureCategory, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+                                        @Html.ValidationMessageFor(m => m.Step9FlatForSale.FeatureCategory, null, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-4 col-xs-6">
+                                        @Html.LabelFor(m => m.Step9FlatForSale.ConditionArtType, new { @class = "control-label" })
+                                        @Html.EnumDropDownListFor(m => m.Step9FlatForSale.ConditionArtType, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+                                        @Html.ValidationMessageFor(m => m.Step9FlatForSale.ConditionArtType, null, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group form-group--col-4">
+                                        @Html.LabelFor(m => m.Step9FlatForSale.LastRenovationDate, new { @class = "control-label" })
+                                        @Html.EditorFor(m => m.Step9FlatForSale.LastRenovationDate)
+                                        @Html.ValidationMessageFor(m => m.Step9FlatForSale.LastRenovationDate, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <div class="form-group form-group--col-12 form-group--inline">
+                                            <div class="col-md-8">
+                                                @Html.LabelFor(m => m.Step9FlatForSale.DesignType, new { @class = "control-label" })
+                                                <ul class="form__check">
+                                                    <li>
+                                                        @Html.RadioButtonFor(m => m.Step9FlatForSale.DesignType, DesignType.Massive, new { @class = "in-radio", id = "in-radio-undergroundtype-type-1", required = "" })
+                                                        @Html.Label(DesignType.Massive.GetDisplayName(), new { @for = "in-radio-undergroundtype-type-1", @class = "in-label" })
+                                                    </li>
+                                                    <li>
+                                                        @Html.RadioButtonFor(m => m.Step9FlatForSale.DesignType, DesignType.Precast, new { @class = "in-radio", id = "in-radio-undergroundtype-type-2", required = "" })
+                                                        @Html.Label(DesignType.Precast.GetDisplayName(), new { @for = "in-radio-undergroundtype-type-2", @class = "in-label" })
+                                                    </li>
+                                                    <li>
+                                                        @Html.RadioButtonFor(m => m.Step9FlatForSale.DesignType, DesignType.ElementsOfWood, new { @class = "in-radio", id = "in-radio-undergroundtype-type-3", required = "" })
+                                                        @Html.Label(DesignType.ElementsOfWood.GetDisplayName(), new { @for = "in-radio-undergroundtype-type-3", @class = "in-label" })
+                                                    </li>
+                                                    <li>
+                                                        @Html.RadioButtonFor(m => m.Step9FlatForSale.DesignType, DesignType.None, new { @class = "in-radio", id = "in-radio-undergroundtype-type-4", required = "" })
+                                                        @Html.Label(DesignType.None.GetDisplayName(), new { @for = "in-radio-undergroundtype-type-4", @class = "in-label" })
+                                                    </li>
+                                                </ul>
+                                                @Html.ValidationMessageFor(m => m.Step9FlatForSale.DesignType, null, new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.LabelFor(m => m.Step9FlatForSale.FlatNumber, new { @class = "control-label" })
+                                                @Html.TextBoxFor(m => m.Step9FlatForSale.FlatNumber, new {  @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Step9FlatForSale.FlatNumber, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                    </div>                                    
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="col-md-12" id="kitchen-area-data-div">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">@Resource.Kitchen_Type</div>
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                @Html.CheckBoxFor(m => m.Step9FlatForSale.IsKitchenFitted, new { @class = "in-checkbox" })
+                                                                @Html.LabelFor(m => m.Step9FlatForSale.IsKitchenFitted, new { @class = "in-label" })
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                @Html.CheckBoxFor(m => m.Step9FlatForSale.IsKitchenOpen, new { @class = "in-checkbox" })
+                                                                @Html.LabelFor(m => m.Step9FlatForSale.IsKitchenOpen, new { @class = "in-label" })
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                @Html.CheckBoxFor(m => m.Step9FlatForSale.IsKitchenPantry, new { @class = "in-checkbox" })
+                                                                @Html.LabelFor(m => m.Step9FlatForSale.IsKitchenPantry, new { @class = "in-label" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="col-md-12" id="kitchen-area-data-div">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">Floor Type</div>
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            @for (var i = 0; i < Model.Step9FlatForSale.FloorTypes.Count; i++)
+                                                            {
+                                                                <div class="col-md-4">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.FloorTypes[i].Selected, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.FloorTypes[i].Selected, Model.Step9FlatForSale.FloorTypes[i].FloorType.GetDisplayName(), new { @class = "in-label" })
+                                                                    @Html.HiddenFor(m => m.Step9FlatForSale.FloorTypes[i].FloorType)
+                                                                    @Html.HiddenFor(m => m.Step9FlatForSale.FloorTypes[i].Id)
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" id="viewBathroom">
+                                    @{ Html.RenderAction("GetBathrooms", "Property", new { id = Model.Id });}
+                                </div>
+                            </div>
+                            <div class="collapse-group">
+                                <h2>Additional Informations</h2>
+                                <div class="collapse" id="viewdetails">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="col-md-12" id="kitchen-area-data-div">
+                                                <div class="form-group form-group--col-12">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">Label 1</div>
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasWinterGarden, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasWinterGarden, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasWinterGarden, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasStorageRoom, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasStorageRoom, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasStorageRoom, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasBicycleRoom, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasBicycleRoom, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasBicycleRoom, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasWashDryingRoom, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasWashDryingRoom, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasWashDryingRoom, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasElevator, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasElevator, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasElevator, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasChimney, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasChimney, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasChimney, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasRollerBlind, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasRollerBlind, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasRollerBlind, null, new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="col-md-12" id="kitchen-area-data-div">
+                                                <div class="form-group form-group--col-12">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">Label 2</div>
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasCableSatTv, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasCableSatTv, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasCableSatTv, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasGermanTvByAntenna, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasGermanTvByAntenna, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasGermanTvByAntenna, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasInternet, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasInternet, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasInternet, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasCableDucts, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasCableDucts, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasCableDucts, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.IsSeniorFocused, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.IsSeniorFocused, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.IsSeniorFocused, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.IsWheelchairAccessible, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.IsWheelchairAccessible, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.IsWheelchairAccessible, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.IsBarrierFree, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.IsBarrierFree, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.IsBarrierFree, null, new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="col-md-12" id="kitchen-area-data-div">
+                                                <div class="form-group form-group--col-12">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">Label 3</div>
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasLibrary, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasLibrary, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasLibrary, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasAttic, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasAttic, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasAttic, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasAirCondition, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasAirCondition, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasAirCondition, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasSauna, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasSauna, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasSauna, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9FlatForSale.HasSwimmingPool, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9FlatForSale.HasSwimmingPool, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasSwimmingPool, null, new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3" id="kitchen-area-data-div">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">Label 4</div>
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                @Html.CheckBoxFor(m => m.Step9FlatForSale.HasAlarmSystem, new { @class = "in-checkbox" })
+                                                                @Html.LabelFor(m => m.Step9FlatForSale.HasAlarmSystem, new { @class = "in-label" })
+                                                                @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasAlarmSystem, null, new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                @Html.CheckBoxFor(m => m.Step9FlatForSale.HasCamera, new { @class = "in-checkbox" })
+                                                                @Html.LabelFor(m => m.Step9FlatForSale.HasCamera, new { @class = "in-label" })
+                                                                @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasCamera, null, new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                @Html.CheckBoxFor(m => m.Step9FlatForSale.HasPoliceCall, new { @class = "in-checkbox" })
+                                                                @Html.LabelFor(m => m.Step9FlatForSale.HasPoliceCall, new { @class = "in-label" })
+                                                                @Html.ValidationMessageFor(m => m.Step9FlatForSale.HasPoliceCall, null, new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+
+                                            @Html.LabelFor(m => m.Step9FlatForSale.IsConstructionYearProjected, new { @class = "control-label" })
+                                            @Html.CheckBoxFor(m => m.Step9FlatForSale.IsConstructionYearProjected, new { @class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                                            @Html.ValidationMessageFor(m => m.Step9FlatForSale.IsConstructionYearProjected, null, new { @class = "text-danger" })
+
+                                            @Html.LabelFor(m => m.Step9FlatForSale.IsApartmentTower, new { @class = "control-label" })
+                                            @Html.CheckBoxFor(m => m.Step9FlatForSale.IsApartmentTower, new { @class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                                            @Html.ValidationMessageFor(m => m.Step9FlatForSale.IsApartmentTower, null, new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group form-group--col-12">
+                                                @Html.LabelFor(m => m.Step9FlatForSale.ConstructionYear, new { @class = "control-label" })
+                                                @Html.DropDownListFor(m => m.Step9FlatForSale.ConstructionYear, Model.Step9FlatForSale.ConstructionYearList, "- Please choose -", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Step9FlatForSale.ConstructionYear, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    <a class="btn btn-default" data-toggle="collapse" data-target="#viewdetails" id="show-more-button"><i></i>@Resource.View_More »</a>
+                                </p>
+                            </div>
+                            <div class="row">
+                                <a class="form__submit" href="@Url.Action("Step8", new {id=Model.Id})"><i class="fa fa-angle-left"></i> Back</a>
+                                <button type="submit" class="form__submit">Save & Publish <i class="fa fa-check"></i></button>
+                            </div>
+                                        }
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addBathroomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Add New Bathroom Object</h4>
+            </div>
+            @using (Ajax.BeginForm("AddBathroom", "Property", null, addBathRoomAjax, new { @class = "form form--flex" }))
+            {
+                @Html.HiddenFor(m => m.Id)
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Step9FlatForSale.AddBathroomViewModel.Size, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.Step9FlatForSale.AddBathroomViewModel.Size, new {  @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Step9FlatForSale.AddBathroomViewModel.Size, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasUrinal, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CheckBoxFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasUrinal, new { @class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasUrinal, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasWindow, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CheckBoxFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasWindow, new { @class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasWindow, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasTub, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CheckBoxFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasTub, new { @class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasTub, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasBidet, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CheckBoxFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasBidet, new { @class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasBidet, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasShower, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CheckBoxFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasShower, new { @class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Step9FlatForSale.AddBathroomViewModel.HasShower, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">OK</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script>
+        var BathroomLoaded = function() {
+            $('#viewBathroom').collapse();
+            $('#addBathroomModal').modal('toggle');
+        }
+        $('#viewdetails').on('shown.bs.collapse',
+            function() {
+                $("#show-more-button").text("Hide more options »");
+            });
+        $('#viewdetails').on('hidden.bs.collapse',
+            function() {
+                $("#show-more-button").text("Show more options »");
+            });
+
+    </script>
+
+    <script type="text/javascript">
+        SweetAjax("#bathroom-area-data-div", ".wt24-bathroom-confirmation");
+    </script>
+}

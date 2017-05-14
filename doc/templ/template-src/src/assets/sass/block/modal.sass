@@ -1,0 +1,44 @@
++b(modal)
+  .modal-content
+    border: none
+    @media (min-width: $screen-sm-min)
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1)
+  .modal-header
+    border-bottom: none
+  .modal-footer
+    border-top: none
+    text-align: left
+  +m(photos-upload)
+    position: absolute
+    top: -10px
+    left: 0
+    right: 0
+    padding: 15px!important
+    margin: -15px
+    .modal-dialog
+      width: 100%
+      margin: 0
+    .modal-body
+      max-height: 400px
+      overflow-y: auto
+  +m(plan)
+    position: absolute
+    top: 40px
+    left: 0
+    right: 0
+    padding: 0 15px!important
+    margin: -15px
+    overflow: visible!important
+    .modal-dialog
+      width: 100%
+      margin: 0
+    .modal-body
+      max-height: 900px
+      overflow-y: auto
+      padding: 0 40px
+      @media (max-width: $screen-xs-max)
+        padding: 0 15px
+
+
+.modal-backdrop.in
+  //display: none

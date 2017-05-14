@@ -1,0 +1,147 @@
+extends partials/layout/_base
+block config
+  - var page = 'my_listings';
+  - var user = true;
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') My listing spaces
+  // END BREADCRUMBS
+block center
+  .row
+    .site.site--main
+      header.site__header
+        h1.site__title My listing spaces
+        h2.site__headline My property list contains 12 items
+      .site__panel
+        include partials/chunks/listing/sort
+
+        .listing__add
+          a.btn--action(href='my_listings_add_edit.html') Add new listing
+
+      .site__main
+        +widget(null, null, 'main')
+          .listing.listing--grid
+            .listing__item
+              .properties.properties--grid
+                .properties__header
+                  span.properties__state.properties__state--hidden Hidden
+                  .properties__right
+                    button.properties__link Edit
+                    button.properties__link Delete
+                .properties__thumb
+                  a.item-photo.item-photo--static(href='property_details.html')
+                    img(src='#{path.media}/properties/277x180/02.jpg', alt='')
+                    figure.item-photo__hover
+                      span.item-photo__more View Details
+                .properties__info
+                  a.properties__address.properties__address--simple(href='property_details.html')
+                    span.properties__address-street 850 Pennsylvania
+                    span.properties__address-city Philadelphia, Cherry Hill, DC20500
+                  button.properties__pay Pay with PayPal
+            .listing__item
+              .properties.properties--grid
+                .properties__header
+                  span.properties__state.properties__state--highlight Paid
+                  .properties__right
+                    button.properties__link Edit
+                    button.properties__link Delete
+
+                .properties__thumb
+                  a.item-photo.item-photo--static(href='property_details.html')
+                    img(src='#{path.media}/properties/277x180/02.jpg', alt='')
+                    figure.item-photo__hover
+                      span.item-photo__more View Details
+                .properties__info
+                  a.properties__address.properties__address--simple(href='property_details.html')
+                    span.properties__address-street 850 Pennsylvania
+                    span.properties__address-city Philadelphia, Cherry Hill, DC20500
+                  button.properties__pay.disabled Pay with PayPal
+            .listing__item
+              .properties.properties--grid
+                .properties__header
+                  span.properties__state.properties__state--default Published
+                  .properties__right
+                    button.properties__link Edit
+                    button.properties__link Delete
+                .properties__thumb
+                  a.item-photo.item-photo--static(href='property_details.html')
+                    img(src='#{path.media}/properties/277x180/02.jpg', alt='')
+                    figure.item-photo__hover
+                      span.item-photo__more View Details
+                .properties__info
+                  a.properties__address.properties__address--simple(href='property_details.html')
+                    span.properties__address-street 850 Pennsylvania
+                    span.properties__address-city Philadelphia, Cherry Hill, DC20500
+                  button.properties__pay.disabled Pay with PayPal
+            .listing__item
+              .properties.properties--grid
+                .properties__header
+                  span.properties__state.properties__state--hightlight Paid
+                  .properties__right
+                    button.properties__link Edit
+                    button.properties__link Delete
+                .properties__thumb
+                  a.item-photo.item-photo--static(href='property_details.html')
+                    img(src='#{path.media}/properties/277x180/02.jpg', alt='')
+                    figure.item-photo__hover
+                      span.item-photo__more View Details
+                .properties__info
+                  a.properties__address.properties__address--simple(href='property_details.html')
+                    span.properties__address-street 850 Pennsylvania
+                    span.properties__address-city Philadelphia, Cherry Hill, DC20500
+                  button.properties__pay.disabled Pay with PayPal
+
+            .listing__item
+              .properties.properties--grid
+                .properties__header
+                  span.properties__state.properties__state--pending Pending
+                  .properties__right
+                    button.properties__link Edit
+                    button.properties__link Delete
+                .properties__thumb
+                  a.item-photo.item-photo--static(href='property_details.html')
+                    img(src='#{path.media}/properties/277x180/02.jpg', alt='')
+                    figure.item-photo__hover
+                      span.item-photo__more View Details
+                .properties__info
+                  a.properties__address.properties__address--simple(href='property_details.html')
+                    span.properties__address-street 1230 Martin Luther King
+                    span.properties__address-city Philadelphia, Cherry Hill, DC20500
+                  button.properties__pay Pay with PayPal
+            .listing__item
+              .properties.properties--grid
+                .properties__header
+                  span.properties__state.properties__state--hidden Hidden
+                  .properties__right
+                    button.properties__link Edit
+                    button.properties__link Delete
+                .properties__thumb
+                  a.item-photo.item-photo--static(href='property_details.html')
+                    img(src='#{path.media}/properties/277x180/02.jpg', alt='')
+                    figure.item-photo__hover
+                      span.item-photo__more View Details
+                .properties__info
+                  a.properties__address.properties__address--simple(href='property_details.html')
+                    span.properties__address-street 850 Pennsylvania
+                    span.properties__address-city Philadelphia, Cherry Hill, DC20500
+                  button.properties__pay Pay with PayPal
+    .sidebar
+      +widget(null, null, 'sidebar widget--first-no-head', 'Show profile', null, 'toggle')
+        - var userType = 'sidebar-advanced';
+        include partials/chunks/sidebar/worker_profile
+      +widget('Our agents', 'Find your apartment or house on the exact key parameters.', 'sidebar widget--dark', 'Show worker', null, 'toggle')
+        .listing.listing--sidebar
+          - var i = -1;
+          while i++ < 2
+            .listing__item
+              +worker(i, 'sidebar')
+
+    .clearfix
+

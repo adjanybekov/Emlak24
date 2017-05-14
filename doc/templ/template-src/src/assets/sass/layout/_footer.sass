@@ -1,0 +1,51 @@
+/*------------------------------------------------------------------
+  * Footer
+  + Footer / .footer
+    __ Footer wrap / .footer__wrap
+    __ Footer col / .footer__col
+    __ Footer title / .footer__title
+    __ Footer copyright / .footer__copyright
+  ==============================================================*/
++b(footer)
+  background: #222
+  +e(wrap)
+    +make-row
+    padding-top: 25px
+    @media (max-width: $screen-xs-max)
+      padding-top: 0
+
+  +e(col)
+    +make-sm-column(4)
+    .container
+      margin: 0
+      padding: 0
+      width: 100%
+    > :first-child
+      margin-top: 0 !important
+    +m(first)
+      +make-lg-column(5)
+
+    +m(second)
+      +make-lg-column(4)
+
+    +m(third)
+      +make-lg-column(3)
+
+  +e(title)
+    +footer-title
+
+  +e(nav)
+
+  span,
+  p,
+  a
+    color: $footerColor
+    font-weight: normal
+    margin-bottom: 15px
+  +e(copyright)
+    margin-top: 45px
+    margin-bottom: 45px !important
+    display: block
+    padding: 0 15px
+    @media (max-width: $screen-xs-max)
+      margin-top: 25px

@@ -1,0 +1,33 @@
+mixin mapLocation(type)
+  .map.map--location(class=(type ? 'map--' + type.replace(/\s/g, ' map--') : '') + ' js-map-location-' + type.replace(/\s/g, '-'))
+    .map__header
+      case type
+        when 'dashboard'
+          h5.map__title The map boundary is viewable by public.
+        when 'hidden'
+          h5.map__title Real map boundary for own reference only, not viewable by public.
+      button.btn--link.js-remove-overlays(type='button') Delete selected shape
+
+
+    .map__block
+      .row.map__autocomplete
+        .form-group.form-group--autocomplete
+          label.control-label(for='autocomplete-' + type) GPS Mapping
+          input.form-control.js-autocomplete(type='text', placeholder='', required, id='autocomplete-' + type)
+
+        button(type='button').map__geolocation.js-geolocate
+          svg
+            use(xlink:href='#icon-geolocation')
+
+      .map__buttons
+        button.map__change-map.js-map-btn(type='button') Address Map
+      .map__wrap
+        .map__view.map__view--property-form.js-map(data-infobox-theme='white')
+    .row
+      .form-group.form-group--coords
+        label.control-label(for='location-lat-' + type) Lat
+        input.form-control.js-location-coords(type='text', placeholder='', id='location-lat-' + type)
+
+      .form-group.form-group--coords
+        label.control-label(for='location-lng-' + type) Lng
+        input.form-control.js-location-coords(type='text', placeholder='', id='location-lng-' + type)

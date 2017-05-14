@@ -1,0 +1,59 @@
+//common styles for listing preoprties and agents
+/*------------------------------------------------------------------
+  * Listing
+  + Listing / .listing
+    __ Listing header / .listing__header
+    __ Listing title / .listing__title
+    __ Listing headline / .listing__headline
+    __ Listing panel / .listing__panel
+  ==============================================================*/
++b(listing)
+  +m(list)
+    +e(item)
+      border-bottom: 1px solid $input-border
+      margin-bottom: 0
+      padding-bottom: 40px
+      padding-top: 40px
+      @media (max-width: $screen-xs-max)
+        padding-bottom: 30px
+        padding-top: 30px
+    +e(title)
+      font-size: 20px
+      font-weight: 600
+    +e(category)
+      font-size: 13px
+      color: $highlightColor
+      text-transform: uppercase
+      display: block
+      margin-top: 30px
+      &:before
+        +font-awesome(1em, '\f07b')
+        margin-right: 10px
+
+    +e(body)
+      +clearfix
+
+    +e(list)
+      +ul
+      +clearfix
+      margin-top: 30px
+    +e(param)
+      width: 50%
+      float: left
+      margin: 5px 0
+      @media (max-width: $screen-xs-max)
+        width: 100%
+        strong
+          display: block
+    +e(view)
+      +button-action
+      margin-left: 0
+      margin-top: 30px
+    +e(delete)
+      +button-default
+      margin-top: 30px
+      width: auto
+      margin-left: 15px
+
+.listing--list:not(.listing--article) .listing__item:first-of-type
+  padding-top: 0

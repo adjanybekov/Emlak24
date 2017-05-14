@@ -1,0 +1,22 @@
+mixin articleProfile(limit)
+  +widget('Last from the Blog', null, 'main')
+    // BEGIN SECTION ARTICLE
+    section.listing.listing--grid
+      - var i = -1;
+      while ++i < limit
+        .listing__item
+          article.article.article--grid
+            a(href='blog_details.html').article__photo
+              img.article__photo-img(src='#{path.media}/news/#{locals.data.articles[i].preview}', alt='News title')
+              time.article__time(datetime='2009-08-29')
+                | #{locals.data.articles[i].date.month}
+                strong #{locals.data.articles[i].date.day}
+            .article__details
+              a.article__item-title(href='blog_details.html') #{locals.data.articles[i].title}
+              .article__intro
+                p #{locals.data.articles[i].description}
+              a.article__more(href='blog_details.html') Read more
+          // end of block .article
+    // END SECTION ARTICLE
+    .widget__footer
+      a.widget__more(href='') More articles

@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49863FC9-CD96-4F12-BBAD-C129551EA877}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wohnungstausch24.Migrations</RootNamespace>
+    <AssemblyName>Wohnungstausch24.Migrations</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\..\lib\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Configurations\AgentConfiguration.cs" />
+    <Compile Include="Configurations\Base\AuditableEntityTypeConfiguration.cs" />
+    <Compile Include="Configurations\Base\CustomEntityTypeConfiguration.cs" />
+    <Compile Include="Configurations\AgencyConfiguration.cs" />
+    <Compile Include="Configurations\Listings\BalconyConfiguration.cs" />
+    <Compile Include="Configurations\Listings\BathroomConfiguration.cs" />
+    <Compile Include="Configurations\Listings\BeaconingConfiguration.cs" />
+    <Compile Include="Configurations\Listings\DistanceConfiguration.cs" />
+    <Compile Include="Configurations\Listings\FlatConfiguration.cs" />
+    <Compile Include="Configurations\Listings\FlatForRentConfiguration.cs" />
+    <Compile Include="Configurations\Listings\FlatForSaleConfiguration.cs" />
+    <Compile Include="Configurations\Listings\HouseConfiguration.cs" />
+    <Compile Include="Configurations\Listings\HouseForRentConfiguration.cs" />
+    <Compile Include="Configurations\Listings\HouseForSaleConfiguration.cs" />
+    <Compile Include="Configurations\Listings\LandConfiguration.cs" />
+    <Compile Include="Configurations\Listings\LandForSaleConfiguration.cs" />
+    <Compile Include="Configurations\Listings\ListingConfiguration.cs" />
+    <Compile Include="Configurations\Listings\ListingFileConfiguration.cs" />
+    <Compile Include="Configurations\Listings\MixedLandConfiguration.cs" />
+    <Compile Include="Configurations\Listings\ParkingSpaceConfiguration.cs" />
+    <Compile Include="Configurations\Listings\SightConfiguration.cs" />
+    <Compile Include="Configurations\Listings\RoomForRentConfiguration.cs" />
+    <Compile Include="Configurations\Locations\CountryConfiguration.cs" />
+    <Compile Include="Configurations\Locations\LocationLevel1Configuration.cs" />
+    <Compile Include="Configurations\Locations\LocationLevel2Configuration.cs" />
+    <Compile Include="Configurations\Locations\LocationLevel3Configuration.cs" />
+    <Compile Include="Configurations\Listings\ResidenceConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\PersonConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SearchProfileClientConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SearchProfileClientDocConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SearchProfileFlatConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SearchProfileFlatForRentConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SearchProfileFlatForSaleConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SearchProfileHouseConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SearchProfileHouseForRentConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SearchProfileHouseForSaleConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SearchProfileLandConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SearchProfileLandForSaleConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SearchProfileListingConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SearchProfileResidenceConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SpBeaconingConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SpEnergyConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SpFeatureCategoryConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SpFlatTypeConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SpFloorConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SpGeoDirectionConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SpHeatingConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SpHouseTypeConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SpParkSpaceConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SpRollerBlindConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SpLocationConfiguration.cs" />
+    <Compile Include="Configurations\SearchProfiles\SpSightConfiguration.cs" />
+    <Compile Include="Configurations\UserFileConfiguration.cs" />
+    <Compile Include="Configurations\Wt24FileConfiguration.cs" />
+    <Compile Include="Migrations\201702202225035_InitDb.cs" />
+    <Compile Include="Migrations\201702202225035_InitDb.Designer.cs">
+      <DependentUpon>201702202225035_InitDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702202228272_LocationTablesDataAdded.cs" />
+    <Compile Include="Migrations\201702202228272_LocationTablesDataAdded.Designer.cs">
+      <DependentUpon>201702202228272_LocationTablesDataAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702212145445_ContactFieldsAdded.cs" />
+    <Compile Include="Migrations\201702212145445_ContactFieldsAdded.Designer.cs">
+      <DependentUpon>201702212145445_ContactFieldsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702281051339_ApprovalOfAddressAdeedToUser.cs" />
+    <Compile Include="Migrations\201702281051339_ApprovalOfAddressAdeedToUser.Designer.cs">
+      <DependentUpon>201702281051339_ApprovalOfAddressAdeedToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702281532457_energyTypeAdded.cs" />
+    <Compile Include="Migrations\201702281532457_energyTypeAdded.Designer.cs">
+      <DependentUpon>201702281532457_energyTypeAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702281843331_newRegistrationFieldsAdded.cs" />
+    <Compile Include="Migrations\201702281843331_newRegistrationFieldsAdded.Designer.cs">
+      <DependentUpon>201702281843331_newRegistrationFieldsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703051750342_RefactoringSomeFields.cs" />
+    <Compile Include="Migrations\201703051750342_RefactoringSomeFields.Designer.cs">
+      <DependentUpon>201703051750342_RefactoringSomeFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703081453556_Step7Fixes.cs" />
+    <Compile Include="Migrations\201703081453556_Step7Fixes.Designer.cs">
+      <DependentUpon>201703081453556_Step7Fixes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703101437409_BalconyTerraceAreaDeleted.cs" />
+    <Compile Include="Migrations\201703101437409_BalconyTerraceAreaDeleted.Designer.cs">
+      <DependentUpon>201703101437409_BalconyTerraceAreaDeleted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703130959030_UserFamilyMembersAdded.cs" />
+    <Compile Include="Migrations\201703130959030_UserFamilyMembersAdded.Designer.cs">
+      <DependentUpon>201703130959030_UserFamilyMembersAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703150141159_SearchProfilesAdded.cs" />
+    <Compile Include="Migrations\201703150141159_SearchProfilesAdded.Designer.cs">
+      <DependentUpon>201703150141159_SearchProfilesAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703151709101_FixDecimalNullable.cs" />
+    <Compile Include="Migrations\201703151709101_FixDecimalNullable.Designer.cs">
+      <DependentUpon>201703151709101_FixDecimalNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703151914380_RentalPricePerSqmDeleted.cs" />
+    <Compile Include="Migrations\201703151914380_RentalPricePerSqmDeleted.Designer.cs">
+      <DependentUpon>201703151914380_RentalPricePerSqmDeleted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703161607518_TenantFieldsAddedToAppUser.cs" />
+    <Compile Include="Migrations\201703161607518_TenantFieldsAddedToAppUser.Designer.cs">
+      <DependentUpon>201703161607518_TenantFieldsAddedToAppUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703180237242_ClientsAddedToSearchProfile.cs" />
+    <Compile Include="Migrations\201703180237242_ClientsAddedToSearchProfile.Designer.cs">
+      <DependentUpon>201703180237242_ClientsAddedToSearchProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703180252220_PersonSchemaChanged.cs" />
+    <Compile Include="Migrations\201703180252220_PersonSchemaChanged.Designer.cs">
+      <DependentUpon>201703180252220_PersonSchemaChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703191614393_SpLOcationAdded.cs" />
+    <Compile Include="Migrations\201703191614393_SpLOcationAdded.Designer.cs">
+      <DependentUpon>201703191614393_SpLOcationAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703192258457_RentalPriceDeleted.cs" />
+    <Compile Include="Migrations\201703192258457_RentalPriceDeleted.Designer.cs">
+      <DependentUpon>201703192258457_RentalPriceDeleted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291416183_ChangeClientName.cs" />
+    <Compile Include="Migrations\201703291416183_ChangeClientName.Designer.cs">
+      <DependentUpon>201703291416183_ChangeClientName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704021655573_SaveChangesMethodChanged.cs" />
+    <Compile Include="Migrations\201704021655573_SaveChangesMethodChanged.Designer.cs">
+      <DependentUpon>201704021655573_SaveChangesMethodChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704030107401_AvatarRemovedFromAgent.cs" />
+    <Compile Include="Migrations\201704030107401_AvatarRemovedFromAgent.Designer.cs">
+      <DependentUpon>201704030107401_AvatarRemovedFromAgent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704051507209_AgencyOptionalFields.cs" />
+    <Compile Include="Migrations\201704051507209_AgencyOptionalFields.Designer.cs">
+      <DependentUpon>201704051507209_AgencyOptionalFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704070939446_hasGrannyadded.cs" />
+    <Compile Include="Migrations\201704070939446_hasGrannyadded.Designer.cs">
+      <DependentUpon>201704070939446_hasGrannyadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704081349505_SmokingAndPetsRemovedFromClient.cs" />
+    <Compile Include="Migrations\201704081349505_SmokingAndPetsRemovedFromClient.Designer.cs">
+      <DependentUpon>201704081349505_SmokingAndPetsRemovedFromClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704081443180_CompanyNameRemovedFromAppUser.cs" />
+    <Compile Include="Migrations\201704081443180_CompanyNameRemovedFromAppUser.Designer.cs">
+      <DependentUpon>201704081443180_CompanyNameRemovedFromAppUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704090032032_WantEnergyCertificateAdded.cs" />
+    <Compile Include="Migrations\201704090032032_WantEnergyCertificateAdded.Designer.cs">
+      <DependentUpon>201704090032032_WantEnergyCertificateAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704092205273_IsWillingToPayAdded.cs" />
+    <Compile Include="Migrations\201704092205273_IsWillingToPayAdded.Designer.cs">
+      <DependentUpon>201704092205273_IsWillingToPayAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704122117006_QualificationsAdded.cs" />
+    <Compile Include="Migrations\201704122117006_QualificationsAdded.Designer.cs">
+      <DependentUpon>201704122117006_QualificationsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704191629079_ClientDocsAdded.cs" />
+    <Compile Include="Migrations\201704191629079_ClientDocsAdded.Designer.cs">
+      <DependentUpon>201704191629079_ClientDocsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704211549207_PeriodTypeAdded.cs" />
+    <Compile Include="Migrations\201704211549207_PeriodTypeAdded.Designer.cs">
+      <DependentUpon>201704211549207_PeriodTypeAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\ApplicationRoleManager.cs" />
+    <Compile Include="Security\ApplicationSignInManager.cs" />
+    <Compile Include="Security\ApplicationUserManager.cs" />
+    <Compile Include="Security\EmailService.cs" />
+    <Compile Include="Security\RoleDefinitions.cs" />
+    <Compile Include="Security\SmsService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wohnungstausch24.Core\Wohnungstausch24.Core.csproj">
+      <Project>{A79797CC-D009-482F-B4F8-EAFB2A82C802}</Project>
+      <Name>Wohnungstausch24.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wohnungstausch24.Models\Wohnungstausch24.Models.csproj">
+      <Project>{1F8B1F7C-C525-44D2-8C0C-D7AABB002338}</Project>
+      <Name>Wohnungstausch24.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wohnungstausch24.Resources\Wohnungstausch24.Resources.csproj">
+      <Project>{0004F6D4-50DB-4402-9511-2481FA74FEAA}</Project>
+      <Name>Wohnungstausch24.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sql\dbo.Countries.Table.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sql\dbo.LocationLevel1.Table.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sql\dbo.LocationLevel2.Table.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sql\dbo.LocationLevel3.Table.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201702202225035_InitDb.resx">
+      <DependentUpon>201702202225035_InitDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702202228272_LocationTablesDataAdded.resx">
+      <DependentUpon>201702202228272_LocationTablesDataAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702212145445_ContactFieldsAdded.resx">
+      <DependentUpon>201702212145445_ContactFieldsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702281051339_ApprovalOfAddressAdeedToUser.resx">
+      <DependentUpon>201702281051339_ApprovalOfAddressAdeedToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702281532457_energyTypeAdded.resx">
+      <DependentUpon>201702281532457_energyTypeAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702281843331_newRegistrationFieldsAdded.resx">
+      <DependentUpon>201702281843331_newRegistrationFieldsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703051750342_RefactoringSomeFields.resx">
+      <DependentUpon>201703051750342_RefactoringSomeFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703081453556_Step7Fixes.resx">
+      <DependentUpon>201703081453556_Step7Fixes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703101437409_BalconyTerraceAreaDeleted.resx">
+      <DependentUpon>201703101437409_BalconyTerraceAreaDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703130959030_UserFamilyMembersAdded.resx">
+      <DependentUpon>201703130959030_UserFamilyMembersAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703150141159_SearchProfilesAdded.resx">
+      <DependentUpon>201703150141159_SearchProfilesAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703151709101_FixDecimalNullable.resx">
+      <DependentUpon>201703151709101_FixDecimalNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703151914380_RentalPricePerSqmDeleted.resx">
+      <DependentUpon>201703151914380_RentalPricePerSqmDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703161607518_TenantFieldsAddedToAppUser.resx">
+      <DependentUpon>201703161607518_TenantFieldsAddedToAppUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703180237242_ClientsAddedToSearchProfile.resx">
+      <DependentUpon>201703180237242_ClientsAddedToSearchProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703180252220_PersonSchemaChanged.resx">
+      <DependentUpon>201703180252220_PersonSchemaChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703191614393_SpLOcationAdded.resx">
+      <DependentUpon>201703191614393_SpLOcationAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703192258457_RentalPriceDeleted.resx">
+      <DependentUpon>201703192258457_RentalPriceDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291416183_ChangeClientName.resx">
+      <DependentUpon>201703291416183_ChangeClientName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704021655573_SaveChangesMethodChanged.resx">
+      <DependentUpon>201704021655573_SaveChangesMethodChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704030107401_AvatarRemovedFromAgent.resx">
+      <DependentUpon>201704030107401_AvatarRemovedFromAgent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704051507209_AgencyOptionalFields.resx">
+      <DependentUpon>201704051507209_AgencyOptionalFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704070939446_hasGrannyadded.resx">
+      <DependentUpon>201704070939446_hasGrannyadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704081349505_SmokingAndPetsRemovedFromClient.resx">
+      <DependentUpon>201704081349505_SmokingAndPetsRemovedFromClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704081443180_CompanyNameRemovedFromAppUser.resx">
+      <DependentUpon>201704081443180_CompanyNameRemovedFromAppUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704090032032_WantEnergyCertificateAdded.resx">
+      <DependentUpon>201704090032032_WantEnergyCertificateAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704092205273_IsWillingToPayAdded.resx">
+      <DependentUpon>201704092205273_IsWillingToPayAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704122117006_QualificationsAdded.resx">
+      <DependentUpon>201704122117006_QualificationsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704191629079_ClientDocsAdded.resx">
+      <DependentUpon>201704191629079_ClientDocsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704211549207_PeriodTypeAdded.resx">
+      <DependentUpon>201704211549207_PeriodTypeAdded.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

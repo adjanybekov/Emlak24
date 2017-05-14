@@ -1,0 +1,65 @@
+﻿@using Wohnungstausch24.Migrations.Security
+@using Wohnungstausch24.Resources
+@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__content">
+                <header class="form__header">
+                    <h3 data-rel="#form-block-1" class="form__title js-form-title">@Resource.MySettings</h3>
+                </header>
+                <section class="info info--statistics">
+                    <div class="info__list">
+                        @if (!User.IsInRole(RoleDefinitions.Agent.ToString()))
+                        {
+                            <div class="info__column">
+                                <div class="info__item text-center">
+                                    <div class="info__title">Business Informations</div>
+                                    <i class="fa fa-4x fa-id-card-o"></i>
+                                    <div class="info__value">
+                                        <a href="@Url.Action("Step1", "Agency")" class="button__action"><i class="fa fa-edit"></i>Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="info__column">
+                            <div class="info__item text-center">
+                                <div class="info__title">@Resource.User_Panel_Personal_Informations</div>
+                                <i class="fa fa-4x fa-user"></i>
+                                <div class="info__value">
+                                    <a href="@Url.Action("Contact", "Settings")" class="button__action"><i class="fa fa-edit"></i>Edit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info__column">
+                            <div class="info__item text-center">
+                                <div class="info__title">Social Accounts</div>
+                                <i class="fa fa-3x fa-facebook-square"></i>
+                                <i class="fa fa-3x fa-twitter-square"></i>
+                                <i class="fa fa-3x fa-google-plus-square"></i>
+                                <i class="fa fa-3x fa-linkedin-square"></i>
+                                <div class="info__value">
+                                    <a href="@Url.Action("Social", "Settings")" class="button__action"><i class="fa fa-edit"></i>Edit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info__column">
+                            <div class="info__item text-center">
+                                <div class="info__title">Change Password</div>
+                                <i class="fa fa-4x fa-edit"></i>
+                                <div class="info__value">
+                                    <a href="@Url.Action("ChangePassword", "Settings", new {area = "Agent"})" class="button__action">
+                                        <i class="fa fa-edit"></i>Change Password
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

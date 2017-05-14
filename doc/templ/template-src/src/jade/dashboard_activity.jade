@@ -1,0 +1,10 @@
+extends dashboard
+
+block config
+  - var bodyClass = 'sidebar-left';
+  - var page = 'dashboard_activity';
+  - var user = true;
+
+block dashboard_main
+  include partials/mixins/activity--feed
+  +activityFeed('Activity log', 20, 'list')

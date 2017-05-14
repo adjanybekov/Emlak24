@@ -1,0 +1,961 @@
+﻿@using System.Globalization
+@using Wohnungstausch24.Core.EnumExtensions
+@model Wohnungstausch24.Models.ViewModels.Landing.AgentDetailViewModel
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- BEGIN BREADCRUMBS-->
+<nav class="breadcrumbs">
+    <div class="container">
+        <ul>
+            <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Home</a></li>
+            <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Agent Profile</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- END BREADCRUMBS-->
+<div class="center">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN site-->
+            <div class="site site--main">
+                <header class="site__header">
+                    <h1 class="site__title"><span class="title-thin">Agent</span> Profile</h1>
+                    <h2 class="site__headline">@Model.FirstName @Model.LastName’s Profile</h2>
+                </header>
+                <div class="site__panel"><span class="site__header-text">An Agent Profile is your free profile page that enables you to build your personal brand and demonstrate your skills to potential Vendors and Landlords to attract your next site.</span></div>
+                <div class="site__main">
+                    <div class="widget js-widget widget--main">
+                        <div class="widget__content">
+                            <div data-sr="enter bottom move 80px, scale(0), over 0s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--list worker--details">
+                                <div class="worker__photo">
+                                    <a href="agent_profile.html" class="item-photo item-photo--static">
+                                        <img src="/Content/assets/media-demo/workers/worker-1.jpg" alt="@Model.FirstName @Model.LastName" class="photo" />
+                                        <figure class="item-photo__hover"><span class="item-photo__more">View Details</span></figure>
+                                    </a>
+                                </div>
+                                <div class="worker__intro">
+                                    <div class="worker__intro-head">
+                                        <div class="worker__intro-name">
+                                            <h3 class="worker__name fn">@Model.FirstName @Model.LastName</h3>
+                                            <div class="worker__post">@Model.FieldOfResponsibility.GetDisplayName()</div>
+                                        </div>
+                                        <div class="worker__intro-brand">
+                                            <a class="worker__company"><img src="/Content/assets/media-demo/partners/logo-company-proera.png" alt="pro" /></a>
+                                            <div class="worker__company-name">@Model.AgencyName</div>
+                                        </div>
+                                        <!-- end of block .worker__listings-->
+                                    </div>
+                                    <button type="button" class="worker__show js-unhide">Contact agent</button>
+                                    <div class="worker__intro-row">
+                                        <div class="worker__intro-col">
+                                            <div class="worker__contacts">
+                                                <div class="tel"><span class="type">Tel.</span><a href="tel:@Model.PhoneNumber " class="uri value">@Model.PhoneNumber</a></div>
+                                                <div class="tel"><span class="type">Tel. 2</span><a href="tel:@Model.PhoneNumber2" class="uri value">@Model.PhoneNumber</a></div>
+                                                <div class="email"><span class="type">Email</span><a href="mailto:@Model.Email" class="uri value">@Model.Email</a></div>
+                                                <div class="skype"><span class="type">Skype</span><a href="skype:@Model.Skype?call" class="uri value">@Model.Skype</a></div>
+                                            </div>
+                                            <!-- end of block .worker__contacts-->
+                                        </div>
+                                        <div class="worker__intro-col">
+                                            <div class="social social--worker">
+                                                <a href="https://facebook.com/@Model.Facebook" class="social__item">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                                <a href="https://linkedin.com/@Model.Linkedin" class="social__item">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                                <a href="https://twitter.com/@Model.Twitter" class="social__item">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                                <a href="https://facebook.com/@Model.GooglePlus" class="social__item">
+                                                    <i class="fa fa-google-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="worker__intro-row">
+                                        <div class="worker__descr">
+                                            <p>
+                                                @Model.About
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+
+                                <div class="col-md-12">
+                                    <h2 id="nav-tabs">Agent Details</h2>
+                                    <div class="bs-example">
+                                        <ul style="margin-bottom: 15px;" class="nav nav-tabs">
+                                            <li class="active">
+                                                <a href="#info" data-toggle="tab" aria-expanded="true">Info</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#languages" data-toggle="tab" aria-expanded="false">languages</a>
+                                            </li>
+                                        </ul>
+                                        <div id="myTabContent" class="tab-content">
+                                            <div id="info" class="tab-pane fade active in">
+                                                <table class="table table-responsive table-hover">
+                                                    <tr>
+                                                        <td>Education</td>
+                                                        <td>@Model.Education</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Position</td>
+                                                        <td>@Model.PositionInCompany.GetDisplayName()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>FieldOfResponsibility</td>
+                                                        <td>@Model.FieldOfResponsibility.GetDisplayName()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Branch</td>
+                                                        <td>@Model.Branch.Name</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div id="languages" class="tab-pane fade">
+                                                <table class="table table-responsive table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Language</th>
+                                                            <th>Level</th>
+                                                        </tr>
+                                                    </thead>
+                                                    @foreach (var lang in Model.Languages)
+                                                    {
+                                                        <tr>
+                                                            <td>@($"{new CultureInfo(lang.LanguageCulture).NativeName}".ToUpper())</td>
+                                                            <td>@lang.Level.GetDisplayName()</td>
+                                                        </tr>
+                                                    }
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!-- end of block .worker-->
+                        </div>
+                    </div>
+
+                    <div class="widget js-widget widget--main">
+                        <div class="widget__header">
+                            <h2 class="widget__title">Testimonials</h2>
+                        </div>
+                        <div class="widget__content">
+                            <div class="listing listing--list">
+                                <div class="listing__item">
+                                    <div class="review review--list">
+                                        <div class="review__item">
+                                            <div class="review__photo"><img src="/Content/assets/media-demo/testimonials/01.jpg" alt="ALT" class="review__photo-img"></div>
+                                            <div class="review__details">
+                                                <span class="review__name">Vanessa Kasinsky</span><span class="review__post">Brand Manager</span>
+                                                <div class="review__stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></div>
+                                            </div>
+                                            <div class="review__info">
+                                                <div class="review__info-quote review__info-quote--open">&rdquo;</div>
+                                                <p>
+                                                    Mariusz always addressed my questions professionally and in a very timely manner. Working with him was a pleasure and would come with my recommendation.Mariusz always addressed my questions professionally and in a very timely manner. Working with him was a pleasure and would come with my recommendation.
+                                                </p>
+                                                <div class="review__info-quote review__info-quote--close">&ldquo;</div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <!-- end of block .review__item-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="listing__item">
+                                    <div class="review review--list">
+                                        <div class="review__item">
+                                            <div class="review__photo"><img src="/Content/assets/media-demo/testimonials/02.jpg" alt="ALT" class="review__photo-img"></div>
+                                            <div class="review__details">
+                                                <span class="review__name">Joseph Ryan</span><span class="review__post">Brand Manager</span>
+                                                <div class="review__stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></div>
+                                            </div>
+                                            <div class="review__info">
+                                                <div class="review__info-quote review__info-quote--open">&rdquo;</div>
+                                                <p>
+                                                    Mariusz always addressed my questions professionally and in a very timely manner. Working with him was a pleasure and would come with my recommendation.Mariusz always addressed my questions professionally and in a very timely manner. Working with him was a pleasure and would come with my recommendation.
+                                                </p>
+                                                <div class="review__info-quote review__info-quote--close">&ldquo;</div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <!-- end of block .review__item-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form class="form form--flex form--review">
+                                <div class="row">
+                                    <div class="form-group form-group--col-12">
+                                        <label for="in-testimonial" class="control-label">Post a testimonial</label>
+                                        <textarea id="in-testimonial" class="form-control">Working with him was a pleasure and would come with my recommendation. This summer helper is smokin' hot! Porter is a multi-purpose BBQ tray that eliminates extra trips between your kitchen and grill. Containers with lids keep raw food safely separated. If you need a realtor that is knowledgeable, flexible and great to work with, Chris Pakulla is your man!</textarea>
+                                    </div>
+                                    <div class="form-group form-group--inline form-group--col-9">
+                                        <label class="control-label">Your rating:</label>
+                                        <ul class="form__check">
+                                            <li>
+                                                <input type="radio" name="agent" id="in-rating-0" class="in-radio">
+                                                <label for="in-rating-0" class="in-label">0</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="agent" id="in-rating-1" class="in-radio">
+                                                <label for="in-rating-1" class="in-label">1</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="agent" id="in-rating-2" class="in-radio">
+                                                <label for="in-rating-2" class="in-label">2</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="agent" id="in-rating-3" class="in-radio">
+                                                <label for="in-rating-3" class="in-label">3</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="agent" id="in-rating-4" class="in-radio">
+                                                <label for="in-rating-4" class="in-label">4</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="agent" id="in-rating-5" class="in-radio">
+                                                <label for="in-rating-5" class="in-label">5</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="form-group form-group--col-4 form-group--right">
+                                        <button type="button" class="form__reset">Reset</button>
+                                        <button type="submit" class="form__submit">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="widget__footer"><a href="" class="widget__more">More testimonials</a></div>
+                        </div>
+                    </div>
+                    <div class="widget js-widget widget--main">
+                        <div class="widget__header">
+                            <h2 class="widget__title">Listings</h2>
+                        </div>
+                        <div class="widget__content">
+                            <div class="listing listing--grid js-properties-list">
+                                <div class="listing__item">
+                                    <div class="properties properties--grid">
+                                        <div class="properties__thumb">
+                                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                                <img src="/Content/assets/media-demo/properties/554x360/02.jpg" alt="" />
+                                                <figure class="item-photo__hover item-photo__hover--params">
+                                                    <span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 110 Sq Ft</span><span class="properties__intro">My home is bright and spacious. Very good transport links. Close to the Olympic village, Westfiel...</span><span class="properties__time">Added date: 5 days ago</span><span class="properties__more">View details</span>
+                                                </figure>
+                                            </a><span class="properties__ribon">For rent</span>
+                                        </div>
+                                        <!-- end of block .properties__thumb-->
+                                        <div class="properties__details">
+                                            <div class="properties__info">
+                                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">649 West Adams Boulevard</span><span class="properties__address-city">Los Angeles, CA 90007, USA</span></a>
+                                                <div class="properties__offer">
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-label">Commision</div>
+                                                        <div class="properties__offer-value">
+                                                            <strong> $79</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-value">
+                                                            <strong>$4,555</strong><span class="properties__offer-period">/month</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 110 Sq Ft</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- end of block .properties__info-->
+                                    </div>
+                                    <!-- end of block .properties__item-->
+                                </div>
+                                <div class="listing__item">
+                                    <div class="properties properties--grid">
+                                        <div class="properties__thumb">
+                                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                                <img src="/Content/assets/img/no-image--554x360.jpg" alt="" />
+                                                <figure class="item-photo__hover item-photo__hover--params">
+                                                    <span class="properties__params">Built-Up - 205 Sq Ft</span><span class="properties__params">Land Size - 310 Sq Ft</span><span class="properties__intro">It was all finished, the Owl, as a last resource, she put them into a pig,' Alice quietly said, j...</span><span class="properties__time">Added date: 6 days ago</span><span class="properties__more">View details</span>
+                                                </figure>
+                                            </a><span class="properties__ribon">For sale</span>
+                                        </div>
+                                        <!-- end of block .properties__thumb-->
+                                        <div class="properties__details">
+                                            <div class="properties__info">
+                                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">958 Dewey Avenue</span><span class="properties__address-city">Los Angeles, CA 90006, USA</span></a>
+                                                <div class="properties__offer">
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-label">Commision</div>
+                                                        <div class="properties__offer-value">
+                                                            <strong> 5%</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-value">
+                                                            <strong>$86,723</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 205 Sq Ft</span><span class="properties__params">Land Size - 310 Sq Ft</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- end of block .properties__info-->
+                                    </div>
+                                    <!-- end of block .properties__item-->
+                                </div>
+                                <div class="listing__item">
+                                    <div class="properties properties--grid">
+                                        <div class="properties__thumb">
+                                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                                <img src="/Content/assets/media-demo/properties/554x360/04.jpg" alt="" />
+                                                <figure class="item-photo__hover item-photo__hover--params">
+                                                    <span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 120 Sq Ft</span><span class="properties__intro">Footman's head: it just grazed his nose, you know?' 'It's the oldest rule in the sea. But they HA...</span><span class="properties__time">Added date: 8 days ago</span><span class="properties__more">View details</span>
+                                                </figure>
+                                            </a><span class="properties__ribon">For sale</span>
+                                        </div>
+                                        <!-- end of block .properties__thumb-->
+                                        <div class="properties__details">
+                                            <div class="properties__info">
+                                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">1026 Ohio Avenue</span><span class="properties__address-city">Long Beach, CA 90804, USA</span></a>
+                                                <div class="properties__offer">
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-label">Commision</div>
+                                                        <div class="properties__offer-value">
+                                                            <strong> $179</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-value">
+                                                            <strong>$511,789</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 120 Sq Ft</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- end of block .properties__info-->
+                                    </div>
+                                    <!-- end of block .properties__item-->
+                                </div>
+                                <div class="listing__item">
+                                    <div class="properties properties--grid">
+                                        <div class="properties__thumb">
+                                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                                <img src="/Content/assets/img/no-image--554x360.jpg" alt="" />
+                                                <figure class="item-photo__hover item-photo__hover--params">
+                                                    <span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 90 Sq Ft</span><span class="properties__intro">I am so VERY wide, but she got to do,' said the Hatter. 'You MUST remember,' remarked the King, '...</span><span class="properties__time">Added date: 10 days ago</span><span class="properties__more">View details</span>
+                                                </figure>
+                                            </a><span class="properties__ribon">For sale</span>
+                                        </div>
+                                        <!-- end of block .properties__thumb-->
+                                        <div class="properties__details">
+                                            <div class="properties__info">
+                                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">514 East Myrtle Street</span><span class="properties__address-city">Santa Ana, CA 92701, USA</span></a>
+                                                <div class="properties__offer">
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-label">Commision</div>
+                                                        <div class="properties__offer-value">
+                                                            <strong> 8%</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-value">
+                                                            <strong>$79,560</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 90 Sq Ft</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- end of block .properties__info-->
+                                    </div>
+                                    <!-- end of block .properties__item-->
+                                </div>
+                                <div class="listing__item">
+                                    <div class="properties properties--grid">
+                                        <div class="properties__thumb">
+                                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                                <img src="/Content/assets/media-demo/properties/554x360/06.jpg" alt="" />
+                                                <figure class="item-photo__hover item-photo__hover--params">
+                                                    <span class="properties__params">Built-Up - 505 Sq Ft</span><span class="properties__params">Land Size - 1010 Sq Ft</span><span class="properties__intro">I needn't be afraid of them!' 'And who is to France Then turn not pale, beloved snail, but come a...</span><span class="properties__time">Added date: 12 days ago</span><span class="properties__more">View details</span>
+                                                </figure>
+                                            </a><span class="properties__ribon">For rent</span>
+                                        </div>
+                                        <!-- end of block .properties__thumb-->
+                                        <div class="properties__details">
+                                            <div class="properties__info">
+                                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">1230 Martin Luther King</span><span class="properties__address-city">Los Angeles, CA 90037, USA</span></a>
+                                                <div class="properties__offer">
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-label">Commision</div>
+                                                        <div class="properties__offer-value">
+                                                            <strong> $550</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-value">
+                                                            <strong>$2,255</strong><span class="properties__offer-period">/month</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 505 Sq Ft</span><span class="properties__params">Land Size - 1010 Sq Ft</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- end of block .properties__info-->
+                                    </div>
+                                    <!-- end of block .properties__item-->
+                                </div>
+                                <div class="listing__item">
+                                    <div class="properties properties--grid">
+                                        <div class="properties__thumb">
+                                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                                <img src="/Content/assets/media-demo/properties/554x360/07.jpg" alt="" />
+                                                <figure class="item-photo__hover item-photo__hover--params">
+                                                    <span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 153 Sq Ft</span><span class="properties__intro">My home is bright and spacious. Very good transport links. Close to the Olympic village, Westfiel...</span><span class="properties__time">Added date: 15 days ago</span><span class="properties__more">View details</span>
+                                                </figure>
+                                            </a><span class="properties__ribon">For sale</span>
+                                        </div>
+                                        <!-- end of block .properties__thumb-->
+                                        <div class="properties__details">
+                                            <div class="properties__info">
+                                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">401 South Sycamore Street</span><span class="properties__address-city">Santa Ana, CA 92701, USA</span></a>
+                                                <div class="properties__offer">
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-label">Commision</div>
+                                                        <div class="properties__offer-value">
+                                                            <strong> $790</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-value">
+                                                            <strong>$6,218,780</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 153 Sq Ft</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- end of block .properties__info-->
+                                    </div>
+                                    <!-- end of block .properties__item-->
+                                </div>
+                                <div class="listing__item">
+                                    <div class="properties properties--grid">
+                                        <div class="properties__thumb">
+                                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                                <img src="/Content/assets/media-demo/properties/554x360/08.jpg" alt="" />
+                                                <figure class="item-photo__hover item-photo__hover--params">
+                                                    <span class="properties__params">Built-Up - 61 Sq Ft</span><span class="properties__params">Land Size - 150 Sq Ft</span><span class="properties__intro">I needn't be afraid of them!' 'And who is to France Then turn not pale, beloved snail, but come a...</span><span class="properties__time">Added date: 18 days ago</span><span class="properties__more">View details</span>
+                                                </figure>
+                                            </a><span class="properties__ribon">For rent</span>
+                                        </div>
+                                        <!-- end of block .properties__thumb-->
+                                        <div class="properties__details">
+                                            <div class="properties__info">
+                                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">649 West Adams Boulevard</span><span class="properties__address-city">Los Angeles, CA 90007, USA</span></a>
+                                                <div class="properties__offer">
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-label">Commision</div>
+                                                        <div class="properties__offer-value">
+                                                            <strong> 4%</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-value">
+                                                            <strong>$3,100</strong><span class="properties__offer-period">/month</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 61 Sq Ft</span><span class="properties__params">Land Size - 150 Sq Ft</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- end of block .properties__info-->
+                                    </div>
+                                    <!-- end of block .properties__item-->
+                                </div>
+                                <div class="listing__item">
+                                    <div class="properties properties--grid">
+                                        <div class="properties__thumb">
+                                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                                <img src="/Content/assets/media-demo/properties/554x360/09.jpg" alt="" />
+                                                <figure class="item-photo__hover item-photo__hover--params">
+                                                    <span class="properties__params">Built-Up - 35 Sq Ft</span><span class="properties__params">Land Size - 150 Sq Ft</span><span class="properties__intro">It was all finished, the Owl, as a last resource, she put them into a pig,' Alice quietly said, j...</span><span class="properties__time">Added date: 2 days ago</span><span class="properties__more">View details</span>
+                                                </figure>
+                                            </a>
+                                        </div>
+                                        <!-- end of block .properties__thumb-->
+                                        <div class="properties__details">
+                                            <div class="properties__info">
+                                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">958 Dewey Avenue</span><span class="properties__address-city">Los Angeles, CA 90006, USA</span></a>
+                                                <div class="properties__offer">
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-label">Commision</div>
+                                                        <div class="properties__offer-value">
+                                                            <strong> 3%</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-value">
+                                                            <strong>$23,351</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 35 Sq Ft</span><span class="properties__params">Land Size - 150 Sq Ft</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- end of block .properties__info-->
+                                    </div>
+                                    <!-- end of block .properties__item-->
+                                </div>
+                                <div class="listing__item">
+                                    <div class="properties properties--grid">
+                                        <div class="properties__thumb">
+                                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                                <img src="/Content/assets/media-demo/properties/554x360/10.jpg" alt="" />
+                                                <figure class="item-photo__hover item-photo__hover--params">
+                                                    <span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 164 Sq Ft</span><span class="properties__intro">Footman's head: it just grazed his nose, you know?' 'It's the oldest rule in the sea. But they HA...</span><span class="properties__time">Added date: 19 days ago</span><span class="properties__more">View details</span>
+                                                </figure>
+                                            </a><span class="properties__ribon">For rent</span>
+                                        </div>
+                                        <!-- end of block .properties__thumb-->
+                                        <div class="properties__details">
+                                            <div class="properties__info">
+                                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">1026 Ohio Avenue</span><span class="properties__address-city">Long Beach, CA 90804, USA</span></a>
+                                                <div class="properties__offer">
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-label">Commision</div>
+                                                        <div class="properties__offer-value">
+                                                            <strong> 1%</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="properties__offer-column">
+                                                        <div class="properties__offer-value">
+                                                            <strong>$2750</strong><span class="properties__offer-period">/month</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 164 Sq Ft</span></div>
+                                            </div>
+                                        </div>
+                                        <!-- end of block .properties__info-->
+                                    </div>
+                                    <!-- end of block .properties__item-->
+                                </div>
+                            </div>
+                            <div class="widget__footer"><a href="" class="widget__more">More listings</a></div>
+                        </div>
+                    </div>
+                    <div class="widget js-widget widget--main">
+                        <div class="widget__header">
+                            <h2 class="widget__title">Contact Christopher</h2>
+                        </div>
+                        <div class="widget__content">
+                            <form action="#" method="POST" class="form form--flex js-contact-form form--workers">
+                                <div class="row">
+                                    <div class="form-group required">
+                                        <label for="in-form-name" class="control-label">Your Name</label>
+                                        <input id="in-form-name" type="text" name="name" required class="form-control">
+                                    </div>
+                                    <div class="form-group form-group--col-6">
+                                        <label for="in-form-phone" class="control-label">Telephone</label>
+                                        <input id="in-form-phone" type="text" name="phone" class="form-control">
+                                    </div>
+                                    <div class="form-group form-group--col-6 required">
+                                        <label for="in-form-email" class="control-label">E-mail</label>
+                                        <input id="in-form-email" type="email" name="email" required data-parsley-trigger="change" class="form-control">
+                                    </div>
+                                    <div class="form-group required">
+                                        <label for="in-form-message" class="control-label">Message</label>
+                                        <textarea id="in-form-message" name="message" required data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-validation-threshold="10" data-parsley-minlength-message="You need to enter at least a 20 caracters long comment.." class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <button type="submit" class="form__submit">Submit</button>
+                                </div>
+                            </form>
+                            <!-- end of block form-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END site-->
+            <!-- BEGIN SIDEBAR-->
+            <div class="sidebar">
+                <div class="widget js-widget widget--sidebar">
+                    <div class="widget__header">
+                        <h2 class="widget__title">Filter</h2>
+                        <h5 class="widget__headline">Find your apartment or house on the exact key parameters.</h5><a class="widget__btn js-widget-btn widget__btn--toggle">Show filter</a>
+                    </div>
+                    <div class="widget__content">
+                        <!-- BEGIN SEARCH-->
+                        <form action="properties_listing_list.html" class="form form--flex form--search js-search-form form--sidebar">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="in-keyword" class="control-label">Keyword</label>
+                                    <input type="text" id="in-keyword" placeholder="Text" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="in-contract-type" class="control-label">Listing Type</label>
+                                    <select id="in-contract-type" data-placeholder="---" class="form-control">
+                                        <option label=" "></option>
+                                        <option>Sale</option>
+                                        <option>Rent</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <span class="control-label">Property type</span>
+                                    <div class="dropdown dropdown--select">
+                                        <button type="button" data-toggle="dropdown" data-placeholder="---" class="dropdown-toggle js-select-checkboxes-btn">---</button>
+                                        <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                            <ul>
+                                                <li>
+                                                    <input id="checkbox_type_1" type="checkbox" name="checkbox_type_1" class="in-checkbox">
+                                                    <label for="checkbox_type_1" data-toggle="tooltip" data-placement="left" title="Tooltip on top" class="in-label">Privat apartment</label>
+                                                </li>
+                                                <li>
+                                                    <input id="checkbox_type_2" type="checkbox" name="checkbox_type_2" class="in-checkbox">
+                                                    <label for="checkbox_type_2" data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="in-label">Apartment</label>
+                                                </li>
+                                                <li>
+                                                    <input id="checkbox_type_3" type="checkbox" name="checkbox_type_3" class="in-checkbox">
+                                                    <label for="checkbox_type_3" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Cottage</label>
+                                                </li>
+                                                <li>
+                                                    <input id="checkbox_type_4" type="checkbox" name="checkbox_type_4" class="in-checkbox">
+                                                    <label for="checkbox_type_4" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Flat</label>
+                                                </li>
+                                                <li>
+                                                    <input id="checkbox_type_5" type="checkbox" name="checkbox_type_5" class="in-checkbox">
+                                                    <label for="checkbox_type_5" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">House</label>
+                                                </li>
+                                                <li>
+                                                    <input id="checkbox_type_6" type="checkbox" name="checkbox_type_6" class="in-checkbox">
+                                                    <label for="checkbox_type_6" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Condominium</label>
+                                                </li>
+                                                <li>
+                                                    <input id="checkbox_type_7" type="checkbox" name="checkbox_type_7" class="in-checkbox">
+                                                    <label for="checkbox_type_7" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Cottage</label>
+                                                </li>
+                                                <li>
+                                                    <input id="checkbox_type_8" type="checkbox" name="checkbox_type_8" class="in-checkbox">
+                                                    <label for="checkbox_type_8" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Flat</label>
+                                                </li>
+                                                <li>
+                                                    <input id="checkbox_type_9" type="checkbox" name="checkbox_type_9" class="in-checkbox">
+                                                    <label for="checkbox_type_9" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Cottage</label>
+                                                </li>
+                                                <li>
+                                                    <input id="checkbox_type_10" type="checkbox" name="checkbox_type_10" class="in-checkbox">
+                                                    <label for="checkbox_type_10" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Condominium</label>
+                                                </li>
+                                            </ul>
+                                            <!-- end of block .dropdown-menu-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in-tenure-type" class="control-label">Tenure</label>
+                                    <select id="in-tenure-type" data-placeholder="Any tenure" class="form-control">
+                                        <option label=" "></option>
+                                        <option>Tenure</option>
+                                        <option>Tenure</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in-bedrooms-type" class="control-label">Bedrooms</label>
+                                    <select id="in-bedrooms-type" data-placeholder="---" class="form-control">
+                                        <option label=" "></option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <span class="control-label">Location level 1</span>
+                                    <div class="dropdown dropdown--select">
+                                        <button type="button" data-toggle="dropdown" data-placeholder="States" class="dropdown-toggle js-select-checkboxes-btn">States</button>
+                                        <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                            <div class="region-select">
+                                                <ul class="js-checkboxes-tree bonsai region-select__list">
+                                                    <li>
+                                                        <input type="checkbox" name="location[]" value="Fresno" id="region-select-states-0" class="in-checkbox">
+                                                        <label for="region-select-states-0" data-toggle="tooltip" data-placement="top" title="Fresno" class="in-label">Fresno</label>
+                                                        <ul>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Clovis" id="region-select-states-1" class="in-checkbox">
+                                                                <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Clovis" class="in-label">Clovis</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Fresno" id="region-select-states-2" class="in-checkbox">
+                                                                <label for="region-select-states-2" data-toggle="tooltip" data-placement="top" title="Fresno" class="in-label">Fresno</label>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" name="location[]" value="Los Angeles" id="region-select-states-3" class="in-checkbox">
+                                                        <label for="region-select-states-3" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Los Angeles</label>
+                                                        <ul>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Glendale" id="region-select-states-4" class="in-checkbox">
+                                                                <label for="region-select-states-4" data-toggle="tooltip" data-placement="top" title="Glendale" class="in-label">Glendale</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Long Beach" id="region-select-states-5" class="in-checkbox">
+                                                                <label for="region-select-states-5" data-toggle="tooltip" data-placement="top" title="Long Beach" class="in-label">Long Beach</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Los Angeles" id="region-select-states-6" class="in-checkbox">
+                                                                <label for="region-select-states-6" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Los Angeles</label>
+                                                                <ul>
+                                                                    <li>
+                                                                        <input type="checkbox" name="location[]" value="Bel Air" id="region-select-states-7" class="in-checkbox">
+                                                                        <label for="region-select-states-7" data-toggle="tooltip" data-placement="top" title="Bel Air" class="in-label">Bel Air</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <input type="checkbox" name="location[]" value="Brentwood" id="region-select-states-8" class="in-checkbox">
+                                                                        <label for="region-select-states-8" data-toggle="tooltip" data-placement="top" title="Brentwood" class="in-label">Brentwood</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <input type="checkbox" name="location[]" value="Holywood Hills" id="region-select-states-9" class="in-checkbox">
+                                                                        <label for="region-select-states-9" data-toggle="tooltip" data-placement="top" title="Holywood Hills" class="in-label">Holywood Hills</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <input type="checkbox" name="location[]" value="Mar Vista" id="region-select-states-10" class="in-checkbox">
+                                                                        <label for="region-select-states-10" data-toggle="tooltip" data-placement="top" title="Mar Vista" class="in-label">Mar Vista</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <input type="checkbox" name="location[]" value="Silver Lake" id="region-select-states-11" class="in-checkbox">
+                                                                        <label for="region-select-states-11" data-toggle="tooltip" data-placement="top" title="Silver Lake" class="in-label">Silver Lake</label>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Santa Ana" id="region-select-states-12" class="in-checkbox">
+                                                                <label for="region-select-states-12" data-toggle="tooltip" data-placement="top" title="Santa Ana" class="in-label">Santa Ana</label>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" name="location[]" value="Santa Clara" id="region-select-states-13" class="in-checkbox">
+                                                        <label for="region-select-states-13" data-toggle="tooltip" data-placement="top" title="Santa Clara" class="in-label">Santa Clara</label>
+                                                        <ul>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Cupertino" id="region-select-states-14" class="in-checkbox">
+                                                                <label for="region-select-states-14" data-toggle="tooltip" data-placement="top" title="Cupertino" class="in-label">Cupertino</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Mountain View" id="region-select-states-15" class="in-checkbox">
+                                                                <label for="region-select-states-15" data-toggle="tooltip" data-placement="top" title="Mountain View" class="in-label">Mountain View</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Palo Alto" id="region-select-states-16" class="in-checkbox">
+                                                                <label for="region-select-states-16" data-toggle="tooltip" data-placement="top" title="Palo Alto" class="in-label">Palo Alto</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="San Jose" id="region-select-states-17" class="in-checkbox">
+                                                                <label for="region-select-states-17" data-toggle="tooltip" data-placement="top" title="San Jose" class="in-label">San Jose</label>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <div class="region-select__buttons">
+                                                    <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">Clear</button>
+                                                    <button type="button" class="region-select__btn js-select-checkboxes-accept">Accept</button>
+                                                </div>
+                                            </div>
+                                            <!-- end of block .region-select-->
+                                        </div>
+                                        <!-- end of block .dropdown-menu-->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="control-label">Location level 2</span>
+                                    <div class="dropdown dropdown--select">
+                                        <button type="button" data-toggle="dropdown" data-placeholder="Location" class="dropdown-toggle js-select-checkboxes-btn">Locations</button>
+                                        <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                                            <div class="region-select">
+                                                <ul class="js-checkboxes-tree bonsai region-select__list">
+                                                    <li>
+                                                        <input type="checkbox" name="location[]" value="Fresno" id="region-select-location-18" class="in-checkbox">
+                                                        <label for="region-select-location-18" data-toggle="tooltip" data-placement="top" title="Fresno" class="in-label">Fresno</label>
+                                                        <ul>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Clovis" id="region-select-location-19" class="in-checkbox">
+                                                                <label for="region-select-location-19" data-toggle="tooltip" data-placement="top" title="Clovis" class="in-label">Clovis</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Fresno" id="region-select-location-20" class="in-checkbox">
+                                                                <label for="region-select-location-20" data-toggle="tooltip" data-placement="top" title="Fresno" class="in-label">Fresno</label>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" name="location[]" value="Los Angeles" id="region-select-location-21" class="in-checkbox">
+                                                        <label for="region-select-location-21" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Los Angeles</label>
+                                                        <ul>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Glendale" id="region-select-location-22" class="in-checkbox">
+                                                                <label for="region-select-location-22" data-toggle="tooltip" data-placement="top" title="Glendale" class="in-label">Glendale</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Long Beach" id="region-select-location-23" class="in-checkbox">
+                                                                <label for="region-select-location-23" data-toggle="tooltip" data-placement="top" title="Long Beach" class="in-label">Long Beach</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Los Angeles" id="region-select-location-24" class="in-checkbox">
+                                                                <label for="region-select-location-24" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Los Angeles</label>
+                                                                <ul>
+                                                                    <li>
+                                                                        <input type="checkbox" name="location[]" value="Bel Air" id="region-select-location-25" class="in-checkbox">
+                                                                        <label for="region-select-location-25" data-toggle="tooltip" data-placement="top" title="Bel Air" class="in-label">Bel Air</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <input type="checkbox" name="location[]" value="Brentwood" id="region-select-location-26" class="in-checkbox">
+                                                                        <label for="region-select-location-26" data-toggle="tooltip" data-placement="top" title="Brentwood" class="in-label">Brentwood</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <input type="checkbox" name="location[]" value="Holywood Hills" id="region-select-location-27" class="in-checkbox">
+                                                                        <label for="region-select-location-27" data-toggle="tooltip" data-placement="top" title="Holywood Hills" class="in-label">Holywood Hills</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <input type="checkbox" name="location[]" value="Mar Vista" id="region-select-location-28" class="in-checkbox">
+                                                                        <label for="region-select-location-28" data-toggle="tooltip" data-placement="top" title="Mar Vista" class="in-label">Mar Vista</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <input type="checkbox" name="location[]" value="Silver Lake" id="region-select-location-29" class="in-checkbox">
+                                                                        <label for="region-select-location-29" data-toggle="tooltip" data-placement="top" title="Silver Lake" class="in-label">Silver Lake</label>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Santa Ana" id="region-select-location-30" class="in-checkbox">
+                                                                <label for="region-select-location-30" data-toggle="tooltip" data-placement="top" title="Santa Ana" class="in-label">Santa Ana</label>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" name="location[]" value="Santa Clara" id="region-select-location-31" class="in-checkbox">
+                                                        <label for="region-select-location-31" data-toggle="tooltip" data-placement="top" title="Santa Clara" class="in-label">Santa Clara</label>
+                                                        <ul>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Cupertino" id="region-select-location-32" class="in-checkbox">
+                                                                <label for="region-select-location-32" data-toggle="tooltip" data-placement="top" title="Cupertino" class="in-label">Cupertino</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Mountain View" id="region-select-location-33" class="in-checkbox">
+                                                                <label for="region-select-location-33" data-toggle="tooltip" data-placement="top" title="Mountain View" class="in-label">Mountain View</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="Palo Alto" id="region-select-location-34" class="in-checkbox">
+                                                                <label for="region-select-location-34" data-toggle="tooltip" data-placement="top" title="Palo Alto" class="in-label">Palo Alto</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" name="location[]" value="San Jose" id="region-select-location-35" class="in-checkbox">
+                                                                <label for="region-select-location-35" data-toggle="tooltip" data-placement="top" title="San Jose" class="in-label">San Jose</label>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <div class="region-select__buttons">
+                                                    <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">Clear</button>
+                                                    <button type="button" class="region-select__btn js-select-checkboxes-accept">Accept</button>
+                                                </div>
+                                            </div>
+                                            <!-- end of block .region-select-->
+                                        </div>
+                                        <!-- end of block .dropdown-menu-->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in-favorites-search-type" class="control-label">Favorite searches</label>
+                                    <select id="in-favorites-search-type" data-placeholder="---" class="form-control">
+                                        <option label=" "></option>
+                                        <option>Kuala Lumpur - 1 flat</option>
+                                        <option>2</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in-favorites-categories-type" class="control-label">Favorite categories</label>
+                                    <select id="in-favorites-categories-type" data-placeholder="---" class="form-control">
+                                        <option label=" "></option>
+                                        <option>Luxury</option>
+                                        <option>2</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in-favorites-users-type" class="control-label">Favourite users</label>
+                                    <select id="in-favorites-users-type" data-placeholder="---" class="form-control">
+                                        <option label=" "></option>
+                                        <option>Josh Hartnett</option>
+                                        <option>2</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in-datetime" class="control-label">Date Range</label>
+                                    <input type="text" id="in-datetime" data-start-date="12/03/2015" data-end-date="12/22/2015" data-time-picker="true" data-single-picker="false" class="js-datetimerange form-control">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form__mode">
+                                        <button type="button" data-mode="input" class="form__mode-btn js-input-mode">Input</button>
+                                    </div>
+                                    <label for="range_price" class="control-label">Price</label>
+                                    <div class="form__ranges">
+                                        <input id="range_price" class="js-search-range form__ranges-in">
+                                    </div>
+                                    <div class="form__inputs js-search-inputs">
+                                        <input type="text" id="in-price-from" placeholder="From" data-input-type="from" class="form-control js-field-range">
+                                        <input type="text" id="in-price-to" placeholder="To" data-input-type="to" class="form-control js-field-range">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form__mode">
+                                        <button type="button" data-mode="input" class="form__mode-btn js-input-mode">Input</button>
+                                    </div>
+                                    <label for="range_area" class="control-label">Area</label>
+                                    <div class="form__ranges">
+                                        <input id="range_area" class="js-search-range form__ranges-in">
+                                    </div>
+                                    <div class="form__inputs js-search-inputs">
+                                        <input type="text" id="in-area-from" placeholder="From" data-input-type="from" class="form-control js-field-range">
+                                        <input type="text" id="in-area-to" placeholder="To" data-input-type="to" class="form-control js-field-range">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form__mode">
+                                        <button type="button" data-mode="percent" class="form__mode-btn js-input-commision">Percent</button>
+                                        <button type="button" data-mode="input" class="form__mode-btn js-input-mode">Input</button>
+                                    </div>
+                                    <label for="range_area" class="control-label">Commision</label>
+                                    <div class="form__ranges">
+                                        <input id="range_commision" class="js-search-range form__ranges-in">
+                                    </div>
+                                    <div class="form__inputs js-search-inputs">
+                                        <input type="text" id="in-commision-from" placeholder="From" data-input-type="from" class="form-control js-field-range">
+                                        <input type="text" id="in-commision-to" placeholder="To" data-input-type="to" class="form-control js-field-range">
+                                    </div>
+                                </div>
+                                <div class="form__buttons form__buttons--double">
+                                    <button type="button" class="form__reset js-form-reset">Reset</button>
+                                    <button type="submit" class="form__submit">Search</button>
+                                    <button type="button" class="form__favorite">Add search to favorites</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- end of block-->
+                        <!-- END SEARCH-->
+                    </div>
+                </div>
+            </div>
+            <!-- END SIDEBAR-->
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- END CENTER SECTION-->
+<!-- BEGIN AFTER CENTER SECTION-->
+<!-- END AFTER CENTER SECTION-->

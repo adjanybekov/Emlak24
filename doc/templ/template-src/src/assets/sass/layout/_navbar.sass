@@ -1,0 +1,404 @@
+/*------------------------------------------------------------------
+  * Navbar block
+  + Navbar / .navabar
+  ==============================================================*/
+
+=menu-colors($color: $defaultColor)
+  +e(link)
+    color: $color
+  .active .navbar__link
+    box-shadow: 0 2px 0 $color
+  +e(brand-logo)
+    fill: $color
+
++b(navbar)
+  @media (max-width: $screen-xs-max)
+    display: none
+  +e(row)
+    margin: 30px 0
+    +clearfix
+    @media (max-width: $screen-xs-max)
+      margin: 0
+    .header-fixed &
+      margin: 0 !important
+      padding: 10px 0 !important
+      background: none !important
+  +e(brand)
+    float: left
+    line-height: 1
+    img
+      width: 100%
+    @media (max-width: $screen-xs-max)
+      display: none
+
+  +e(brand-logo)
+    fill: $defaultColor
+    height: 60px
+    width: 215px
+    @media (max-width: $screen-md-max)
+      width: 140px
+    @media (max-width: $screen-xs-max)
+      display: none
+
+  +e(wrap)
+    margin: 16px 0 0
+    display: flex
+    justify-content: flex-end
+    .header-fixed &
+      margin-top: 16px
+    @media (max-width: $screen-xs-max)
+      display: none
+
+    +m(init)
+      @media (max-width: $screen-xs-max)
+        display: block
+        background: $brandColor
+        width: 300px
+        bottom: 0
+        box-shadow: none
+        margin: 0
+        position: absolute
+        top: 0
+        right: 0
+        z-index: 0
+        float: none
+        padding-top: 50px
+        overflow-y: auto
+        transform: translate(0px)
+
+  +e(nav)
+    list-style: none
+    padding: 0
+    margin: 0
+    @media (max-width: $screen-xs-max)
+      margin-top: 0
+      width: 300px
+      position: relative
+      z-index: 20
+      overflow-y: auto
+      overflow-x: hidden
+      min-height: 100%
+
+  +e(item)
+    float: left
+    margin: 3px 0 0 40px
+    transition: background 0.3s
+    position: relative
+    &:active,
+    &:hover,
+    &.open
+      > a
+        text-decoration: none
+
+    @media (max-width: $screen-sm-max)
+      margin-left: 20px
+    @media (max-width: $screen-xs-max)
+      position: initial
+      float: none
+      margin: 0
+
+    +m(mob)
+      display: none
+      @media (max-width: $screen-xs-max)
+        display: block
+
+  +e(dropdown)
+    position: absolute
+    left: 0
+    display: block
+    padding: 0
+    border: none
+    min-width: 200px
+    background: $brandColor
+    margin: 0
+    z-index: 255
+    $el: &
+    +dropdown-effects($el)
+    @media (max-width: $screen-xs-max)
+      top: 0
+      display: block
+      box-shadow: none
+      padding-left: 0
+      padding-top: 0
+      float: none
+      width: 300px
+      height: 100%
+      background: $brandColor
+      transform: translate3d(100%, 0, 0)
+      transition: 0.5s
+      .open > &
+        transform: translate3d(0, 0, 0)
+        z-index: 50
+    +m(colls-1)
+      width: 200px
+      @media (max-width: $screen-md-max)
+        width: 100%
+        margin: 0
+        padding-left: 0
+    +m(colls-2)
+      width: 400px
+      @media (max-width: $screen-md-max)
+        width: 100%
+        margin: 0
+        padding-left: 0
+    +m(colls-3)
+      width: 600px
+      @media (max-width: $screen-md-max)
+        width: 100%
+        margin: 0
+        padding-left: 0
+    +m(right)
+      left: auto
+      right: 0
+    +m(left)
+      right: auto
+      left: 0
+    ul
+      list-style: none
+  +e(link)
+    text-transform: uppercase
+    font-weight: 600
+    display: block
+    text-decoration: none
+    color: $defaultColor
+    @media (max-width: $screen-xs-max)
+      font-size: 17px
+      color: #fff !important
+      border-bottom: 1px solid rgba(#fff, 0.3)
+      padding: 15px 25px
+    .active &
+      @media (min-width: $screen-sm-min)
+        box-shadow: 0 2px 0 $defaultColor
+        text-decoration: none
+      @media (max-width: $screen-xs-max)
+        background: $brandColorDark
+  +e(arrow)
+    fill: none
+    stroke: #fff
+    stroke-width: 4px
+    width: 7px
+    height: 11px
+    float: right
+    margin-top: 6px
+    +when(link)
+      display: none
+      @media (max-width: $screen-xs-max)
+        display: block
+    +when('back')
+      float: none
+      position: relative
+      top: 1px
+      margin-right: 15px
+  +e(back)
+    display: none
+    @media (max-width: $screen-xs-max)
+      display: block
+      width: 100%
+      text-align: left
+      color: #fff
+      border: none
+      background: none
+      outline: none
+      border-bottom: 1px solid rgba(#fff, 0.3)
+      text-transform: uppercase
+      padding: 5px 25px
+
+  +e(submenu)
+    float: left
+    margin: 0
+    width: 200px
+    padding: 0
+    @media (max-width: $screen-xs-max)
+      width: 300px
+      float: none
+      padding: 0
+    &:last-child
+      margin-right: 0
+
+    +m(level)
+      // animation
+      opacity: 0
+      height: 0
+      overflow: hidden
+      cursor: default
+      transform: translate3d(-5px, 0, 0)
+      left: 100%
+      top: 0
+      position: absolute
+      background: $brandColor
+      padding-top: 0
+      margin: 0
+      transition: opacity 0.3s, transform 0.3s
+      @media (max-width: $screen-md-max)
+        position: relative
+        height: auto
+        left: 0
+        opacity: 1
+        overflow: visible
+        transform: translate3d(0, 0, 0)
+        float: none
+        width: 170px
+        display: none
+      @media (max-width: $screen-xs-max)
+        left: 0
+        bottom: 0
+        transform: translate3d(100%, 0, 0)
+        position: absolute
+        width: 300px
+        top: 0
+        height: 100%!important
+        padding: 0
+        .open > &
+          transform: translate3d(0, 0, 0)
+
+  +e(subtitle)
+    text-transform: uppercase
+    color: #fff
+    border-bottom: 1px solid rgba(#fff, 0.8)
+    margin: 10px 25px 0
+    padding-bottom: 10px
+    font-weight: 600
+    @media (max-width: $screen-xs-max)
+      color: lighten($brandColor, 10%)
+      padding: 10px 25px
+      margin: 0
+      border-bottom: 1px solid rgba(#fff, 0.3)
+      font-weight: 600
+
+  +e(subnav)
+    list-style: none
+    padding: 0
+    @media (max-width: $screen-md-max)
+      border: none
+
+  +e(sublink)
+    color: rgba(#fff, 0.8)
+    padding: 10px 0
+    display: block
+    &:hover,
+    .active > &
+      color: #fff
+      text-decoration: none
+    @media (min-width: $screen-lg-min)
+      transition: hover 0.3s, padding 0.3s
+      &:hover
+        padding-left: 10px
+    @media (max-width: $screen-xs-max)
+      color: rgba(#fff, 0.8)
+  +e(subitem)
+    padding: 0 25px
+    position: relative
+    @media (max-width: $screen-xs-max)
+      clear: both
+      position: initial
+      padding: 0 25px
+      border-bottom: 1px solid rgba(#fff, 0.3)
+    &:hover
+      @media (max-width: $screen-md-max)
+        & .navbar__submenu--level
+          display: block
+  +e(subitem-dropdown)
+    &.open > .navbar__submenu
+      @media (max-width: $screen-xs-max)
+        height: auto
+        overflow: visible
+        opacity: 1
+        transform: translate3d(0,0,0)
+
+    &:hover > .navbar__submenu
+      @media (min-width: $screen-sm-min)
+        height: auto
+        overflow: visible
+        opacity: 1
+        transform: translate3d(0,0,0)
+
+
+  a:hover
+    cursor: pointer
+  .admin-bar &.header-fixed
+    @media (min-width: $screen-sm-min)
+      top: -33px
+
+  //@media (max-width: $screen-xs-max)
+  //  padding: 0 15px !important
+  +m(example)
+    padding: 20px 0
+
+  +m(ui)
+    @media (max-width: $screen-xs-max)
+      width: 252px
+      background: $brandColor
+    +e(nav)
+      @media (max-width: $screen-xs-max)
+        border-top: none
+        > li:last-child a
+          border-bottom: none!important
+
+  +m(header)
+    position: relative
+    z-index: 230
+    background: #f6f6f6
+    border: none
+    min-height: inherit
+    margin-bottom: 0
+    // fixed design
+    &.header-fixed
+      box-shadow: 0 5px 0 rgba(#000, 0.2)
+      margin-bottom: 0
+      min-height: 65px
+      @media (min-width: $screen-sm-min)
+        position: fixed
+        top: -65px
+        left: 0
+        right: 0
+        z-index: 35
+        transform: translateY(65px)
+        transition: transform 1s
+
+  +m(overlay)
+    position: absolute
+    top: 60px
+    left: 0
+    right: 0
+    background: none
+    +menu-colors(#fff)
+    &.header-fixed
+      background: #fff
+      +menu-colors($defaultColor)
+    +e(row)
+      margin: 30px -25px
+      padding: 12px 25px
+      @media (max-width: $screen-sm-max)
+        margin-top: 0
+        margin-bottom: 0
+      @media (max-width: $screen-xs-max)
+        padding: 0
+        margin: 56px 0 0
+
+  +m(brand)
+    +e(row)
+      background: rgba($brandColor, 0.8)
+
+  +m(overlay-map)
+    +e(row)
+      background: rgba(#fff, 0.9)
+    +menu-colors($defaultColor)
+
+  +m(subpage)
+    background: #fff
+  +m(white)
+    background: #fff
+
+  &.navbar-default
+    background: $brandColor
+    margin-bottom: 25px
+    border: none
+  &.navbar-inverse
+    background: #222
+    border: none
+
+#header-nav-offset
+  display: none
+  &.header-fixed
+    @media (min-width: $screen-sm-min)
+      display: block

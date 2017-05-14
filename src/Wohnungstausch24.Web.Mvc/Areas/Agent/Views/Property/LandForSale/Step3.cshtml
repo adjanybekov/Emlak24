@@ -1,0 +1,259 @@
+﻿@using Wohnungstausch24.Core
+@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step3.Step3ViewModel
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">@Resource.Add_New_Property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    @Html.Partial("LandForSale/_Steps", Model.StepsProgressModel)
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("Step3", "Property", FormMethod.Post, new {@class = "form form--flex form--property-add js-form js-form-property"}))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(false, "", new {@class = "text-danger"})
+                            @Html.HiddenFor(m => m.Id)
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="col-md-12">
+                                        <i class="fa fa-3x fa-calendar" style="color: #015bbb"></i>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4>@Resource.General_Date</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+
+                                    <h4>@Resource.Property_Add_Step3_When_Is_The_0_Available</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            @Html.EditorFor(m => m.Step3LandForSale.EarliestAvailableDate)
+                                            @Html.ValidationMessageFor(m => m.Step3LandForSale.EarliestAvailableDate, null, new {@class = "text-danger"})
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            @Html.EditorFor(m => m.Step3LandForSale.LatestAvailableDate)
+                                            @Html.ValidationMessageFor(m => m.Step3LandForSale.LatestAvailableDate, null, new {@class = "text-danger"})
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Step3LandForSale.FreeTextAvailableFrom, new {@class = "control-label"})
+                                            @Html.TextBoxFor(m => m.Step3LandForSale.FreeTextAvailableFrom, new {@class = "form-control"})
+                                            @Html.ValidationMessageFor(m => m.Step3LandForSale.FreeTextAvailableFrom, null, new {@class = "text-danger"})
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Step3LandForSale.IsDateFlexible, new {@class = "control-label"})
+                                            @Html.CheckBoxFor(m => m.Step3LandForSale.IsDateFlexible, new {@class = "in-checkbox", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger"})
+                                            @Html.ValidationMessageFor(m => m.Step3LandForSale.IsDateFlexible, null, new {@class = "text-danger"})
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <hr/>
+                            <div class="row">
+                                <div class="form-group form-group--col-3">
+                                    <div class="form-group--col-12">
+                                        <i class="fa fa-3x fa-euro" style="color: #015bbb"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group--col-9">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group form-group--col-4">
+                                                @Html.LabelFor(m => m.Step3LandForSale.IsPriceOnDemand, new {@class = "control-label"})
+                                                @Html.ToggleButtonFor(m => m.Step3LandForSale.IsPriceOnDemand, new ToggleOptions
+                                                {
+                                                    OnShowId = "orientation-price"
+                                                })
+                                            </div>
+                                            <div class="form-group form-group--col-4">
+                                                @Html.LabelFor(m => m.Step3LandForSale.Price, new {@class = "control-label"})
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-euro"></i>
+                                                    </span>
+                                                    @Html.TextBoxFor(m => m.Step3LandForSale.Price, new {@class = "form-control", min = 0})
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step3LandForSale.Price, null, new {@class = "text-danger"})
+                                            </div>
+                                            <div class="form-group form-group--col-4" id="orientation-price">
+                                                @Html.LabelFor(m => m.Step3LandForSale.OrientationPrice, new {@class = "control-label"})
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-euro"></i>
+                                                    </span>
+                                                    @Html.TextBoxFor(m => m.Step3LandForSale.OrientationPrice, new {@class = "form-control", min = 0})
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step3LandForSale.OrientationPrice, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-group--col-4">
+                                        @Html.LabelFor(m => m.Step3LandForSale.PurchasePricePerSqm, new {@class = "control-label"})
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-euro"></i>
+                                            </span>
+                                            @Html.TextBoxFor(m => m.Step3LandForSale.PurchasePricePerSqm, new {@class = "form-control", min = 0})
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.Step3LandForSale.PurchasePricePerSqm, null, new {@class = "text-danger"})
+                                    </div>
+                                    <div class="form-group form-group--col-4">
+                                        @Html.LabelFor(m => m.Step3LandForSale.FreeTextPrice, new {@class = "control-label"})
+                                        @Html.TextBoxFor(m => m.Step3LandForSale.FreeTextPrice, new {@class = "form-control"})
+                                        @Html.ValidationMessageFor(m => m.Step3LandForSale.FreeTextPrice, null, new {@class = "text-danger"})
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="alert alert-info">
+                                                <i class="fa fa-3x fa-exclamation-triangle pull-left"></i>
+                                                <p>@Resource.Property_Step3_CommissionWarningText</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-group--col-4">
+                                        @Html.LabelFor(m => m.Step3LandForSale.ComissionFee, new {@class = "control-label"})
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-euro"></i>
+                                            </span>
+                                            @Html.TextBoxFor(m => m.Step3LandForSale.ComissionFee, new {@class = "form-control", min = 0})
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.Step3LandForSale.ComissionFee, null, new {@class = "text-danger"})
+                                    </div>
+
+                                    <div class="form-group form-group--col-12">
+                                        <div class="col-md-8">@Html.LabelFor(m => m.Step3LandForSale.IsAllowedToBeIntroducedByAgent, new {@class = "control-label"})</div>
+                                        <div class="col-md-4">@Html.CheckBoxFor(m => m.Step3LandForSale.IsAllowedToBeIntroducedByAgent, new {data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger"})</div>
+                                    </div>
+                                    <div class="form-group form-group--col-12">
+                                        <div class="col-md-8">@Html.LabelFor(m => m.Step3LandForSale.IsWillingToPay, new { @class = "control-label" })</div>
+                                        <div class="col-md-4">@Html.ToggleButtonFor(m => m.Step3LandForSale.IsWillingToPay, new ToggleOptions { OnShowId = "inside-cortage-willing-to-pay" })</div>
+                                    </div>
+                                    <div class="form-group form-group--col-4" id="inside-cortage-willing-to-pay">
+                                        @Html.LabelFor(m => m.Step3LandForSale.InsideCourtage, new {@class = "control-label"})
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-euro"></i>
+                                            </span>
+                                            @Html.TextBoxFor(m => m.Step3LandForSale.InsideCourtage, new {@class = "form-control", min = 0})
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.Step3LandForSale.InsideCourtage, null, new {@class = "text-danger"})
+                                    </div>
+
+                                    <div class="form-group form-group--col-12">
+                                        <div class="col-md-8">@Html.LabelFor(m => m.Step3LandForSale.IsSubjectToCommission, new {@class = "control-label"})</div>
+                                        <div class="col-md-4">@Html.ToggleButtonFor(m => m.Step3LandForSale.IsSubjectToCommission, new ToggleOptions {OnShowId= "outside-courtage" })</div>
+                                    </div>
+                                    <div class="form-group form-group--col-4" id="outside-courtage">
+                                        @Html.LabelFor(m => m.Step3LandForSale.OutsideCourtage, new {@class = "control-label"})
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-euro"></i>
+                                            </span>
+                                            @Html.TextBoxFor(m => m.Step3LandForSale.OutsideCourtage, new {@class = "form-control", min = 0})
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.Step3LandForSale.OutsideCourtage, null, new {@class = "text-danger"})
+                                    </div>
+                                    <div class="form-group form-group--col-12" id="courtage-advice-text">
+                                        @Html.LabelFor(m => m.Step3LandForSale.CourtageAdvice, new {@class = "control-label"})
+                                        @Html.TextBoxFor(m => m.Step3LandForSale.CourtageAdvice, new {@class = "form-control"})
+                                        @Html.ValidationMessageFor(m => m.Step3LandForSale.CourtageAdvice, null, new {@class = "text-danger"})
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <a class="form__submit" href="@Url.Action("Step2", "Property", new {id = Model.Id})"><i class="fa fa-angle-left"></i>@Resource.Back</a>
+                                <button type="submit" class="form__submit">@Resource.Next <i class="fa fa-angle-right"></i></button>
+                            </div>
+                        }
+                    </div>
+                </section>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        var isRentedCheckBox = $('#@Html.IdFor(m => m.Step3LandForSale.IsCurrentlyRented)');
+        isRentedCheckBox.change(function() {
+            if ($(this).prop('checked')) {
+                $('.currently-rented-info').show('slow');
+                $('#actualrent-area-div').show('slow');
+            } else {
+                $('.currently-rented-info').hide('slow');
+                $('#actualrent-area-div').hide('slow');
+            }
+        });
+        if ($(isRentedCheckBox).prop('checked')) {
+            $('.currently-rented-info').show('slow');
+            $('#actualrent-area-div').show('slow');
+        } else {
+            $('.currently-rented-info').hide('slow');
+            $('#actualrent-area-div').hide('slow');
+        }
+        var isContractTerminatedCheckBox = $('#@Html.IdFor(m => m.Step3LandForSale.IsActualContractTerminated)');
+
+        isContractTerminatedCheckBox.change(function() {
+            if ($(this).prop('checked')) {
+                $('.wt24-is-contract-terminated').show('slow');
+                $('#terminated-area-div').show('slow');
+            } else {
+                $('.wt24-is-contract-terminated').hide('slow');
+                $('#terminated-area-div').hide('slow');
+            }
+       });
+
+        if ($(isContractTerminatedCheckBox).prop('checked')) {
+            $('.wt24-is-contract-terminated').show('slow');
+            $('#terminated-area-div').show('slow');
+        } else {
+            $('.wt24-is-contract-terminated').hide('slow');
+            $('#terminated-area-div').hide('slow');
+        }
+
+        var insideCourtage = $('#@Html.IdFor(m => m.Step3LandForSale.IsWillingToPay)');
+        var outsideCourtage = $('#@Html.IdFor(m => m.Step3LandForSale.IsSubjectToCommission)');
+
+
+        if (!insideCourtage.prop('checked') && !outsideCourtage.prop('checked')) {
+            $('#courtage-advice-text').hide('slow');
+        } else {
+            $('#courtage-advice-text').show('slow');
+        }
+
+        insideCourtage.change(function () {
+            if (!$(this).prop('checked') && !outsideCourtage.prop('checked')) {
+                $('#courtage-advice-text').hide('slow');
+            } else {
+                $('#courtage-advice-text').show('slow');
+            }
+        });
+
+        outsideCourtage.change(function () {
+            if (!$(this).prop('checked') && !insideCourtage.prop('checked')) {
+                $('#courtage-advice-text').hide('slow');
+            } else {
+                $('#courtage-advice-text').show('slow');
+            }
+        });
+    </script>
+}

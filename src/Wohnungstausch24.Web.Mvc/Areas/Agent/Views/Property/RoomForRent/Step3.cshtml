@@ -1,0 +1,469 @@
+﻿@using Wohnungstausch24.Core
+@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step3.Step3ViewModel
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">@Resource.Add_New_Property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    @Html.Partial("RoomForRent/_Steps", Model.StepsProgressModel)
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("Step3", "Property", FormMethod.Post, new { @class = "form form--flex form--property-add js-form js-form-property" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(m => m.Id)
+
+                            <div class="row">
+                                <div class="form-group form-group--col-12 form-group--inline">
+                                    <label class="control-label">@Resource.Property_Add_PublisherType</label>
+                                    <ul class="form__check">
+                                        <li>
+                                            @Html.RadioButtonFor(m => m.Step3RoomForRent.PublisherType, PublisherType.Owner, new { @class = "in-radio", id = "in-radio-publisher-type-1", required = "" })
+                                            @Html.Label(PublisherType.Owner.GetDisplayName(), new { @for = "in-radio-publisher-type-1", @class = "in-label" })
+                                        </li>
+                                        <li>
+                                            @Html.RadioButtonFor(m => m.Step3RoomForRent.PublisherType, PublisherType.ActualTenant, new { @class = "in-radio", id = "in-radio-publisher-type-2", required = "" })
+                                            @Html.Label(PublisherType.ActualTenant.GetDisplayName(), new { @for = "in-radio-publisher-type-2", @class = "in-label" })
+                                        </li>
+                                        <li>
+                                            @Html.RadioButtonFor(m => m.Step3RoomForRent.PublisherType, PublisherType.ContactPersonWorkingForOwner, new { @class = "in-radio", id = "in-radio-publisher-type-3", required = "" })
+                                            @Html.Label(PublisherType.ContactPersonWorkingForOwner.GetDisplayName(), new { @for = "in-radio-publisher-type-3", @class = "in-label" })
+                                        </li>
+                                    </ul>
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Step3RoomForRent.PublisherType, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="row" id="tenant-area-div">
+
+                                <div class="form-group form-group--col-12">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            @Html.LabelFor(m => m.Step3RoomForRent.SpeakToOwner, new { @class = "control-label" })
+                                        </div>
+                                        <div class="col-md-4">
+                                            @Html.ToggleButtonFor(m => m.Step3RoomForRent.SpeakToOwner)
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.SpeakToOwner, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="form-group form-group--col-3">
+                                    <div class="form-group--col-12">
+                                        <i class="fa fa-3x fa-calendar" style="color: #015bbb"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group--col-9">
+                                    <div class="row">
+                                        <div class="form-group form-group--col-4" id="rented-area-div">
+                                            @Html.LabelFor(m => m.Step3RoomForRent.IsCurrentlyRented, new { @class = "control-label" })
+                                            @Html.ToggleButtonFor(m => m.Step3RoomForRent.IsCurrentlyRented,new ToggleOptions {OnShowId = "actual-rent" })
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.IsCurrentlyRented, null, new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group--col-4" id="actualrent-area-div">
+                                            @Html.LabelFor(m => m.Step3RoomForRent.CurrentColdRent, new { @class = "control-label" })
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-euro"></i>
+                                                </span>
+                                                @Html.TextBoxFor(m => m.Step3RoomForRent.CurrentColdRent, new { @class = "form-control" })
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.CurrentColdRent, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="row" id="actual-rent">
+                                        <div class="form-group form-group--col-4">
+                                            @Html.LabelFor(m => m.Step3RoomForRent.IsActualContractTerminated, new { @class = "control-label" })
+                                            @Html.ToggleButtonFor(m => m.Step3RoomForRent.IsActualContractTerminated, new ToggleOptions { OnShowId = "terminated-area-div" })
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.IsActualContractTerminated, null, new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group form-group--col-4" id="terminated-area-div">
+                                            @Html.EditorFor(m => m.Step3RoomForRent.ActualContractTerminatedOn)
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.ActualContractTerminatedOn, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group--col-12">
+                                            <h4>@string.Format(Resource.Property_Add_Step3_When_Is_The_0_Available, Resource.General_Flat) </h4>
+                                            <div class="row">
+                                                <div class="form-group form-group--col-4">
+                                                    @Html.EditorFor(m => m.Step3RoomForRent.EarliestAvailableDate)
+                                                    @Html.ValidationMessageFor(m => m.Step3RoomForRent.EarliestAvailableDate, null, new { @class = "text-danger" })
+                                                </div>
+                                                <div class="form-group form-group--col-4">
+                                                    @Html.EditorFor(m => m.Step3RoomForRent.LatestAvailableDate)
+                                                    @Html.ValidationMessageFor(m => m.Step3RoomForRent.LatestAvailableDate, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group form-group--col-9">
+                                            @Html.LabelFor(m => m.Step3RoomForRent.FreeTextAvailableFrom, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Step3RoomForRent.FreeTextAvailableFrom, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.FreeTextAvailableFrom, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group form-group--col-12">
+                                            <div class="col-md-8">
+                                                @Html.LabelFor(m => m.Step3RoomForRent.IsDateFlexible, new { @class = "control-label" })
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.ToggleButtonFor(m => m.Step3RoomForRent.IsDateFlexible)
+                                                @Html.ValidationMessageFor(m => m.Step3RoomForRent.IsDateFlexible, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>@Resource.Property_Step3_RentInfo</h3>
+                            <hr />
+                            <div class="row">
+                                <div class="form-group form-group--col-3">
+                                    <div class="form-group--col-12">
+                                        <i class="fa fa-3x fa-euro" style="color: #015bbb"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group--col-9">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Step3RoomForRent.PeriodType, new { @class = "control-label" })
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.EnumDropDownListFor(m => m.Step3RoomForRent.PeriodType, Resource.PleaseChoose, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.PeriodType, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Step3RoomForRent.AllInRent, new {@class = "control-label"})
+                                            @Html.ToggleButtonFor(m => m.Step3RoomForRent.AllInRent, new ToggleOptions {OnShowId = "all_in_rent_price", OffShowClass = "not-all-in-rent"})
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.AllInRent, null, new {@class = "text-danger"})
+                                        </div>
+                                        <div class="col-md-6" id="all_in_rent_price">
+                                            @Html.LabelFor(m => m.Step3RoomForRent.AllInRentPrice, new {@class = "control-label"})
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-euro"></i>
+                                                </span>
+                                                @Html.TextBoxFor(m => m.Step3RoomForRent.AllInRentPrice, new {@class = "form-control", min = 1})
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.AllInRentPrice, null, new {@class = "text-danger"})
+                                        </div>
+                                    </div>
+                                    <div class="row col-md-12 not-all-in-rent" id="isPriceOnDemandId">
+                                        <div class="form-group form-group--col-12">
+                                            <div class="col-md-8">
+                                                @Html.LabelFor(m => m.Step3RoomForRent.IsPriceOnDemand, new {@class = "control-label"})
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.ToggleButtonFor(m => m.Step3RoomForRent.IsPriceOnDemand, new ToggleOptions
+                                                {
+                                                    OffShowClass = "costs",
+                                                    OnShowId = "orientation-price"
+
+                                                })
+                                                @Html.ValidationMessageFor(m => m.Step3RoomForRent.IsPriceOnDemand, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-4 not-all-in-rent costs">
+                                            @Html.LabelFor(m => m.Step3RoomForRent.Price, new {@class = "control-label"})
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-euro"></i>
+                                                </span>
+                                                @Html.TextBoxFor(m => m.Step3RoomForRent.Price, new {@class = "form-control"})
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.Price, null, new {@class = "text-danger"})
+                                        </div>
+                                        <div class="form-group col-md-4 not-all-in-rent costs">
+                                            @Html.LabelFor(m => m.Step3RoomForRent.AdditionalCosts, new {@class = "control-label"})
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-euro"></i>
+                                                </span>
+                                                @Html.TextBoxFor(m => m.Step3RoomForRent.AdditionalCosts, new {@class = "form-control", min = "1"})
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.AdditionalCosts, null, new {@class = "text-danger"})
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            @Html.LabelFor(m => m.Step3RoomForRent.Bail, new {@class = "control-label"})
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-euro"></i>
+                                                </span>
+                                                @Html.TextBoxFor(m => m.Step3RoomForRent.Bail, new {@class = "form-control", min = "1"})
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.Bail, null, new {@class = "text-danger"})
+                                        </div>
+                                        <div class="form-group col-md-4" id="orientation-price">
+                                            @Html.LabelFor(m => m.Step3RoomForRent.OrientationPrice, new {@class = "control-label"})
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-euro"></i>
+                                                </span>
+                                                @Html.TextBoxFor(m => m.Step3RoomForRent.OrientationPrice, new {@class = "form-control", min = "1"})
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.Step3RoomForRent.OrientationPrice, null, new {@class = "text-danger"})
+                                        </div>
+                                    </div>
+                                    <div class="row col-md-12">
+                                        @Html.LabelFor(m => m.Step3RoomForRent.BailText, new {@class = "control-label"})
+                                        @Html.TextBoxFor(m => m.Step3RoomForRent.BailText, new {@class = "form-control"})
+                                        @Html.ValidationMessageFor(m => m.Step3RoomForRent.BailText, null, new {@class = "text-danger"})
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                        <div class="form-group form-group--col-12">
+                                            <div class="col-md-8">
+                                                @Html.LabelFor(m => m.Step3RoomForRent.AcceptBailLetter, new {@class = "control-label"})
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.CheckBoxFor(m => m.Step3RoomForRent.AcceptBailLetter, new {@class = "in-checkbox", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger"})
+                                                @Html.ValidationMessageFor(m => m.Step3RoomForRent.AcceptBailLetter, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="form-group form-group--col-12">
+                                            <div class="alert alert-info alert-dismissible" role="alert">
+                                                @Resource.Property_Add_IntroducedByAgent
+                                            </div>
+                                            <div class="col-md-8">
+                                                @Html.LabelFor(m => m.Step3RoomForRent.InsideCourtage, new {@class = "control-label"})
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-euro"></i>
+                                                    </span>
+                                                    @Html.TextBoxFor(m => m.Step3RoomForRent.InsideCourtage, new {@class = "form-control", min = "1"})
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step3RoomForRent.InsideCourtage, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="collapse-group">
+                                <h2>@Resource.Property_Step3_AdditionalIformation</h2>
+                                <div class="collapse" id="viewdetails">
+                                    <div class="row">
+                                        <div class="form-group form-group--col-3">
+                                            <div class="form-group--col-12">
+                                                <i class="fa fa-3x fa-euro" style="color: #015bbb"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-group--col-9">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.Step3RoomForRent.BasicRent, new { @class = "control-label" })
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-euro"></i>
+                                                    </span>
+                                                    @Html.TextBoxFor(m => m.Step3RoomForRent.BasicRent, new { @class = "form-control", min = "1" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.Step3RoomForRent.Clearance, new { @class = "control-label" })
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-euro"></i>
+                                                    </span>
+                                                    @Html.TextBoxFor(m => m.Step3RoomForRent.Clearance, new { @class = "form-control", min = "1" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.Step3RoomForRent.ClearanceText, new { @class = "control-label" })
+                                                @Html.TextBoxFor(m => m.Step3RoomForRent.ClearanceText, new { @class = "form-control" })
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.Step3RoomForRent.IsHeatingCostsIncluded, new { @class = "control-label" })
+                                                    @Html.CheckBoxFor(m => m.Step3RoomForRent.IsHeatingCostsIncluded, new { @class = "in-checkbox", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.Step3RoomForRent.RentalPricePerSqm, new { @class = "control-label" })
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-euro"></i>
+                                                        </span>
+                                                        @Html.TextBoxFor(m => m.Step3RoomForRent.RentalPricePerSqm, new { @class = "form-control", min = "1" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.Step3RoomForRent.HeatingCosts, new { @class = "control-label" })
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-euro"></i>
+                                                        </span>
+                                                        @Html.TextBoxFor(m => m.Step3RoomForRent.HeatingCosts, new { @class = "form-control", min = "1" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.Step3RoomForRent.WarmRent, new { @class = "control-label" })
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-euro"></i>
+                                                        </span>
+                                                        @Html.TextBoxFor(m => m.Step3RoomForRent.WarmRent, new { @class = "form-control", min = "1" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.Step3RoomForRent.FreeTextPrice, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(m => m.Step3RoomForRent.FreeTextPrice, new { @class = "form-control" })
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.Step3RoomForRent.RentSubsidy, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(m => m.Step3RoomForRent.RentSubsidy, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    <a class="btn btn-default" data-toggle="collapse" data-target="#viewdetails" id="show-more-button">@Resource.View_More »</a>
+                                </p>
+                            </div>
+
+                            <div class="row">
+                                <a class="form__submit" href="@Url.Action("Step2", "Property", new {id = Model.Id})">
+                                    <i class="fa fa-angle-left"></i> @Resource.Back
+                                </a>
+                                <button type="submit" class="form__submit">
+                                    @Resource.Next <i class="fa fa-angle-right"></i>
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </section>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+
+        var idToHide = '#tenant-area-div';
+        var rentedAreaDiv = '#rented-area-div';
+        var actualrent = '#actualrent-area-div';
+        var rentedout = $('#@Html.IdFor(m => m.Step3RoomForRent.IsCurrentlyRented)');
+        var speakToOwner = $('#@Html.IdFor(m => m.Step3RoomForRent.SpeakToOwner)');
+        var selector =
+            'input[name="@Html.NameFor(m => m.Step3RoomForRent.PublisherType)"][value=@PublisherType.ActualTenant.ToString()]';
+
+        var isPublisherActualTenant = $(selector).prop('checked');
+
+        var isOwnerInput =
+           'input[name="@Html.NameFor(m => m.Step3RoomForRent.PublisherType)"][value=@PublisherType.Owner.ToString()]';
+        var isPublisherOwner = $(selector).prop('checked');
+        $("input[name='@Html.NameFor(m => m.Step3RoomForRent.PublisherType)']")
+            .each(function() {
+                $(this)
+                    .on('change',
+                    (function() {
+                        isPublisherActualTenant = $(selector).prop('checked');
+                        isPublisherOwner = $(isOwnerInput).prop('checked');
+                        handlePublisherTypeChanges($(this).prop('checked') &&
+                            ($(this).val() === "@PublisherType.ActualTenant.ToString()"));
+                        hidePriceOnDemand($(this).prop('checked') &&
+                            ($(this).val() === "@PublisherType.Owner.ToString()"));
+                    }));
+            });
+
+        handlePublisherTypeChanges(isPublisherActualTenant);
+        hidePriceOnDemand(isPublisherOwner);
+        var priceOnDemand = $('#@Html.IdFor(m=>m.Step3RoomForRent.IsPriceOnDemand)');
+        var isPriceOnDemandId = '#isPriceOnDemandId';
+
+        function hidePriceOnDemand(isPublisherOwner) {
+            if (isPublisherOwner) {
+                $(priceOnDemand).bootstrapToggle('off');
+                $(isPriceOnDemandId).hide('slow');
+                $(priceOnDemand).prop('disabled', true);
+            } else {
+                $(isPriceOnDemandId).show('slow');
+                $(priceOnDemand).prop('disabled', false);
+            }
+        }
+
+        function handlePublisherTypeChanges(isActualTenant) {
+            if (isActualTenant) {
+                $(idToHide).show('slow');
+                $(rentedAreaDiv).hide('slow');
+                $(actualrent).show('slow');
+                $(actualrent + " :input").prop("disabled", false);
+            } else {
+                $(idToHide).hide('slow');
+                $(rentedAreaDiv).show('slow');
+            }
+        }
+
+        rentedout.change(function() {
+            coldrentHideOrDisplay();
+        });
+
+        coldrentHideOrDisplay();
+        function coldrentHideOrDisplay() {
+            if ($(rentedout).prop('checked') || isPublisherActualTenant) {
+                $(actualrent).show('slow');
+                $(actualrent + " :input").prop("disabled", false);
+            } else {
+                $(actualrent).hide('slow');
+                $(actualrent + " :input").prop("disabled", true);
+            }
+        }
+
+        $('#viewdetails')
+            .on('shown.bs.collapse',
+                function() {
+                    $("#show-more-button").text("@Resource.View_Less »");
+                });
+        $('#viewdetails')
+            .on('hidden.bs.collapse',
+                function() {
+                    $("#show-more-button").text("@Resource.View_More »");
+                });
+
+
+
+        speakToOwner.change(function() {
+                setPriceOnDemandTrueFlase();
+            });
+        setPriceOnDemandTrueFlase();
+        function setPriceOnDemandTrueFlase() {
+            if ($(speakToOwner).prop('checked')) {
+                $(priceOnDemand).bootstrapToggle('on');
+                $(priceOnDemand).prop("disabled", true);
+            } else {
+                $(priceOnDemand).prop("disabled", false);
+            }
+        }
+    </script>
+}

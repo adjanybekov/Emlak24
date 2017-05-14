@@ -1,0 +1,449 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step9.Step9ViewModel
+@{
+    ViewBag.Title = "Step8";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">@Resource.Add_New_Property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    @Html.Partial("RoomForRent/_Steps", Model.StepsProgressModel)
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("Step9", "Property", FormMethod.Post, new { @class = "form form--flex form--property-add js-form js-form-property" }))
+                        {
+                            @Html.HiddenFor(m => m.Id)
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <div class="form-group--col-12">
+                                <div class="row">
+                                    <div class="col-md-4 col-xs-6">
+                                        @Html.LabelFor(m => m.Step9RoomForRent.FeatureCategory, new { @class = "control-label" })
+                                        @Html.EnumDropDownListFor(m => m.Step9RoomForRent.FeatureCategory, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+                                        @Html.ValidationMessageFor(m => m.Step9RoomForRent.FeatureCategory, null, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-4 col-xs-6">
+                                        @Html.LabelFor(m => m.Step9RoomForRent.ConditionArtType, new { @class = "control-label" })
+                                        @Html.EnumDropDownListFor(m => m.Step9RoomForRent.ConditionArtType, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+                                        @Html.ValidationMessageFor(m => m.Step9RoomForRent.ConditionArtType, null, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group form-group--col-4">
+                                        @Html.EditorFor(m => m.Step9RoomForRent.LastRenovationDate)
+                                        @Html.ValidationMessageFor(m => m.Step9RoomForRent.LastRenovationDate, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <div class="form-group form-group--col-12 form-group--inline">
+                                            <div class="col-md-8">
+                                                @Html.LabelFor(m => m.Step9RoomForRent.DesignType, new { @class = "control-label" })
+                                                <ul class="form__check">
+                                                    <li>
+                                                        @Html.RadioButtonFor(m => m.Step9RoomForRent.DesignType, DesignType.Massive, new { @class = "in-radio", id = "in-radio-undergroundtype-type-1", required = "" })
+                                                        @Html.Label(DesignType.Massive.GetDisplayName(), new { @for = "in-radio-undergroundtype-type-1", @class = "in-label" })
+                                                    </li>
+                                                    <li>
+                                                        @Html.RadioButtonFor(m => m.Step9RoomForRent.DesignType, DesignType.Precast, new { @class = "in-radio", id = "in-radio-undergroundtype-type-2", required = "" })
+                                                        @Html.Label(DesignType.Precast.GetDisplayName(), new { @for = "in-radio-undergroundtype-type-2", @class = "in-label" })
+                                                    </li>
+                                                    <li>
+                                                        @Html.RadioButtonFor(m => m.Step9RoomForRent.DesignType, DesignType.ElementsOfWood, new { @class = "in-radio", id = "in-radio-undergroundtype-type-3", required = "" })
+                                                        @Html.Label(DesignType.ElementsOfWood.GetDisplayName(), new { @for = "in-radio-undergroundtype-type-3", @class = "in-label" })
+                                                    </li>
+                                                    <li>
+                                                        @Html.RadioButtonFor(m => m.Step9RoomForRent.DesignType, DesignType.None, new { @class = "in-radio", id = "in-radio-undergroundtype-type-4", required = "" })
+                                                        @Html.Label(DesignType.None.GetDisplayName(), new { @for = "in-radio-undergroundtype-type-4", @class = "in-label" })
+                                                    </li>
+                                                </ul>
+                                                @Html.ValidationMessageFor(m => m.Step9RoomForRent.DesignType, null, new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.LabelFor(m => m.Step9RoomForRent.FlatNumber, new { @class = "control-label" })
+                                                @Html.TextBoxFor(m => m.Step9RoomForRent.FlatNumber, new {  @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Step9RoomForRent.FlatNumber, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="col-md-12" id="kitchen-area-data-div">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">@Resource.Kitchen_Type</div>
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                @Html.CheckBoxFor(m => m.Step9RoomForRent.IsKitchenFitted, new { @class = "in-checkbox" })
+                                                                @Html.LabelFor(m => m.Step9RoomForRent.IsKitchenFitted, new { @class = "in-label" })
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                @Html.CheckBoxFor(m => m.Step9RoomForRent.IsKitchenOpen, new { @class = "in-checkbox" })
+                                                                @Html.LabelFor(m => m.Step9RoomForRent.IsKitchenOpen, new { @class = "in-label" })
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                @Html.CheckBoxFor(m => m.Step9RoomForRent.IsKitchenPantry, new { @class = "in-checkbox" })
+                                                                @Html.LabelFor(m => m.Step9RoomForRent.IsKitchenPantry, new { @class = "in-label" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="col-md-12" id="kitchen-area-data-div">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">@Resource.FloorTypes</div>
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            @for (var i = 0; i < Model.Step9RoomForRent.FloorTypes.Count; i++)
+                                                            {
+                                                                <div class="col-md-4">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.FloorTypes[i].Selected, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.FloorTypes[i].Selected, Model.Step9RoomForRent.FloorTypes[i].FloorType.GetDisplayName(), new { @class = "in-label" })
+                                                                    @Html.HiddenFor(m => m.Step9RoomForRent.FloorTypes[i].FloorType)
+                                                                    @Html.HiddenFor(m => m.Step9RoomForRent.FloorTypes[i].Id)
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" id="viewBathroom">
+                                    @{ Html.RenderAction("GetBathrooms", "Property", new { id = Model.Id });}
+                                </div>
+                            </div>
+                            <div class="collapse-group">
+                                <h2>@Resource.Property_Step9_AdditionalIformation</h2>
+                                <div class="collapse" id="viewdetails">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="col-md-12" id="kitchen-area-data-div">
+                                                <div class="form-group form-group--col-12">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">@Resource.Spaces</div>
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasWinterGarden, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasWinterGarden, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasWinterGarden, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasStorageRoom, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasStorageRoom, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasStorageRoom, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasBicycleRoom, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasBicycleRoom, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasBicycleRoom, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasWashDryingRoom, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasWashDryingRoom, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasWashDryingRoom, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasChimney, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasChimney, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasChimney, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasRollerBlind, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasRollerBlind, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasRollerBlind, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasLibrary, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasLibrary, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasLibrary, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasAttic, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasAttic, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasAttic, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasGrannyPart, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasGrannyPart, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasGrannyPart, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div id="roller-area-div">
+                                                                    <div class="form-group form-group--col-12">
+                                                                        @Html.LabelFor(m => m.Step9RoomForRent.RollerBlindType, new { @class = "control-label" })
+                                                                        @Html.EnumDropDownListFor(m => m.Step9RoomForRent.RollerBlindType, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+                                                                        @Html.ValidationMessageFor(m => m.Step9RoomForRent.RollerBlindType, null, new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="col-md-12" id="kitchen-area-data-div">
+                                                <div class="form-group form-group--col-12">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">@Resource.Media</div>
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasCableSatTv, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasCableSatTv, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasCableSatTv, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasGermanTvByAntenna, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasGermanTvByAntenna, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasGermanTvByAntenna, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasInternet, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasInternet, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasInternet, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasCableDucts, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasCableDucts, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasCableDucts, null, new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                            <div id="internet-area-div">
+                                                              <div class="form-group form-group--col-12">
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.InternetType, new { @class = "control-label" })
+                                                                    @Html.EnumDropDownListFor(m => m.Step9RoomForRent.InternetType, Resource.PleaseChoose, new { @class = "form-control js-in-select" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.InternetType, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="form-group form-group--col-12">
+
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.SpeedOfInternet, new { @class = "control-label" })
+
+                                                                    <div class="input-group">
+
+                                                                        @Html.TextBoxFor(m => m.Step9RoomForRent.SpeedOfInternet, new {  @class = "form-control" })
+                                                                        <div class="input-group-addon hidden-xs">
+                                                                            <b>mbit/s</b>
+                                                                        </div>
+                                                                    </div>
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.SpeedOfInternet, null, new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="col-md-12" id="kitchen-area-data-div">
+                                                <div class="form-group form-group--col-12">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">@Resource.Luxury</div>
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasAirCondition, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasAirCondition, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasAirCondition, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasSauna, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasSauna, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasSauna, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasSwimmingPool, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasSwimmingPool, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasSwimmingPool, null, new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="col-md-3" id="kitchen-area-data-div">
+                                                <div class="form-group form-group--col-12">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">@Resource.Access</div>
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.IsSeniorFocused, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.IsSeniorFocused, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.IsSeniorFocused, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.IsWheelchairAccessible, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.IsWheelchairAccessible, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.IsWheelchairAccessible, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.IsBarrierFree, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.IsBarrierFree, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.IsBarrierFree, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasElevator, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasElevator, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasElevator, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasHousingPermission, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasHousingPermission, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasHousingPermission, null, new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+
+                                            <div class="col-md-3" id="kitchen-area-data-div">
+                                                <div class="form-group form-group--col-12">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">@Resource.Safety</div>
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasAlarmSystem, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasAlarmSystem, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasAlarmSystem, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasCamera, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasCamera, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasCamera, null, new { @class = "text-danger" })
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    @Html.CheckBoxFor(m => m.Step9RoomForRent.HasPoliceCall, new { @class = "in-checkbox" })
+                                                                    @Html.LabelFor(m => m.Step9RoomForRent.HasPoliceCall, new { @class = "in-label" })
+                                                                    @Html.ValidationMessageFor(m => m.Step9RoomForRent.HasPoliceCall, null, new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            @Html.LabelFor(m => m.Step9RoomForRent.IsConstructionYearProjected, new { @class = "control-label" })
+                                            @Html.CheckBoxFor(m => m.Step9RoomForRent.IsConstructionYearProjected, new { @class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                                            @Html.ValidationMessageFor(m => m.Step9RoomForRent.IsConstructionYearProjected, null, new { @class = "text-danger" })
+
+                                            @Html.LabelFor(m => m.Step9RoomForRent.IsApartmentTower, new { @class = "control-label" })
+                                            @Html.CheckBoxFor(m => m.Step9RoomForRent.IsApartmentTower, new { @class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                                            @Html.ValidationMessageFor(m => m.Step9RoomForRent.IsApartmentTower, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--col-12">
+                                            @Html.LabelFor(m => m.Step9RoomForRent.ConstructionYear, new { @class = "control-label" })
+                                            @Html.DropDownListFor(m => m.Step9RoomForRent.ConstructionYear, Model.Step9RoomForRent.ConstructionYearList, "- Please choose -", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Step9RoomForRent.ConstructionYear, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    <a class="btn btn-default" data-toggle="collapse" data-target="#viewdetails" id="show-more-button"><i></i>@Resource.View_More »</a>
+                                </p>
+                            </div>
+                            <div class="row">
+                                <a class="form__submit" href="@Url.Action("Step8", new {id = Model.Id})"><i class="fa fa-angle-left"></i> @Resource.Back</a>
+                                <button type="submit" class="form__submit">@Resource.Property_Step9_SaveAndPublish <i class="fa fa-check"></i></button>
+                            </div>
+                                        }
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_AddBathroomModalPartial", Model.Step9RoomForRent.AddBathroomViewModel);
+
+@section scripts
+{
+    <script>
+        $('#viewdetails').on('shown.bs.collapse',
+            function() {
+                $("#show-more-button").text("@Resource.View_Less »");
+            });
+        $('#viewdetails').on('hidden.bs.collapse',
+            function() {
+                $("#show-more-button").text("@Resource.View_More »");
+            });
+
+        var hasInternet = $('#@Html.IdFor(m => m.Step9RoomForRent.HasInternet)');
+        var internetAreaDiv = "#internet-area-div";
+        hasInternet.change(
+            function() {
+                handleInternet();
+            });
+        handleInternet();
+        function handleInternet() {
+            if ($(hasInternet).prop('checked')) {
+                $(internetAreaDiv).show('slow');
+                $(internetAreaDiv + " :input").prop("disabled", false);
+            } else {
+                $(internetAreaDiv).hide('slow');
+                $(internetAreaDiv + " :input").prop("disabled", true);
+            }
+
+        }
+
+        var hasRollerBlind = $('#@Html.IdFor(m => m.Step9RoomForRent.HasRollerBlind)');
+        var rollerAreaDiv = "#roller-area-div";
+        hasRollerBlind.change(
+            function() {
+                handleRollerBlind();
+            });
+        handleRollerBlind();
+
+        function handleRollerBlind() {
+            if ($(hasRollerBlind).prop('checked')) {
+                $(rollerAreaDiv).show('slow');
+                $(rollerAreaDiv + " :input").prop("disabled", false);
+            } else {
+                $(rollerAreaDiv).hide('slow');
+                $(rollerAreaDiv + " :input").prop("disabled", true);
+            }
+        }
+
+
+        var ShowBathroomLoader = function() {
+            $('#addBathroomModal').modal('toggle');
+            showLoader("#bathroom-area-data-div");
+        }
+        var HideBathroomLoader = function() {
+            hideLoader("#bathroom-area-data-div");
+        }
+        SweetAjax("#bathroom-area-data-div", ".wt24-bathroom-confirmation");
+    </script>
+}

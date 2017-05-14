@@ -1,0 +1,62 @@
+/*------------------------------------------------------------------
+  * Partners
+  + Partners / .partners
+  ==============================================================*/
++b(partners)
+  padding: 0 50px
+  position: relative
+  +e(item)
+    text-align: center
+    +clearfix
+    opacity: 0
+    transition: opacity 0.5s
+
+    &:hover
+      text-decoration: none
+    img
+      margin: 0 auto
+    &.slick-active
+      opacity: 1
+
+    @media (min-width: $screen-sm-min)
+      &:nth-child(2n) .request__photo
+        float: right !important
+    @media (max-width: $screen-xs-max)
+      width: 160px
+      img
+        max-width: 100%
+    +m(last)
+      border-bottom: 0
+
+  +e(name)
+    text-align: center
+    font-weight: 600
+    font-size: 15px
+    color: $defaultColor
+  +e(slider)
+    overflow: hidden
+    padding: 0
+    width: 100%
+  // style for controls
+  +e(controls)
+    @media (max-width: $screen-xs-max)
+      margin: 0
+
+  +e(arrow)
+    padding: 8px 12px
+    margin: -29px 0 0 10px
+    color: $brandColor
+    line-height: 0.5
+    +absolute($top: 50%)
+    background: none
+    border: none
+    outline: none
+    +m(prev)
+      &:after
+        +font-awesome(5em, '\f104')
+      left: -14px
+
+    +m(next)
+      &:after
+        +font-awesome(5em, '\f105')
+      right: -14px

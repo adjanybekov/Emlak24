@@ -1,0 +1,337 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = 'compact single-scom-property sidebar-left';
+  - var page = 'widgets';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Widgets
+  // END BREADCRUMBS
+block center
+  .row
+    section.site.site--main
+      header.site__header
+        h1.site__title Extra widgets
+        h2.site__headline Typography, list styles, buttons, forms, links and other elements
+
+      .site__panel
+        span.site__header-text
+          | This is the page what show how to use typography, list styles, buttons, forms, links, checkbox, radio butons, paragraph and caracter styles, columns, hr lines, images and other elements.
+
+      .site__main
+        .listing.listing--list.listing--article
+          .listing__item
+            article.article.article--list
+              .article__item-header
+                time.article__time(datetime='2009-08-29')
+                  | SEP
+                  strong 02
+                .article__item-info
+                  h3.article__item-title
+                    a(href='blog_details.html') You&rsquo;ve been approved for a rental home. Now what?
+                  .article__tags
+                    | Category:
+                    a(href='#') Villa for sale
+                    = ', '
+                    a(href='#') Florida
+                    = ', '
+                    a(href='#') Miami
+                a.article__comment(href='blog_details.html')
+                  i.fa.fa-comments
+                  | 2 Comments
+              .clearfix
+              .article__preview.
+                <form  class="post-password-form" method="post">
+                      <p>This post is password-protected. Please enter the password to view it:</p>
+                      <p><label for="pwbox-4">Password:
+                          <input  type="password" id="pwbox-4"/></label>
+                          <input type="submit" name="Submit" value="Send"/></p>
+                  </form>
+              a.article__more(href='#') Read more
+          .listing__item
+            article.article.article--list
+              .article__item-header
+                time.article__time(datetime='2009-08-29')
+                  | SEP
+                  strong 02
+                .article__item-info
+                  h3.article__item-title
+                    a(href='blog_details.html') You&rsquo;ve been approved for a rental home. Now what?
+                  .article__tags
+                    | Category:
+                    a(href='#') Villa for sale
+                    = ', '
+                    a(href='#') Florida
+                    = ', '
+                    a(href='#') Miami
+                a.article__comment(href='blog_details.html')
+                  i.fa.fa-comments
+                  | 2 Comments
+              .clearfix
+              .article__preview
+                img(src='#{path.media}/properties/870x480/01.jpg', alt='')
+
+              .article__intro
+                p
+                  | Congratulations! You&rsquo;ve found the perfect rental property and your application has been approved. Now there&rsquo;s just a few things you&rsquo;ll need. We work hard to achieve quality at affordable prices for our customers through optimizing our entire value chain, by building long-term supplier relationships, investing in highly automated production and producing large volumes.
+
+              a.article__more(href='#') Read more
+          .listing__item
+            article.article.article--list
+              .article__item-header
+                time.article__time(datetime='2009-08-29')
+                  | SEP
+                  strong 02
+                .article__item-info
+                  h3.article__item-title
+                    a(href='blog_details.html') You&rsquo;ve been approved for a rental home. Now what?
+                  .article__tags
+                    | Category:
+                    a(href='#') Villa for sale
+                    = ', '
+                    a(href='#') Florida
+                    = ', '
+                    a(href='#') Miami
+                a.article__comment(href='blog_details.html')
+                  i.fa.fa-comments
+                  | 2 Comments
+              .article__preview
+                img(src='#{path.media}/properties/870x480/01.jpg', alt='')
+                //button.article__preview-play
+                  span.glyphicon.glyphicon-play
+              .article__intro
+                p
+                  | Congratulations! You&rsquo;ve found the perfect rental property and your application has been approved. Now there&rsquo;s just a few things you&rsquo;ll need. We work hard to achieve quality at affordable prices for our customers through optimizing our entire value chain, by building long-term supplier relationships, investing in highly automated production and producing large volumes.
+              a.article__more(href='#') Read more
+
+    .sidebar
+      .secondary
+        .widget-area
+          aside.widget.widget_search
+            h2.widget-title Search
+            h3.widget-subtitle Widget subtitle
+            form.search-form
+              label
+                span.screen-reader-text Search:
+                input.search-field(type='search', placeholder='Search your post', title='Search:')
+              input.search-submit.screen-reader-text(type='submit', value='Поиск')
+          aside.widget.widget_recent_entries
+            h2.widget-title Recent posts
+            h3.widget-subtitle Widget subtitle
+            ul
+              li
+                a(href='blog_details.html') New market offers
+              li
+                a(href='blog_details.html') Affordable housing
+              li
+                a(href='blog_details.html') Real estate price analysis
+          aside.widget.widget_recent_entries
+            h2.widget-title Recent posts
+            ul
+              li
+                a(href='blog_details.html') Real estate price analysis
+                span.post-date 19.02.2015
+              li
+                a(href='blog_details.html') Affordable housing
+                span.post-date 18.02.2015
+              li
+                a(href='blog_details.html') New market offers
+                span.post-date 17.02.2015
+          aside.widget.widget_recent_comments
+            h2.widget-title Comments
+            ul
+              li.recentcomments
+                span.comment-author-link
+                  a.url(href='#', rel='external nofollow') Alex
+                | to post
+                a(href='blog_details.html') Real estate price analysis
+              li.recentcomments
+                span.comment-author-link John
+                | to post
+                a(href='blog_details.html') Affordable housing
+              li.recentcomments
+                span.comment-author-link
+                  a.url(href='#') Jennifer
+                | to post
+                a(href='blog_details.html') New market offers
+          aside.widget.widget_archive
+            h2.widget-title Archive 1
+            h3.widget-subtitle Widget subtitle
+            ul
+              li
+                a(href='blog.html') November 2014 #[strong (4)]
+              li
+                a(href='blog.html') February 2015 #[strong (1)]
+              li
+                a(href='blog.html') March 2015 #[strong (7)]
+              li
+                a(href='blog.html') April 2015 #[strong (8)]
+              li
+                a(href='blog.html') June 2015 #[strong (1)]
+              li
+                a(href='blog.html') July 2015 #[strong (10)]
+          aside.widget.widget_archive
+            h2.widget-title Archive 2
+            h3.widget-subtitle Widget subtitle
+            select(name='archive-dropdown')
+              option(value='blog_details.html') Select the month
+              option(value='blog_details.html') Февраль 2015  (3)
+              option(value='blog_details.html') November 2014 (5)
+              option(value='blog_details.html') February 2015 (2)
+              option(value='blog_details.html') March 2015 (1)
+              option(value='blog_details.html') April 2015 (2)
+              option(value='blog_details.html') June 2015 (5)
+              option(value='blog_details.html') July 2015 (10)
+          aside.widget.widget_categories
+            h2.widget-title Categories
+            ul
+              li.cat-item
+                a(href='blog_details.html') No category
+                |  (3)
+              li.cat-item
+                a(href='blog_details.html') Real estate
+                |  (1)
+              li.cat-item
+                a(href='blog_details.html') Housing
+                |  (6)
+              li.cat-item
+                a(href='blog_details.html') New offers
+                |  (6)
+              li.cat-item
+                a(href='blog_details.html') Cheap offers
+                |  (2)
+              li.cat-item
+                a(href='blog_details.html') Appartments
+                |  (0)
+          aside.widget.widget_categories
+            h2.widget-title Categories
+            ul
+              li.cat-item
+                a(href='blog.html') Appartments
+                |  (6)
+                ul.children
+                  li.cat-item
+                    a(href='blog.html') Cheap offers
+                    |  (2)
+                  li.cat-item
+                    a(href='blog.html') New offers
+                    |  (4)
+              li.cat-item
+                a(href='blog.html') Housing
+                |  (1)
+              li.cat-item
+                a(href='blog.html') No category
+                |  (3)
+          aside.widget.widget_meta
+            h2.widget-title Meta
+            ul
+              li
+                a(href='#') Admin area
+              li
+                a(href='#') Log out
+              li
+                a(href='#')
+                  abbr(title='Really Simple Syndication') RSS
+                  |  entries
+              li
+                a(href='#')
+                  abbr(title='Really Simple Syndication') RSS
+                  |  comments
+          aside.widget.widget_pages
+            h2.widget-title Pages
+            ul
+              li.page_item
+                a(href='page.html') About us
+              li.page_item
+                a(href='page.html') Contacts
+              li.page_item
+                a(href='page.html') Our team
+              li.page_item
+                a(href='page.html') Our offers
+          aside.widget.widget_text
+            h2.widget-title Custom text
+            .textwidget
+              p Congratulations! You’ve found the perfect rental property and your application has been approved.
+              p - Now there’s just a few things you’ll need.
+          aside.widget.widget_calendar
+            h2.widget-title Calendar
+            div
+              table
+                caption November 2015
+                thead
+                  tr
+                    th(scope='col') Mo
+                    th(scope='col') Tu
+                    th(scope='col') We
+                    th(scope='col') Th
+                    th(scope='col') Fr
+                    th(scope='col') Sat
+                    th(scope='col') Sun
+                tfoot
+                  tr
+                    td.pad(colspan='3')
+                      a(href='') « January
+                    td.pad  
+                    td.pad(colspan='3')
+                      a(href='') March »
+                tbody
+                  tr
+                    td.pad(colspan='6')  
+                    td 1
+                  tr
+                    td 2
+                    td 3
+                    td 4
+                    td 5
+                    td 6
+                    td
+                      a(href='#', title='Real estate price analysis') 7
+                    td 8
+                  tr
+                    td 9
+                    td 10
+                    td 11
+                    td 12
+                    td 13
+                    td 14
+                    td 15
+                  tr
+                    td 16
+                    td
+                      a(href='#', title='Real estate price analysis') 17
+                    td
+                      a(href='#', title='Real estate price analysis') #[strong 18]
+                    td
+                      a(href='#', title='Real estate price analysis') 19
+                    td 20
+                    td 21
+                    td 22
+                  tr
+                    td 23
+                    td 24
+                    td 25
+                    td 26
+                    td 27
+                    td 28
+                    td.pad(colspan='1')  
+          aside.widget.widget_tag_cloud
+            h2.widget-title Tags
+            .tagcloud
+              a(href='#', title='1 entry', style='font-size: 8pt;') Appartments
+              a(href='#', title='1 entry', style='font-size: 12pt;') Housing
+              a(href='#', title='1 entry', style='font-size: 18pt;') Cheap
+              a(href='#', title='1 entry', style='font-size: 6pt;') New
+              a(href='#', title='1 entry', style='font-size: 10pt;') Los Angeles
+              a(href='#', title='1 entry', style='font-size: 12pt;') Estates
+              a(href='#', title='1 entry', style='font-size: 10pt;') Villa
+              a(href='#', title='1 entry', style='font-size: 20pt;') Property
+              a(href='#', title='1 entry', style='font-size: 15pt;') Sale
+              a(href='#', title='1 entry', style='font-size: 18pt;') Rent
+              a(href='#', title='1 entry', style='font-size: 15pt;') Google Maps
+        .clearfix

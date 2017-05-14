@@ -1,0 +1,16 @@
+.comment__form.js-form-comment-wrap
+  form.form.form--flex.js-parsley.form--comment(action='#')
+    span.comment__form-headline Your email address will not be published. Required fields are marked *
+    .row
+      .form-group.form-group--col-6
+        label.form__label.control-label.required(for='in-comment-name') Your Name
+        input.form-control.form__in.form__in--text(type='text', id='in-comment-name', required)
+      .form-group.form-group--col-6
+        label.form__label.control-label(for='in-comment-email') E-mail
+        input.form-control.form__in.form__in--text(type='email', id='in-comment-email', required)
+      .form-group
+        label.form__label.control-label(for='in-comment-message') Message
+        textarea.form-control.form__in.form__in--textarea(id='in-comment-message', required)
+    .row.row--buttons
+      button.form__submit(type='submit') Post comment
+// end of block .comment__form

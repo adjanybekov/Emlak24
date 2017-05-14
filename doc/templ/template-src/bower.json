@@ -1,0 +1,19 @@
+{
+  "name": "realtyspace",
+  "authors": [
+    "contact@codefactory47.com"
+  ],
+  "license": "MIT",
+  "homepage": "codefactory47.com",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "jquery-bonsai": "~2.0.0",
+    "jquery-qubit": "~2.0.5",
+    "pnotify": "~2.0.1",
+    "plyr": "~1.1.10",
+    "animate-sass": "~0.6.4",
+    "dragscroll": "~0.0.5",
+    "animatewithsass": "~3.2.2"
+  },
+  "private": true
+}

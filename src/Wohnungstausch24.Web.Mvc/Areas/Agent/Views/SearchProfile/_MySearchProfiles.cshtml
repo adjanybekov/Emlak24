@@ -1,0 +1,16 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.Base.DetailedSearchListing
+<tr>
+    <td>@Model.Name</td>
+    <td>@Model.PriceRange.From</td>
+    <td>@Model.PriceRange.To</td>
+    <td>
+        <a href="@Url.Action("Detail", "SearchProfile", new {id = Model.Id})" class="btn btn-sm btn-info">
+            <i class="fa fa-eye"></i>
+        </a>
+        <a data-link="@Url.Action("DeleteSearchProfile", "SearchProfile", new {SearchProfileId = Model.Id})"
+           class="btn btn-sm btn-danger wt24-link-confirmation" data-title="@Resource.Are_You_Sure"data-text="@Resource.Sure_To_Delete">
+            <i class="fa fa-trash"></i>
+        </a>
+    </td>
+</tr>

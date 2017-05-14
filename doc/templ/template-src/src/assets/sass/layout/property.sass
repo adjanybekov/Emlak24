@@ -1,0 +1,340 @@
+/*------------------------------------------------------------------
+  * Property Details
+  + Property Details / .property
+  ==============================================================*/
++b(property)
+  +clearfix
+  margin-top: 50px
+  @media (max-width: $screen-xs-max)
+    margin-top: 20px
+  +e(title)
+    +title
+    font-size: 33px
+    line-height: 1.3
+    min-height: 88px
+    border-bottom: 1px solid $input-border
+    text-transform: none
+    text-align: left
+    @media (max-width: $screen-xs-max)
+      margin-bottom: 23px
+      padding-bottom: 16px
+      min-height: initial
+  +e(city)
+    display: block
+    font-weight: 400
+
+  +e(header)
+    margin-top: 30px
+  +e(price)
+    background: #fff
+    border: 1px solid $input-border
+    color: $defaultColor
+    padding: 3px 12px 11px
+    line-height: 1
+    float: left
+    @media (max-width: $screen-md-max)
+      padding: 6px 15px
+      text-align: center
+    +m(commision)
+      text-align: center
+
+  +e(price-value)
+    font-size: 46px
+    color: $brandColor
+    display: block
+    font-weight: 600
+    @media (max-width: $screen-md-max)
+      font-size: 24px
+
+  +e(price-label)
+    margin-top: 7px
+    display: block
+    +when('price--commision')
+      color: $brandColor
+
+  +e(price-unit)
+    font-size: 17px
+
+  +e(actions)
+    margin-top: 12px
+    text-align: right
+    @media (max-width: $screen-md-max)
+      display: flex
+      justify-content: space-between
+      margin-top: 0
+      clear: both
+
+
+    .btn--default
+      margin-left: 15px
+      @media (max-width: $screen-md-max)
+        font-size: 11px
+      @media (max-width: $screen-md-max)
+        margin-top: 10px
+        width: 49%
+        margin-left: 0
+
+    +m(btn)
+      padding-top: 44px
+      @media (max-width: $screen-md-max)
+        padding-top: 17px
+        clear: none
+        justify-content: flex-end
+
+        .btn--default
+          width: auto
+
+  +e(commision)
+    text-align: right
+    font-size: 20px
+    margin-bottom: 17px
+    margin-top: 0
+    strong
+      color: $brandColor
+      font-size: 25px
+    @media (max-width: $screen-md-max)
+      font-size: 17px
+      strong
+        font-size: 20px
+        display: block
+
+  +e(info)
+    margin: 20px 0
+    display: flex
+    flex-wrap: wrap
+
+  +e(info-item)
+    font-size: 20px
+    color: $defaultColor
+    width: 50%
+    @media (max-width: $screen-xs-max)
+      font-size: 15px
+
+  +e(slider)
+    position: relative
+    margin-top: 30px
+  +e(ribon)
+    +ribon
+    padding: 10px 15px
+    z-index: 20
+    top: 50px
+    @media (max-width: $screen-xs-max)
+      top: 15px
+      padding: 4px 10px
+    +m(status)
+      background: #c8e6c9
+      top: 110px
+      color: #222
+      &:after
+        border-top: 5px solid darken(#c8e6c9, 10%)
+
+      @media (max-width: $screen-xs-max)
+        top: 50px
+    +m(done)
+      background: #ffecb3
+      &:after
+        border-top: 5px solid darken(#ffecb3, 10%)
+
+  +e(subtitle)
+    font-size: 20px
+    margin: 40px 0 15px
+    font-weight: 600
+    @media (max-width: $screen-xs-max)
+      margin: 30px 0
+
+  +e(description)
+    line-height: 1.4
+    @media (max-width: $screen-xs-max)
+      margin-top: 0
+    +clearfix
+    &.opened
+      margin-bottom: -14px
+    p
+      line-height: 1.4
+
+  +e(description-wrap)
+    column-count: 2
+    column-gap: 30px
+    @media (max-width: $screen-xs-max)
+      column-count: 1
+      column-gap: 0
+      margin-top: 20px
+      max-height: 260px
+      overflow: hidden
+      position: relative
+      &:after
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(246,246,246,1) 100%) /* W3C */
+        height: 20px
+        z-index: 5
+        content: " "
+        display: block
+      .opened &
+        max-height: none
+
+  +e(btn-more)
+    +button-more
+    width: 100%
+    background: #fff
+    display: none
+    margin: 20px 0 0
+    padding: 4px 0
+    @media (max-width: $screen-xs-max)
+      display: block
+      .opened &
+        display: none
+  +e(params)
+    +clearfix
+
+  +e(params-list)
+    margin: 0
+    padding: 0
+    list-style: none
+    @media (max-width: $screen-xs-max)
+      column-count: 2
+    li
+      float: left
+      +make-block-item($sm: 6, $md: 4)
+      padding: 3px 0 2px
+      @media (max-width: $screen-xs-max)
+        padding: 8px 0 2px
+        line-height: 1
+        float: none
+      strong
+        display: block
+    // options list
+    +m(options)
+      li
+        background: url($imgPath + "../img/bg-border-dotted-vertical.png") no-repeat 3px -1px
+        padding-left: 15px
+        &:before
+          content: " "
+          width: 8px
+          height: 8px
+          border: 2px solid $brandColor
+          border-radius: 8px
+          margin: 9px 3px 0 0
+          display: inline-block
+          position: absolute
+          left: 0
+          @media (max-width: $screen-xs-max)
+            margin-top: 3px
+        &:nth-child(-n+3)
+          background-position: 3px 12px
+        &:nth-last-child(1),
+        &:nth-last-child(2),
+        &:nth-last-child(3)
+          background-position: 3px -208px
+        @media (max-width: $screen-xs-max)
+          &:nth-child(n)
+            background-position: 3px -1px !important
+  //  proeprties plan block
+  +e(plan)
+    margin-right: -5px
+    @media (max-width: $screen-xs-max)
+      margin-right: 0
+    +clearfix
+  +e(plan-item)
+    +make-sm-column(2.4)
+    text-align: center
+    margin-bottom: 0
+    border: 1px solid #fff
+    background: #e4e4e4
+    margin-left: -1px
+    margin-top: -1px
+    @media (max-width: $screen-xs-max)
+      width: 92px
+      float: left
+      margin-bottom: 13px
+
+  +e(plan-icon)
+    svg
+      width: 26px
+      height: 31px
+      fill: $brandColor
+      margin: 18px auto 0
+      display: block
+    +m(window)
+      svg
+        width: 17px
+        height: 26px
+        margin-top: 23px
+    +m(bathrooms)
+      svg
+        height: 30px
+        margin-top: 19px
+    +m(garage)
+      svg
+        width: 25px
+        height: 32px
+        margin-top: 17px
+
+  +e(plan-title)
+    font-weight: normal
+    color: $defaultColor
+    padding: 5px 0 11px 0
+    @media (max-width: $screen-xs-max)
+      padding: 2px 0 4px 0
+
+  +e(plan-value)
+    font-size: 20px
+    border-top: 1px solid #fff
+    margin: 0
+    padding: 16px 0
+    line-height: 1
+    font-weight: 600
+    @media (max-width: $screen-xs-max)
+      font-size: 15px
+      padding: 9px 0
+
+  // style for properties attachments files
+  +e(files)
+    background: #fff
+    border: 1px solid $input-border
+    padding: 13px 15px
+    margin-top: 45px
+    @media (max-width: $screen-xs-max)
+      display: none
+      margin-top: 30px
+      &.opened
+        display: block
+    +clearfix
+    .property__subtitle
+      float: left
+      margin: 4px 0 0 0
+      @media (max-width: $screen-md-max)
+        float: none
+
+  +e(files-icon)
+    fill: $brandColor
+    width: 25px
+    vertical-align: middle
+    margin-right: 10px
+    height: 35px
+
+  +e(files-item)
+    display: inline-block
+    color: $defaultColor
+    margin: 0 0 0 25px
+    @media (max-width: $screen-md-max)
+      padding: 0 0 10px 0
+      margin: 9px 25px 0 0
+    @media (max-width: $screen-xs-max)
+      margin-left: 0
+      padding: 0 0 2px 0
+
+  +e(files-show)
+    +button-toggle($size-arrow: 25px)
+    display: none
+    @media (max-width: $screen-xs-max)
+      display: block
+      margin-top: 30px
+
+
+
+
+.icon-area-border
+  fill: $brandColor

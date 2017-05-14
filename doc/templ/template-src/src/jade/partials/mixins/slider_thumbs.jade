@@ -1,0 +1,32 @@
+mixin slider_thumbs(className, id, images, captions, categories)
+  .slider.slider--small.js-slider-thumbs(class= className, id = id)
+    .slider__block.js-slick-slider
+      each image, i in images
+        .slider__item(class='slider__item--' + (i % 4))
+          a.slider__img.js-gallery-item(href='#{path.media}/properties/1740x960/#{image}',data-size="1740x960", data-gallery-index=i)
+            img(data-lazy='#{path.media}/properties/1740x960/#{image}',src='#{path.img}/lazy-image.jpg' alt='')
+            if typeof captions != 'undefined' && captions[i]
+              span.slider__description #{captions[i]}
+
+  .slider.slider--thumbs(class= className)
+    if categories
+      - var sliderCategories = ['In operation', 'Completed', 'In construction', 'New builds'];
+
+      .slider__categories
+        a.slider__category.js-slider-category(data-filter='all') All
+        each item, i in sliderCategories
+          a.slider__category.js-slider-category(data-filter=i) #{item}
+
+    .slider__wrap
+      .slider__block.js-slick-slider
+        each image, i in images
+          .slider__item(class='slider__item--' + (i % 4), data-slide-rel=i)
+            .slider__img
+              img(data-lazy='#{path.media}/properties/277x180/#{image}',src='#{path.img}/lazy-image.jpg' alt='')
+
+      button(type='button').slider__control.slider__control--prev.js-slick-prev
+        svg.slider__control-icon
+          use(xlink:href='#icon-arrow-left')
+      button(type='button').slider__control.slider__control--next.js-slick-next
+        svg.slider__control-icon
+          use(xlink:href='#icon-arrow-right')

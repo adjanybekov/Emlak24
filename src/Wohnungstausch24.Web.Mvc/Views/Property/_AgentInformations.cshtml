@@ -1,0 +1,59 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Agent.ListingAgentViewModel
+<div data-sr="enter bottom move 80px, scale(0), over 0s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--list worker--details">
+    <div class="worker__photo">
+        <a href="agent_profile.html" class="item-photo item-photo--static">
+            <img src="@Model.Avatar" alt="Christopher Pakulla" class="photo" />
+            <figure class="item-photo__hover"><span class="item-photo__more">View Details</span></figure>
+        </a>
+    </div>
+    <div class="worker__intro">
+        <div class="worker__intro-head">
+            <div class="worker__intro-name">
+                <h3 class="worker__name fn">@Model.FirstName @Model.LastName</h3>
+                <div class="worker__post">@Model.FirstName</div>
+            </div>
+            <div class="worker__intro-brand">
+                <a class="worker__company">
+                    <img src="@Model.CompanyLogo" alt="pro" style="max-height: 64px"/>
+                </a>
+                <div class="worker__company-name">@Model.AgencyName</div>
+            </div>
+            <!-- end of block .worker__listings-->
+        </div>
+        <button type="button" class="worker__show js-unhide">@Resource.Property_Detail_Contact_Agent</button>
+        <div class="worker__intro-row">
+            <div class="worker__intro-col">
+                <div class="worker__contacts">
+                    <div class="tel">
+                        <span class="type">@Resource.ShortTel</span><a href="tel:@Model.Phone" class="uri value">@Model.Phone</a>
+                    </div>
+                    <div class="tel">
+                        <span class="type">@Resource.ShortMob</span><a href="tel:@Model.Phone2" class="uri value">@Model.Phone2</a>
+                    </div>
+                    <div class="email">
+                        <span class="type">@Resource.Common_Email</span><a href="mailto:@Model.Email" class="uri value">@Model.Email</a>
+                    </div>
+                    <div class="skype">
+                        <span class="type">@Resource.Skype</span><a href="skype:Walkenboy?call" class="uri value">@Model.Skype</a>
+                    </div>
+                </div>
+                <!-- end of block .worker__contacts-->
+            </div>
+            <div class="worker__intro-col">
+                <div class="social social--worker">
+                    <a href="#" class="social__item"><i class="fa fa-facebook"></i></a><a href="#" class="social__item"><i class="fa fa-linkedin"></i></a><a href="#" class="social__item"><i class="fa fa-twitter"></i></a><a href="#" class="social__item"><i class="fa fa-google-plus"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="worker__intro-row">
+            <div class="worker__descr">
+                <p>
+                    I&apos;m an entrepreneur who loves to travel and splits time between New York and Los Angeles. Believer in the golden rule: Do unto others as you would have them do unto you. Favorite destinations include Cabo San Lucas, Costa Rica, Turks &amp; Caicos...sunny beaches are ideal vacation spots
+                    We recognize you have a choice when it comes to working with a real estate professional. We look forward to earning your trust and helping you discover the smarter way to buy or sell a home.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

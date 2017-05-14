@@ -1,0 +1,13 @@
+extends index
+block config
+  - var bodyClass = 'compact boxed bg-diagonal-noise scroll-animation slider--slideInUp';
+  - var page = 'feature_boxed';
+
+block banner
+  +widget
+    include partials/widgets/wide_slider
+  +widget('<span class="title-thin">Find your</span> home', 'Our agents are licensed professionals that specialise in searching, evaluating and negotiating the purchase of property on behalf of the buyer. They will sell you real estate. Insights, tips & how-to guides on selling property and preparing your home or investment property for sale and working to maximise your sale price.', 'landing')
+    - var searchType = 'wide form--wide-default';
+    - var searchRangeSlider = true;
+    include partials/widgets/form--search
+

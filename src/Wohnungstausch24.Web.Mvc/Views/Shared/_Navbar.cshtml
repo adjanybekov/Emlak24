@@ -1,0 +1,116 @@
+﻿@using Wohnungstausch24.Core
+@using Wohnungstausch24.Resources
+<!-- BEGIN NAVBAR-->
+<div id="header-nav-offset"></div>
+<nav id="header-nav" class="navbar navbar--header">
+    <div class="container">
+        <div class="navbar__row js-navbar-row">
+            <a href="@Url.Action("Index", "Home")" class="navbar__brand">
+                <img class="img img-responsive" src="~/Content/assets/img/logo/wohnungstausch24_logo_rgb_praegung.png" style="height: 60px; width: auto" />
+            </a>
+            <div id="navbar-collapse-1" class="navbar__wrap">
+                <ul class="navbar__nav">
+                    <li class="navbar__item navbar__item--mob js-dropdown">
+                        <a class="navbar__link" style="color: white">
+                            <svg class="header__settings-icon">
+                                <use xlink:href="#icon-earth"></use>
+                            </svg>
+                            <img src="@($"/Content/assets/img/flags/{CultureHelper.GetCurrentCulture()}.png")" />&nbsp;&nbsp;@CultureHelper.GetCurrentCulture()
+                            <svg class="navbar__arrow">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow-right"></use>
+                            </svg>
+                        </a>
+                        <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right">
+                            <button class="navbar__back js-navbar-submenu-back">
+                                <svg class="navbar__arrow">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow-left"></use>
+                                </svg>@Resource.Back
+                            </button>
+                            <div class="navbar__submenu">
+                                <ul class="navbar__subnav">
+                                    @foreach (var lang in CultureHelper.GetAvailableCultures())
+                                    {
+                                        <li class="navbar__subitem">
+                                            <a class="navbar__sublink js-navbar-sublink" href="@Url.Action("SetCulture", "Home", new {culture = lang.TwoLetterISOLanguageName, area = ""})">
+                                                <img src="@($"/Content/assets/img/flags/{lang.TwoLetterISOLanguageName}.png")" /> @lang.NativeName
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbar__item js-dropdown @((HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString() == "Home" && HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Index") ? Html.Raw("active") : Html.Raw(""))">
+                        <a href="@Url.Action("Index", "Home", new {area=""})" class="navbar__link">
+                            @Resource.Home
+                        </a>
+                    </li>
+                    <li class="navbar__item @((HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString() == "Home" && HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Contact") ? Html.Raw("active") : Html.Raw(""))">
+                        <a href="@Url.Action("Contact", "Home", new {area = ""})" class="navbar__link">
+                            @Resource.Contact
+                        </a>
+                    </li>
+                    <li class="navbar__item @((HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString() == "Home" && HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Impressum") ? Html.Raw("active") : Html.Raw(""))">
+                        <a href="@Url.Action("Impressum", "Home", new {area = ""})" class="navbar__link">
+                            @Resource.Imprint
+                        </a>
+                    </li>
+
+                    <li class="navbar__item js-dropdown @((HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString() == "Services" && HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Energy") ? Html.Raw("active") : Html.Raw(""))">
+                        <a class="navbar__link">
+                            @Resource.Home_Menu_Price_Comparison
+                            <svg class="navbar__arrow">
+                                <use xlink:href="#icon-arrow-right"></use>
+                            </svg>
+                        </a>
+                        <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+                            <button class="navbar__back js-navbar-submenu-back">
+                                <svg class="navbar__arrow">
+                                    <use xlink:href="#icon-arrow-left"></use>
+                                </svg>@Resource.Back
+                            </button>
+                            <div class="navbar__submenu">
+                                <ul class="navbar__subnav">
+                                    <li class="navbar__subitem"><a href="@Url.Action("Electricity", "Services", new {area = ""})" class="navbar__sublink">@Resource.Home_Menu_Electricity</a></li>
+                                    <li class="navbar__subitem"><a href="@Url.Action("Gas", "Services", new {area = ""})" class="navbar__sublink">@Resource.Home_Menu_Gas</a></li>
+                                    <li class="navbar__subitem"><a href="@Url.Action("Internet", "Services", new {area = ""})" class="navbar__sublink">@Resource.Home_Menu_Internet_And_DSL</a></li>
+                                    <li class="navbar__subitem"><a href="@Url.Action("Holiday", "Services", new {area = ""})" class="navbar__sublink">@Resource.Home_Menu_Holiday</a></li>
+                                    <li class="navbar__subitem"><a href="@Url.Action("RentACar", "Services", new {area = ""})" class="navbar__sublink">@Resource.Home_Menu_Rent_A_Car</a></li>
+                                    <li class="navbar__subitem"><a href="@Url.Action("Hotels", "Services", new {area = ""})" class="navbar__sublink">@Resource.Home_Menu_Hotels</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbar__item js-dropdown @((HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString() == "Services" && HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Energy") ? Html.Raw("active") : Html.Raw(""))">
+                        <a class="navbar__link">
+                            @Resource.Home_Menu_Finance_and_Insurance
+                            <svg class="navbar__arrow">
+                                <use xlink:href="#icon-arrow-right"></use>
+                            </svg>
+                        </a>
+                        <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+                            <button class="navbar__back js-navbar-submenu-back">
+                                <svg class="navbar__arrow">
+                                    <use xlink:href="#icon-arrow-left"></use>
+                                </svg>@Resource.Back
+                            </button>
+                            <div class="navbar__submenu">
+                                <ul class="navbar__subnav">
+                                    <li class="navbar__subitem"><a href="@Url.Action("Loan", "Services", new {area = ""})" class="navbar__sublink">@Resource.Home_Menu_Loan </a></li>
+                                    <li class="navbar__subitem"><a href="@Url.Action("Insurance", "Services", new {area = ""})" class="navbar__sublink">@Resource.Home_Menu_Insurance</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbar__item js-dropdown @((HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString() == "Home" && HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "TenantSearch") ? Html.Raw("active") : Html.Raw(""))">
+                        <a href="@Url.Action("TenantSearch", "Home",new {area = ""})" class="navbar__link">
+                            @Resource.TenantSearch
+                        </a>
+                    </li>
+                </ul>
+                <!-- end of block navbar__nav-->
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- END NAVBAR-->

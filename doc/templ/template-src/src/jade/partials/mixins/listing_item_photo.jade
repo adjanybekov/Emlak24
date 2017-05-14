@@ -1,0 +1,25 @@
+mixin listingItemPhoto(img, title)
+  .listing__item.js-listing-item
+    .listing__item-header
+      div
+      .listing__tools
+        button.listing__tools-link.js-photos-edit(type='button', data-toggle='modal', data-target='#modal-photos-edit', data-tab='#tab-caption') Add caption
+        .dropdown.listing__tools-dropdown
+          button.dropdown-toggle.listing__tools-toggle(data-toggle='dropdown', type='button') ...
+          .dropdown__menu.listing__tools-menu
+            button.js-photos-edit(type='button', data-toggle='modal', data-target='#modal-photos-edit', data-tab='#tab-crop').listing__tools-link Crop photo
+            button.js-photos-edit(type='button', data-toggle='modal', data-target='#modal-photos-edit', data-tab='#tab-watermark').listing__tools-link Add watermark
+            button(type='button').listing__tools-link Set as cover
+    .listing__thumb
+      i.fa.fa-arrows.listing__move
+      button.listing__select.js-listing-select(type='button')
+      a.item-photo.item-photo--static.js-gallery-item(href=img.replace('554x360', '1168x550'), data-size='1168x550')
+        img(src=img, alt='')
+        figure.item-photo__hover
+          span.item-photo__more Full screen
+
+    // end of block .listing__thumb
+    .listing__info
+      a.listing__title(href='')= title
+    // end of block .listing__info
+  // end of block .listing__item

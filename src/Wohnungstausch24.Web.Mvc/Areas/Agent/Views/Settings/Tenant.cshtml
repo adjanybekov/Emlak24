@@ -1,0 +1,198 @@
+﻿@using System.Web.Services.Protocols
+@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Agent.Settings.AgentSettingsTenantViewModel
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+
+    var addPersonOpts = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "persons-area-data-div",
+        OnBegin = "showPersonsLoader",
+        OnComplete = "hidePersonsLoader"
+    };
+}
+
+<!-- BEGIN LISTING-->
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            @{Html.RenderAction("Progress", "Settings"); }
+            <div class="widget__content">
+                @using (Html.BeginForm("Tenant", "Settings", new { area = "Agent" }, FormMethod.Post, new { @class = "form form--flex form--profile js-form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(false, null, new { @class = "text-danger" })
+                    <header class="form__header">
+                        <h3 class="form__title js-form-title">@Resource.Property_Steps_Tenant_Criteria see this</h3>
+                    </header>
+                    <div class="form__block js-form-block">
+                        <div class="row">
+                            <div class="col-md-4">
+                                @Html.LabelFor(m => m.IsSmoker, new { @class = "control-label" })
+                                @Html.ToggleButtonFor(m => m.IsSmoker)
+                                @Html.ValidationMessageFor(m => m.IsSmoker, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-4">
+                                @Html.LabelFor(m => m.HasPets, new { @class = "control-label" })
+                                @Html.ToggleButtonFor(m => m.HasPets, new ToggleOptions { OnShowClass = "pet-species-div" })
+                                @Html.ValidationMessageFor(m => m.HasPets, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-4 pet-species-div">
+                                @Html.LabelFor(m => m.PetSpecies, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.PetSpecies, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.PetSpecies, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                @Html.LabelFor(m => m.Gender, new { @class = "control-label" })
+                                @Html.EnumDropDownListFor(m => m.Gender, Resource.PleaseChoose, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Gender, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-4">
+                                @Html.LabelFor(m => m.EmploymentStatus, new { @class = "control-label" })
+                                @Html.EnumDropDownListFor(m => m.EmploymentStatus, Resource.PleaseChoose, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.EmploymentStatus, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-4">
+                                @Html.LabelFor(m => m.Profession, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.Profession, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Profession, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                @Html.LabelFor(m => m.Age, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Age, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-4">
+                                @Html.LabelFor(m => m.Income, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.Income, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Income, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Headline, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.Headline, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Headline, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.LabelFor(m => m.AboutMe, new { @class = "control-label" })
+                                @Html.TextAreaFor(m => m.AboutMe, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.AboutMe, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        @{ Html.RenderAction("GetPersons", "Settings");}
+                    </div>
+                    <div class="row">
+                        <button class="form__submit">Save & Continue <i class="fa fa-angle-right"></i></button>
+                    </div>
+                            }
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addPersonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">@Resource.Property_Add_MaxNumberOfPersons</h4>
+            </div>
+            @using (Ajax.BeginForm("AddPerson", "Settings", null, addPersonOpts, new { @class = "form form--flex" }))
+            {
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.AddPersonViewModel.EmploymentStatus, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.EnumDropDownListFor(m => m.AddPersonViewModel.EmploymentStatus, Resource.PleaseChoose, new { required = "", @class = "form-control js-in-select" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.AddPersonViewModel.EmploymentStatus, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.AddPersonViewModel.Profession, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.AddPersonViewModel.Profession, new { @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.AddPersonViewModel.Profession, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.AddPersonViewModel.Income, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-euro"></i>
+                                    </span>
+                                    @Html.TextBoxFor(m => m.AddPersonViewModel.Income, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.AddPersonViewModel.Income, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.AddPersonViewModel.Gender, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.EnumDropDownListFor(m => m.AddPersonViewModel.Gender, Resource.PleaseChoose, new { required = "", @class = "form-control js-in-select" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.AddPersonViewModel.Gender, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.AddPersonViewModel.Age, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.AddPersonViewModel.Age, new { @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.AddPersonViewModel.Age, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resource.Cancel</button>
+                    <button type="submit" class="btn btn-primary">@Resource.OK</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script>
+        var showPersonsLoader = function () {
+            $('#addPersonModal').modal('toggle');
+            showLoader("#persons-area-data-div");
+        }
+        var hidePersonsLoader = function () {
+            hideLoader("#persons-area-data-div");
+        }
+        SweetAjax("#persons-area-data-div", ".wt24-person-confirmation");
+    </script>
+
+}

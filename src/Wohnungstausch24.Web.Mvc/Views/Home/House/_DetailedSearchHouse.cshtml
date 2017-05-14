@@ -1,0 +1,37 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.House
+@using Wohnungstausch24.Resources
+@model DetailedSearchHouse
+
+<div class="col-md-6 col-sm-6 col-xs-12">
+    <b>@Resource.HouseType</b>
+    <div class="dropdown dropdown--select">
+        <button type="button" data-toggle="dropdown" data-placeholder="@Resource.HouseType" class="dropdown-toggle js-select-checkboxes-btn">@Resource.HouseType</button>
+        <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+            <ul class="js-checkboxes-tree bonsai region-select__list" id="features">
+                @for (int i = 0; i < Model.HouseTypeViewModels.Count(); i++)
+                {
+                    <li>
+                        @Html.CheckBoxFor(m => Model.HouseTypeViewModels[i].Selected, new { @class = "in-checkbox" })
+                        @Html.LabelFor(m => m.HouseTypeViewModels[i].Selected, Model.HouseTypeViewModels[i].HouseType.GetDisplayName(), new { @class = "in-label" })
+                        @Html.HiddenFor(c => c.HouseTypeViewModels[i].Id)
+                        @Html.HiddenFor(c => c.HouseTypeViewModels[i].HouseType)
+                    </li>
+                }
+            </ul>
+            <div class="region-select__buttons">
+                <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">@Resource.Clear</button>
+                <button type="button" class="region-select__btn js-select-checkboxes-accept">@Resource.Accept</button>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.EditorFor(m => m.PlotArea, new { min = 0, max = 1000, type = "double", postfix = "m<sup>2</sup>" })
+@if (Model is DetailedSearchHouseForRent)
+{
+    @Html.Partial("House/ForRent/_DetailedSearchHouseForRent", Model as DetailedSearchHouseForRent)
+}
+@if (Model is DetailedSearchHouseForSale)
+{
+    @Html.Partial("House/ForSale/_DetailedSearchHouseForSale", Model as DetailedSearchHouseForSale)
+}

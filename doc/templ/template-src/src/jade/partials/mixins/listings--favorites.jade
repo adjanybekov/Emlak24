@@ -1,0 +1,19 @@
+mixin listingsFavorites(title, limit, type, btn, btnLink, btnClass)
+  +widget(title, null, 'dashboard', btn, btnLink, btnClass)
+    // BEGIN Favorites
+    if type == 'list'
+      .listing--items
+        +tagFavorites(locals.data.favorites.categories.properties)
+      .listing--items.listing--favorites
+        .listing__actions
+          .listing__actions-border
+          button.btn--link.js-tags-rename(type='button') Delete selected
+          button.btn--link.js-tags-unselect(type='button') Move selected to
+    .listing--items.listing--grid.listing--favorites.listing--lg-4
+      - var i = 4;
+      while i++ < limit
+        +listingItem(path.media + '/properties/554x360/' + locals.data.properties[i].acf_images[0] + '.jpg', locals.data.properties[i].acf_location.address.street, locals.data.properties[i].categories, (type === 'list') )
+    if type == 'list'
+      .widget__footer
+        a.widget__more Show more listings
+  // END Favorites

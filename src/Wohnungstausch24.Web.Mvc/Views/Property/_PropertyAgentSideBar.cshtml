@@ -1,0 +1,70 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base.DetailListing
+
+<div class="widget js-widget widget--sidebar widget--first-no-head">
+    <div class="widget__header">
+        <a class="widget__btn js-widget-btn widget__btn--toggle">Show agent</a>
+    </div>
+    <div class="widget__content">
+        <div data-sr="enter bottom move 80px, scale(0), over 0s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--sidebar-advanced">
+            <h3 class="worker__name fn">@Model.AgentViewModel.FirstName @Model.AgentViewModel.LastName</h3>
+            <div class="worker__post">@Model.AgentViewModel.AgencyName</div>
+            <div class="worker__photo">
+                <a href="@Url.Action("Index","Agents")" class="item-photo item-photo--static">
+                    <img src="@Model.AgentViewModel.Avatar" alt="@Model.AgentViewModel.FirstName @Model.AgentViewModel.LastName" class="photo" />
+                    <figure class="item-photo__hover"><span class="item-photo__more">View Details</span></figure>
+                </a>
+            </div>
+            <div class="worker__intro">
+                <button type="button" class="worker__show js-unhide">Contact agent</button>
+                <div class="worker__listings">
+                    <i class="worker__favorites worker__favorites--highlight"></i>
+                    <a href="@Url.Action("Listings", "Agents", new {id=Model.AgentViewModel.UserId})">
+                        @Resource.Property_Detail_MyListings (@Model.AgentViewModel.ListingsCount)
+                    </a>
+                </div>
+                <!-- end of block .worker__listings-->
+                <div class="worker__intro-row">
+                    <div class="worker__intro-col">
+                        <div class="worker__contacts">
+                            @if (!string.IsNullOrEmpty(Model.AgentViewModel.Phone))
+                            {
+                                <div class="tel">
+                                    <span class="type">@Resource.Property_Detail_Agent_Info_Phone</span>
+                                    <a href="tel:@Model.AgentViewModel.Phone" class="uri value">@Model.AgentViewModel.Phone</a>
+                                </div>
+                            }
+                            <div class="tel">
+                                <span class="type">@Resource.ShortMob</span><a href="tel:+44(0)30345207210" class="uri value">@Model.AgentViewModel.Phone2</a>
+                            </div>
+                            <div class="email">
+                                <span class="type">@Resource.Common_Email</span><a href="mailto:rs@realtyspace.com" class="uri value">@Model.AgentViewModel.Email</a>
+                            </div>
+                            <div class="skype">
+                                <span class="type">@Resource.Skype</span><a href="skype:@Model.AgentViewModel.Skype?call" class="uri value">@Model.AgentViewModel.Skype</a>
+                            </div>
+                        </div>
+                        <!-- end of block .worker__contacts-->
+                    </div>
+                    <div class="worker__intro-col">
+                        <div class="social social--worker">
+                            <a href="https://facebook.com/@Model.AgentViewModel.Facebook" class="social__item">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="https://linkedin.com/@Model.AgentViewModel.Linkedin" class="social__item">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="https://twitter.com/@Model.AgentViewModel.Twitter" class="social__item"><i class="fa fa-twitter"></i></a>
+                            <a href="https://plus.google.com/@Model.AgentViewModel.GooglePlus" class="social__item"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- end of block .worker-->
+    </div>
+</div>
+
+
+

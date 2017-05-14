@@ -1,0 +1,45 @@
+﻿@model Wohnungstausch24.Models.ViewModels.Account.AccountModels
+@using Wohnungstausch24.Resources
+
+
+<div class="dropdown__menu auth__dropdown--register">
+    <!-- BEGIN AUTH REGISTER-->
+    <h5 class="auth__title">Sign up a new account</h5>
+    @using (Html.BeginForm("Register", "Account",new {area = "" }, FormMethod.Post, new { @class = "form form--flex form--auth js-register-form js-parsley", role = "form" }))
+    {
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="row">
+            <div class="form-group form-group--col-6">
+                @Html.LabelFor(m=>m.RegisterViewModel.FirstName, new { @for = "register-name-dropdown", @class="control-label"})
+                @Html.TextBoxFor(m=>m.RegisterViewModel.FirstName, new { type = "text", name = "username", id = "register-name-dropdown", required="", @class="form-control"})
+            </div>
+            <div class="form-group form-group--col-6">
+                @Html.LabelFor(m => m.RegisterViewModel.LastName, new { @for = "register-lastname-dropdown", @class = "control-label" })
+                @Html.TextBoxFor(m => m.RegisterViewModel.LastName, new { type = "text", name = "name", id = "register-lastname-dropdown", required = "", @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group form-group--col-12">
+                @Html.LabelFor(m=>m.RegisterViewModel.Email,new { @for= "register-email-dropdown", @class="control-label"})
+                @Html.TextBoxFor(m=>m.RegisterViewModel.Email, new { type = "email", name = "email", id = "register-email-dropdown", required="", @class="form-control"})
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group form-group--col-6">
+                @Html.LabelFor(m=>m.RegisterViewModel.Password,new { @for= "register-password-dropdown", @class="control-label"})
+                @Html.PasswordFor(m=>m.RegisterViewModel.Password,new { type = "password", name = "password", id = "register-password-dropdown", required="", @class="form-control"})
+            </div>
+            <div class="form-group form-group--col-6">
+                @Html.LabelFor(m=>m.RegisterViewModel.ConfirmPassword,new { @class="control-label"})
+                @Html.PasswordFor(m=>m.RegisterViewModel.ConfirmPassword,new { required="", @class="form-control"})
+            </div>
+        </div>
+        <div class="row">
+            <div class="form__options">
+                Back to
+                <button type="button" class="js-user-login">@Resource.SignIn</button>
+            </div>
+            <button type="submit" class="form__submit">@Resource.SignUp</button>
+        </div>
+    }
+</div>

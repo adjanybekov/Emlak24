@@ -1,0 +1,71 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Property.AddparkingSpaceViewModel
+
+@{
+    var addParkingSpaceAjaxOpts = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "viewDetailsParkPlaceData",
+        OnBegin = "showParkingSpaceLoader",
+        OnComplete = "hideParkingSpaceLoader"
+    };
+}
+}
+<!-- Modal -->
+<div class="modal fade" id="addParkingSpaceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">@Resource.Add_Property_ParkingSpaces</h4>
+            </div>
+            @using (Ajax.BeginForm("AddParkingSpace", "Property", null, addParkingSpaceAjaxOpts, new { @class = "form form--flex" }))
+            {
+                @Html.HiddenFor(m => m.Id)
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.ParkType, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.EnumDropDownListFor(m => m.ParkType, Resource.PleaseChoose, new { required = "", @class = "form-control js-in-select" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.ParkType, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-8">
+                                @Html.LabelFor(m => m.Quantity, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Quantity, new {  @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Quantity, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-8">
+                                @Html.LabelFor(m => m.Price, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                                    @Html.TextBoxFor(m => m.Price, new {  @class = "form-control" })
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Price, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resource.Cancel</button>
+                    <button type="submit" class="btn btn-primary">@Resource.OK</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

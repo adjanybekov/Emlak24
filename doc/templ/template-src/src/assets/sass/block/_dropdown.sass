@@ -1,0 +1,91 @@
+/*------------------------------------------------------------------
+  * Dropdown for select custom
+  + Dropdown / .dropdown
+    -- Dropdown select / .dropdown--select
+  ==============================================================*/
++b(dropdown)
+  +e(menu)
+    +invisy
+    padding: 0
+    border: 1px solid #dcdcdc
+    &:before
+      width: 7px
+      height: 7px
+      position: absolute
+      background: #fff
+      top: -4px
+      transform: rotate(-45deg)
+      content: ""
+      display: block
+      left: 20px
+      border-top: 1px solid #dcdcdc
+      border-right: 1px solid #dcdcdc
+    ul
+      list-style: none
+      padding: 0
+      margin: 0
+      position: relative
+
+    .open &
+      +visy
+
+  +m(select)
+    width: 100%
+    .dropdown-toggle
+      +form-control
+      background: #fff
+      text-align: left
+      padding: 5px 30px 5px 20px
+      &:after
+        display: block
+        position: absolute
+        bottom: 0
+        right: 10px
+        top: 0
+        padding: 5px 0 0 10px
+        color: #595959
+        +font-awesome(15px, '\f0dc')
+        border-left: 1px solid #d6d6d6
+
+    .dropdown-menu
+      background: #fff
+      border: 1px solid #d6d6d6
+      margin-top: -1px
+      right: 0
+  +m(header)
+    +e(btn)
+      font-size: 13px
+      text-transform: uppercase
+      background: none
+      position: relative
+      padding: 0
+      display: block
+      border: none
+      font-weight: 700
+      &:after
+        display: block
+        +font-awesome(10px, '\f0dc')
+        padding: 0 0 0 11px
+        text-align: left
+        opacity: 0.5
+
+    +e(menu)
+      background: #fff
+      width: 125px
+
+    +e(link)
+      margin: 0 30px
+      padding: 3px 0
+      color: $defaultColor
+      display: block
+      text-transform: uppercase
+      &.active,
+      &:hover
+        margin: 0
+        padding: 3px 30px
+        background: $brandColor
+        color: #fff
+        text-decoration: none
+      &.active
+        font-weight: bold
+

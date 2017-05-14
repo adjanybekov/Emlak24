@@ -1,0 +1,91 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Agent.Settings.AddPersonViewModel
+@{
+
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+<!-- BEGIN LISTING-->
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">@Resource.Property_Add_MaxNumberOfPersons</h4>
+                </div>
+                @using (Html.BeginForm("AddPerson", "SearchProfile", null, FormMethod.Post, new {@class = "form form--flex"}))
+                {
+                    @Html.HiddenFor(m => m.ClientId)
+                    @Html.HiddenFor(m => m.SearchProfileId)
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group form-group--col-12">
+                                <div class="col-md-6">
+                                    @Html.LabelFor(m => m.EmploymentStatus, new {@class = "control-label"})
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.EnumDropDownListFor(m => m.EmploymentStatus, Resource.PleaseChoose, new {required = "", @class = "form-control js-in-select"})
+                                </div>
+                                @Html.ValidationMessageFor(m => m.EmploymentStatus, null, new {@class = "text-danger"})
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group form-group--col-12">
+                                <div class="col-md-6">
+                                    @Html.LabelFor(m => m.Profession, new {@class = "control-label"})
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(m => m.Profession, new {@class = "form-control"})
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Profession, null, new {@class = "text-danger"})
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group form-group--col-12">
+                                <div class="col-md-6">
+                                    @Html.LabelFor(m => m.Income, new {@class = "control-label"})
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-euro"></i>
+                                        </span>
+                                        @Html.TextBoxFor(m => m.Income, new {@class = "form-control"})
+                                    </div>
+                                    @Html.ValidationMessageFor(m => m.Income, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group form-group--col-12">
+                                <div class="col-md-6">
+                                    @Html.LabelFor(m => m.Gender, new {@class = "control-label"})
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.EnumDropDownListFor(m => m.Gender, Resource.PleaseChoose, new {required = "", @class = "form-control js-in-select"})
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Gender, null, new {@class = "text-danger"})
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group form-group--col-12">
+                                <div class="col-md-6">
+                                    @Html.LabelFor(m => m.Age, new {@class = "control-label"})
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(m => m.Age, new {@class = "form-control"})
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Age, null, new {@class = "text-danger"})
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@Resource.Cancel</button>
+                        <button type="submit" class="btn btn-primary">@Resource.OK</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

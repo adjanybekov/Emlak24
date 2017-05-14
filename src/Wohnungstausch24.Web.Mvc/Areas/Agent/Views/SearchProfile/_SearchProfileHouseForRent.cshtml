@@ -1,0 +1,49 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.House.DetailedSearchHouseForRent
+
+
+<li>
+    @Resource.TypeOfMerchandising:
+    <strong>
+        @TypeOfMerchandising.Rent.GetDisplayName()
+    </strong>
+</li>
+<li>
+    @Resource.PropertyType:
+    <strong>
+        @PropertyType.House.GetDisplayName()
+    </strong>
+</li>
+<li>
+    @Resource.Is_Smoking_Allowed:
+    <strong>
+        @Html.DisplayFor(m => m.IsSmokingAllowed)
+    </strong>
+</li>
+<li>
+    @Resource.Property_Add_PetsAllowed:
+    <strong>
+        @Html.DisplayFor(m => m.IsPetsAllowed)
+    </strong>
+</li>
+<li>
+    @Resource.HasHousingPermission:
+    <strong>
+        @Html.DisplayFor(m => m.HasHousingPermission)
+    </strong>
+</li>
+
+<li>
+    @Resource.Ranged_PlotArea:
+    <strong>
+        @Html.DisplayFor(m => m.PlotArea)
+    </strong>
+</li>
+<li>
+    @Resource.HouseType:
+    <strong>
+        @Model.HouseTypeViewModels.Select(c => c.HouseType.GetDisplayName()).StringJoin(", ")
+    </strong>
+</li>

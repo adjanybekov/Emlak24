@@ -1,0 +1,53 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.Enums
+@model Wohnungstausch24.Models.ViewModels.ChooseTypeOfMerchandisingViewModel
+@{
+    ViewBag.Title = "ChooseType";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">Add new property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("TypeOfMerchandising", "Property", FormMethod.Post, new { @class = "form form--flex form--property-add js-form js-form-property" }))
+                        {
+                            @Html.AntiForgeryToken();
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(m => m.TypeOfUse)
+                            <div class="row">
+                                <div class="form-group form-group--col-12 form-group--inline">
+                                    <div class="form-group form-group--col-6">
+                                        <label class="control-label">Select Type Of Merchandising</label>
+                                    </div>
+                                    <div class="form-group--col-6">
+                                        <ul class="form__check">
+                                            <li>
+                                                @Html.RadioButtonFor(m => m.TypeOfMerchandising, TypeOfMerchandising.Rent, new {@class = "in-radio", id = TypeOfMerchandising.Rent.ToString()})
+                                                @Html.Label(TypeOfMerchandising.Rent.GetDisplayName(), new {@class = "in-label", @for= TypeOfMerchandising.Rent.ToString() })
+                                            </li>
+                                            <li>
+                                                @Html.RadioButtonFor(m => m.TypeOfMerchandising, TypeOfMerchandising.Sale, new {@class = "in-radio", id = TypeOfMerchandising.Sale.ToString()})
+                                                @Html.Label(TypeOfMerchandising.Sale.GetDisplayName(), new {@class = "in-label",@for=TypeOfMerchandising.Sale.ToString() })
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a class="form__submit" href="@Url.Action("ChooseTypeOfUse")"><i class="fa fa-angle-left"></i> Back</a>
+                                <button type="submit" class="form__submit">Next <i class="fa fa-angle-right"></i></button>
+                            </div>
+                        }
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>

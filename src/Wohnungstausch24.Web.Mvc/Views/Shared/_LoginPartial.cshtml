@@ -1,0 +1,67 @@
+﻿@using Microsoft.AspNet.Identity
+@using Wohnungstausch24.Migrations.Security
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Account.AccountModels
+
+<ul class="auth__nav">
+    <li class="dropdown auth__nav-item">
+        @Html.Partial("Account/_ForgotPassword")
+    </li>
+    @if (Request.IsAuthenticated)
+    {
+        <li class="dropdown auth__nav-item">
+            <button data-toggle="dropdown" type="button" class="dropdown-toggle js-auth-nav-btn auth__nav-btn">
+                <img src="/Content/assets/media-demo/avatars/01.jpg" alt="" class="auth__avatar"><span class="auth__name"> @Resource.Hi @User.Identity.GetUserName()!</span>
+            </button>
+            <div class="dropdown__menu auth__dropdown--logged-in js-user-logged-in">
+                <nav class="nav nav--auth">
+                    <ul class="nav__list">
+                        @if (User.IsInRole(RoleDefinitions.Admin.ToString()))
+                        {
+                            <li class="nav__item">
+                                <a href="@Url.Action("Index", "Home", new {area = "Admin"})" title="Admin Dashboard" class="nav__link active"><i class="fa fa-dashboard"></i> Admin Panel</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav__item">
+                                <a href="@Url.Action("Index", "Home", new {area = "Agent"})" title="Agent Dashboard" class="nav__link active">
+                                    <i class="fa fa-dashboard"></i> Dashboard
+                                </a>
+                            </li>
+                        }
+                        <li class="nav__item">
+                            <a href="@Url.Action("Index", "Settings", new {area = "Agent"})" class="nav__link">
+                                <i class="fa fa-cog"></i> Settings
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out"></i>Log off</a>
+                            @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+                            }
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </li>
+    }
+    else
+    {
+        <li class="dropdown auth__nav-item">
+            <span class="header__span">
+                <a href="@Url.Action("Login", "Account")" class="header__span auth__nav-btn auth-menu">
+                    <i class="fa fa-user"></i> @Resource.SignIn
+                </a>
+            </span>
+        </li>
+        <li class="dropdown auth__nav-item">
+            <span class="header__span">
+                <a href="@Url.Action("Register", "Account")" class="header__span auth__nav-btn auth-menu">
+                    <i class="fa fa-user-plus"></i> @Resource.SignUp
+                </a>
+            </span>
+        </li>
+    }
+</ul>

@@ -1,0 +1,56 @@
+﻿@using Wohnungstausch24.Core
+@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Core.Files
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.SummaryViewModel
+@{
+    var fileDto = Model.Files.FirstOrDefault(c => c.Filetype == Wt24FileType.Image);
+    var featuredImage = fileDto!=null? fileDto.ThumbnailUrl: Constants.DefaultImagePath;
+}
+
+
+<div class="listing__item">
+    <div class="properties properties--list">
+        <div class="properties__thumb">
+            <a href="@Url.Action("Detail", "Property", new {id = Model.Id})" class="item-photo">
+                <img src="@featuredImage" alt="" />
+                <figure class="item-photo__hover item-photo__hover--params">
+                    <span class="properties__params">Built-Up - 65 Sq Ft</span>
+                    <span class="properties__params">Land Size - 110 Sq Ft</span>
+                    <span class="properties__time">@Resource.Home_SearchResult_AddedDate: 5 days ago</span>
+                </figure>
+            </a><span class="properties__ribon">@Model.TypeOfMerchandising.GetDisplayName()</span>
+        </div>
+        <!-- end of block .properties__thumb-->
+        <div class="properties__details">
+            <div class="properties__info">
+                <a href="@Url.Action("Detail", "Property", new {id=Model.Id})" class="properties__address">
+                    <span class="properties__address-street">@Model.ListingHeader</span>
+                    <span class="properties__address-city">@Model.Street</span>
+                    <span class="properties__address-city">@Model.LocationLevel3,@Model.LocationLevel2,@Model.LocationLevel1,@Model.Country</span>
+                </a>
+                <div class="properties__offer">
+                    <div class="properties__offer-column">
+                        <div class="properties__offer-value">
+                            <strong>@Model.Price</strong>
+                            @if (Model.TypeOfMerchandising == TypeOfMerchandising.Rent)
+                            {
+                                <span class="properties__offer-period">@Model.Price/@Resource.Month</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="properties__params--mob"><a href="#" class="properties__more">@Resource.ViewDetails</a><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 110 Sq Ft</span></div>
+            </div>
+            <div class="properties__intro">
+                <p>
+                    @Model.Description
+                </p>
+            </div><a href="@Url.Action("Detail","Property", new {id=Model.Id})" class="properties__more">View details</a>
+        </div>
+        <!-- end of block .properties__info-->
+    </div>
+    <!-- end of block .properties__item-->
+</div>
+

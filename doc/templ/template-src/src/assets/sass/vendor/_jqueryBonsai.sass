@@ -1,0 +1,35 @@
+.bonsai,
+.bonsai li
+  margin: 0
+  padding: 0
+  list-style: none
+  overflow: hidden
+
+.bonsai li
+  position: relative
+  padding-left: 16px
+
+.bonsai li .thumb
+  margin: -3px 0 0 -20px
+  padding: 5px 10px
+  /* negative margin into the padding of the li
+  position: absolute
+  cursor: pointer
+  @media (max-width: $screen-xs-max)
+    right: 16px
+
+li.has-children > .thumb:after
+  +font-awesome(1.2em, '\f0da')
+  color: #c8c8c8
+  line-height: 1
+
+li.has-children.expanded > .thumb:after
+  content: "\f0d7"
+
+li.collapsed > ol.bonsai
+  height: 0
+  overflow: hidden
+
+.bonsai .all,
+.bonsai .none
+  cursor: pointer

@@ -1,0 +1,40 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'property_details_agent';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Listing estate
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') 1600 Pennsylvania Ave NW
+  // END BREADCRUMBS
+block center
+  .row
+    .site.site--main
+      - var details_and_agent = true;
+      include partials/layout/property_details
+
+    // BEGIN SIDEBAR
+    .sidebar
+      +widget(null, null, 'sidebar widget--first-no-head', 'Show agent', null, 'toggle')
+        +worker(0, 'sidebar-advanced')
+      +widget('Filter', 'Find your apartment or house on the exact key parameters.', 'sidebar', 'Show filter', null, 'toggle')
+        - var searchType = 'sidebar'
+        include partials/widgets/form--search
+    // END SIDEBAR
+
+    .clearfix
+    .container
+      +widget('Similar properties', null, 'landing widget--collapsing', 'Show properties', null, 'toggle')
+        .listing.listing--grid.listing--lg-4
+          - var i = 0;
+          while i++ < 4
+            .listing__item
+              +properties(i, 'grid')

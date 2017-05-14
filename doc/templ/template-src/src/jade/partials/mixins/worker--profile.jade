@@ -1,0 +1,46 @@
+mixin workerProfile(i)
+  +widget('Profile', null, 'dashboard', 'Edit Profile', 'dashboard_profile.html')
+    .worker.worker--profile
+      .worker__item
+        .worker__photo
+          a.item-photo.item-photo--static(href='agent_profile.html')
+            img.photo(src='#{path.media}/workers/worker-#{locals.data.worker[i].pictures}.jpg', alt=locals.data.worker[i].name)
+            figure.item-photo__hover
+              span.item-photo__more View Details
+        .worker__intro
+          h3.worker__name.fn #{locals.data.worker[i].name}
+          .worker__post
+            | #{locals.data.worker[i].post}
+          button.worker__show.js-unhide(type='button') Contact agent
+          a.worker__company
+            img(src='#{path.media}/partners/logo-company-proera.png')
+          span.worker__company-name Pro Era West Realty
+
+          .clearfix
+          .worker__contacts
+            .worker__intro-col
+                .tel
+                  span.type Telephone
+                  a.uri.value(href='tel:#{locals.data.worker[i].phones.tel.replace(/\s/g, "")}') #{locals.data.worker[i].phones.tel}
+                .tel
+                  span.type Mobile
+                  a.uri.value(href='tel:#{locals.data.worker[i].phones.mob.replace(/\s/g, "")}') #{locals.data.worker[i].phones.mob}
+              .worker__intro-col
+                .email
+                  span.type Email
+                  a.uri.value(href='mailto:#{locals.data.worker[i].email}') #{locals.data.worker[i].email}
+                .skype
+                  span.type Skype
+                  a.uri.value(href='skype:#{locals.data.worker[i].skype}?call') #{locals.data.worker[i].skype}
+              // end of block .worker__contacts
+
+          .social.social--worker
+            a.social__item(href='#')
+              i.fa.fa-facebook
+            a.social__item(href='#')
+              i.fa.fa-linkedin
+            a.social__item(href='#')
+              i.fa.fa-twitter
+            a.social__item(href='#')
+              i.fa.fa-google-plus
+

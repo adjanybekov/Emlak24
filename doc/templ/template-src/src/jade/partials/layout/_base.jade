@@ -1,0 +1,63 @@
+- var projectTitle = 'Realty Space - Real Estate Responsive HTML Theme';
+- var headerOverlay = 'header--brand';
+- var navbarOverlay = '';
+
+include ../mixins/widget
+include ../mixins/properties
+include ../mixins/worker
+
+block config
+  include config
+doctype html
+html
+  head(lang='en')
+    include head
+    block head
+  body(class=page + ' menu-default hover-default ' + bodyClass)
+    //
+      SVG icons from sprite-inline.svg
+      They are inlined in order to make them work,
+      when the template is opened directly, without
+      web-server
+
+      If you are loading theme files using a webserver,
+      you can remove this code and set loadSvgWithAjax: true
+      at the beginning of the file.
+
+      Or you can use sprite.svg directly.
+      All you need to do is to add "img/sprite.svg" before the icon name
+      and connect svg4everybody (https://github.com/jonathantneal/svg4everybody) plugin for IE support
+
+      For example:
+      <use xlink:href="#icon-area"></use>
+      becomes
+      <use xlink:href="img/sprite.svg#icon-area"></use>
+
+    <!-- inject:svg -->
+    <!-- endinject -->
+    .box.js-box
+      block before_header
+      include header
+
+      include navbar
+      .site-wrap.js-site-wrap
+
+        block before_center
+           // BEGIN CENTER SECTION
+          .center(class=centerClass)
+            .container
+              block center
+          // END CENTER SECTION
+
+        block after_center
+          // BEGIN AFTER CENTER SECTION
+          if ['index', 'index_projects', 'index_vmap_light', 'index_vmap_dark', 'index_hmap_light', 'feature_map_leaflet', 'index_slider', 'feature_sliders', 'feature_vmap_fullscreen', 'index_slider_search', 'index_slider_auth'].indexOf(page) > -1
+            include ../widgets/partners
+            include ../widgets/subscribe
+          // END AFTER CENTER SECTION
+
+        include footer
+
+    button(type='button').scrollup.js-scrollup
+    // end of block .scrollup
+    include foot

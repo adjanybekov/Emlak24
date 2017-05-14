@@ -1,0 +1,27 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'user_restore_pass';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Restore
+  // END BREADCRUMBS
+block center
+  .row
+    section.site
+      header.site__header
+        h1.site__title Restore
+        h2.site__headline Enter your User Name or Email
+      .site__main
+        +widget(null, null, 'main widget--no-border ')
+          .auth.auth--inline
+            .auth__wrap.auth__wrap--restore
+              - var formType = 'inline';
+              include partials/chunks/auth/restore

@@ -1,0 +1,21 @@
+.review__item
+  .review__photo
+    img.review__photo-img(src='#{path.media}/testimonials/0#{j + 1}.jpg', alt='ALT')
+  .review__details
+    span.review__name #{name}
+    span.review__post Brand Manager
+    .review__stars
+      i.glyphicon.glyphicon-star
+      i.glyphicon.glyphicon-star
+      i.glyphicon.glyphicon-star
+      i.glyphicon.glyphicon-star
+      i.glyphicon.glyphicon-star
+  .review__info
+    .review__info-quote.review__info-quote--open &rdquo;
+    p
+      | Mariusz always addressed my questions professionally and in a very timely manner. Working with him was a pleasure and would come with my recommendation.
+      if reviewType == 'list'
+        | Mariusz always addressed my questions professionally and in a very timely manner. Working with him was a pleasure and would come with my recommendation.
+    .review__info-quote.review__info-quote--close &ldquo;
+  .clearfix
+  // end of block .review__item

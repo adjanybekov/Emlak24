@@ -1,0 +1,110 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Core.Files
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base.DetailListing
+
+@{
+    var images = Model.Files.Where(c => c.Filetype == Wt24FileType.Image).ToList();
+    var video = Model.Files.LastOrDefault(c => c.Filetype == Wt24FileType.Video);
+    var documents = Model.Files.Where(c => c.Filetype == Wt24FileType.Document).ToList();
+}
+
+
+<div class="clearfix"></div>
+<ul style="margin-bottom: 15px;" class="nav nav-tabs">
+    <li class="active">
+        <a href="#info" data-toggle="tab" aria-expanded="true"><i class="fa fa-image"></i> @Resource.Property_Detail_Pictures</a>
+    </li>
+    @if (video != null)
+    {
+        <li class="">
+            <a href="#video" data-toggle="tab" aria-expanded="false"><i class="fa fa-video-camera"></i> Video</a>
+        </li>
+    }
+    @if (documents.Any())
+    {
+        <li class="">
+            <a href="#documents" data-toggle="tab" aria-expanded="false"><i class="fa fa-file-pdf-o"></i> Documents</a>
+        </li>
+    }
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div id="info" class="tab-pane fade active in">
+        <div class="property__slider">
+            <div class="property__ribon">@Model.TypeOfMerchandising.GetDisplayName()</div>
+            <div class="property__ribon property__ribon--status property__ribon--done">@Model.PropertyType.GetDisplayName()</div>
+            <div id="properties-thumbs" class="slider slider--small js-slider-thumbs">
+                <div class="slider__block js-slick-slider">
+                    @for (int i = 0; i < images.Count; i++)
+                    {
+                        <div class="@($"slider__item slider__item--{i}")">
+                            <a href="@images[i].FileUrl" data-size="1740x960" data-gallery-index='@($"{i}")' class="slider__img js-gallery-item">
+                                <img data-lazy="@images[i].FileUrl" src="@images[i].FileUrl" alt="">
+                                <span class="slider__description">Awesome Kitchen!!! Spacious kitchen with a granite counter tops, stainless steel appliances, hardwood floors, and plenty of cupboard space. On the other hand, a nicely designed feature sheet can create a quality, professional brand for your property, attracting more buyers who are interested in the benefits that the property can offer.</span>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="slider slider--thumbs">
+                <div class="slider__wrap">
+                    <div class="slider__block js-slick-slider">
+                        @for (int i = 0; i < images.Count; i++)
+                        {
+                            <div data-slide-rel='@($"{i}")' class="@($"slider__item slider__item--{i}")">
+                                <div class="slider__img">
+                                    <img data-lazy="@images[i].FileUrl" src="@images[i].FileUrl" alt="">
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <button type="button" class="slider__control slider__control--prev js-slick-prev">
+                        <svg class="slider__control-icon">
+                            <use xlink:href="#icon-arrow-left"></use>
+                        </svg>
+                    </button>
+                    <button type="button" class="slider__control slider__control--next js-slick-next">
+                        <svg class="slider__control-icon">
+                            <use xlink:href="#icon-arrow-right"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (video != null)
+    {
+        <div id="video" class="tab-pane fade">
+            <div class="player">
+                <video poster="@video.ThumbnailUrl" preload="auto" controls crossorigin>
+                    <source src="@video.FileUrl" type="@video.Mime">
+                </video>
+                <!--button.article__preview-play.js-player-play-->
+            </div>
+        </div>
+    }
+    @if (documents.Any())
+    {
+        <div id="documents" class="tab-pane fade" style="min-height: 240px;">
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Resource.Documents</div>
+                <div class="panel-body">
+                    <div class="property__params">
+                        <ul class="property__params-list property__params-list--options">
+                            @foreach (var doc in documents)
+                            {
+                                <li>
+                                    <a href="@doc.FileUrl" target="_balnk">
+                                        <strong>@doc.Name</strong>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>

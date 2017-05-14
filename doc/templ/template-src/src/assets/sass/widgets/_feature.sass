@@ -1,0 +1,89 @@
+/*------------------------------------------------------------------
+  * Feature
+  + Feature / .feature
+    -- Feature listing / .feature--listing
+  ==============================================================*/
++b(feature)
+  position: relative
+  background: #fff!important
+  @media (min-width: $screen-lg-min)
+    overflow: hidden
+  +e(header)
+    margin-top: 50px
+  +e(title)
+    +title
+    color: $brandHighlightColor
+    text-align: left
+
+    @media (max-width: $screen-md-max)
+      text-align: center
+
+  +e(header)
+    @media (max-width: $screen-xs-max)
+      padding: 0 15px
+  +e(headline)
+    +headline
+    text-transform: uppercase
+    color: $featureTextColor
+    text-align: left
+    @media (max-width: $screen-md-max)
+      text-align: center
+
+  +e(picture)
+    background: url("../img/bg-feature.jpg") 100% 0
+    background-repeat: no-repeat !important
+    background-size: cover
+    width: 44%
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    @media (max-width: $screen-md-max)
+      display: none
+
+  +e(content)
+    +make-lg-column-offset(5)
+    padding:  0 0 0 52px
+    @media (max-width: $screen-md-max)
+      margin-right: 0
+      padding-left: 0
+  +e(list)
+    +clearfix
+    +make-row
+    @media (max-width: $screen-xs-max)
+      margin: 28px 0 0
+
+  +e(item)
+    +make-block-item($sm: 6, $xs: 12)
+    margin-bottom: 15px
+    @media (max-width: $screen-md-max)
+      padding-left: 0
+    @media (max-width: $screen-xs-max)
+      margin-bottom: 10px
+      padding-right: 0
+      text-align: center
+
+  +e(item-title)
+    font-size: 20px
+    font-weight: 600
+    text-transform: uppercase
+    color: $brandHighlightColor
+    margin-top: 10px
+    @media (max-width: $screen-xs-max)
+      margin: 10px 0
+      font-size: 18px
+
+  +e(text)
+    margin-top: 17px
+    color: $featureTextColor
+
+    @media (max-width: $screen-xs-max)
+      margin-top: 5px
+
+  +e(icon)
+    margin-top: 13px
+    fill: $featureTextColor
+    width: 55px
+    height: 55px
+    +m(good-sales)
+      width: 54px

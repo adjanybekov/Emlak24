@@ -1,0 +1,72 @@
+mixin price(modificator)
+  span.properties__price(class = modificator ? 'properties__price--' + modificator : '')
+    | RM #{locals.data.properties[i].acf_price}
+    if locals.data.properties[i].type_offer == 'rent'
+      span.properties__price-period /month
+
+.properties.properties--management(data-sr=dataSr)
+  .properties__item-header
+    case locals.data.properties[i].state
+      when 'Draft'
+        span.properties__state.properties__state--hidden #{locals.data.properties[i].state}
+      when 'In review'
+        span.properties__state.properties__state--default #{locals.data.properties[i].state}
+      when 'Pushed'
+        span.properties__state.properties__state--highlight #{locals.data.properties[i].state}
+    .properties__actions
+      button.properties__link(type='button') Edit
+      .dropdown.properties__actions-dropdown
+        button.dropdown-toggle.properties__dropdown-toggle(data-toggle='dropdown', type='button') ...
+        .dropdown__menu.properties__dropdown-menu
+          button(type='button').properties__link Delete
+          button(type='button').properties__link Change status
+
+  .properties__thumb
+    a.item-photo.item-photo--static(href='property_details.html')
+      if locals.data.properties[i].acf_images.length
+        img(src='#{path.media}/properties/554x360/#{locals.data.properties[i].acf_images[0]}.jpg', alt='')
+      else
+        img(src='#{path.img}/no-image--554x360.jpg', alt='')
+
+      figure.item-photo__hover.item-photo__hover--params
+        span.properties__params Built-Up - #{locals.data.properties[i].builtUp} Sq Ft
+        span.properties__params Land Size - #{locals.data.properties[i].landSize} Sq Ft
+        span.properties__time Added date: #{locals.data.properties[i].added} days ago
+        span.properties__more View details
+
+    if locals.data.properties[i].type_offer
+      span.properties__ribon For #{locals.data.properties[i].type_offer}
+    if locals.data.properties[i].status
+      span.properties__ribon.properties__ribon--status(class= locals.data.properties[i].status === 'Transacted' ? 'properties__ribon--done' : '') #{locals.data.properties[i].status}
+
+  // end of block .properties__thumb
+
+  .properties__details
+    .properties__info
+      a.properties__address(href='property_details.html')
+        span.properties__address-street #{locals.data.properties[i].acf_location.address.street}
+        span.properties__address-city #{locals.data.properties[i].acf_location.address.city}
+
+      .properties__offer
+        .properties__offer-column
+          .properties__offer-label Commision
+          .properties__offer-value
+            if locals.data.properties[i].commision.rm
+              | RM
+              strong  #{locals.data.properties[i].commision.rm}
+            else if locals.data.properties[i].commision.percent
+              strong  #{locals.data.properties[i].commision.percent}
+              |  %
+
+        .properties__offer-column
+          .properties__offer-label RM
+          .properties__offer-value
+            strong #{locals.data.properties[i].acf_price}
+            if locals.data.properties[i].type_offer == 'rent'
+              span.properties__offer-period /month
+      .properties__params--mob
+        a.properties__more(href='#') View details
+        span.properties__params Built-Up - #{locals.data.properties[i].builtUp} Sq Ft
+        span.properties__params Land Size - #{locals.data.properties[i].landSize} Sq Ft
+  // end of block .properties__info
+// end of block .properties__item

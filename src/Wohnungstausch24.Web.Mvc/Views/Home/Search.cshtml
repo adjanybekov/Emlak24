@@ -1,0 +1,240 @@
+﻿@using System.Web.Mvc.Html
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@model  Wohnungstausch24.Models.ViewModels.Search.BasicSearch.BasicSearchViewModel
+
+<!-- BEGIN BREADCRUMBS-->
+<nav class="breadcrumbs">
+    <div class="container">
+        <ul>
+            <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Home</a></li>
+            <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Listing</a></li>
+            <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">United states</a></li>
+            <li class="breadcrumbs__item"><a href="" class="breadcrumbs__link">Apartment for sale</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- END BREADCRUMBS-->
+<div class="center">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN site-->
+            <div class="site site--main">
+                <header class="site__header">
+                    <h1 class="site__title">@Resource.Home_Search_ListingEstate</h1>
+                    <h5 class="site__headline">@Resource.Home_Search_Found:<strong>641 apatments</strong></h5>
+                </header>
+                <button type="button" data-goto-target=".js-search-form" class="widget__btn--goto js-goto-btn">Show Filter</button>
+                <div class="site__panel">
+                    <div class="listing__sort">
+                        <div class="form-group">
+                            <label for="in-listing-sort" class="control-label">@Resource.Home_Search_Sortby:</label>
+                            <div class="form-control--select">
+                                <select id="in-listing-sort" class="form-control js-in-select">
+                                    <option>@Resource.Home_SearchResult_TimeEnding </option>
+                                    <option>@Resource.Home_SearchResult_TimeNewly</option>
+                                    <option>@Resource.Home_SearchResult_PriceHighest</option>
+                                    <option>@Resource.Home_SearchResult_PriceLowest </option>
+                                    <option>@Resource.Home_SearchResult_DistanceNearest </option>
+                                    <option>@Resource.Home_SearchResult_ConditionNew </option>
+                                    <option>@Resource.Home_SearchResult_ConditionUsed </option>
+                                    <option>@Resource.Home_SearchResult_BestMatch</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end of block .listing__param-->
+                <div class="site__main">
+                    <div class="widget js-widget widget--main">
+                        <div class="widget__content">
+
+                            <div class="listing listing--list js-properties-list">
+                                @foreach (var item in Model.SummaryViewModels)
+                                {
+                                    @Html.Partial("_ListingSearchResult", item)
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END site-->
+            <!-- BEGIN SIDEBAR-->
+            <div class="row">
+                @Html.Partial("_SideBarForSearchPartial", Model)
+
+            </div>
+            <!-- END SIDEBAR-->
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- END CENTER SECTION-->
+<!-- BEGIN AFTER CENTER SECTION-->
+                <!-- END AFTER CENTER SECTION-->
+
+@section scripts
+{
+    <script type="text/javascript">
+        var locationLevel1 = $('#@Html.IdFor(m => m.SelectedLocationLevel1)');
+        var locations = $('#locations');
+
+        locationLevel1.change(function () {
+            var request = $.ajax({
+                url: '@Url.Action("GetLocationLevelTree", "Locations", new {area = ""})',
+                method: "GET",
+                data: { id: $(this).val() },
+                contentType: "application/json",
+                dataType: "html"
+            });
+            request.done(function (data) {
+                locations.html(data);
+                $('#locations').bonsai('update');
+                initSearch('.js-search-form');
+            });
+            request.fail(function (jqXHR, textStatus) {
+                alert("Request failed: " + textStatus);
+            });
+        });
+        initSearch('.js-search-form');
+        locations.bonsai('update');
+
+        function initSearch(container) {
+            /**
+             * Helper function for rendering checkboxes inside dropdowns
+             ==============================================================*/
+            var $container = $(container);
+            var $selectCheckboxes = $container.find('.js-select-checkboxes');
+            var $selectCheckboxesDropdown = $container.find('.js-select-checkboxes');
+            var $inputsSelect = $container.find('select');
+            var $inputsCheckbox = $container.find('input[type="checkbox"]');
+
+            $selectCheckboxes.each(function () {
+                var $this = $(this);
+                var $showBtn = $(this).prev('.js-select-checkboxes-btn');
+                var $showBtnPlaceholder = $showBtn.data('placeholder');
+
+                $this.find('.in-checkbox').change(function () {
+                    var $parentGroup, resultHtml, location = [];
+
+                    $parentGroup = $(this).closest('.js-select-checkboxes');
+                    $($parentGroup).find('.in-checkbox:checked').each(function () {
+                        var $label = $("label[for='" + this.id + "']");
+                        var name = $label.text();
+                        location.push(name);
+                    });
+                    resultHtml = location.join(', ') || $showBtnPlaceholder;
+                    $($showBtn).text(resultHtml);
+                });
+            });
+
+
+            $('.js-select-checkboxes-reset').on('click', function () {
+                var $this = $(this),
+                  $selectCheckboxesDropdown = $this.closest('.js-select-checkboxes');
+
+                $selectCheckboxesDropdown
+                  .find('input[type="checkbox"]')
+                  .prop({
+                      checked: false,
+                      indeterminate: false
+                  });
+                $selectCheckboxesDropdown
+                  .find('input[type="checkbox"]')
+                  .first()
+                  .trigger('change');
+
+            });
+
+            $('.js-select-checkboxes-accept').on('click', function () {
+                var $this = $(this),
+                  $selectCheckboxesDropdown = $this.closest('.js-select-checkboxes');
+
+                $selectCheckboxesDropdown
+                  .closest('.dropdown')
+                  .removeClass('open');
+            });
+
+            // Button "Clear All" (reset form)
+            $('.js-form-reset').on('click', function () {
+                $inputsSelect.each(function (i, item) {
+                    $(item).find('option').removeAttr('selected');
+                    $(item).trigger('change');
+                });
+
+                $inputsCheckbox.prop({
+                    checked: false,
+                    indeterminate: false
+                });
+
+                // trigger event for custom menu dropdown
+                $selectCheckboxesDropdown.each(function (i, selectCheckboxes) {
+                    $(selectCheckboxes)
+                      .find('input[type="checkbox"]')
+                      .first()
+                      .trigger('change');
+                });
+
+            });
+
+
+            $('body').on('click', '.js-dropdown-menu', function (e) {
+                e.stopPropagation();
+            });
+
+            /***************************************************************
+             * Example usage of tree plugin and checkbox plugins
+             * to render a nice location tree
+             *
+             * For customizing the tree options see
+             * http://aexmachina.info/jquery-bonsai
+             *
+             * For customizing checkbox options see
+             * https://github.com/aexmachina/jquery-qubit
+             ==============================================================*/
+            var checkboxesTree = $('.js-checkboxes-tree');
+            if (checkboxesTree.length) {
+                checkboxesTree.bonsai();
+                checkboxesTree.qubit();
+            }
+
+            //  listeners
+            $inputsSelect.on('change', triggerFormChange);
+            $inputsCheckbox.on('change', triggerFormChange);
+
+            function triggerFormChange() {
+                $container.trigger('formChange');
+            }
+        }
+
+        var selector = "#SelectedTypeOfMerchandising";
+
+        $(selector).on('change', handleTomSlider);
+        handleTomSlider();
+
+        function handleTomSlider() {
+            var to=@Model.PriceTo;
+            var from= @Model.PriceFrom;
+            var selected = $(selector).find(":selected");
+            if (selected.val() === "@TypeOfMerchandising.Sale") {
+                $('#range_price').data("ionRangeSlider").update({
+                    min: 0,
+                    max: 1000000,
+                    step: 1000,
+                    to: to==null?1000000:to,
+                    from:from==null?0:from
+                });
+            } else {
+                $('#range_price').data("ionRangeSlider").update({
+                    min: 0,
+                    max: 5000,
+                    step: 10,
+                    to: to==null?5000:to,
+                    from:from==null?0:from
+                });
+            }
+        }
+
+    </script>
+}

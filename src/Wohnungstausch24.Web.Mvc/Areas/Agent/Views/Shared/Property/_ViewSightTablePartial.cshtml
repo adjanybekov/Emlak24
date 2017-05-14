@@ -1,0 +1,42 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Core.Extensions
+@using Wohnungstausch24.Resources
+@model List<Wohnungstausch24.Models.ViewModels.Agent.ViewSightViewModel>
+
+
+<div class="col-md-12" id="sightview-area-data-div">
+    <div class="form-group form-group--col-12">
+        <table class="table table-responsive table-stripped">
+            <thead>
+                <tr>
+                    <th colspan="3">
+                        <div class="row">
+                            <div class="col-md-8">
+                                @Resource.Add_Sight_View_Title
+                            </div>
+                            <div class="col-md-4">
+                                <a class="btn btn-xs btn-primary pull-right" href="#" data-toggle="modal" data-target="#addSightViewModal">@Resource.General_Table_Add_new<i class="fa fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tr>
+                <th>#</th>
+                <th>@Resource.Sight_View</th>
+                <th>@Resource.Options</th>
+            </tr>
+            @for (var i = 1; i <= Model.Count(); i++)
+            {
+                <tr>
+                    <td>@i</td>
+                        <td>@Model[i - 1].SightType.GetDisplayName()</td>
+                        <td>
+                            <a href="@Url.Action("DeleteViewSight","Property",new {id = Model[i - 1].Id})" class="btn btn--action wt24-sightview-confirmation"><i class="fa fa-trash"></i></a>
+                        </td>
+</tr>
+            }
+        </table>
+    </div>
+</div>
+<div class="loading"></div>

@@ -1,0 +1,157 @@
+/*------------------------------------------------------------------
+  * Authorization blocks
+    + Authorization / .auth
+      __ Authorization link / .auth__link
+      __ Authorization title / .auth__title
+      __ Authorization row / .auth__row
+      __ Authorization in / .auth__in
+      __ Authorization forgot / .auth__forgot
+  ==============================================================*/
++b(auth)
+  +clearfix
+
+  +e(nav)
+    padding: 0
+    margin: 0
+    list-style: none
+  +e(link)
+    border: none
+    background: none
+    color: $defaultColor
+    margin: 0
+    padding: 0 1px
+    text-transform: uppercase
+    font-weight: 600
+    &:focus,
+    &:hover
+      background: none
+      text-decoration: underline
+    @media (max-width: $screen-xs-max)
+      display: none
+    +m(login)
+      margin-top: 19px
+      @media (max-width: $screen-md-max)
+        margin-top: 22px
+  +e(icon-user)
+    width: 16px
+    height: 16px
+    position: relative
+    top: 4px
+    @media (max-width: $screen-xs-max)
+      width: 22px
+      height: 22px
+  .form-control-feedback
+    top: 20px
+  .help-block
+    text-align: right
+
+  +e(title)
+    margin: 9px 0 18px
+    text-transform: uppercase
+    font-size: 14px
+    font-weight: 600
+
+  // header forms
+  +m(header)
+    border: none
+    outline: none
+    .dropdown__menu
+      left: auto
+      right: 0
+      width: 265px
+      background: #fff
+      color: $defaultColor
+      border: 1px solid #dcdcdc
+      padding: 18px 30px
+      z-index: 1000
+      &:before
+        right: 20px
+        left: auto
+        @media (max-width: $screen-xs-max)
+          right: 32.3%
+
+      //  make corner
+      @media (max-width: $screen-xs-max)
+        width: auto !important
+        left: 15px
+        right: 15px
+        top: 55px
+
+    +e(dropdown)
+      +m(login)
+
+      +m(register)
+        width: 460px
+
+      +m(logged-in)
+        width: 280px
+        padding: 10px 15px
+        top: 35px
+        @media (max-width: $screen-xs-max)
+          top: 50px
+          &:before
+            right: 29%
+      +m(restore)
+        margin-right: -36px
+        @media (max-width: $screen-xs-max)
+          margin: 0
+        +e(in)
+          +m(submit)
+            width: 100%
+            margin: 16px 0
+
+        +e(links)
+          width: 102%
+          display: block
+
+    +e(nav-item)
+      float: left
+      @media (max-width: $screen-xs-max)
+        position: initial
+
+    +e(nav-btn)
+      background: none
+      border: none
+      text-transform: uppercase
+      padding: 0
+      font-size: 13px
+      +when('header--mob-opened', true)
+        visibility: hidden
+    +e(avatar)
+      border-radius: 30px
+      overflow: hidden
+      width: 30px
+      height: 30px
+    +e(name)
+      text-transform: none
+      color: #fff
+      margin-left: 10px
+      &:after
+        +font-awesome(0.8em, '\f107')
+        margin-left: 15px
+      @media (max-width: $screen-xs-max)
+        display: none
+    .open .auth__name:after
+      content: '\f106'
+
+  // inline forms
+  +m(inline)
+    @media (max-width: $screen-xs-max)
+      margin-bottom: 30px
+    +e(wrap)
+      margin: 0 auto
+      padding: 20px 30px
+      width: 265px
+      background: #fff
+      color: $defaultColor
+      border: 1px solid #dcdcdc
+      +m(login)
+
+      +m(register)
+        width: 460px
+        @media (max-width: $screen-xs-max)
+          width: 265px
+      +m(restore)
+        .auth__in--submit
+          float: none
+          width: 100%

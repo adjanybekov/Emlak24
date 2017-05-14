@@ -1,0 +1,15 @@
+// BEGIN SECTION REVIEW
+if noItems
+  .no-items
+    .no-items__icon.no-items__icon--svg
+      svg
+        use(xlink:href='#icon-noitems')
+    span.no-items__title No Testimonials available
+else
+  .review.review--wide#review-slider
+    .review__slider.js-slick-slider
+      - var j = 0;
+      each name, j in ['Vanessa Kasinsky', 'Joseph Ryan', 'Caroline Reynolds', 'Ana Oliver']
+        include ../chunks/review_item
+    // end of block .review__list
+// END SECTION REVIEW

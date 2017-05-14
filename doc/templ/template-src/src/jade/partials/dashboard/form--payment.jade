@@ -1,0 +1,27 @@
+form.form.form--flex.form--payment.js-parsley
+  .row
+    .form-group
+      label.control-label(for='in-1') Your amount
+      input.form-control(type='text', id='in-1', required)
+
+  img.form__payments(src='#{path.img}/payments.png', alt='')
+
+  .row
+    .form-group
+      label.control-label(for='in-2') Card number
+      input.form-control(type='text', id='in-2', required)
+    .form-group
+      label.control-label(for='in-3') Card name
+      input.form-control(type='text', id='in-3', required)
+  .row
+    .form-group
+      label.control-label(for='in-4') Available
+      input.form-control(type='text', id='in-4', required)
+    .form-group
+      label.control-label(for='in-5') Security code
+      input.form-control(type='text', id='in-5', required)
+
+  .row
+    button.form__submit(type='submit') Add Funds
+
+  h6.form__terms The Terms and Conditions vary according to the country where your billing address is located. Please choose your billing country below to view the appropriate Terms and Conditions.

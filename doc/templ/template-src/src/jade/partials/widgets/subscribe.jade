@@ -1,0 +1,12 @@
++widget
+  // BEGIN SUBSCRIBE
+  .subscribe
+    form.subscribe__form.js-subscribe-form(action='#')
+      h4.subscribe__title Newsletters
+      .subscribe__group.form-group
+        label.sr-only Newsletters
+        input.subscribe__field.form-control.js-subscribe-email(type='email', placeholder='Input your e-mail', name='email', required, data-parsley-trigger='change')
+
+      button.btn--action.subscribe__submit.js-subscribe-submit(type='submit') SUBMIT
+    // end of block .subscribe__form
+  // END SUBSCRIBE

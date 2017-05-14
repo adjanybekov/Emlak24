@@ -1,0 +1,72 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Search.SearchProfiles.SearchProfilePagedListViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">@Resource.Agent_SidebarMenu_Search_Profiles</h2>
+                <a href="@Url.Action("DetailedSearch", "Home", new {area = ""})" class="widget__btn js-widget-btn widget__btn--action" target="_blank">
+                    <i class="fa fa-plus-square"></i> @Resource.Add_New_Search_Profile
+                </a>
+            </div>
+            <div class="widget__content">
+                <div class="listing listing--grid">
+                    <div class="datatable datatable--properties">
+                        <div class="datatable__wrap">
+                            <table class="table table-responsive">
+                                <tr>
+                                    <th>Search profile Name</th>
+                                    <th>Price From</th>
+                                    <th>Price To</th>
+                                    <th>Options</th>
+                                </tr>
+                                <tbody>
+                                @foreach (var listingViewModel in Model.Items)
+                                {
+                                    @Html.Partial("_MySearchProfiles", listingViewModel)
+                                }
+                                </tbody>
+                            </table>
+                            @if (Model.Pager.EndPage > 1)
+                            {
+                                <ul class="pagination">
+                                    @if (Model.Pager.CurrentPage > 1)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("Index", "SearchProfile", new {itemsPerPage = Model.Pager.ItemsPerPage})">@Resource.First</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Index", "SearchProfile", new {page = Model.Pager.CurrentPage - 1, itemsPerPage = Model.Pager.ItemsPerPage})">@Resource.Previous</a>
+                                        </li>
+                                    }
+
+                                    @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                                    {
+                                        <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
+                                            <a href="@Url.Action("Index", "SearchProfile", new {page = page, itemsPerPage = Model.Pager.ItemsPerPage})">@page</a>
+                                        </li>
+                                    }
+
+                                    @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("Index", "SearchProfile", new {page = Model.Pager.CurrentPage + 1, itemsPerPage = Model.Pager.ItemsPerPage})">@Resource.Next</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Index", "SearchProfile", new {page = Model.Pager.TotalPages, itemsPerPage = Model.Pager.ItemsPerPage})">@Resource.Last</a>
+                                        </li>
+                                    }
+                                </ul>
+                                <p>@string.Format(Resource.Showing_Page__0__c__1__, Model.Pager.CurrentPage, Model.Pager.TotalPages)</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

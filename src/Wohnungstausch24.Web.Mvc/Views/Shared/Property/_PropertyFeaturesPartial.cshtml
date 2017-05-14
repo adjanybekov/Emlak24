@@ -1,0 +1,192 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base.DetailResidence
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">@Resource.Property_Detail_Features</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-1">
+                        <i class="fa fa-3x fa-magic text-primary property-features-icon"></i>
+                    </div>
+                    <div class="col-md-11">
+                        <div class="row">
+                            <div class="col-md-12">
+                                @if (Model.HasWinterGarden.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasWinterGarden, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasWinterGarden)
+                                    </div>
+                                }
+                                @if (Model.HasStorageRoom.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasStorageRoom, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasStorageRoom)
+                                    </div>
+                                }
+                                @if (Model.HasBicycleRoom.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasBicycleRoom, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasBicycleRoom)
+                                    </div>
+                                }
+                                @if (Model.HasWashDryingRoom.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasWashDryingRoom, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasWashDryingRoom)
+                                    </div>
+                                }
+                                @if (Model.HasElevator.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasElevator, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasElevator)
+                                    </div>
+                                }
+                                @if (Model.HasChimney.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasChimney, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasChimney)
+                                    </div>
+                                }
+                                @if (Model.HasRollerBlind.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasRollerBlind, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasRollerBlind)
+                                    </div>
+                                }
+                                @if (Model.HasInternet.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasInternet, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasInternet)
+                                    </div>
+                                }
+                                @if (Model.IsSeniorFocused.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.IsSeniorFocused, "BooleanFeature")
+                                        @Html.LabelFor(m => m.IsSeniorFocused)
+                                    </div>
+                                }
+                                @if (Model.IsWheelchairAccessible.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.IsWheelchairAccessible, "BooleanFeature")
+                                        @Html.LabelFor(m => m.IsWheelchairAccessible)
+                                    </div>
+                                }
+                                @if (Model.IsBarrierFree.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.IsBarrierFree, "BooleanFeature")
+                                        @Html.LabelFor(m => m.IsBarrierFree)
+                                    </div>
+                                }
+                                @if (Model.HasLibrary.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasLibrary, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasLibrary)
+                                    </div>
+                                }
+                                @if (Model.HasAttic.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasAttic, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasAttic)
+                                    </div>
+                                }
+                                @if (Model.HasAirCondition.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasAirCondition, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasAirCondition)
+                                    </div>
+                                }
+                                @if (Model.HasSauna.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasSauna, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasSauna)
+                                    </div>
+                                }
+                                @if (Model.HasSwimmingPool.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasSwimmingPool, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasSwimmingPool)
+                                    </div>
+                                }
+                                @if (Model.HasAlarmSystem.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasAlarmSystem, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasAlarmSystem)
+                                    </div>
+                                }
+                                @if (Model.HasCamera.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasCamera, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasCamera)
+                                    </div>
+                                }
+                                @if (Model.HasPoliceCall.GetValueOrDefault())
+                                {
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(m => m.HasPoliceCall, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasPoliceCall)
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+                            <hr />
+                            <div class="col-md-4">
+                                <h4>@Resource.FloorTypes</h4>
+                                @foreach (var floorViewModel in Model.Floors)
+                                {
+                                    <p>@floorViewModel.FloorType</p>
+                                }
+                            </div>
+                            <div class="col-md-4">
+                                @if (Model.HasGermanTvByAntenna.GetValueOrDefault())
+                                {
+                                    <div class="col-md-12">
+                                        @Html.DisplayFor(m => m.HasGermanTvByAntenna, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasGermanTvByAntenna)
+                                    </div>
+                                }
+                                @if (Model.HasCableSatTv.GetValueOrDefault())
+                                {
+                                    <div class="col-md-12">
+                                        @Html.DisplayFor(m => m.HasCableSatTv, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasCableSatTv)
+                                    </div>
+                                }
+                                @if (Model.HasCableDucts.GetValueOrDefault())
+                                {
+                                    <div class="col-md-12">
+                                        @Html.DisplayFor(m => m.HasCableDucts, "BooleanFeature")
+                                        @Html.LabelFor(m => m.HasCableDucts)
+                                    </div>
+                                }
+                            </div>
+                            <div class="col-md-4">
+                                <div>Services???</div>
+                                <div>Safety engineering???</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+﻿@using Wohnungstausch24.Core.Extensions
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Email.RegistrationMailViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="background: #f6f6f6; color: #2c3e50; margin: 0; padding: 0;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>@Resource.Email_Register_Title_Welcome_to_wt24</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body style="background: #f6f6f6; color: #2c3e50; margin: 0; padding: 0;">
+    <table class="wrapper" style="background: #f6f6f6; border-spacing: 0; font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif; width: 100%;margin: 0px auto;" align="center">
+        <tr class="header" style="background: #00bbaa;">
+            <td colspan="3">
+                <table class="header__wrap" style="border-spacing: 0; margin: 0 auto; max-width: 600px; width: 600px;">
+                    <tr>
+                        <td style="width: 50%">
+                            <p class="header__slogan" style="color: #fff; font-size: 13px; font-style: italic;">
+                                @Resource.Email_Register_Header_Text
+                            </p>
+                        </td>
+                        <td>
+                            <p class="header__title" style="color: #2c3e50; font-size: 15px; text-align: right;">@Resource.Email_Register_Connect_With_Us</p>
+                        </td>
+                        <td class="header__social" style="text-align: right;">
+                            <a href="http://facebook.com" class="header__link" style="color: #2c3e50; display: inline-block; margin: 5px 0 0 10px;">
+                                <img src="@Url.Content("~/Content/assets/img/social/icon-facebook.png",true)" alt="" style="max-width: 100%;" />
+                            </a>
+                            <a href="http://twitter.com" class="header__link" style="color: #2c3e50; display: inline-block; margin: 5px 0 0 10px;">
+                                <img src="@Url.Content("~/Content/assets/img/social/icon-twitter.png",true)" alt="" style="max-width: 100%;" />
+                            </a>
+                            <a href="http://google.com" class="header__link" style="color: #2c3e50; display: inline-block; margin: 5px 0 0 10px;">
+                                <img src="@Url.Content("~/Content/assets/img/social/icon-google.png",true)" alt="" style="max-width: 100%;"/>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="main">
+            <td colspan="3">
+                <a href="@Url.Action("Index","Home", new {area=""},"http")" class="logo" style="color: #2c3e50; display: block; height: 55px; margin: 50px auto 20px; width: 214px;">
+                    <img src="@Url.Content("~/Content/assets/img/logo/email_logo.png",true)" alt="" style="max-width: 240px;">
+                </a>
+                <table class="body" style="background: #fff; border-spacing: 0; margin: 0 auto; max-width: 600px;">
+                    <tr>
+                        <td></td>
+                        <td>
+                            <table class="content" style="border-spacing: 0; margin: 24px; max-width: 500px;">
+                                <tr>
+                                    <td>
+                                        <h1 style="color: #2c3e50; font-size: 32px;">@Model.Name, @Resource.Email_Register_Title_Welcome_to_wt24</h1>
+                                        <p style="color: #2c3e50; font-size: 15px;">
+                                            @Resource.Email_Register_Your_Account_Created_Information
+                                        </p>
+                                        <p style="color: #2c3e50; font-size: 15px; text-align: center;">
+                                            <a href="@Model.ConfirmationUrl" class="btn-link" style="background: #f3bc65; background-image: none; border: none; border-bottom: 4px solid #d99221; color: #222222; cursor: pointer; display: inline-block; font-weight: bold; line-height: 35px; margin-bottom: 0; padding-left: 10px; padding-right: 10px; text-align: center; text-decoration: none; text-transform: uppercase; vertical-align: middle; white-space: nowrap; width: auto;">
+                                                @Resource.Email_Register_Activate_Your_Account_Button_Text
+                                            </a>
+                                        </p>
+                                        <p style="color: #2c3e50; font-size: 15px;">
+                                            @Resource.Email_Register_Thanks<br />
+                                            @Resource.Email_Register_The_wt24_Team
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="footer" style="color: #2c3e50; font-size: 15px; text-align: center;">
+            <td colspan="3">
+                <p>@Resource.Email_Please_do_not_reply_directly_to_this_email. <br><a href="#" style="color: #2c3e50;">contact@immotausch24.com</a></p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

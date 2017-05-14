@@ -1,0 +1,75 @@
+/*------------------------------------------------------------------
+  * Chekbox and radio css only customization
+  * This structure is accpeted
+  * <label class='in-label'>
+  *   <input type='checkbox' class='in-checkbox'> Option Label
+  * </label>
+  ==============================================================*/
+label.in-label
+  display: inline-block
+  cursor: pointer
+  position: relative
+  padding-left: 24px
+  padding-top: 3px
+  font-weight: normal
+
+input[type=radio].in-radio,
+input[type=checkbox].in-checkbox
+  display: none
+
+label.in-label:before
+  content: ""
+  display: inline-block
+  width: 18px
+  height: 18px
+  margin-right: 10px
+  position: absolute
+  left: 1px
+  top: 6px
+  background-color: #fff
+  border: 1px solid #b3b3b3
+  transition: 0.3s
+
+input[type=radio].in-radio + label:before
+  border-radius: 15px
+  width: 15px
+  height: 15px
+
+label.in-label.in-label--expander:before
+  content: '+'
+  color: #fff
+  background: #858585
+  font-size: 25px
+  line-height: 0.6
+
+label.in-label.in-label--expander.active:before
+  content: '-'
+  color: #fff
+  background: #006FCD
+  font-size: 39px
+  line-height: 0.2
+  border: 1px solid #0F5EA1
+  text-align: center
+
+input[type=radio].in-radio:checked + label:before
+  +font-awesome(8px, '\f111')
+  color: $brandColor
+  text-align: center
+  line-height: 13px
+  border: 1px solid #b3b3b3
+  border-radius: 15px
+
+input[type=checkbox].in-checkbox:checked + label:before
+  font-family: 'Glyphicons Halflings'
+  content: "\e013"
+  font-size: 8px
+  color: $defaultColor
+  text-align: center
+  line-height: 18px
+
+input[type=checkbox].in-checkbox:indeterminate + label:before
+  +font-awesome(8px, '\f068')
+  font-size: 8px
+  color: $defaultColor
+  text-align: center
+  line-height: 18px

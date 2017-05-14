@@ -1,0 +1,150 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step7.Step7ViewModel
+
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">@Resource.Add_New_Property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    @Html.Partial("FlatForRent/_Steps", Model.StepsProgressModel)
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("Step7", "Property", FormMethod.Post, new { @class = "form form--flex form--search form--property-add js-form js-form-property" }))
+                        {
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @Html.EditorFor(m => m.Step7FlatForRent.MaxNumberOfPersons, "_SingleSlider", new {min=1, max = 10})
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(m => m.Step7FlatForRent.MaxNumberOfChildren, "_SingleSlider", new { min = 0, max = 10 })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @Html.EditorFor(m => m.Step7FlatForRent.MaxAgeOfPerson, "_SingleSlider", new {min=18, max = 120})
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(m => m.Step7FlatForRent.PreferredAgeOfChildren, "_SingleSlider", new { min = 0, max = 18 })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @Html.EditorFor(m => m.Step7FlatForRent.MinDuration, "_SingleSlider", new {min=3, max = 48 })
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(m => m.Step7FlatForRent.Income, "_SingleSlider", new {max=5000, prefix="&euro;"})
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group form-group--col-12 form-group--inline">
+                                    <div class="col-md-12" id="kitchen-area-data-div">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">@Resource.EmploymentStatus</div>
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    @for (var i = 0; i < Model.Step7FlatForRent.EmploymentStatuses.Count; i++)
+                                                    {
+                                                        <div class="col-md-4">
+                                                            @Html.CheckBoxFor(m => m.Step7FlatForRent.EmploymentStatuses[i].Selected, new { @class = "in-checkbox" })
+                                                            @Html.LabelFor(m => m.Step7FlatForRent.EmploymentStatuses[i].Selected, Model.Step7FlatForRent.EmploymentStatuses[i].EmploymentStatus.GetDisplayName(), new { @class = "in-label" })
+                                                            @Html.HiddenFor(m => m.Step7FlatForRent.EmploymentStatuses[i].EmploymentStatus)
+                                                            @Html.HiddenFor(m => m.Step7FlatForRent.EmploymentStatuses[i].Id)
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    @Html.CheckBoxFor(m => m.Step7FlatForRent.PetsAllowed, new { @class = "in-checkbox", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                                </div>
+                                <div class="col-md-7">
+                                    @Html.LabelFor(m => m.Step7FlatForRent.PetsAllowed, new { @class = "control-label" })
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    @Html.CheckBoxFor(m => m.Step7FlatForRent.IsSmokingAllowed, new { @class = "in-checkbox", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                                </div>
+                                <div class="col-md-7">
+                                    @Html.LabelFor(m => m.Step7FlatForRent.IsSmokingAllowed, new { @class = "control-label" })
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-3">
+                                    @Html.CheckBoxFor(m => m.Step7FlatForRent.HasPositiveRating, new { @class = "in-checkbox", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                                </div>
+                                <div class="col-md-7">
+                                    @Html.LabelFor(m => m.Step7FlatForRent.HasPositiveRating, new { @class = "control-label" })
+                                </div>
+
+                            </div><br />
+                            <div class="row">
+                                <div class="col-md-3">
+                                    @Html.CheckBoxFor(m => m.Step7FlatForRent.HasStatementOfLord, new { @class = "in-checkbox", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                                </div>
+                                <div class="col-md-7">
+                                    @Html.LabelFor(m => m.Step7FlatForRent.HasStatementOfLord, new { @class = "control-label" })
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <i class="fa fa-3x fa-venus-mars text-primary"></i>
+                                </div>
+                                <div class="col-md-8 form-group--inline">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(m => m.Step7FlatForRent.PreferredGender, new { @class = "control-label" })
+                                        <ul class="form__check">
+                                            <li>
+                                                @Html.RadioButtonFor(m => m.Step7FlatForRent.PreferredGender, Gender.Male, new { @class = "in-radio", id = "in-radio-undergroundtype-type-1", required = "" })
+                                                @Html.Label(Gender.Male.GetDisplayName(), new { @for = "in-radio-undergroundtype-type-1", @class = "in-label" })
+                                            </li>
+                                            <li>
+                                                @Html.RadioButtonFor(m => m.Step7FlatForRent.PreferredGender, Gender.Female, new { @class = "in-radio", id = "in-radio-undergroundtype-type-2", required = "" })
+                                                @Html.Label(Gender.Female.GetDisplayName(), new { @for = "in-radio-undergroundtype-type-2", @class = "in-label" })
+                                            </li>
+                                            <li>
+                                                @Html.RadioButtonFor(m => m.Step7FlatForRent.PreferredGender, Gender.None, new { @class = "in-radio", id = "in-radio-undergroundtype-type-3", required = "" })
+                                                @Html.Label(Gender.None.GetDisplayName(), new { @for = "in-radio-undergroundtype-type-3", @class = "in-label" })
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    @Html.LabelFor(m => m.Step7FlatForRent.OtherComments, new { @class = "control-label" })
+                                    @Html.TextBoxFor(m => m.Step7FlatForRent.OtherComments, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <a class="form__submit" href="@Url.Action("Step6", new {id = Model.Id})"><i class="fa fa-angle-left"></i> Back</a>
+                                <button type="submit" class="form__submit">Next <i class="fa fa-angle-right"></i></button>
+                            </div>
+                        }
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

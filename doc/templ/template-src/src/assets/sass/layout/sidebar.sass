@@ -1,0 +1,50 @@
+/*------------------------------------------------------------------
+  * Sidebar wrap
+  + Sidebar / .sidebar
+  ==============================================================*/
++b(sidebar)
+  +make-column($sm: 4, $lg: 3)
+  //margin-bottom: 50px
+  margin-top: 27px
+  > :last-child
+    margin-bottom: 0
+  @media (max-width: $screen-xs-max)
+    padding-left: 15px
+    margin-top: 30px
+    float: none
+    //margin-bottom: 30px
+  //  position: inherit
+  //  > :first-child header
+  //    margin-top: 0
+  //  & + .properties--similar
+  //    margin-top: -30px
+  //> :first-child.worker--sidebar-advanced
+  //  margin-top: 109px
+  //  @media (max-width: $screen-md-max)
+  //    margin-top: 31px
+  //  .worker__header
+      display: none
+
+  .container
+    margin: 0
+    padding: 0
+    width: 100%
+  +e(content)
+    margin-top: -1px
+
+
+  +m(upper)
+    margin-top: 0
+    @media (max-width: $screen-xs-max)
+      margin-top: 30px
+  +m(listing)
+    +e(toggle)
+      @media (max-width: $screen-xs-max)
+        display: none
+
+  +m(dashboard)
+    margin-top: 40px
+    @media (max-width: $screen-xs-max)
+      margin-top: 30px
+      margin-bottom: 0
+

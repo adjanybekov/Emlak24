@@ -1,0 +1,76 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.House.DetailHouseForRent
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Object Information</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-1">Icon Agency</div>
+                    <div class="col-md-11">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12">@Html.LabelFor(c => c.PropertyType, new { @class = "control-label" })</div>
+                                    <div class="col-md-6">
+                                        @Model.PropertyType.GetValueOrDefault().GetDisplayName()
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">@Html.LabelFor(c => c.HouseType, new { @class = "control-label" })</div>
+                                    <div class="col-md-6">
+                                        @Model.HouseType.GetDisplayName()
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12">@Html.LabelFor(c => c.NumberOfLevels, new { @class = "control-label" })</div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(m => m.NumberOfLevels)
+                                    </div>
+                                </div>
+                                @if (Model.ConditionArtType != null)
+                                {
+                                    <div class="row">
+                                        <div class="col-md-12">@Html.LabelFor(c => c.ConditionArtType, new { @class = "control-label" })</div>
+                                        <div class="col-md-6">
+                                            @Model.ConditionArtType.GetValueOrDefault().GetDisplayName()
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12">@Html.LabelFor(c => c.IsShared, new { @class = "control-label" })</div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(m => m.IsShared)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">@Html.LabelFor(c => c.ForHolidayUse, new { @class = "control-label" })</div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(m => m.ForHolidayUse, new { disabled = "disabled" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12"> @Html.LabelFor(c => c.ForIndustrialUse, new { @class = "control-label" })</div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(m => m.ForIndustrialUse, new { disabled = "disabled" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">@Html.LabelFor(c => c.IsFurnished, new { @class = "control-label" })</div>
+                                    <div class="col-md-6">
+                                        @Html.DisplayFor(m => m.IsFurnished, new { disabled = "disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

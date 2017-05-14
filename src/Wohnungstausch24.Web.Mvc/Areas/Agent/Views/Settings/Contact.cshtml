@@ -1,0 +1,147 @@
+﻿@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Agent.Settings.AgentSettingsContactViewModel
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            @{ Html.RenderAction("Progress", "Settings"); }
+            <div class="widget__header">
+                <h2 class="widget__title">@Model.Message</h2>
+            </div>
+            <div class="widget__content">
+                @using (Html.BeginForm("Contact", "Settings", new {area = "Agent"}, FormMethod.Post, new {@class = "form form--flex form--profile js-form"}))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(false, null, new {@class = "text-danger"})
+                    <header class="form__header">
+                        <h3 data-rel="#form-block-2" class="form__title js-form-title">@Resource.User_Panel_Personal_Informations</h3>
+                    </header>
+                    <div id="form-block-2" class="form__block js-form-block">
+                        <div class="row">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.SelectedGender, new {@class = "control-label"})
+                                @Html.DropDownListFor(m => m.SelectedGender, Model.Genders, Resource.PleaseChoose, new {required = ""})
+                                @Html.ValidationMessageFor(m => m.SelectedGender, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.FirstName, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.FirstName, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.FirstName, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.LastName, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.LastName, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.LastName, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.PhoneNumber1, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.PhoneNumber1, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.PhoneNumber1, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.PhoneNumber2, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.PhoneNumber2, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.PhoneNumber2, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.Email, new {@class = "form-control", @readonly = true})
+                                @Html.ValidationMessageFor(m => m.Email, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Skype, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.Skype, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.Skype, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.PhoneDirectAccess, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.PhoneDirectAccess, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.PhoneDirectAccess, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.PhoneFax, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.PhoneFax, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.PhoneFax, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Title, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.Title, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.Title, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.SalutationType, new {@class = "control-label"})
+                                @Html.EnumDropDownListFor(m => m.SalutationType, Resource.PleaseChoose)
+                                @Html.ValidationMessageFor(m => m.SalutationType, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.SalutationMessage, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.SalutationMessage, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.SalutationMessage, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.AddressAddOn, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.AddressAddOn, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.AddressAddOn, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EmailPrivate, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.EmailPrivate, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.EmailPrivate, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EmailOther, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.EmailOther, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.EmailOther, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EmailFeedBack, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.EmailFeedBack, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.EmailFeedBack, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EmailOther, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.EmailOther, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.EmailOther, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.PhonePrivate, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.PhonePrivate, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.PhonePrivate, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.OtherPhone, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.OtherPhone, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.OtherPhone, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Url, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.Url, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.Url, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.FreeTextArray, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.FreeTextArray, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.FreeTextArray, null, new {@class = "text-danger"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.OtherPhone, new {@class = "control-label"})
+                                @Html.TextBoxFor(m => m.OtherPhone, new {@class = "form-control"})
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ApprovalOfAddress, new {@class = "control-label"})
+                                @Html.CheckBoxFor(m => m.ApprovalOfAddress, new {@class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger"})
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="form__submit"><i class="fa fa-save"></i> @Resource.General_Save</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

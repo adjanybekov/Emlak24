@@ -1,0 +1,15 @@
++widget('Feedback', null, 'footer')
+  // BEGIN SECTION FEEDBACK
+  form.form.form--flex.form--footer.js-parsley(action='#')
+    .row
+      .form-group
+        label.sr-only.control-label(for='in-email') E-mail
+        input#in-email.form-control(type='email', name='email', placeholder='E-mail', required, data-parsley-trigger='change')
+
+      .form-group
+        label.sr-only.control-label(for='in-message') Message for Us
+        textarea#in-message.form-control(name='message', placeholder='Message for Us', required, data-parsley-trigger='keyup', data-parsley-minlength='20', data-parsley-validation-threshold='10', data-parsley-minlength-message = 'You need to enter at least a 20 caracters long comment..')
+    .row
+      button.form__submit(type='submit') Send
+  // end of block .form__wrap
+  // END SECTION FEEDBACK

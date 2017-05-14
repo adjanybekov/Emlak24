@@ -1,0 +1,53 @@
+//common styles for listing preoprties and agents
+/*------------------------------------------------------------------
+  * Listing
+  + Listing / .listing
+    __ Listing header / .listing__header
+    __ Listing title / .listing__title
+    __ Listing headline / .listing__headline
+    __ Listing panel / .listing__panel
+  ==============================================================*/
++b(listing)
+  +m(grid)
+    +make-row
+    +e(item)
+      +make-block-item($lg: 4, $sm: 6, $xs: 12)
+      &:nth-child(n+4)
+        margin-top: 50px
+      @media (max-width: $screen-md-max)
+        &:nth-child(n+3)
+          margin-top: 50px
+      @media (max-width: $screen-xs-max)
+        &:nth-child(n+2)
+          margin-top: 30px
+    +e(info)
+      padding: 0
+    +e(categories)
+      font-size: 12px
+
+    +e(category)
+
+    +e(title)
+      color: $defaultColor
+      text-decoration: none
+      font-size: 15px
+
+  +m(lg-4)
+    +e(item)
+      +make-block-item($lg: 3)
+      @media (min-width: $screen-lg-min)
+        &:nth-child(4)
+          margin-top: 0
+  +m(lg-6)
+    +e(item)
+      +make-block-item($lg: 6)
+      @media (min-width: $screen-lg-min)
+        &:nth-child(n+3)
+          margin-top: 50px
+
+  +m(xs-6)
+    +e(item)
+      +make-block-item($xs: 6)
+      @media (max-width: $screen-xs-max)
+        &:nth-child(2)
+          margin-top: 0

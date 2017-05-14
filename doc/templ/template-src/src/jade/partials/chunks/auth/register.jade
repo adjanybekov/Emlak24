@@ -1,0 +1,31 @@
+// BEGIN AUTH REGISTER
+h5.auth__title Sign up a new account
+form.form.form--flex.form--auth.js-register-form.js-parsley(action='#')
+  .row
+    .form-group.form-group--col-6
+      label.control-label(for='register-name-' + formType) First name
+      input.form-control(type='text', name='username', id='register-name-' + formType, required)
+
+    .form-group.form-group--col-6
+      label.control-label(for='register-lastname-' + formType) Last name
+      input.form-control(type='text', name='name', id='register-lastname-' + formType, required)
+  .row
+    .form-group.form-group--col-6
+      label.control-label(for='register-email-' + formType) E-mail
+      input.form-control(type='email', name='email', id='register-email-' + formType, required)
+
+    .form-group.form-group--col-6
+      label.control-label(for='register-password-' + formType) Password
+      input.form-control(type='password', name='password', id='register-password-' + formType, required)
+
+  .row
+    .form__options
+      | Back to
+      if formType == 'inline'
+        a(href='user_login.html') Log In
+      else
+        button(type='button').js-user-login Log In
+
+    button.form__submit(type='submit') Sign up
+// end of block .auth__form
+// END AUTH REGISTER

@@ -1,0 +1,40 @@
+﻿@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step8.Step8ViewModel
+@{
+    ViewBag.Title = "Step8";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">Add new property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    @Html.Partial("LandForSale/_Steps", Model.StepsProgressModel)
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("Step8", "Property", FormMethod.Post, new { @class = "form form--flex form--property-add js-form js-form-property" }))
+                        {
+                            <div class="row">
+                                <div class="form-group form-group--col-12 form-group--inline">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Step8LandForSale.ConstructionYear, new { @class = "control-label" })
+                                        <div class="input-group">                                            
+                                            @Html.TextBoxFor(m => m.Step8LandForSale.ConstructionYear, new {   @class = "form-control", min = "1" })
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.Step8LandForSale.ConstructionYear, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a class="form__submit"><i class="fa fa-angle-left"></i> Back</a>
+                                <button type="submit" class="form__submit">Save & Publish <i class="fa fa-check"></i></button>
+                            </div>
+                        }
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

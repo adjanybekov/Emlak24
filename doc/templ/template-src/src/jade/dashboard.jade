@@ -1,0 +1,58 @@
+extends partials/layout/_base
+
+include partials/mixins/listing_item
+include partials/mixins/tags--favorites
+
+block config
+  - var bodyClass = 'sidebar-left';
+  - var page = 'dashboard';
+  - var user = true;
+
+block center
+  .row
+    header.site__header
+      h1.site__title.site__title--center Dashboard
+    // BEGIN LISTING
+    .site.site--dashboard
+      .site__main
+        block dashboard_main
+
+          include partials/mixins/article--feed
+          +articleFeed('News Feed', 2, null, 'View all feed', 'dashboard_news.html')
+
+          include partials/mixins/worker--profile
+          +workerProfile(2)
+
+          include partials/mixins/activity--feed
+          +activityFeed('Activity log', 5, null, 'All activity log', 'dashboard_activity.html')
+
+          include partials/mixins/info--statisctics
+          +infoStatistics('Statistics', null, 'See all statistics', 'dashboard_statistics.html')
+
+          include partials/mixins/listings--favorites
+          +listingsFavorites('Favorite Listings', 10, null, 'See more', 'dashboard_favorites_listings.html')
+
+          include partials/mixins/agents--favorites
+          +agentsFavorites('Favorite agents', 4, null, 'See more', 'dashboard_favorites_agents.html')
+
+          include partials/mixins/search--favorites
+
+          +searchFavorites('Favorite search', null, null, 'See more', 'dashboard_favorites_search.html')
+
+          include partials/mixins/info--financials
+          +infoFinancials('Financials', null, null, 'View all info', 'dashboard_financials.html')
+
+          include partials/mixins/properties--management
+          +propertiesManagement('Property Management', 5, null, 'See more', 'dashboard_property.html')
+
+          include partials/mixins/article--management
+          +articlesManagement('Blog Management', 3, null, 'See more', 'dashboard_blog.html')
+
+    // END LISTING
+    // BEGIN SIDEBAR
+    .sidebar.sidebar--dashboard
+      +widget(null, null, 'sidebar-dashboard widget--collapsing', 'Dashboard', null, 'toggle')
+        include partials/dashboard/nav--sidebar
+    // END SIDEBAR
+    .clearfix
+

@@ -1,0 +1,64 @@
+/*------------------------------------------------------------------
+  * Simple nav
+  + Nav / .nav
+    -- Nav footer / .nav--footer
+  ==============================================================*/
+
++b(nav)
+  +m(footer)
+    color: #bebebe
+    margin: 19px 0 0
+    line-height: 2
+    a
+      margin: 0 10px 0 0
+      margin-bottom: 0!important
+      text-transform: uppercase
+      text-decoration: none !important
+      display: inline-block
+      @media (max-width: $screen-xs-max)
+        font-size: 14px
+      &:after
+        content: '/'
+        margin-left: 10px
+        color: #bebebe
+      &:last-child:after
+        content: none
+  +m(sidebar)
+    +e(list)
+      +ul
+    +e(item)
+    +e(separator)
+      margin: 8px 20px 0
+    +e(link)
+      color: $grayColor
+      font-size: 17px
+      display: block
+      padding: 5px 0 10px 20px
+      &.active
+        text-decoration: underline
+    +e(icon)
+      width: 30px
+      height: 30px
+      fill: $defaultColor
+      position: relative
+      top: 10px
+      margin-right: 10px
+  +m(auth)
+    width: 250px
+    @media (max-width: $screen-xs-max)
+      width: 100%
+
+    +e(list)
+      +ul
+    +e(item)
+      +border-bottom
+      margin: 0 20px
+    +e(link)
+      text-transform: uppercase
+      font-size: 17px
+      display: block
+      padding: 10px 0
+      color: $defaultColor
+      &.active
+        text-decoration: underline
+

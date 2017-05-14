@@ -1,0 +1,636 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'feature_ui';
+  include partials/mixins/slider_small
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Realty
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Ui
+  // END BREADCRUMBS
+block center
+  .row
+    .site
+      header.site__header
+        h1.site__title Elements page
+        h2.site__headline Typography, list styles, buttons, forms, links and other elements
+      .site__panel
+        span.site__header-text
+          | This is the page what show how to use typography, list styles, buttons, forms, links, checkbox, radio butons, paragraph and caracter styles, columns, hr lines, images and other elements.
+      .site__body
+        .ui--buttons
+          h2.site__title Buttons
+          .ui__row
+            span.ui__title Inactive
+            a.button__action.ui__button.ui__button--1(href='#') Detail
+            a.button__more.ui__button.ui__button--2(href='#')
+              | More properties
+            button.button__action.ui__button.ui__button--3 Submit
+            button.button__default.button__default--reset.ui__button.ui__button--4 Clear all
+            a.button__default.button__default--normal.ui__button.ui__button--5(href='#') Read more
+            a.button__default.button__default--medium.ui__button.ui__button--6(href='#') View details
+            a.button__default.button__default--small.ui__button.ui__button--7(href='#') Reply
+
+          .ui__row
+            span.ui__title Hover
+            a.button__action.hover.ui__button.ui__button--1(href='#') Details
+            a.button__more.hover.ui__button.ui__button--2(href='#')
+              | More properties
+            button.button__action.hover.ui__button.ui__button--3 Submit
+            button.button__default.button__default--reset.hover.ui__button.ui__button--4 Clear all
+            a.button__default.hover.button__default--normal.ui__button.ui__button--5(href='#') Read more
+            a.button__default.hover.button__default--medium.ui__button.ui__button--6(href='#') View details
+            a.button__default.hover.button__default--small.ui__button.ui__button--7(href='#') Reply
+          .ui__row
+            span.ui__title Click
+            a.button__action.active.ui__button.ui__button--1(href='#') Details
+            a.button__more.active.ui__button.ui__button--2(href='#')
+              | More properties
+            button.button__action.active.ui__button.ui__button--3 Submit
+            button.button__default.button__default--reset.active.ui__button.ui__button--4 Clear all
+            a.button__default.active.button__default--normal.ui__button.ui__button--5(href='#') Read more
+            a.button__default.active.button__default--medium.ui__button.ui__button--6(href='#') View details
+            a.button__default.active.button__default--small.ui__button.ui__button--7(href='#') Reply
+
+          .ui__row
+            span.ui__title Disabled
+            span.button__action.disabled.ui__button.ui__button--1 Details
+            span.button__more.disabled.ui__button.ui__button--2
+              | More properties
+            button.button__action.disabled.ui__button.ui__button--3(disabled='disabled') Submit
+            button.button__default.button__default--reset.disabled.ui__button.ui__button--4 Clear all
+            span.button__default.disabled.button__default--normal.ui__button.ui__button--5 Read more
+            span.button__default.disabled.button__default--medium.ui__button.ui__button--6 View details
+            span.button__default.disabled.button__default--small.ui__button.ui__button--7 Reply
+        .ui--buttons
+          h2.site__title Buttons loading
+          .ui__row
+            span.ui__title Gear
+            a.button__action.loading(href='#') Details
+            a.button__more.ui__button--wide.loading(href='#')
+              | More properties
+            button.button__action.loading Submit
+            button.button__default.button__default--reset.button--loading Clear all
+            a.button__default.button__default--normal.button--loading(href='#') Read
+            a.button__default.button__default--medium.button--loading(href='#') View
+            a.button__default.button__default--small.button--loading(href='#') Reply
+
+          .ui__row.button--loading-circle-o-notch
+            span.ui__title Circle-o-notch
+            a.button__action.button--loading(href='#') Details
+            a.button__more.ui__button--wide.button--loading(href='#')
+              | More properties
+            button.button__action.button--loading Submit
+            button.button__default.button__default--reset.button--loading Clear all
+            a.button__default.button__default--normal.button--loading(href='#') Read
+            a.button__default.button__default--medium.button--loading(href='#') View
+            a.button__default.button__default--small.button--loading(href='#') Reply
+          .ui__row.button--loading-refresh
+            span.ui__title Refresh
+            a.button__action.button--loading(href='#') Details
+            a.button__more.ui__button--wide.button--loading(href='#')
+              | More properties
+            button.button__action.button--loading Submit
+            button.button__default.button__default--reset.button--loading Clear all
+            a.button__default.button__default--normal.button--loading(href='#') Read
+            a.button__default.button__default--medium.button--loading(href='#') View
+            a.button__default.button__default--small.button--loading(href='#') Reply
+
+          .ui__row.button--loading-spinner
+            span.ui__title Spinner
+            a.button__action.button--loading(href='#') Details
+            a.button__more.ui__button--wide.button--loading(href='#')
+              | More properties
+            button.button__action.button--loading Submit
+            button.button__default.button__default--reset.button--loading Clear all
+            a.button__default.button__default--normal.button--loading(href='#') Read
+            a.button__default.button__default--medium.button--loading(href='#') View
+            a.button__default.button__default--small.button--loading(href='#') Reply
+
+        .ui--buttons
+          h2.site__title Full buttons interaction (Click)
+          .ui__row
+            span.ui__title Default
+            a.button__action.js-btn.js-btn-demo(href='#') Details
+            a.button__more.ui__button--2.js-btn-demo(href='#')
+              | More properties
+            button.button__action.js-btn.js-btn-demo Submit
+            button.button__default.button__default--reset.js-btn.js-btn-demo Clear all
+            a.button__default.button__default--normal.js-btn.js-btn-demo(href='#') Read more
+            a.button__default.button__default--medium.js-btn.js-btn-demo(href='#') View details
+            a.button__default.button__default--small.js-btn.js-btn-demo(href='#') Reply
+
+          .ui__row.button--loading-circle-o-notch
+            span.ui__title Succes
+            a.button__action.js-btn.js-btn-demo(href='#', data-state='success') Details
+            a.button__more.ui__button--2.js-btn.js-btn-demo(href='#', data-state='success')
+              | More properties
+            button.button__action.js-btn.js-btn-demo(data-state='success') Submit
+            button.button__default.button__default--reset.js-btn.js-btn-demo(data-state='success') Clear all
+            a.button__default.button__default--normal.js-btn.js-btn-demo(href='#', data-state='success') Read more
+            a.button__default.button__default--medium.js-btn.js-btn-demo(href='#', data-state='success') View details
+            a.button__default.button__default--small.js-btn.js-btn-demo(href='#', data-state='success') Reply
+          .ui__row.button--loading-refresh
+            span.ui__title Error
+            a.button__action.js-btn.js-btn-demo(href='#', data-state='error') Details
+            a.button__more.ui__button--2.js-btn.js-btn-demo(href='#', data-state='error')
+              | More properties
+            button.button__action.js-btn.js-btn-demo(data-state='error') Submit
+            button.button__default.button__default--reset.js-btn.js-btn-demo(data-state='error') Clear all
+            a.button__default.button__default--normal.js-btn.js-btn-demo(href='#', data-state='error') Read more
+            a.button__default.button__default--medium.js-btn.js-btn-demo(href='#', data-state='error') View details
+            a.button__default.button__default--small.js-btn.js-btn-demo(href='#', data-state='error') Reply
+
+        .ui--social
+          h2.site__title Social Icons
+          .ui__row
+            .ui__column
+              .social-panel.social-panel--brand
+                a.social-panel__link(href='#')
+                  i.fa.fa-facebook
+                a.social-panel__link(href='#')
+                  i.fa.fa-linkedin-square
+                a.social-panel__link(href='#')
+                  i.fa.fa-twitter
+                a.social-panel__link(href='#')
+                  i.fa.fa-google-plus
+                a.social-panel__link(href='#')
+                  i.fa.fa-youtube
+                a.social-panel__link(href='#')
+                  i.fa.fa-pinterest
+                a.social-panel__link(href='#')
+                  i.fa.fa-vimeo-square
+                a.social-panel__link(href='#')
+                  i.fa.fa-flickr
+                a.social-panel__link(href='#')
+                  i.fa.fa-rss
+            .ui__column
+              .social-panel.social-panel--black-white
+                a.social-panel__link(href='#')
+                  i.fa.fa-facebook
+                a.social-panel__link(href='#')
+                  i.fa.fa-linkedin-square
+                a.social-panel__link(href='#')
+                  i.fa.fa-twitter
+                a.social-panel__link(href='#')
+                  i.fa.fa-google-plus
+                a.social-panel__link(href='#')
+                  i.fa.fa-youtube
+                a.social-panel__link(href='#')
+                  i.fa.fa-pinterest
+                a.social-panel__link(href='#')
+                  i.fa.fa-vimeo-square
+                a.social-panel__link(href='#')
+                  i.fa.fa-flickr
+                a.social-panel__link(href='#')
+                  i.fa.fa-rss
+          .ui__row
+            .ui__column
+              .social-panel.social-panel--highlight
+                a.social-panel__link(href='#')
+                  i.fa.fa-facebook
+                a.social-panel__link(href='#')
+                  i.fa.fa-linkedin-square
+                a.social-panel__link(href='#')
+                  i.fa.fa-twitter
+                a.social-panel__link(href='#')
+                  i.fa.fa-google-plus
+                a.social-panel__link(href='#')
+                  i.fa.fa-youtube
+                a.social-panel__link(href='#')
+                  i.fa.fa-pinterest
+                a.social-panel__link(href='#')
+                  i.fa.fa-vimeo-square
+                a.social-panel__link(href='#')
+                  i.fa.fa-flickr
+                a.social-panel__link(href='#')
+                  i.fa.fa-rss
+
+            .ui__column
+              .social-panel.social-panel--simple
+                a.social-panel__link(href='#')
+                  i.fa.fa-facebook
+                a.social-panel__link(href='#')
+                  i.fa.fa-linkedin-square
+                a.social-panel__link(href='#')
+                  i.fa.fa-twitter
+                a.social-panel__link(href='#')
+                  i.fa.fa-google-plus
+                a.social-panel__link(href='#')
+                  i.fa.fa-youtube
+                a.social-panel__link(href='#')
+                  i.fa.fa-pinterest
+                a.social-panel__link(href='#')
+                  i.fa.fa-vimeo-square
+                a.social-panel__link(href='#')
+                  i.fa.fa-flickr
+                a.social-panel__link(href='#')
+                  i.fa.fa-rss
+
+        .ui--links
+          h2.site__title Links
+          .ui__row
+            .ui__column.ui__column--1
+              span.ui__title Inactive
+            .ui__column.ui__column--2
+              a(href='#')
+                | Christopher
+                br
+                |  Pakulla
+            .ui__column.ui__column--3
+              a(href='#') 850 Pennsylvania, Philadelphia, Cherry Hill, DC20500
+            .ui__column.ui__column--4
+              .social-panel.social-panel--simple
+                a.social-panel__link(href='#')
+                  i.fa.fa-facebook
+            .ui__column.ui__column--5
+              .social-panel.social-panel--brand
+                a.social-panel__link(href='#')
+                  i.fa.fa-facebook
+            .ui__column.ui__column--6
+              .social-panel.social-panel--highlight
+                a.social-panel__link(href='#')
+                  i.fa.fa-facebook
+
+          .ui__row
+            .ui__column.ui__column--1
+              span.ui__title Hover
+
+            .ui__column.ui__column--2
+              a.hover(href='#')
+                | Christopher
+                br
+                |  Pakulla
+
+            .ui__column.ui__column--3
+              a.hover(href='#') 850 Pennsylvania, Philadelphia, Cherry Hill, DC20500
+
+            .ui__column.ui__column--4
+              .social-panel.social-panel--simple
+                a.social-panel__link.hover(href='#')
+                  i.fa.fa-facebook
+
+            .ui__column.ui__column--5
+              .social-panel.social-panel--brand
+                a.social-panel__link.hover(href='#')
+                  i.fa.fa-facebook
+
+            .ui__column.ui__column--6
+              .social-panel.social-panel--highlight
+                a.social-panel__link.hover(href='#')
+                  i.fa.fa-facebook
+
+          .ui__row
+            .ui__column.ui__column--1
+              span.ui__title Active
+
+            .ui__column.ui__column--2
+              a.active(href='#')
+                | Christopher
+                br
+                |  Pakulla
+
+            .ui__column.ui__column--3
+              a.active(href='#') 850 Pennsylvania, Philadelphia, Cherry Hill, DC20500
+
+            .ui__column.ui__column--4
+              .social-panel.social-panel--simple
+                a.social-panel__link.active(href='#')
+                  i.fa.fa-facebook
+
+            .ui__column.ui__column--5
+              .social-panel.social-panel--brand
+                a.social-panel__link.active(href='#')
+                  i.fa.fa-facebook
+
+            .ui__column.ui__column--6
+              .social-panel.social-panel--highlight
+                a.social-panel__link.active(href='#')
+                  i.fa.fa-facebook
+
+          .ui__row
+            .ui__column.ui__column--1
+              span.ui__title Disabled
+
+            .ui__column.ui__column--2
+              a.disabled(href='#')
+                | Christopher
+                br
+                |  Pakulla
+
+            .ui__column.ui__column--3
+              a.disabled(href='#') 850 Pennsylvania, Philadelphia, Cherry Hill, DC20500
+
+            .ui__column.ui__column--4
+              .social-panel.social-panel--simple
+                a.social-panel__link.disabled(href='#')
+                  i.fa.fa-facebook
+
+            .ui__column.ui__column--5
+              .social-panel.social-panel--brand
+                a.social-panel__link.disabled(href='#')
+                  i.fa.fa-facebook
+
+            .ui__column.ui__column--6
+              .social-panel.social-panel--highlight
+                a.social-panel__link.disabled(href='#')
+                  i.fa.fa-facebook
+
+        .ui--properties.listing-grid-small
+          h2.site__title Estates
+          .listing.listing--grid
+            - var i = 0;
+            while i++ < 3
+              .listing__item
+                +properties(i, 'grid')
+        .ui--sliders
+          h2.site__title Slider Property Details
+          .ui__row
+            .ui__slider(style='margin: 0 auto;')
+              +slider_small('slider--small', 'counter-slider', ['06.jpg', '04.jpg', '01.jpg', '02.jpg', '05.jpg'])
+
+        .ui__row
+          h2.site__title Menu
+          div.navbar.navbar--ui
+            ul.navbar__nav
+              li.navbar__item.dropdown.active
+                a.dropdown-toggle.navbar__link(data-toggle='dropdown') Simple Dropdown
+                .dropdown-menu.navbar__dropdown.navbar__dropdown--colls-1(role='menu')
+                  button.navbar__back.js-navbar-submenu-back Back
+                  .navbar__submenu
+                    ul.navbar__subnav
+                      li.navbar__subitem.active
+                        a.navbar__sublink Item 1
+                      li.navbar__subitem
+                        a.navbar__sublink Item 2
+              li.navbar__item.dropdown
+                a.dropdown-toggle.navbar__link(data-toggle='dropdown') Expanded Dropdown
+                .dropdown-menu.navbar__dropdown.navbar__dropdown--colls-2.navbar__dropdown--right.navbar__dropdown--left(role='menu')
+                  button.navbar__back.js-navbar-submenu-back Back
+                  .navbar__submenu
+                    h5.navbar__subtitle Group 1
+                    ul.navbar__subnav
+                      li.navbar__subitem
+                        a.navbar__sublink Item 1.1
+                      li.navbar__subitem
+                        a.navbar__sublink Item 1.2
+                  .navbar__submenu
+                    h5.navbar__subtitle Group 2
+                    ul.navbar__subnav
+                      li.navbar__subitem.active
+                        a.navbar__sublink(href='properties_listing_list.html') Item 2.1
+                      li.navbar__subitem
+                        a.navbar__sublink(href='properties_listing_list.html') Item 2.2
+
+              li.navbar__item.dropdown
+                a.dropdown-toggle.navbar__link(data-toggle='dropdown') Subitem Dropdown
+                .dropdown-menu.navbar__dropdown.navbar__dropdown--colls-1(role='menu')
+                  button.navbar__back.js-navbar-submenu-back Back
+                  .navbar__submenu
+                    ul.navbar__subnav
+                      li.navbar__subitem
+                        a.navbar__sublink Item 3
+                      li.navbar__subitem
+                        a.navbar__sublink Item 4
+                      li.navbar__subitem.dropdown
+                        a.dropdown-toggle.navbar__sublink(data-toggle='dropdown') Subitems
+                        .navbar__submenu.navbar__submenu--level
+                          ul.navbar__subnav
+                            li.navbar__subitem
+                              a.navbar__sublink Subitem 1
+                            li.navbar__subitem
+                              a.navbar__sublink Subitem 2
+              li.navbar__item
+                a.navbar__link Simple link
+
+        .ui--review
+          .ui__row
+            - var reviewType = 'ui';
+            include partials/widgets/review
+        .ui--forms
+          h2.site__title Form elments
+
+          div.form-property__checkboxes
+            ul.form-property__params
+              li
+                input#option_1.in-checkbox(type='checkbox')
+                label.in-label(for='option_1') Wireless Internet
+              li
+                input#option_2.in-checkbox(type='checkbox')
+                label.in-label(for='option_2') Kitchen
+              li
+                input#option_3.in-checkbox(type='checkbox')
+                label.in-label(for='option_3') Internet
+              li
+                input#option_4.in-checkbox(type='checkbox')
+                label.in-label(for='option_4') Air Conditioning
+              li
+                input#option_5.in-checkbox(type='checkbox')
+                label.in-label(for='option_5') Heating
+              li
+                input#option_6.in-checkbox(type='checkbox')
+                label.in-label(for='option_6') Smoking Allowed
+
+            ul.form-property__params
+              li
+                input#option_7.in-radio(type='radio', name='test_check')
+                label.in-label(for='option_7') Wheelchair Accessible
+              li
+                input#option_8.in-radio(type='radio', name='test_check')
+                label.in-label(for='option_8') Suitable for Events
+              li
+                input#option_9.in-radio(type='radio', name='test_check')
+                label.in-label(for='option_9') Smoking Allowed
+              li
+                input#option_10.in-radio(type='radio', name='test_check')
+                label.in-label(for='option_10') Wheelchair Accessible
+              li
+                input#option_11.in-radio(type='radio', name='test_check')
+                label.in-label(for='option_11') Elevator in Building
+              li
+                input#option_12.in-radio(type='radio', name='test_check')
+                label.in-label(for='option_12') Indoor Fireplace
+
+          .form-property__ranges
+            input#range_ui
+
+
+          .ui__row
+            include partials/chunks/pagination
+
+        .ui--icons
+          h2.site__title SVG Icons
+          .ui__row
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-transactions')
+              .ui__icons-title #icon-transactions
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-customers')
+              .ui__icons-title #icon-customers
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-agency')
+              .ui__icons-title #icon-agency
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-sales')
+              .ui__icons-title #icon-sales
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-money-save')
+              .ui__icons-title #icon-money-save
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-good-sales')
+              .ui__icons-title #icon-good-sales
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-comfort')
+              .ui__icons-title #icon-comfort
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-lens')
+              .ui__icons-title #icon-lens
+            .ui__icons-item
+              svg.ui__icons-svg.ui__icons-svg--doc
+                use(xlink:href='#icon-doc')
+              .ui__icons-title #icon-doc
+            .ui__icons-item
+              svg.ui__icons-svg.ui__icons-svg--area
+                use(xlink:href='#icon-area')
+              .ui__icons-title #icon-area
+            .ui__icons-item
+              svg.ui__icons-svg.ui__icons-svg--window
+                use(xlink:href='#icon-window')
+              .ui__icons-title #icon-window
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-bathrooms')
+              .ui__icons-title #icon-bathrooms
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-bedrooms')
+              .ui__icons-title #icon-bedrooms
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-garage')
+              .ui__icons-title #icon-garage
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-avatar')
+              .ui__icons-title #icon-avatar
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-user')
+              .ui__icons-title #icon-user
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-info')
+              .ui__icons-title #icon-info
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-geolocation')
+              .ui__icons-title #icon-geolocation
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-marker')
+              .ui__icons-title #icon-marker
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-marker-white')
+              .ui__icons-title #icon-marker-white
+            .ui__icons-item
+              svg.ui__icons-svg.ui__icons-svg--stroke
+                use(xlink:href='#icon-arrow-left')
+              .ui__icons-title #icon-arrow-left
+            .ui__icons-item
+              svg.ui__icons-svg.ui__icons-svg--stroke
+                use(xlink:href='#icon-arrow-right')
+              .ui__icons-title #icon-arrow-right
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-noitems')
+              .ui__icons-title #icon-noitems
+            .ui__icons-item
+              svg.ui__icons-svg
+                use(xlink:href='#icon-valid')
+              .ui__icons-title #icon-valid
+            .ui__icons-item
+              svg.ui__icons-svg.ui__icons-svg--danger
+                use(xlink:href='#icon-error')
+              .ui__icons-title #icon-error
+        .ui.ui--breadcrumbs
+          h2.site__title Breadcrumbs
+
+          .ui__row
+            nav.breadcrumbs
+              ul
+                li.breadcrumbs__item
+                  a.breadcrumbs__link(href='') Home
+                li.breadcrumbs__item
+                  a.breadcrumbs__link(href='') Listing estate
+                li.breadcrumbs__item
+                  a.breadcrumbs__link(href='') 1600 Pennsylvania Ave NW
+          .ui__row
+            nav.breadcrumbs.
+              <ul class="breadcrumbs__list">
+                <li class="home">
+                  <span>
+                    <a title="Go to Realtyspace." href="http://realtyspace.dev" class="home">Realtyspace</a>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a title="Go to Blog." href="http://realtyspace.dev/blog/">Blog</a>
+                  </span>
+                </li>
+                <li class="current_item">
+                  <span>
+                    <span>FAQ</span>
+                  </span>
+                </li>
+              </ul>
+        .ui--validation
+          h2.site__title Validation and errors
+
+          .ui__row
+            .alert.ui-pnotify-container.alert-success.ui-pnotify-shadow
+              h4.ui-pnotify-title
+                svg.notify-icon
+                  use(xlink:href='#icon-valid')
+                | Your message has been sent succesfully.
+
+              .ui-pnotify-text(style='display: none;')
+
+          .ui__row
+            .alert.ui-pnotify-container.alert-danger.ui-pnotify-shadow
+              h4.ui-pnotify-title
+                svg.notify-icon
+                  use(xlink:href='#icon-error')
+                | You data has not been sent incorrectly. Please try again, man.
+
+              .ui-pnotify-text(style='display: none;')
+
+        .ui--forms
+          h1.site__title Forms
+          .ui__row
+            .ui__column
+              .contacts__form
+                - var formType = 'form--contacts';
+                include partials/chunks/form
+            .ui__column
+              header.listing__header
+                .auth.auth--register.auth--inline
+                  - var formType = 'inline';
+                  include partials/chunks/auth/register
+    .clearfix

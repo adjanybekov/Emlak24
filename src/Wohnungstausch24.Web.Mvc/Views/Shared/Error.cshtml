@@ -1,0 +1,25 @@
+﻿@using Wohnungstausch24.Resources
+@model HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<div class="widget js-widget widget--landing widget--sep">
+    <div class="widget__header text-center">
+        <i class="fa fa-4x fa-exclamation-triangle"></i>
+        <h1 class="widget__title">@Resource.Error</h1>
+        @{
+            if (String.IsNullOrEmpty(ViewBag.errorMessage))
+            {
+                <h2 class="text-danger">@Resource.An_error_occurred_while_processing_your_request</h2>
+            }
+            else
+            {
+                <h2 class="widget__headline">@ViewBag.errorMessage</h2>
+            }
+        }
+    </div>
+    <div class="widget__content">
+    </div>
+</div>

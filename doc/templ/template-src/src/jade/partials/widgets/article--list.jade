@@ -1,0 +1,146 @@
+include ../mixins/slider_small
+.listing.listing--list(class= articleType ? 'listing--' + articleType : '')
+  .listing__item
+    article.article--list
+      .article__item-header
+        time.article__time(datetime='2009-08-29')
+          | SEP
+          strong 02
+        .article__item-info
+          h3.article__item-title
+            a(href='blog_details.html') You&rsquo;ve been approved for a rental home. Now what?
+          .article__tags
+            | Category:
+            a(href='#') Villa for sale
+            = ', '
+            a(href='#') Florida
+            = ', '
+            a(href='#') Miami
+        a.article__comment(href='blog_details.html')
+          i.fa.fa-comments
+          | 2 Comments
+      .clearfix
+      .article__preview
+
+        +slider_small('slider--small js-slick-blog', null, ['02.jpg', '03.jpg', '11.jpg'])
+
+      .article__intro
+        p
+          | Congratulations! You&rsquo;ve found the perfect rental property and your application has been approved. Now there&rsquo;s just a few things you&rsquo;ll need. We work hard to achieve quality at affordable prices for our customers through optimizing our entire value chain, by building long-term supplier relationships, investing in highly automated production and producing large volumes.
+      a.article__more(href='blog_details.html') Read more
+
+  .listing__item
+    article.article--list
+      .article__item-header
+        time.article__time(datetime='2009-08-29')
+          | SEP
+          strong 02
+        .article__item-info
+          h3.article__item-title
+            a(href='blog_details.html') You&rsquo;ve been approved for a rental home. Now what?
+          .article__tags
+            | Category:
+            a(href='#') Villa for sale
+            = ', '
+            a(href='#') Florida
+            = ', '
+            a(href='#') Miami
+        a.article__comment(href='blog_details.html')
+          i.fa.fa-comments
+          | 2 Comments
+      .clearfix
+      a.article__preview(href='blog_details.html')
+        img(src='#{path.media}/properties/1740x960/05.jpg', alt='')
+
+      .article__intro
+        p
+          | Congratulations! You&rsquo;ve found the perfect rental property and your application has been approved. Now there&rsquo;s just a few things you&rsquo;ll need. We work hard to achieve quality at affordable prices for our customers through optimizing our entire value chain, by building long-term supplier relationships, investing in highly automated production and producing large volumes.
+
+      a.article__more(href='blog_details.html') Read more
+
+  .listing__item
+    article.article--list
+      .article__item-header
+        time.article__time(datetime='2009-08-29')
+          | SEP
+          strong 02
+        .article__item-info
+          h3.article__item-title
+            a(href='blog_details.html') You&rsquo;ve been approved for a rental home. Now what?
+          .article__tags
+            | Category:
+            a(href='#') Villa for sale
+            = ', '
+            a(href='#') Florida
+            = ', '
+            a(href='#') Miami
+        a.article__comment(href='blog_details.html')
+          i.fa.fa-comments
+          | 2 Comments
+      .clearfix
+      .article__preview
+        div.player
+          video(poster="http://codefactory47.com/public/realtyspace/media/playercover.jpg" controls crossorigin)
+            source(src="http://codefactory47.com/public/realtyspace/media/videotour.mp4" type="video/mp4")
+            source(src="http://codefactory47.com/public/realtyspace/media/videotour.webm" type="video/webm")
+          //button.article__preview-play.js-player-play
+      .article__intro
+        p
+          | Congratulations! You&rsquo;ve found the perfect rental property and your application has been approved. Now there&rsquo;s just a few things you&rsquo;ll need. We work hard to achieve quality at affordable prices for our customers through optimizing our entire value chain, by building long-term supplier relationships, investing in highly automated production and producing large volumes.
+      a.article__more(href='#') Read more
+  .listing__item
+    article.article--list
+      .article__item-header
+        time.article__time(datetime='2009-08-29')
+          | SEP
+          strong 02
+        .article__item-info
+          h3.article__item-title
+            a(href='blog_details.html') You&rsquo;ve been approved for a rental home. Now what?
+          .article__tags
+            | Category:
+            a(href='#') Villa for sale
+            = ', '
+            a(href='#') Florida
+            = ', '
+            a(href='#') Miami
+        a.article__comment(href='blog_details.html')
+          i.fa.fa-comments
+          | 2 Comments
+      .clearfix
+      .article__preview
+        div.
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/A22_jyRIv24?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+      .article__intro
+        p
+          | Congratulations! You&rsquo;ve found the perfect rental property and your application has been approved. Now there&rsquo;s just a few things you&rsquo;ll need. We work hard to achieve quality at affordable prices for our customers through optimizing our entire value chain, by building long-term supplier relationships, investing in highly automated production and producing large volumes.
+      a.article__more(href='#') Read more
+  .listing__item
+    article.article--list
+      .article__item-header
+        time.article__time(datetime='2009-08-29')
+          | SEP
+          strong 02
+        .article__item-info
+          h3.article__item-title
+            a(href='blog_details.html') You&rsquo;ve been approved for a rental home. Now what?
+          .article__tags
+            | Category:
+            a(href='#') Villa for sale
+            = ', '
+            a(href='#') Florida
+            = ', '
+            a(href='#') Miami
+        a.article__comment(href='blog_details.html')
+          i.fa.fa-comments
+          | 2 Comments
+
+      .clearfix
+      .article__preview
+        img.article__preview-img(src='#{path.img}/no-image--blog-870x480.jpg' alt='')
+
+      .article__intro
+        p
+          | Congratulations! You&rsquo;ve found the perfect rental property and your application has been approved. Now there&rsquo;s just a few things you&rsquo;ll need. We work hard to achieve quality at affordable prices for our customers through optimizing our entire value chain, by building long-term supplier relationships, investing in highly automated production and producing large volumes.
+
+      a.article__more(href='blog_details.html') Read more

@@ -1,0 +1,44 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'gallery';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Properties Gallery
+  // END BREADCRUMBS
+block center
+  .row
+    // BEGIN site
+    .site
+      header.site__header
+        h1.site__title Properties Gallery
+        h2.site__headline Found: #[strong  641 apatments]
+      .site__panel
+        include partials/chunks/listing/sort
+        include partials/chunks/listing/show
+        include partials/chunks/listing/type
+
+      .site__main
+        +widget(null, null, 'main')
+        .listing.listing--grid.listing--lg-4
+          - var i = 0;
+          while i++ < 8
+            .listing__item
+              include partials/chunks/gallery_item
+          - var galleryType = 'simple';
+          - var i = 0;
+
+          while i++ < 8
+            .listing__item
+              include partials/chunks/gallery_item
+
+      .site__footer
+        include partials/chunks/pagination
+    // END LISTING

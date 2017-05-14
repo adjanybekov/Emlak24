@@ -1,0 +1,15 @@
+extends index
+block config
+  - var bodyClass = 'scroll-animation compact home';
+  - var page = 'index_hmap_light';
+
+block banner
+  +widget(null, null, 'gray')
+    .map.map--index.map--bottom
+      .map__buttons
+        button.map__change-map.js-map-btn(type='button') Property Map
+      .map__wrap
+        .map__view.js-map-index-canvas(data-infobox-theme='white')
+    - var searchType = 'wide form--map-bottom';
+    - var searchRangeSlider = true;
+    include partials/widgets/form--search

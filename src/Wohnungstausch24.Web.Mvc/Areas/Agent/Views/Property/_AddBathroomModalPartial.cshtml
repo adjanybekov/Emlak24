@@ -1,0 +1,129 @@
+﻿@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Property.AddBathroomViewModel
+@{
+
+    var addBathRoomAjax = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "bathroom-area-data-div",
+        OnBegin = "ShowBathroomLoader",
+        OnComplete = "HideBathroomLoader"
+    };
+}
+<!-- Modal -->
+<div class="modal fade" id="addBathroomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">@Resource.AddBathroomViewModel</h4>
+            </div>
+            @using (Ajax.BeginForm("AddBathroom", "Property", null, addBathRoomAjax, new { @class = "form form--flex" }))
+            {
+                @Html.HiddenFor(m => m.Id)
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.Size, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.Size, new {  @class = "form-control" })
+                                    <div class="input-group-addon hidden-xs"><b> m<sup>2</sup></b></div>
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Size, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.HasUrinal, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.ToggleButtonFor(m => m.HasUrinal)
+                            </div>
+                            @Html.ValidationMessageFor(m => m.HasUrinal, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.HasWindow, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.ToggleButtonFor(m => m.HasWindow)
+                            </div>
+                            @Html.ValidationMessageFor(m => m.HasWindow, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.HasTub, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.ToggleButtonFor(m => m.HasTub)
+                            </div>
+                            @Html.ValidationMessageFor(m => m.HasTub, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.HasBidet, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.ToggleButtonFor(m => m.HasBidet)
+                            </div>
+                            @Html.ValidationMessageFor(m => m.HasBidet, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group--col-12">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.HasShower, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.ToggleButtonFor(m => m.HasShower)
+                            </div>
+                            @Html.ValidationMessageFor(m => m.HasShower, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resource.Cancel</button>
+                    <button type="submit" class="btn btn-primary">@Resource.OK</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        var BathroomLoaded = function() {
+            $('#viewBathroom').collapse();
+            $('#addBathroomModal').modal('toggle');
+        }
+        $('#viewdetails').on('shown.bs.collapse',
+            function() {
+                $("#show-more-button").text("Hide more options »");
+            });
+        $('#viewdetails').on('hidden.bs.collapse',
+            function() {
+                $("#show-more-button").text("Show more options »");
+            });
+
+    </script>
+
+    <script type="text/javascript">
+        SweetAjax("#bathroom-area-data-div", ".wt24-bathroom-confirmation");
+    </script>
+}

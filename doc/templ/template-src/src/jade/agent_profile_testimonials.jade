@@ -1,0 +1,53 @@
+extends partials/layout/_base
+block config
+  - var bodyClass = '';
+  - var page = 'agent_profile_testimonials';
+
+block before_center
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Agent Profile
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Testimonials
+  // END BREADCRUMBS
+block center
+  .row
+    // BEGIN site
+    .site.site--main
+      header.site__header
+        h1.site__title #[span.title-thin Agent] Profile/Testimonials
+        h2.site__headline Christopher’s Profile
+      .site__panel
+        span.site__header-text
+          | An Agent Profile is your free profile page that enables you to build your personal brand and demonstrate your skills to potential Vendors and Landlords to attract your next site.
+      .site__main
+        +widget(null, null, 'main')
+          .listing.listing--list
+            - var reviewType = 'list';
+            each name, j in ['Vanessa Kasinsky', 'Joseph Ryan', 'Caroline Reynolds', 'Ana Oliver']
+              .listing__item
+                .review.review--list
+                  include partials/chunks/review_item
+            each name, j in ['Vanessa Kasinsky', 'Joseph Ryan', 'Caroline Reynolds', 'Ana Oliver']
+              .listing__item
+                .review.review--list
+                  include partials/chunks/review_item
+          .widget__footer
+            a.widget__more(href='') More testimonials
+
+
+    // END site
+    // BEGIN SIDEBAR
+    .sidebar
+      +widget(null, null, 'sidebar widget--first-no-head', 'Show agent', null, 'toggle')
+        +worker(0, 'sidebar-advanced')
+      +widget('Filter', 'Find your apartment or house on the exact key parameters.', 'sidebar', 'Show filter', null, 'toggle')
+        - var searchType = 'sidebar'
+        include partials/widgets/form--search
+    // END SIDEBAR
+    .clearfix

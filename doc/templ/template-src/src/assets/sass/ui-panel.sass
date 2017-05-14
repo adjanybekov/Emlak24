@@ -1,0 +1,71 @@
+@import mixins/bem
+@import mixins/common
+
++b(ui-panel)
+  position: fixed
+  left: -200px
+  top: 10%
+  width: 200px
+  min-height: 400px
+  background: rgba(#000, 0.8)
+  padding: 15px
+  z-index: 1000
+  &.opened
+    left: 0
+  .control-label
+    color: #fff
+    font-size: 15px
+    display: block
+  .checkbox
+    display: inline-block
+    color: #fff
+    margin-right: 10px
+    margin-bottom: 0
+    margin-top: 0
+  .form-control
+    padding: 3px 5px
+    height: 28px
+    width: 170px
+  .form-group
+    margin-bottom: 5px
+    position: relative
+  +e(toggle)
+    background: rgba(#000, 0.8)
+    outline: none
+    border: none
+    padding: 5px 7px
+    line-height: 1
+    position: absolute
+    right: -25px
+    top: 0
+    width: 25px
+    height: 25px
+    color: #fff
+
+    &:after
+      +font-awesome(1em, '\f013')
+  +e(btn)
+    background: rgba(#000, 0.8)
+    outline: none
+    border: none
+    padding: 5px 7px
+    line-height: 1
+    position: absolute
+    right: -25px
+    width: 25px
+    height: 25px
+    color: #fff
+    +m(up)
+      top: 25px
+      &:after
+        +font-awesome(1em, '\f077')
+    +m(down)
+      top: 50px
+      &:after
+        +font-awesome(1em, '\f078')
+    +m(next)
+      top: 75px
+      &:after
+        +font-awesome(1em, '\f054')
+  +e(wrap)
+

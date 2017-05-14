@@ -1,0 +1,75 @@
+include ../../mixins/listing_item_photo
+
+.listing--items.listing--grid.listing--photos
+  .listing__actions
+    .listing__actions-border
+    button.btn--link.js-listing-delete-photo(type='button') Delete selected
+    button.btn--action.js-listing-add-photo(type='button', data-toggle='modal', data-target='#modal-photos-uploader') Add new photo
+  .listing__list.js-photos-list
+    - var i = 4;
+    - var limit = listingsType == 'list' ? 15 : 10;
+    - var captions = ['Kitchen', 'Kitchen another view', 'Yard', 'Garage', '', '']
+    while i++ < limit
+      +listingItemPhoto(path.media + '/properties/554x360/' + locals.data.properties[i].acf_images[0] + '.jpg', captions[i - 5] )
+
+  #modal-photos-uploader.modal.modal--photos-upload.fade(tabindex='-1', role='dialog')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal-body
+          form#photos-uploader.dropzone(action='/file-upload')
+        .modal-footer
+          button.btn--primary(type='button') Save changes
+          button.btn--default(type='button', data-dismiss='modal') Cancel
+
+  #modal-photos-edit.modal.modal--photos-upload.fade(tabindex='-1', role='dialog')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal-body
+          .tab.tab--sidebar
+            // Nav tabs
+            ul.nav.tab__nav(role='tablist')
+              li.active(role='presentation')
+                a(href='#crop', aria-controls='crop', role='tab', data-toggle='tab', id='tab-crop') Crop photo
+              li(role='presentation')
+                a(href='#caption', aria-controls='caption', role='tab', data-toggle='tab', id='tab-caption') Add caption
+              li(role='presentation')
+                a(href='#watermark', aria-controls='watermark', role='tab', data-toggle='tab', id='tab-watermark') Add watermark
+            // Tab panes
+            .tab-content.payment__content
+              #crop.tab-pane.active(role='tabpanel')
+                .photo-crop
+                  img#photo-crop(src=path.media + '/properties/1168x550/09.jpg', alt='')
+
+              #caption.tab-pane(role='tabpanel')
+                form.form.form--flex.form--property.form--photo.js-form-property
+                  img(src=path.media + '/properties/1168x550/09.jpg', alt='')
+                  .row
+                    .form-group.form-group--col-12
+                      label.control-label(for='in-Caption') Caption
+                      input.form-control#in-Caption(type='text', placeholder='')
+
+
+              #watermark.tab-pane(role='tabpanel')
+                form.form.form--flex.form--property.form--photo.js-form-property
+                  img(src=path.media + '/properties/1168x550/09.jpg', alt='')
+                  .listing--items.listing--grid.listing--watermarks
+                    .listing__list.listing--lg-4.listing--xs-6
+                      - i = 0
+                      while i++ < 4
+                        .listing__item.js-listing-item
+                          .listing__thumb
+                            button.listing__select.js-listing-select(type='button')
+                            img(src=path.img + '/watermarks/watermark-' + i + '.png', alt='')
+        .modal-footer
+          button.btn--primary(type='button') Save changes
+          button.btn--default(type='button', data-dismiss='modal') Cancel
+// END Photos
+form.form.form--flex.form--property.form--photo.js-form-property
+  .row
+    button.form__submit Next

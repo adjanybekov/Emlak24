@@ -1,0 +1,25 @@
+// BEGIN AUTH RESTORE
+h5.auth__title Reset password
+form.form.form--flex.form--auth.form--restore.js-restore-form.js-parsley(action='#')
+  .row
+    .form-group
+      label.control-label(for='restore-email-' + formType) Enter your User Name or Email
+      input.form-control(type='email', name='email', id='restore-email-' + formType, required)
+
+  .row
+    button.form__submit(type='submit') Reset password
+  .row
+    .form__options
+      if formType == 'inline'
+        | Back to
+        a(href='user_login.html') Log In
+        | or
+        a(href='user_register.html') Registration
+      else
+        | Back to
+        button(type='button').js-user-login Log In
+        | or
+        button(type='button').js-user-register Registration
+    // end of block .auth__links
+// end of block .auth__form
+// END AUTH RESTORE

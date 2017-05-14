@@ -1,0 +1,49 @@
+mixin article(i, modifier)
+  // BEGIN SECTION ARTICLE
+  .article(class= modifier ? 'article--' + modifier : '')
+    if noItems
+      .no-items
+        .no-items__icon.no-items__icon--svg
+          svg
+            use(xlink:href='#icon-noitems')
+        span.no-items__title No news available
+    else
+      case modifier
+        when 'sidebar'
+          .article__details
+            a.article__item-title(href='blog_details.html') You've been approved for a rental home. Now what?
+            time.article__time(datetime='2009-08-29') Mon - 3 Sep - 3:17 PM
+            .article__intro
+              p Congratulations! You've found the perfect rental property and your application has been approved. Now there's just a few things you'll need ...
+
+            a.article__more(href='blog_details.html') Read more
+            // end of block .article
+          if loadingOverlay
+            .loading
+          // end of block .article__list
+        when 'footer'
+          .article__details
+            a.article__item-title(href='blog_details.html') #{locals.data.articles[i].title}
+            time.article__time(datetime='2009-08-29') Mon - 3 Sep - 3:17 PM
+          // end of block .article
+        when 'grid'
+          a(href='blog_details.html').article__photo
+            if locals.data.articles[i].preview == ''
+              img.article__photo-img(src='#{path.img}/no-image--blog-275x180.jpg' alt='')
+            else
+              img.article__photo-img(src='#{path.media}/news/#{locals.data.articles[i].preview}', alt='News title')
+
+            time.article__time(datetime='2009-08-29')
+              | #{locals.data.articles[i].date.month}
+              strong #{locals.data.articles[i].date.day}
+
+          .article__details
+            a.article__item-title(href='blog_details.html') #{locals.data.articles[i].title}
+            .article__intro
+              p #{locals.data.articles[i].description}
+
+            a.article__more(href='blog_details.html') Read more
+          // end of block .articl
+          if loadingOverlay
+            .loading
+  // END SECTION ARTICLE

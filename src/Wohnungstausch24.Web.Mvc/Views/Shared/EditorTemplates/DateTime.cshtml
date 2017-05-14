@@ -1,0 +1,10 @@
+﻿@using Wohnungstausch24.Core
+@model DateTime?
+@Html.LabelForModel(new { @class = "control-label" })
+<div class='input-group date'>
+    <span class="input-group">
+        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+        @Html.TextBox("", Model.HasValue ? Model.Value.ToString("d") : String.Empty, new {@class = "form-control datetimepicker", data_date_locale = CultureHelper.GetCurrentCulture(), data_date_format= CultureHelper.GetCurrentCultureObject().DateTimeFormat.ShortDatePattern.ToUpper() })
+    </span>
+</div>
+@Html.ValidationMessageFor(m => m, null, new { @class = "text-danger" })

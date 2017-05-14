@@ -1,0 +1,14 @@
+mixin tagFavorites(tags)
+  .listing__actions
+    .listing__actions-border
+    button.btn--link.js-tags-rename(type='button') Rename
+    button.btn--link.js-tags-unselect(type='button') Unselect
+    button.btn--link.js-tags-remove(type='button') Remove selected
+  .tags.tags--favorites.js-tags
+    .tags__list.js-tags-list
+      button.tags__item.js-tags-all(type='button') All categories
+      each tag in tags
+        button.tags__item.js-tags-item(type='button')= tag
+
+      button.tags__item.tags__item--new(type='button')
+        i.tags__new-icon.js-tags-new

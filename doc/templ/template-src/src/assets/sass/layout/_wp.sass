@@ -1,0 +1,262 @@
+/*------------------------------------------------------------------
+  * WP default styles
+  ==============================================================*/
+.site-title,
+.entry-title
+  +title
+  margin: 24px 0 0
+  color: $defaultColor
+  font-size: 34px
+  text-align: left
+  font-weight: normal
+  .footer &
+    +footer-title
+  a
+    color: inherit
+
+//.widget-subtitle
+
+.sidebar
+  .widget-title
+    +title
+    margin: 24px 0 0
+    color: $defaultColor
+    text-align: left
+    font-size: 34px
+    font-weight: 600
+  .widget-subtitle
+    +headline
+    text-transform: none
+    color: $defaultColor
+    text-align: left
+    margin: 4px 0 0
+    line-height: 1.1
+    min-height: 32px
+.footer
+  .widget-title
+    +footer-title
+.secondary-toggle
+  display: none
+
+.screen-reader-text
+  clip: rect(1px, 1px, 1px, 1px)
+  height: 1px
+  overflow: hidden
+  position: absolute !important
+  width: 1px
+
+.widget
+  a
+    &:hover
+      text-decoration: none
+  > ul
+    margin: 0
+    padding: 0
+    list-style: none
+    +widget-body
+    li
+      color: #2c3e50
+      padding: 14px 0
+      border-bottom: 1px solid #dedede
+      &:last-child
+        border-bottom: none
+
+
+.widget_archive
+  select
+    margin-top: 12px
+    width: 100%
+    display: block
+
+.widget_search
+  .search-form
+    +widget-body
+  label
+    width: 100%
+  .search-field
+    +form-control
+    width: 100%
+    font-weight: normal
+    font-style: italic
+  .search-submit
+    color: #d6d6d6
+    font-size: 16px
+    background: none
+    border: none
+    float: right
+    margin: -32px 0 0 0
+    position: relative
+    z-index: 10
+    &:after
+      position: relative
+      top: 1px
+      display: inline-block
+      font-family: 'Glyphicons Halflings'
+      font-style: normal
+      font-weight: normal
+      line-height: 1
+      content: "\e003"
+
+//.widget_text
+
+.textwidget
+  +widget-body
+  .footer &
+    background: none
+    padding: 0
+    border: none
+    color: #bebebe
+    margin: 10px 0
+    font-size: 15px
+    line-height: 1.6
+    a
+      font-size: 12px
+      color: #bebebe
+      border: 2px solid $footerColor
+      padding: 5px 10px
+      margin: 10px 0
+      text-transform: uppercase
+
+.widget_calendar
+  table
+    width: 100%
+    border: 1px solid #d6d6d6
+  caption
+    text-align: left
+    padding: 0 0 20px
+    font-weight: bold
+  th,
+  td
+    text-align: center
+    line-height: 33px
+  tfoot,
+  thead
+    border: 1px solid $input-border
+    border-bottom: none
+  tbody
+    +widget-body
+    a
+      background: $brandColor
+      color: #fff
+      display: block
+      &:hover
+        background: $brandColorHover
+
+.tagcloud
+  a
+    color: $defaultColor
+    margin: 3px 10px 3px 0
+    display: inline-block
+    text-transform: uppercase
+    font-weight: 600
+
+.widget_recent_entries
+  > ul
+    > li
+      border-bottom-style: dashed
+      > a
+        color: $defaultColor
+        font-weight: 600
+        display: block
+        font-size: 18px
+      .post-date
+
+.widget_recent_comments
+  .recentcomments
+    font-style: italic
+    border-bottom-style: dashed
+    color: #d6d6d6
+    font-size: 12px
+    > a
+      font-style: normal
+      display: block
+      margin-top: 10px
+      font-size: 14px
+  .comment-author-link
+    color: $defaultColor
+    font-style: normal
+    font-size: 14px
+    display: block
+    a
+      color: $defaultColor
+      font-style: normal
+      font-size: 14px
+
+.widget_categories
+  > ul
+    > li
+      &:before
+        +font-awesome(10px, '\f0da')
+        color: $defaultColor
+        margin-right: 10px
+      > ul
+        margin-top: 15px
+        list-style: none
+        border-top: 1px solid #dedede
+
+// styel for post
+
+.post
+  border-top: 1px solid #808080
+  margin-bottom: 1px
+  padding: 33px 0
+  &:first-of-type
+    padding-top: 0
+    border: none
+
+.site-main
+  margin-top: 25px
+
+.entry-header
+  .entry-title
+    font-size: 18px
+    font-weight: 700
+
+.entry-content
+  margin-top: 30px
+
+.entry-footer
+  margin-top: 30px
+  +clearfix
+
+.posted-on
+  background: rgba($brandColor, 0.7)
+  text-align: center
+  padding: 10px 5px
+  float: left
+  a
+    color: #fff
+
+.tags-links
+  margin-left: 50px
+
+.comments-link
+  a
+    +button-action
+    width: auto
+    float: right
+    margin-right: 0
+    margin-left: 10px
+    @media (max-width: $screen-xs-max)
+      margin: 5px 0
+
+.edit-link
+  a
+    +button-action
+    width: auto
+    float: right
+    margin-right: 0
+    margin-left: 10px
+
+.post-password-form
+  margin-top: 10px
+  > p
+  label
+    > input
+      +form-control
+      @media (max-width: $screen-xs-max)
+        margin-left: 0
+  input[type="submit"]
+    +button-action
+    @media (max-width: $screen-xs-max)
+      margin-left: 0

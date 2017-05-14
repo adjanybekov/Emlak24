@@ -1,0 +1,150 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base.DetailListing
+
+<div class="container">
+    <div class="widget js-widget widget--landing widget--collapsing">
+        <div class="widget__header">
+            <h2 class="widget__title">@Resource.Property_Detail_SimilarProperties</h2><a class="widget__btn js-widget-btn widget__btn--toggle">Show properties</a>
+        </div>
+        <div class="widget__content">
+            <div class="listing listing--grid listing--lg-4">
+                <div class="listing__item">
+                    <div class="properties properties--grid">
+                        <div class="properties__thumb">
+                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                <img src="/Content/assets/media-demo/properties/554x360/02.jpg" alt="" />
+                                <figure class="item-photo__hover item-photo__hover--params">
+                                    <span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 110 Sq Ft</span><span class="properties__intro">My home is bright and spacious. Very good transport links. Close to the Olympic village, Westfiel...</span><span class="properties__time">Added date: 5 days ago</span><span class="properties__more">View details</span>
+                                </figure>
+                            </a><span class="properties__ribon"> For rent</span>
+                        </div>
+                        <!-- end of block .properties__thumb-->
+                        <div class="properties__details">
+                            <div class="properties__info">
+                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">649 West Adams Boulevard</span><span class="properties__address-city">Los Angeles, CA 90007, USA</span></a>
+                                <div class="properties__offer">
+                                    <div class="properties__offer-column">
+                                        <div class="properties__offer-label">@Resource.PropertiesPartial_Commisssion</div>
+                                        <div class="properties__offer-value">
+                                            <strong> $79</strong>
+                                        </div>
+                                    </div>
+                                    <div class="properties__offer-column">
+                                        <div class="properties__offer-value">
+                                            <strong>$4,555</strong><span class="properties__offer-period">/@Resource.Month</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">@Resource.ViewDetails</a><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 110 Sq Ft</span></div>
+                            </div>
+                        </div>
+                        <!-- end of block .properties__info-->
+                    </div>
+                    <!-- end of block .properties__item-->
+                </div>
+                <div class="listing__item">
+                    <div class="properties properties--grid">
+                        <div class="properties__thumb">
+                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                <img src="/Content/assets/img/no-image--554x360.jpg" alt="" />
+                                <figure class="item-photo__hover item-photo__hover--params">
+                                    <span class="properties__params">Built-Up - 205 Sq Ft</span><span class="properties__params">Land Size - 310 Sq Ft</span><span class="properties__intro">It was all finished, the Owl, as a last resource, she put them into a pig,' Alice quietly said, j...</span><span class="properties__time">Added date: 6 days ago</span><span class="properties__more">View details</span>
+                                </figure>
+                            </a><span class="properties__ribon">For sale</span>
+                        </div>
+                        <!-- end of block .properties__thumb-->
+                        <div class="properties__details">
+                            <div class="properties__info">
+                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">958 Dewey Avenue</span><span class="properties__address-city">Los Angeles, CA 90006, USA</span></a>
+                                <div class="properties__offer">
+                                    <div class="properties__offer-column">
+                                        <div class="properties__offer-label">Commision</div>
+                                        <div class="properties__offer-value">
+                                            <strong> 5%</strong>
+                                        </div>
+                                    </div>
+                                    <div class="properties__offer-column">
+                                        <div class="properties__offer-value">
+                                            <strong>$86,723</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 205 Sq Ft</span><span class="properties__params">Land Size - 310 Sq Ft</span></div>
+                            </div>
+                        </div>
+                        <!-- end of block .properties__info-->
+                    </div>
+                    <!-- end of block .properties__item-->
+                </div>
+                <div class="listing__item">
+                    <div class="properties properties--grid">
+                        <div class="properties__thumb">
+                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                <img src="/Content/assets/media-demo/properties/554x360/04.jpg" alt="" />
+                                <figure class="item-photo__hover item-photo__hover--params">
+                                    <span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 120 Sq Ft</span><span class="properties__intro">Footman's head: it just grazed his nose, you know?' 'It's the oldest rule in the sea. But they HA...</span><span class="properties__time">Added date: 8 days ago</span><span class="properties__more">View details</span>
+                                </figure>
+                            </a><span class="properties__ribon">For sale</span>
+                        </div>
+                        <!-- end of block .properties__thumb-->
+                        <div class="properties__details">
+                            <div class="properties__info">
+                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">1026 Ohio Avenue</span><span class="properties__address-city">Long Beach, CA 90804, USA</span></a>
+                                <div class="properties__offer">
+                                    <div class="properties__offer-column">
+                                        <div class="properties__offer-label">Commision</div>
+                                        <div class="properties__offer-value">
+                                            <strong> $179</strong>
+                                        </div>
+                                    </div>
+                                    <div class="properties__offer-column">
+                                        <div class="properties__offer-value">
+                                            <strong>$511,789</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 120 Sq Ft</span></div>
+                            </div>
+                        </div>
+                        <!-- end of block .properties__info-->
+                    </div>
+                    <!-- end of block .properties__item-->
+                </div>
+                <div class="listing__item">
+                    <div class="properties properties--grid">
+                        <div class="properties__thumb">
+                            <a href="@Url.Action("Index","Property")" class="item-photo">
+                                <img src="/Content/assets/img/no-image--554x360.jpg" alt="" />
+                                <figure class="item-photo__hover item-photo__hover--params">
+                                    <span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 90 Sq Ft</span><span class="properties__intro">I am so VERY wide, but she got to do,' said the Hatter. 'You MUST remember,' remarked the King, '...</span><span class="properties__time">Added date: 10 days ago</span><span class="properties__more">View details</span>
+                                </figure>
+                            </a><span class="properties__ribon">For sale</span>
+                        </div>
+                        <!-- end of block .properties__thumb-->
+                        <div class="properties__details">
+                            <div class="properties__info">
+                                <a href="@Url.Action("Index","Property")" class="properties__address"><span class="properties__address-street">514 East Myrtle Street</span><span class="properties__address-city">Santa Ana, CA 92701, USA</span></a>
+                                <div class="properties__offer">
+                                    <div class="properties__offer-column">
+                                        <div class="properties__offer-label">Commision</div>
+                                        <div class="properties__offer-value">
+                                            <strong> 8%</strong>
+                                        </div>
+                                    </div>
+                                    <div class="properties__offer-column">
+                                        <div class="properties__offer-value">
+                                            <strong>$79,560</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 90 Sq Ft</span></div>
+                            </div>
+                        </div>
+                        <!-- end of block .properties__info-->
+                    </div>
+                    <!-- end of block .properties__item-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

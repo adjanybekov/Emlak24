@@ -1,0 +1,11 @@
+extends properties_listing_grid
+block config
+  - var page = 'feature_grid_small';
+
+block main
+  +widget(null, null, 'main')
+    .listing.listing--grid.listing--lg-4.js-properties-list
+      - var i = 0;
+      while i++ < 23
+        .listing__item
+          +properties(i, 'grid properties--simple')

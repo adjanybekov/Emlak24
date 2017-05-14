@@ -1,0 +1,200 @@
+mixin worker(i, modifier)
+  - sr = 'enter bottom move 80px, scale(0), over ' + i * 0.3 + 's';
+  .worker.js-unhide-block(class= modifier ? 'vcard worker--' + modifier : 'vcard', data-sr=sr, data-animate-end='animate-end')
+    if modifier == 'index'
+      .worker__photo
+        a.item-photo.item-photo--static(href='agent_profile.html')
+          img.photo(src='#{path.media}/workers/worker-#{locals.data.worker[i].pictures}.jpg', alt=locals.data.worker[i].name)
+        .worker__details
+          span.worker__post #{locals.data.worker[i].post}
+          .worker__links
+            a.worker__link
+              svg.worker__link-icon
+                use(xlink:href='#icon-mail')
+            a.worker__link
+              i.fa.fa-linkedin
+            a.worker__link
+              i.fa.fa-facebook
+            a.worker__link
+              i.fa.fa-twitter
+
+      .worker__info
+        h4.worker__name.fn #{locals.data.worker[i].name}
+        a.worker__tel.uri(href='tel:#{locals.data.worker[i].phones.tel.replace(/\s/g, "")}') #{locals.data.worker[i].phones.tel}
+        a.worker__more(href='agent_profile.html') Read more
+      // end of block .worker__info
+
+    else if modifier == 'sidebar'
+      .worker__photo
+        a.item-photo.item-photo--static(href='agent_profile.html')
+          img.photo(src='#{path.media}/workers/worker-#{locals.data.worker[i].pictures}.jpg', alt=locals.data.worker[i].name)
+          figure.item-photo__hover
+            span.item-photo__more View
+
+      h3.worker__name.fn #{locals.data.worker[i].name}
+
+      .worker__post
+        | #{locals.data.worker[i].post}
+
+      a.worker__tel.uri(href='tel:#{locals.data.worker[i].phones.tel.replace(/\s/g, "")}') #{locals.data.worker[i].phones.tel}
+
+    else if modifier == 'grid'
+      .worker__photo
+        a.item-photo.item-photo--static(href='agent_profile.html')
+          img.photo(src='#{path.media}/workers/worker-#{locals.data.worker[i].pictures}.jpg', alt=locals.data.worker[i].name)
+          figure.item-photo__hover
+            span.item-photo__more View
+      .worker__intro
+        h3.worker__name.fn #{locals.data.worker[i].name}
+        .worker__post
+          | #{locals.data.worker[i].post}
+        button.worker__show.js-unhide(type='button') Contact agent
+        .worker__listings
+          i.worker__favorites(class= locals.data.worker[i].favorites ? 'worker__favorites--highlight' : '')
+          |  My Listings -
+          a(href='agent_profile.html') #{locals.data.worker[i].properties} property
+        // end of block .worker__listings
+      .worker__descr
+        p
+          | I&apos;m an entrepreneur who loves to travel and splits time between New York and Los Angeles.
+      // end of block .worker__descr
+      a.worker__more(href='agent_profile.html') more details
+
+    else if modifier == 'list'
+      .worker__photo
+        a.item-photo.item-photo--static(href='agent_profile.html')
+          img.photo(src='#{path.media}/workers/worker-#{locals.data.worker[i].pictures}.jpg', alt=locals.data.worker[i].name)
+          figure.item-photo__hover
+            span.item-photo__more View Details
+      .worker__intro
+        .worker__intro-head
+          h3.worker__name.fn #{locals.data.worker[i].name}
+          .worker__post
+            | #{locals.data.worker[i].post}
+          button.worker__show.js-unhide(type='button') Contact agent
+          .worker__listings
+            i.worker__favorites(class= locals.data.worker[i].favorites ? 'worker__favorites--highlight' : '')
+            |  My Listings -
+            a(href='agent_profile.html') #{locals.data.worker[i].properties} property
+        .worker__intro-row
+          .worker__descr
+            p
+              | I&apos;m an entrepreneur who loves to travel and splits time between New York and Los Angeles. Believer in the golden rule: Do unto others as you would have them do unto you. Favorite destinations include Cabo San Lucas, Costa Rica, Turks &amp; Caicos...sunny beaches are ideal vacation spots
+              | We recognize you have a choice when it comes to working with a real estate professional. We look forward to earning your trust and helping you discover the smarter way to buy or sell a home.
+      a.worker__more(href='agent_profile.html') more details
+
+    else if modifier == 'sidebar-advanced'
+      h3.worker__name.fn #{locals.data.worker[i].name}
+      .worker__post
+        | #{locals.data.worker[i].post}
+
+      .worker__photo
+        a.item-photo.item-photo--static(href='agent_profile.html')
+          img.photo(src='#{path.media}/workers/worker-#{locals.data.worker[i].pictures}.jpg', alt=locals.data.worker[i].name)
+          figure.item-photo__hover
+            span.item-photo__more View Details
+      .worker__intro
+        button.worker__show.js-unhide(type='button') Contact agent
+        .worker__listings
+          i.worker__favorites(class= locals.data.worker[i].favorites ? 'worker__favorites--highlight' : '')
+          |  My Listings -
+          a(href='agent_profile.html') #{locals.data.worker[i].properties} property
+        // end of block .worker__listings
+        .worker__intro-row
+          .worker__intro-col
+            .worker__contacts
+              .tel
+                span.type Tel.
+                a.uri.value(href='tel:#{locals.data.worker[i].phones.tel.replace(/\s/g, "")}') #{locals.data.worker[i].phones.tel}
+              .tel
+                span.type Mob.
+                a.uri.value(href='tel:#{locals.data.worker[i].phones.mob.replace(/\s/g, "")}') #{locals.data.worker[i].phones.mob}
+              .email
+                span.type Email
+                a.uri.value(href='mailto:#{locals.data.worker[i].email}') #{locals.data.worker[i].email}
+              .skype
+                span.type Skype
+                a.uri.value(href='skype:#{locals.data.worker[i].skype}?call') #{locals.data.worker[i].skype}
+            // end of block .worker__contacts
+
+          .worker__intro-col
+            .social.social--worker
+              a.social__item(href='#')
+                i.fa.fa-facebook
+              a.social__item(href='#')
+                i.fa.fa-linkedin
+              a.social__item(href='#')
+                i.fa.fa-twitter
+              a.social__item(href='#')
+                i.fa.fa-google-plus
+
+      .clearfix
+
+    else if modifier == 'card'
+      .worker__photo
+        a.item-photo.item-photo--static(href='agent_profile.html')
+          img.photo(src='#{path.media}/workers/worker-#{locals.data.worker[i].pictures}.jpg', alt=locals.data.worker[i].name)
+          figure.item-photo__hover
+            span.item-photo__more View Details
+      .worker__intro
+        h3.worker__name.fn #{locals.data.worker[i].name}
+        .worker__post
+          | #{locals.data.worker[i].post}
+        a.worker__company
+          img(src='#{path.media}/partners/logo-company-proera.png', alt='Pro')
+        span.worker__company-name Pro Era West Realty
+
+        a.worker__more View more details
+
+    else
+      .worker__photo
+        a.item-photo.item-photo--static(href='agent_profile.html')
+          img.photo(src='#{path.media}/workers/worker-#{locals.data.worker[i].pictures}.jpg', alt=locals.data.worker[i].name)
+          figure.item-photo__hover
+            span.item-photo__more View Details
+      .worker__intro
+        .worker__intro-head
+          .worker__intro-name
+            h3.worker__name.fn #{locals.data.worker[i].name}
+            .worker__post
+              | #{locals.data.worker[i].post}
+          .worker__intro-brand
+            a.worker__company
+              img(src='#{path.media}/partners/logo-company-proera.png', alt='pro')
+            .worker__company-name Pro Era West Realty
+          // end of block .worker__listings
+        button.worker__show.js-unhide(type='button') Contact agent
+        .worker__intro-row
+          .worker__intro-col
+            .worker__contacts
+              .tel
+                span.type Tel.
+                a.uri.value(href='tel:#{locals.data.worker[i].phones.tel.replace(/\s/g, "")}') #{locals.data.worker[i].phones.tel}
+              .tel
+                span.type Mob.
+                a.uri.value(href='tel:#{locals.data.worker[i].phones.mob.replace(/\s/g, "")}') #{locals.data.worker[i].phones.mob}
+              .email
+                span.type Email
+                a.uri.value(href='mailto:#{locals.data.worker[i].email}') #{locals.data.worker[i].email}
+              .skype
+                span.type Skype
+                a.uri.value(href='skype:#{locals.data.worker[i].skype}?call') #{locals.data.worker[i].skype}
+            // end of block .worker__contacts
+
+          .worker__intro-col
+            .social.social--worker
+              a.social__item(href='#')
+                i.fa.fa-facebook
+              a.social__item(href='#')
+                i.fa.fa-linkedin
+              a.social__item(href='#')
+                i.fa.fa-twitter
+              a.social__item(href='#')
+                i.fa.fa-google-plus
+        .worker__intro-row
+          .worker__descr
+            p
+              | I&apos;m an entrepreneur who loves to travel and splits time between New York and Los Angeles. Believer in the golden rule: Do unto others as you would have them do unto you. Favorite destinations include Cabo San Lucas, Costa Rica, Turks &amp; Caicos...sunny beaches are ideal vacation spots
+              | We recognize you have a choice when it comes to working with a real estate professional. We look forward to earning your trust and helping you discover the smarter way to buy or sell a home.
+      .clearfix
+  // end of block .worker

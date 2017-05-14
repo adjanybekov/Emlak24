@@ -1,0 +1,27 @@
+//common styles for listing preoprties and agents
+/*------------------------------------------------------------------
+  * Listing
+  + Listing / .listing
+    __ Listing header / .listing__header
+    __ Listing title / .listing__title
+    __ Listing headline / .listing__headline
+    __ Listing panel / .listing__panel
+  ==============================================================*/
++b(listing)
+  +m(photos)
+    margin-top: 40px
+    position: relative
+    +e(actions)
+    +e(list)
+      margin-top: 20px
+    +e(item)
+      +make-column($lg: 4, $sm: 6, $xs: 12)
+      clear: none!important
+    +e(title)
+      display: block
+      height: 20px
+      overflow: hidden
+
+    .sortable-placeholder
+      +make-column($lg: 4, $sm: 6, $xs: 12)
+

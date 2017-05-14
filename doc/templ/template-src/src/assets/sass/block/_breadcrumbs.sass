@@ -1,0 +1,84 @@
+=breadcrumb-item
+  float: left
+  background: #fff
+  border-right: 1px solid #dedede
+  border-bottom: 1px solid #dedede
+  border-top: 1px solid #dedede
+  padding: 5px 18px
+  margin-top: -1px
+  &:last-child
+    a
+      background: none
+      &:after
+        display: none
+=breadcrumb-link
+  font-size: 12px
+  color: #808080
+  text-transform: uppercase
+  display: block
+  &:after
+    content: "\e080"
+    position: relative
+    top: -1px
+    display: inline-block
+    font-family: 'Glyphicons Halflings'
+    font-size: 6px
+    margin: 0 0 0 10px
+
+/*------------------------------------------------------------------
+  * Breadcrumbs
+  + Breadcrumbs / .breadcrumbs
+    __ Breadcrumbs list / .breadcrumbs__list
+    __ Breadcrumbs item / .breadcrumbs__item
+    __ Breadcrumbs link / .breadcrumbs__link
+  ==============================================================*/
++b(breadcrumbs)
+  background: #f6f6f6
+  border-top: 1px solid #dedede
+  +clearfix
+  .container
+    @media (max-width: $screen-xs-max)
+      padding: 0
+
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+    border-left: 1px solid #dedede
+    +clearfix
+  +e(list)
+    border-left: 1px solid #dedede
+    color: transparent
+
+    +clearfix
+    > li
+      +breadcrumb-item
+      > span
+        font-size: 12px
+        color: #808080
+        margin-top: -1px
+        text-transform: uppercase
+        display: block
+        padding-right: 10px
+        padding-bottom: 1px
+    > span
+      +breadcrumb-item
+      display: block!important
+      > span
+        font-size: 12px
+        color: #808080
+        margin-top: -1px
+        text-transform: uppercase
+        display: block
+        padding-right: 10px
+        padding-bottom: 1px
+
+  +e(item)
+    +breadcrumb-item
+    display: block!important
+
+
+  a
+    +breadcrumb-link
+  +e(link)
+    +breadcrumb-link

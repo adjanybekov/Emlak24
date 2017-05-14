@@ -1,0 +1,10 @@
+extends dashboard
+
+block config
+  - var bodyClass = 'sidebar-left';
+  - var page = 'dashboard_news';
+  - var user = true;
+
+block dashboard_main
+  include partials/mixins/article--feed
+  +articleFeed('News Feed', 8, 'list')

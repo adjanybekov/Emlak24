@@ -1,0 +1,19 @@
+mixin slider_small(className, id, images, captions)
+  .slider.slider--small(class= className, id = id)
+    .slider__block.js-slick-slider
+      each image, i in images
+        .slider__item
+          a.slider__img.js-gallery-item(href='#{path.media}/properties/1168x550/#{locals.data.properties[i].acf_images[0]}.jpg',data-size="1168x550")
+            img(data-lazy='#{path.media}/properties/1740x960/#{image}',src='#{path.img}/lazy-image.jpg' alt='')
+            if typeof captions != 'undefined' && captions[i]
+              span.slider__description #{captions[i]}
+
+    .slider__controls
+      button(type='button').slider__control.slider__control--prev.js-slick-prev
+        svg.slider__control-icon
+          use(xlink:href='#icon-arrow-left')
+      span.slider__current.js-slick-current 1 /
+      span.slider__total.js-slick-total #{images.length}
+      button(type='button').slider__control.slider__control--next.js-slick-next
+        svg.slider__control-icon
+          use(xlink:href='#icon-arrow-right')

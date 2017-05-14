@@ -1,0 +1,255 @@
+//common styles for listing preoprties and agents
+/*------------------------------------------------------------------
+  * Listing
+  + Listing / .listing
+    __ Listing header / .listing__header
+    __ Listing title / .listing__title
+    __ Listing headline / .listing__headline
+    __ Listing panel / .listing__panel
+  ==============================================================*/
++b(listing)
+
+  +e(sort)
+    width: 300px
+    @media (max-width: $screen-md-max)
+      max-width: 210px
+    @media (max-width: $screen-xs-max)
+      float: none
+      max-width: none
+      width: auto
+      .form-group
+        margin-bottom: 15px
+    .form-control
+      float: left
+      width: auto
+    .form-control--select
+      width: 75%
+      display: inline-block
+      @media (max-width: $screen-xs-max)
+        width: 100%
+
+  +e(show)
+    width: 195px
+
+    .form-control--select
+      width: 75px
+      display: inline-block
+      @media (max-width: $screen-xs-max)
+        width: 100%
+
+
+    @media (max-width: $screen-md-max)
+      max-width: 120px
+    @media (max-width: $screen-xs-max)
+      display: none
+  +e(view)
+    margin-left: 20px
+    @media (max-width: $screen-md-max)
+      text-align: left
+      margin-left: 0
+    @media (max-width: $screen-xs-max)
+      float: none
+    @media (max-width: $screen-xs-max)
+      display: none
+
+  +e(add)
+    @media (max-width: $screen-md-max)
+      margin-top: 24px
+    @media (max-width: $screen-xs-max)
+      display: none
+  +e(type)
+    margin-left: 20px
+    @media (max-width: $screen-md-max)
+      margin-left: 20px
+    @media (max-width: $screen-xs-max)
+      display: none
+
+  +e(list)
+    +clearfix
+  +e(item)
+    +clearfix
+  +e(item-header)
+    display: flex
+    justify-content: space-between
+  +e(tools)
+    opacity: 0
+    visibility: hidden
+    transition: 0.3s
+    float: right
+    +when('item:hover')
+      opacity: 1
+      visibility: visible
+    @media (max-width: $screen-xs-max)
+      opacity: 1
+      visibility: visible
+
+  +e(tools-dropdown)
+    display: inline-block
+  +e(tools-toggle)
+    +btn
+    color: $brandColor
+    position: relative
+    top: -5px
+
+  +e(tools-menu)
+    z-index: 20
+    left: auto
+    right: 0
+    background: #fff
+    width: 150px
+    padding: 10px 15px
+    &:before
+      left: auto
+      right: 8px
+    > .listing__tools-link
+      padding: 3px
+  +e(tools-link)
+    +btn
+    font-size: 13px
+    color: $brandColor
+    text-transform: uppercase
+    vertical-align: top
+  +e(footer)
+    +clearfix
+    border-top: 1px solid #dedede
+    margin-bottom: 20px
+    @media (max-width: $screen-xs-max)
+      margin-top: 30px
+      margin-bottom: 0
+      border-bottom: 1px solid #dedede
+
+  +e(pagination)
+    text-align: right
+    margin-top: 50px
+    @media (max-width: $screen-xs-max)
+      text-align: center
+      margin-top: 30px
+
+  //     style for dropdowns
+  +e(dropdown)
+    display: inline-block
+    margin: 0 5px
+
+  +e(dropdown-btn)
+    font-size: 13px
+    text-transform: none
+    background: none
+    position: relative
+    padding: 6px 40px 6px 9px
+    color: #fff
+    display: block
+    border: 1px solid #fff
+    &:hover
+      color: #fff
+    &:after
+      display: block
+      position: absolute
+      bottom: 0
+      right: 10px
+      top: 0
+      padding: 5px 0 0 10px
+      color: #fff
+      border-left: 1px solid #fff
+      +font-awesome(15px, '\f0dc')
+
+  +e(dropdown-menu)
+    background: #fff
+    right: auto
+    left: 0
+    width: 250px
+    padding: 15px 0
+    min-width: initial
+    border: 1px solid $input-border
+    ul
+      list-style: none
+      padding: 0
+      margin: 0
+    +m(show)
+      width: 75px
+
+  +e(dropdown-item)
+    &:last-child a
+      border-bottom: none
+
+  +e(dropdown-link)
+    margin: 0 30px
+    padding: 10px 0
+    color: $defaultColor
+    display: block
+    border-bottom: 1px solid #d6d6d6
+    &.active,
+    &:hover
+      margin: 0
+      padding: 10px 30px
+      background: $brandColor
+      color: #fff
+      text-decoration: none
+    &.active
+      font-weight: bold
+
+  +e(param)
+    margin: 20px 0 0
+    & + .site__main .widget__card
+      margin-top: 20px
+
+
+  +e(param-item)
+    margin: 0 15px 5px 0
+    display: inline-block
+
+  +e(param-delete)
+    background: #e6e6e6
+    border: none
+    border-radius: 10px
+    font-size: 0
+    margin: -2px 5px 0 0
+    padding: 1px 6px
+    display: inline-block
+    color: $defaultColor
+    cursor: pointer
+    &:after
+      +font-awesome(11px, '\f00d')
+
+  +e(empty)
+    +clearfix
+    padding: 25px 29px
+    background: #fff
+    border: 1px solid $input-border
+    margin-top: -1px
+    min-height: 480px
+    @media (max-width: $screen-xs-max)
+      min-height: initial
+    +m(properties)
+      margin: 40px 0 50px
+      @media (max-width: $screen-xs-max)
+        margin: 25px 0 0
+  +e(empty-icon)
+    width: 50px
+    height: 50px
+    fill: #dedede
+    margin: 80px auto 0
+    display: block
+    @media (max-width: $screen-xs-max)
+      margin-top: 3px
+
+  +e(empty-title)
+    font-size: 20px
+    color: #222
+    border-bottom: 1px solid #dedede
+    width: 469px
+    margin: 33px auto 0
+    padding: 0 10px 15px 10px
+    text-align: center
+    @media (max-width: $screen-sm-max)
+      width: 95%
+
+  +e(empty-headline)
+    color: #808080
+    width: 300px
+    display: block
+    margin: 19px auto 0
+    text-align: center
+    @media (max-width: $screen-xs-max)
+      width: auto
+
+

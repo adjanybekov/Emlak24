@@ -1,0 +1,170 @@
+/*------------------------------------------------------------------
+  * Comment
+  + Comment / .comment
+    __ Comment wrap / .comment__wrap
+    __ Comment headline / .comment__headline
+    __ Comment list / .comment__list
+    __ Comment item / .comment__item
+    __ Comment item-body / .comment__item-body
+    __ Comment item-btn / .comment__item-btn
+    __ Comment children / .comment__children
+    __ Comment avatar / .comment__avatar
+    __ Comment info / .comment__info
+    __ Comment author / .comment__author
+    __ Comment date / .comment__date
+    __ Comment content / .comment__content
+    __ Comment reply / .comment__reply
+    __ Comment footer / .comment__footer
+  ==============================================================*/
++b(comment)
+  +e(wrap)
+    background: #fff
+    border: 1px solid #dedede
+  +e(headline)
+    +headline
+    font-size: 20px
+    margin: 20px 0
+    text-align: left
+    @media (max-width: $screen-xs-max)
+      text-align: center
+  +e(list)
+    margin: 34px 60px 0 60px
+    padding: 0
+    list-style: none
+    +clearfix
+    @media (max-width: $screen-md-max)
+      margin: 0 25px
+
+  +e(item)
+    border-bottom: 1px solid #dedede
+    padding: 25px 0
+    &:last-child
+      border-bottom: none !important
+      padding-bottom: 0
+    .comment__form
+      margin: 20px 0 0 80px
+      @media (max-width: $screen-xs-max)
+        margin: 20px 15px 0 0
+
+  +e(item-body)
+    +clearfix
+    position: relative
+
+  +e(item-right)
+    float: right
+    @media (max-width: $screen-xs-max)
+      position: absolute
+      left: 75px
+      top: 48px
+
+
+  +e(item-btn)
+    font-size: 13px
+    color: $brandColor
+    border: none
+    background: none
+    text-transform: uppercase
+
+  +e(warning-title)
+    color: #e95b35
+    font-weight: 600
+
+  +e(warning-text)
+    color: #ccc !important
+    border-left: 1px solid #ccc
+    padding-left: 15px
+
+  +e(children)
+    list-style: none
+    margin-left: 80px
+    border-top: 1px dashed #dedede
+    border-bottom: none
+    padding: 0
+    margin-top: 25px
+    @media (max-width: $screen-xs-max)
+      margin-left: 30px
+    .comment__item
+      border-bottom: 1px dashed #dedede
+      &:last-child
+        padding-bottom: 0
+
+  +e(avatar)
+    width: 65px
+    float: left
+    background: #e4e4e4
+    margin: 0 16px 11px 0
+    svg
+      fill: $defaultColor
+      width: 85%
+      margin: 0 auto 0
+      display: block
+
+  +e(info)
+    margin-left: 80px
+
+  +e(author)
+    color: $defaultColor
+    display: block
+    margin: -5px 0 0 0
+    font-weight: 600
+    @media (max-width: $screen-xs-max)
+      +text-overflow
+  +e(date)
+    font-size: 13px
+    color: #aaa
+    font-style: italic
+    display: block
+    margin: 0 0 5px
+    @media (max-width: $screen-xs-max)
+      +text-overflow
+
+  +e(content)
+    margin: 21px 0 0
+    @media (max-width: $screen-xs-max)
+      margin: 0 15px 0 -80px
+      clear: both
+    p
+      color: $defaultColor
+
+  +e(reply)
+    +button-default
+    margin: 10px 0 0
+    padding: 1px 13px
+    border-width: 1px
+    width: 80px
+    @media (max-width: $screen-xs-max)
+      margin-left: -80px
+
+  +e(footer)
+    +clearfix
+    margin: 25px 60px
+    @media (max-width: $screen-md-max)
+      margin: 25px
+    @media (max-width: $screen-xs-max)
+      margin: 25px 15px
+    .listing__pagination
+      padding: 25px 0
+      border-top: 1px solid #dedede
+      border-bottom: 1px solid #dedede
+
+  +e(item--has-reply)
+
+  +e(form)
+    margin: 0
+    +clearfix
+
+  +e(form-title)
+    font-size: 20px
+    color: $defaultColor
+    font-weight: 600
+    margin: 20px 0 0
+
+  +e(form-headline)
+    font-size: 13px
+    color: $defaultColor
+    font-style: italic
+    display: block
+    margin-bottom: 20px
+
+  +m(page)
+    display: none

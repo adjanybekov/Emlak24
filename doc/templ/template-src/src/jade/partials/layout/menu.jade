@@ -1,0 +1,347 @@
+#navbar-collapse-1.navbar__wrap
+  ul.navbar__nav
+    li.navbar__item.js-dropdown(class= ['index', 'index_projects', 'index_vmap_light', 'index_vmap_dark', 'index_hmap_light', 'feature_map_leaflet', 'index_slider',
+      'feature_sliders', 'feature_vmap_fullscreen', 'index_slider_search', 'index_slider_auth'].indexOf(page) > -1 ? 'active' : '')
+      a.navbar__link
+        | Home
+        svg.navbar__arrow
+          use(xlink:href='#icon-arrow-right')
+      .js-dropdown-menu.navbar__dropdown.navbar__dropdown--colls-1(role='menu')
+        button.navbar__back.js-navbar-submenu-back
+          svg.navbar__arrow
+            use(xlink:href='#icon-arrow-left')
+          | Back
+        .navbar__submenu
+          ul.navbar__subnav
+            li.navbar__subitem(class= page == 'index' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='index.html') Banner & Search
+            li.navbar__subitem(class= page == 'index_slider' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='index_slider.html') Property slider
+            li.navbar__subitem(class= page == 'index_projects' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='index_projects.html') Property projects
+            li.navbar__subitem(class= page == 'index_slider_search' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='index_slider_search.html') Slider & Search
+            li.navbar__subitem(class= page == 'index_slider_auth' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='index_slider_auth.html') Slider & Authorization
+            li.navbar__subitem(class= page == 'index_vmap_light' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='index_vmap_light.html') Google Map & Light search
+            li.navbar__subitem(class= page == 'index_vmap_dark' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='index_vmap_dark.html') Google Map & Dark search
+            li.navbar__subitem(class= page == 'index_hmap_light' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='index_hmap_light.html') Google Map & Horizontal search
+            li.navbar__subitem(class= page == 'feature_map_leaflet' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='feature_map_leaflet.html') Openstreet Map & Filter
+            li.navbar__subitem(class= page == 'feature_vmap_fullscreen' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='feature_vmap_fullscreen.html') Fullscreen Google Map
+    li.navbar__item.js-dropdown(class= ['properties_listing_grid', 'properties_listing_list', 'property_details', 'property_details_agent', 'property_details_projected',
+      'feature_grid_small', 'feature_grid_large', 'properties_listing_table', 'properties_listing_empty'].indexOf(page) > -1 ? 'active' : '')
+      a.navbar__link
+        | Properties
+        svg.navbar__arrow
+          use(xlink:href='#icon-arrow-right')
+      .js-dropdown-menu.navbar__dropdown.navbar__dropdown--colls-2(role='menu')
+        button.navbar__back.js-navbar-submenu-back
+          svg.navbar__arrow
+            use(xlink:href='#icon-arrow-left')
+          | Back
+        .navbar__submenu
+          h5.navbar__subtitle Details
+          ul.navbar__subnav
+            li.navbar__subitem(class= page == 'property_details' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='property_details.html') Property
+            li.navbar__subitem(class= page == 'property_details_projected' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='property_details_projected.html') Property projected
+            li.navbar__subitem(class= page == 'property_details_agent' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='property_details_agent.html') Property & agent
+        .navbar__submenu
+          h5.navbar__subtitle Listing
+          ul.navbar__subnav
+            li.navbar__subitem.navbar__subitem-dropdown.js-dropdown(class= ['properties_listing_grid', 'feature_grid_small', 'feature_grid_large'].indexOf(page) > -1 ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink
+                | Grid
+                svg.navbar__arrow
+                  use(xlink:href='#icon-arrow-right')
+              .navbar__submenu.navbar__submenu--level
+                button.navbar__back.js-navbar-submenu-back
+                  svg.navbar__arrow
+                    use(xlink:href='#icon-arrow-left')
+                  | Back
+                ul.navbar__subnav
+                  li.navbar__subitem(class= page == 'feature_grid_large' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='feature_grid_large.html') Large
+                  li.navbar__subitem(class= page == 'properties_listing_grid' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='properties_listing_grid.html') Medium
+                  li.navbar__subitem(class= page == 'feature_grid_small' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='feature_grid_small.html') Small
+            li.navbar__subitem(class= page == 'properties_listing_list' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='properties_listing_list.html') List
+            li.navbar__subitem(class= page == 'properties_listing_table' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='properties_listing_table.html') Table
+            li.navbar__subitem(class= page == 'properties_listing_empty' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='properties_listing_empty.html') Empty
+
+    li.navbar__item.js-dropdown(class= ['agents_listing_grid', 'agents_listing_list', 'agent_profile', 'agent_profile_blog_details',
+      'agent_profile_blog_grid', 'agent_profile_blog_list', 'agent_profile_listing_grid', 'agent_profile_listing_list', 'agent_profile_listing_table', 'agent_profile_testimonials'].indexOf(page) > -1 ? 'active' : '')
+      a.navbar__link
+        | Agents
+        svg.navbar__arrow
+          use(xlink:href='#icon-arrow-right')
+      .js-dropdown-menu.navbar__dropdown(role='menu')
+        button.navbar__back.js-navbar-submenu-back
+          svg.navbar__arrow
+            use(xlink:href='#icon-arrow-left')
+          | Back
+        .navbar__submenu
+          ul.navbar__subnav
+            li.navbar__subitem(class= page == 'agent_profile' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sub-sublink(href='agent_profile.html') Agent's profile
+            li.navbar__subitem.navbar__subitem-dropdown.js-dropdown
+              a.navbar__sublink.js-navbar-sublink(href='agents_listing_list.html')
+                | Agent's listing
+                svg.navbar__arrow
+                  use(xlink:href='#icon-arrow-right')
+              .navbar__submenu.navbar__submenu--level
+                button.navbar__back.js-navbar-submenu-back
+                  svg.navbar__arrow
+                    use(xlink:href='#icon-arrow-left')
+                  | Back
+                ul.navbar__subnav
+                  li.navbar__subitem(class= page == 'agents_listing_list' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='agents_listing_list.html') List
+                  li.navbar__subitem(class= page == 'agents_listing_grid' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='agents_listing_grid.html') Grid
+            li.navbar__subitem.navbar__subitem-dropdown.js-dropdown
+              a.navbar__sublink.js-navbar-sublink(href='agent_profile_blog_list.html')
+                | Agent's blog
+                svg.navbar__arrow
+                  use(xlink:href='#icon-arrow-right')
+              .navbar__submenu.navbar__submenu--level
+                button.navbar__back.js-navbar-submenu-back
+                  svg.navbar__arrow
+                    use(xlink:href='#icon-arrow-left')
+                  | Back
+                ul.navbar__subnav
+                  li.navbar__subitem(class= page == 'agent_profile_blog_list' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='agent_profile_blog_list.html') List
+                  li.navbar__subitem(class= page == 'agent_profile_blog_grid' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='agent_profile_blog_grid.html') Grid
+                  li.navbar__subitem(class= page == 'agent_profile_blog_details' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='agent_profile_blog_details.html') Details
+            li.navbar__subitem.navbar__subitem-dropdown.js-dropdown
+              a.navbar__sublink.js-navbar-sublink(href='agent_profile_listing_list.html')
+                | Agent's properties
+                svg.navbar__arrow
+                  use(xlink:href='#icon-arrow-right')
+              .navbar__submenu.navbar__submenu--level
+                button.navbar__back.js-navbar-submenu-back
+                  svg.navbar__arrow
+                    use(xlink:href='#icon-arrow-left')
+                  | Back
+                ul.navbar__subnav
+                  li.navbar__subitem(class= page == 'agent_profile_listing_list' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='agent_profile_listing_list.html') List
+                  li.navbar__subitem(class= page == 'agent_profile_listing_grid' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='agent_profile_listing_grid.html') Grid
+                  li.navbar__subitem(class= page == 'agent_profile_listing_table' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='agent_profile_listing_table.html') Table
+            li.navbar__subitem(class= page == 'agent_profile_testimonials' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sub-sublink(href='agent_profile_testimonials.html') Agent's testimonials
+
+
+    li.navbar__item.js-dropdown(class= ['my_listings', 'my_listings_add_edit', 'my_profile', 'user_login', 'user_register', 'user_restore_pass'].indexOf(page) > -1 ? 'active' : '')
+      a.navbar__link
+        | User
+        svg.navbar__arrow
+          use(xlink:href='#icon-arrow-right')
+      .js-dropdown-menu.navbar__dropdown.navbar__dropdown--colls-2(role='menu')
+        button.navbar__back.js-navbar-submenu-back
+          svg.navbar__arrow
+            use(xlink:href='#icon-arrow-left')
+          | Back
+        .navbar__submenu
+          h5.navbar__subtitle Pages
+          ul.navbar__subnav
+            li.navbar__subitem(class= page == 'my_listings' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='my_listings.html') My listings
+            li.navbar__subitem(class= page == 'my_listings_add_edit' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='my_listings_add_edit.html') Property submit
+            li.navbar__subitem(class= page == 'my_profile' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='my_profile.html') Profile
+        .navbar__submenu
+          h5.navbar__subtitle Auth
+          ul.navbar__subnav
+            li.navbar__subitem(class= page == 'user_login' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='user_login.html') Login
+            li.navbar__subitem(class= page == 'user_register' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='user_register.html') Register
+            li.navbar__subitem(class= page == 'user_restore_pass' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='user_restore_pass.html') Restore
+
+    li.navbar__item.js-dropdown(class= ['blog', 'blog_details', 'blog_empty'].indexOf(page) > -1 ? 'active' : '')
+      a.navbar__link
+        | Blog
+        svg.navbar__arrow
+          use(xlink:href='#icon-arrow-right')
+      .js-dropdown-menu.navbar__dropdown.navbar__dropdown--colls-1(role='menu')
+        button.navbar__back.js-navbar-submenu-back
+          svg.navbar__arrow
+            use(xlink:href='#icon-arrow-left')
+          | Back
+        .navbar__submenu
+          ul.navbar__subnav
+            li.navbar__subitem(class= page == 'blog' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='blog.html') Blog list
+            li.navbar__subitem(class= page == 'blog_details' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='blog_details.html') Blog details
+            li.navbar__subitem(class= page == 'blog_empty' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='blog_empty.html') Blog empty
+
+    li.navbar__item.js-dropdown(class= ['faq_page', 'reviews', 'pricing_page', 'gallery', 'error_404', 'error_403', 'error_500', 'page'].indexOf(page) > -1 ? 'active' : '')
+      a.navbar__link
+        | Pages
+        svg.navbar__arrow
+          use(xlink:href='#icon-arrow-right')
+      .js-dropdown-menu.navbar__dropdown.navbar__dropdown--colls-1(role='menu')
+        button.navbar__back.js-navbar-submenu-back
+          svg.navbar__arrow
+            use(xlink:href='#icon-arrow-left')
+          | Back
+        .navbar__submenu
+          ul.navbar__subnav
+            li.navbar__subitem(class= page == 'page' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='page.html') Сontent page
+            li.navbar__subitem(class= page == 'faq_page' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='faq.html') Faq
+            li.navbar__subitem(class= page == 'reviews' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='reviews.html') Testimonials
+            li.navbar__subitem(class= page == 'pricing_page' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='pricing.html') Pricing
+            li.navbar__subitem(class= page == 'gallery' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='gallery.html') Gallery
+            li.navbar__subitem
+              a.navbar__sublink.js-navbar-sublink(href='email.html') Email template
+            li.navbar__subitem.navbar__subitem-dropdown.js-dropdown
+              a.navbar__sublink.js-navbar-sublink
+                | Errors
+                svg.navbar__arrow
+                  use(xlink:href='#icon-arrow-right')
+              .navbar__submenu.navbar__submenu--level
+                button.navbar__back.js-navbar-submenu-back
+                  svg.navbar__arrow
+                    use(xlink:href='#icon-arrow-left')
+                  | Back
+                ul.navbar__subnav
+                  li.navbar__subitem(class= page == 'error_403' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='error_403.html') 403 Error
+                  li.navbar__subitem(class= page == 'error_404' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='error_404.html') 404 Error
+                  li.navbar__subitem(class= page == 'error_500' ? 'active' : '')
+                    a.navbar__sublink.js-navbar-sub-sublink(href='error_500.html') 500 Error
+
+    li.navbar__item(class= page == 'contacts' ? 'active' : '')
+      a.navbar__link(href='contacts.html') Contacts
+    - var nav = locals.data.navDashboard;
+    li.navbar__item.js-dropdown
+      a.navbar__link
+        | Dashboard
+        svg.navbar__arrow
+          use(xlink:href='#icon-arrow-right')
+      .js-dropdown-menu.navbar__dropdown.navbar__dropdown--colls-1(role='menu')
+        button.navbar__back.js-navbar-submenu-back
+          svg.navbar__arrow
+            use(xlink:href='#icon-arrow-left')
+          | Back
+        .navbar__submenu
+          ul.navbar__subnav
+            each item in nav
+              unless item.separator
+                li.navbar__subitem(class= page == item.url ? 'active' : '')
+                  a.navbar__sublink(href=item.url + '.html') #{item.title}
+
+    li.navbar__item.js-dropdown(class= ['feature_boxed', 'feature_ui', 'feature_typography', 'bootstrap', 'feature_loaders','feature_left_sidebar'].indexOf(page) > -1 ? 'active' : '')
+      a.navbar__link
+        | UI
+        svg.navbar__arrow
+          use(xlink:href='#icon-arrow-right')
+      .js-dropdown-menu.navbar__dropdown.navbar__dropdown--right.navbar__dropdown--colls-2(role='menu')
+        button.navbar__back.js-navbar-submenu-back
+          svg.navbar__arrow
+            use(xlink:href='#icon-arrow-left')
+          | Back
+        .navbar__submenu
+          h5.navbar__subtitle Variations
+          ul.navbar__subnav
+            li.navbar__subitem(class= page == 'index_not_available' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='index_not_available.html') Feature not available
+            li.navbar__subitem(class= page == 'feature_boxed' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='feature_boxed.html') Layout boxed
+            li.navbar__subitem(class= page == 'feature_left_sidebar' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='feature_left_sidebar.html') Sidebar left
+        .navbar__submenu
+          h5.navbar__subtitle Elements
+          ul.navbar__subnav
+            li.navbar__subitem(class= page == 'feature_ui' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='feature_ui.html') UI
+            li.navbar__subitem(class= page == 'feature_typography' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='feature_typography.html') Typography
+            li.navbar__subitem(class= page == 'feature_loaders' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='feature_loaders.html') Feature loaders
+            li.navbar__subitem(class= page == 'bootstrap' ? 'active' : '')
+              a.navbar__sublink.js-navbar-sublink(href='bootstrap.html') Twitter Bootstrap
+
+    li.navbar__item.navbar__item--mob.js-dropdown
+      a.navbar__link
+        | Language
+        svg.navbar__arrow
+          use(xlink:href='#icon-arrow-right')
+      .js-dropdown-menu.navbar__dropdown.navbar__dropdown--right(role='menu')
+        button.navbar__back.js-navbar-submenu-back
+          svg.navbar__arrow
+            use(xlink:href='#icon-arrow-left')
+          | Back
+        .navbar__submenu
+          ul.navbar__subnav
+            li.navbar__subitem(class='active')
+              a.navbar__sublink.js-navbar-sublink(href='') English
+            li.navbar__subitem
+              a.navbar__sublink.js-navbar-sublink(href='') Francais
+            li.navbar__subitem
+              a.navbar__sublink.js-navbar-sublink(href='') Italian
+            li.navbar__subitem
+              a.navbar__sublink.js-navbar-sublink(href='') Russian
+    li.navbar__item.navbar__item--mob.js-dropdown
+      a.navbar__link
+        | Currency
+        svg.navbar__arrow
+          use(xlink:href='#icon-arrow-right')
+      .js-dropdown-menu.navbar__dropdown.navbar__dropdown--right(role='menu')
+        button.navbar__back.js-navbar-submenu-back
+          svg.navbar__arrow
+            use(xlink:href='#icon-arrow-left')
+          | Back
+        .navbar__submenu
+          ul.navbar__subnav
+            li.navbar__subitem(class='active')
+              a.navbar__sublink.js-navbar-sublink(href='') USD
+            li.navbar__subitem
+              a.navbar__sublink.js-navbar-sublink(href='') EURO
+            li.navbar__subitem
+              a.navbar__sublink.js-navbar-sublink(href='') RUB
+    li.navbar__item.navbar__item--mob.js-dropdown
+      a.navbar__link
+        | Measures
+        svg.navbar__arrow
+          use(xlink:href='#icon-arrow-right')
+      .js-dropdown-menu.navbar__dropdown.navbar__dropdown--right(role='menu')
+        button.navbar__back.js-navbar-submenu-back
+          svg.navbar__arrow
+            use(xlink:href='#icon-arrow-left')
+          | Back
+        .navbar__submenu
+          .switch.switch--menu
+            label M #[sup 2]
+              input(type="checkbox", checked)
+              span.lever
+              | Sq Ft
+
+  // end of block  navbar__nav

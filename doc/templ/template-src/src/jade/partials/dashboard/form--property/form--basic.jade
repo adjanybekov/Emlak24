@@ -1,0 +1,78 @@
+form.form.form--flex.form--property.form--basic.js-form-property-1(action="#")
+  .row
+    .form-group.form-group--description
+      label.control-label(for='in-1') Header description
+      input.form-control#in-1(required, type='text', name='agency_name', data-placeholder='---', value='Text')
+
+    .form-group
+      label.control-label(for='in-2') Supported By
+      include ../../chunks/supporters
+
+    .form-group
+      label.control-label(for='in-15') Listing Type
+      select.form-control#in-15(required, name='contract_type', data-placeholder='---')
+        option(label=' ')
+        option(value='Sale') Sale
+        option(value='Rent') Rent
+        option(value='Rent') Sale & Rent
+
+    .form-group
+      label.control-label(for='in-2') Property type
+      select.form-control#in-2(required, name='property_type', data-placeholder='---')
+        option(label=' ')
+        option(value='Residential') Residential
+        option(value='SOHO') SOHO
+        option(value='Commercial') Commercial
+        option(value='Industrial') Industrial
+        option(value='Land') Land
+
+    .form-group
+      label.control-label(for='in-7') Commercial
+      select.form-control#in-7(required, name='property_type', data-placeholder='---')
+        option(label=' ')
+        option(value='1') Owner Occupied
+        option(value='2') Vacant
+        option(value='3') Sale & Leaseback
+        option(value='1') Sale By Tender
+
+    .form-group
+      label.control-label(for='in-8') Measurement Unit
+      select.form-control#in-8(required, name='property_type', data-placeholder='---')
+        option(label=' ')
+        option(value='1') Sq Ft
+        option(value='2') Sq m
+
+    .form-group
+      label.control-label(for='in-9') Built Up
+      input.form-control#in-9(type='number', placeholder='', required)
+
+    .form-group
+      label.control-label(for='in-10') Land size
+      input.form-control#in-10(type='number', placeholder='', required)
+
+    .form-group
+      label.control-label(for='in-11') Asking Price (RM)
+      input.form-control#in-11(type='number', placeholder='', required)
+    .form-group
+      label.control-label(for='in-12') Asking Rental (RM)
+      input.form-control#in-12(type='number', placeholder='', required)
+    .form-group
+      label.control-label(for='in-13') Market Value (RM)
+      input.form-control#in-13(type='number', placeholder='', required)
+
+
+
+    .form-group
+      label.control-label(for='in-4') State
+      include ../../chunks/countries
+
+    .form-group
+      label.control-label(for='in-5') City
+      include ../../chunks/cities
+
+    .form-group
+      label.control-label(for='in-6') Location/Development Name
+      input.form-control#in-6(type='text', placeholder='Richmond', required)
+
+  .row
+    button.form__submit Next

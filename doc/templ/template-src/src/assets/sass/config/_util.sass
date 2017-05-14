@@ -1,0 +1,267 @@
+.form-target
+  display: none
+
+mark
+  background: none
+  padding: 0
+/*------------------------------------------------------------------
+  * Loading Overlay option
+  + Loading Overlay / .loading-overlay
+  ==============================================================*/
+.loading-overlay
+  position: relative
+  > *:not(.loading)
+    opacity: 0.3
+  .loading
+    +absolute($top: 0, $right: 0, $bottom: 0, $left: 0)
+    display: block
+    z-index: 9
+    &:before
+      +font-awesome(3em, '\f013')
+      animation: fa-spin 2s infinite linear
+      +absolute($top: 50%, $left: 50%)
+      margin: -15px 0 0 -15px
+      z-index: 10
+      display: block
+    .footer &
+      color: #bebebe
+
+/*------------------------------------------------------------------
+  * No items option
+  + No items / .no-items
+  ==============================================================*/
++b(no-items)
+  text-align: center
+  +e(icon)
+    font-size: 40px
+    display: block
+    color: #d1d1d1
+    svg
+      width: 40px
+      height: 31px
+      fill: #d1d1d1
+    +m(svg)
+      font-size: inherit
+  +e(title)
+    display: inline-block
+    background: #d1d1d1
+    color: #fff
+    font-size: 25px
+    margin-top: 10px
+    padding: 0 15px
+    text-transform: uppercase
+    .footer &
+      color: #222 !important
+  +m(align)
+    margin: 0
+
+/*------------------------------------------------------------------
+  * Parsley errors vendor fix style
+  + Parsley / .parsley
+  ==============================================================*/
+.parsley-errors-list
+  margin: 0
+  padding: 0
+  list-style-type: none
+  font-size: 0.9em
+  line-height: 0.9em
+  opacity: 0
+  transition: all .3s ease-in
+  width: 100%
+
+.parsley-errors-list.filled
+  opacity: 1
+  margin-top: 5px
+  @media (max-width: $screen-xs-max)
+    position: relative
+    bottom: 0
+    margin-bottom: 10px
+.parsley-type,
+.parsley-minlength
+  color: $warningColor
+.parsley-required
+  color: $dangerColor
+
+/*------------------------------------------------------------------
+  * Range Slider vendor fix style
+  + Range Slider / .irs
+  ==============================================================*/
+.irs-line
+  background: $brandColor
+  +gradient-horizontal($start-color: $brandColorHover, $end-color: $brandColor, $start-percent: 0%, $end-percent: 100%)
+  .form--banner-sidebar:not(.form--white) &
+    background: rgba(255, 255, 255, 0.3)
+    +gradient-horizontal($start-color: rgba(255, 255, 255, 0.3), $end-color: rgba(255, 255, 255, 1), $start-percent: 0%, $end-percent: 100%)
+
+/*------------------------------------------------------------------
+  * Pnotify vendor fix style
+  + Pnotify / .ui-pnotify-container
+  ==============================================================*/
+.ui-pnotify-container
+  &.alert-success
+    background: $brandColor
+
+/*------------------------------------------------------------------
+  * Select2 vendor fix style
+  + Select2 / .ui-pnotify-container
+  ==============================================================*/
+.select2-container--default
+  .select2-results__option--highlighted[aria-selected]
+    background-color: $brandColor
+
+/*------------------------------------------------------------------
+  * Player vendor fix style
+  + Player / .player
+  ==============================================================*/
+.player
+  // Player controls
+  &-controls
+    // Specificity for overriding .inverted
+    button:focus,
+    button:hover,
+    [type="checkbox"]:focus + label,
+    [type="checkbox"] + label:hover
+      background: $brandColor
+
+  // Player progress
+  // <progress> element
+  &-progress
+    &-played[value]
+      z-index: 2
+      color: $brandColor
+
+  // Volume control
+  // <input[type='range']> element
+  // Specificity is for bootstrap compatibility
+  &-volume[type=range]
+    &:focus
+      outline: 0
+      &::-webkit-slider-thumb
+        background: $brandColor
+      &::-moz-range-thumb
+        background: $brandColor
+      &::-ms-thumb
+        background: $brandColor
+
+/*------------------------------------------------------------------
+  * Calendar fixes
+  ==============================================================*/
+.daterangepicker th.month
+  color: $brandColor
+/*------------------------------------------------------------------
+  * Switch
+  + Switch / .switch
+  ==============================================================*/
++b(switch)
+  -webkit-user-select: none
+  -moz-user-select: none
+  -khtml-user-select: none
+  -ms-user-select: none
+  *
+    -webkit-user-select: none
+    -moz-user-select: none
+    -khtml-user-select: none
+    -ms-user-select: none
+  label
+    cursor: pointer
+    input[type=checkbox]
+      opacity: 0
+      width: 0
+      height: 0
+      display: none
+      &:checked + .lever
+        background-color: #84c7c1
+        &:after
+          background-color: #26a69a
+    .lever
+      content: ""
+      display: inline-block
+      position: relative
+      width: 30px
+      height: 15px
+      background-color: rgba(255,255,255, 0.5)
+      border-radius: 15px
+      transition: background 0.3s ease
+      vertical-align: middle
+      margin: 0 16px
+      +when('header--white', true)
+        background-color: #d7d7d7
+      &:after
+        content: ""
+        position: absolute
+        display: inline-block
+        width: 15px
+        height: 15px
+        background-color: #F1F1F1
+        border-radius: 15px
+        //box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4)
+        left: -5px
+        top: 0
+        transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease
+        +when('header--white', true)
+          background-color: $brandColor
+  input[type=checkbox]
+    &:checked:not(:disabled) ~ .lever:active:after
+      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 10px rgba(38, 166, 154, 0.1)
+    &:not(:disabled) ~ .lever:active:after
+      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 10px rgba(0, 0, 0, 0.08)
+
+  label input[type=checkbox]:checked + .lever:after
+    left: 16px
+  input[type=checkbox][disabled] + .lever
+    cursor: default
+  label input[type=checkbox][disabled]
+    + .lever:after, &:checked + .lever:after
+      background-color: #BDBDBD
+
+  +m(header)
+    font-size: 13px
+    text-transform: uppercase
+    label
+      input[type=checkbox]
+        &:checked + .lever
+          background-color: rgba(255,255,255, 0.5)
+          &:after
+            background-color: #fff
+
+      +when('header--overlay-map', true)
+        input[type=checkbox]
+          &:checked + .lever
+            background-color: #d7d7d7
+            &:after
+              background-color: $brandColor
+
+      +when('header--white', true)
+        input[type=checkbox]
+          &:checked + .lever
+            background-color: #d7d7d7
+            &:after
+              background-color: $brandColor
+
+  +m(menu)
+    font-size: 15px
+    text-transform: uppercase
+    margin: 10px 0 0 50px
+    color: #fff
+    label
+      input[type=checkbox]
+        &:checked + .lever
+          background-color: rgba(255,255,255, 0.5)
+          &:after
+            background-color: #fff
+      .lever
+        width: 50px
+        height: 20px
+        &:after
+          width: 20px
+          height: 20px
+
+    label input[type=checkbox]:checked + .lever:after
+      left: 30px
+
+.title-thin
+  font-family: $font-family-title-thin
+
+// disable lastpass icons
+[id^='__lpform_']
+  display: none

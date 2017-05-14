@@ -1,0 +1,59 @@
+/*------------------------------------------------------------------
+  * Subscribe
+  + Subscribe / .subscribe
+  ==============================================================*/
++b(subscribe)
+  background: #2d2d2d
+  padding: 30px 15px
+
+  +e(title)
+    display: inline-block
+    font-size: 26px
+    vertical-align: top
+    margin: 0
+    color: #fff
+    font-family: $font-family-sans-serif
+    @media (max-width: $screen-md-max)
+      display: block
+      text-align: center
+
+  +e(form)
+    width: 765px
+    margin: 0 auto
+    @media (max-width: $screen-md-max)
+      width: auto
+
+  +e(group)
+    display: inline-block
+    margin: 0 15px
+    position: relative
+    @media (max-width: $screen-md-max)
+      width: 100%
+      margin: 15px 0 0
+
+  .help-block
+    text-align: right
+    margin-top: -15px
+    @media (max-width: $screen-xs-max)
+      margin-top: 0
+  .form-control-feedback
+    top: 15px
+  +e(field)
+    +form-control
+    +placeholder($color: $placeholderColorOnDark)
+    color: #fff
+    display: inline-block
+    width: 370px
+    background: #2d2d2d
+    &:focus
+      outline: none!important
+      box-shadow: none !important
+    @media (max-width: $screen-md-max)
+      float: none
+      width: 100%
+  +e(submit)
+    width: 170px
+    vertical-align: top!important
+    @media (max-width: $screen-md-max)
+      margin: 20px auto 0
+      display: block!important

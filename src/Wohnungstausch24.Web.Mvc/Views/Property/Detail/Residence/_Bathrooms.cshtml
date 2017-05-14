@@ -1,0 +1,56 @@
+﻿@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base.DetailResidence
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">@Resource.Bathrooms</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-1"><i class="fa fa-3x flaticon-bathtub text-primary"></i></div>
+                    <div class="col-md-11">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-responsive table-hover table-striped">
+                                            <tr>
+                                                <th>@Resource.Size</th>
+                                                <th>@Resource.AddBathroomViewModel_HasWindow</th>
+                                                <th>@Resource.AddBathroomViewModel_HasBidet</th>
+                                                <th>@Resource.AddBathroomViewModel_HasShower</th>
+                                                <th>@Resource.AddBathroomViewModel_HasTub</th>
+                                                <th>@Resource.AddBathroomViewModel_HasUrinal</th>
+                                            </tr>
+                                            @for (var i = 0; i < Model.Bathrooms.Count; i++)
+                                            {
+                                                <tr>
+                                                    <td>@Model.Bathrooms[i].Size</td>
+                                                    <td>
+                                                        @Html.DisplayFor(m => m.Bathrooms[i].HasWindow)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(m => m.Bathrooms[i].HasBidet)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(m => m.Bathrooms[i].HasShower)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(m => m.Bathrooms[i].HasTub)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(m => m.Bathrooms[i].HasUrinal)
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

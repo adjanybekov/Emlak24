@@ -1,0 +1,16 @@
+extends index
+block config
+  - var bodyClass = 'compact bg-diagonal-noise home scroll-animation scroll-animation';
+  - var page = 'index_vmap_light';
+
+block banner
+  +widget
+    .map.map--index
+      .map__buttons
+        button.map__change-map.js-map-btn(type='button') Property Map
+      .map__wrap
+        .map__view.js-map-index-canvas(data-infobox-theme='white')
+      - var searchType = 'banner-sidebar form--white';
+      .container
+        .map__search
+          include partials/widgets/form--search

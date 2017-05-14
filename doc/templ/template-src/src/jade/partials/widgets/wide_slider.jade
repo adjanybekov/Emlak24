@@ -1,0 +1,49 @@
+// BEGIN SLIDER
+.slider.slider--wide(id =  typeof idBanner !== 'undefined' ? '#{idBanner}' : 'slider-wide')
+  .slider__block.js-slick-slider
+    - var i = 0 ;
+    while i < 6
+      .slider__item
+        .slider__preview
+          .slider__img.slider__img--lg
+            img(data-lazy='#{path.media}/properties/2336x1100/0#{i + 1}.jpg', src='#{path.img}/lazy-image.jpg' alt='')
+          .slider__img.slider__img--sm
+            img(data-lazy='#{path.media}/properties/830x540/0#{i + 1}.jpg', src='#{path.img}/lazy-image.jpg' alt='')
+        .slider__caption
+          div.slider__price
+            strong $#{locals.data.properties[i].acf_price}
+            if locals.data.properties[i].type_offer == 'rent'
+              | per month
+          // end of block .slider__price
+          a.slider__address(href='property_details.html')
+            | #{locals.data.properties[i].acf_location.address.street}
+            span.slider__address-city #{locals.data.properties[i].acf_location.address.city}
+          // end of block .slider__address
+          .slider__params
+            dl
+              if locals.data.property_types[locals.data.properties[i].property_type]
+                dt Type:
+                dd #{ locals.data.property_types[locals.data.properties[i].property_type]}
+              if locals.data.properties[i].acf_area
+                dt Area:
+                dd #{locals.data.properties[i].acf_area}m2
+              dt Elevator:
+              dd Yes
+            dl
+              if locals.data.properties[i].acf_bedrooms
+                dt Bedrooms:
+                dd #{locals.data.properties[i].acf_bedrooms}
+              if locals.data.properties[i].acf_bathrooms
+                dt Baths:
+                dd #{locals.data.properties[i].acf_bathrooms}
+              dt Kitchen:
+              dd Yes
+          // end of block .slider__params
+          a.slider__more(href='property_details.html') Details
+        // end of block .slider__caption
+      - i++;
+  // end of block .slider__block
+  .slider__controls
+    button.slider__control.slider__control--prev.js-banner-prev
+    button.slider__control.slider__control--next.js-banner-next
+// END SLIDER

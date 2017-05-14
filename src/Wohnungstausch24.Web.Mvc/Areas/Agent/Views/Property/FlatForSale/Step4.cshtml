@@ -1,0 +1,388 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Core.Extensions
+@using Wohnungstausch24.Models.Enums
+@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step4.Step4ViewModel
+
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">@Resource.Add_New_Property</h2>
+            </div>
+            <div class="widget__content">
+                <section class="form-property form-property--dashboard">
+                    @Html.Partial("FlatForSale/_Steps", Model.StepsProgressModel)
+                    <div class="form-property__content">
+                        @using (Html.BeginForm("Step4", "Property", FormMethod.Post, new { @class = "form form--flex form--property-add" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <legend>@Resource.Add_Property_Areas</legend>
+                                        <div class="row">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-7">
+                                                    @Html.LabelFor(m => m.Step4FlatForSale.LivingArea, new {@class = "control-label"})
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="input-group">
+                                                        @Html.TextBoxFor(m => m.Step4FlatForSale.LivingArea, new {@class = "form-control"})
+                                                        <div class="input-group-addon hidden-xs">
+                                                            <b> m<sup>2</sup></b>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4FlatForSale.LivingArea, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-7">
+                                                    @Html.LabelFor(m => m.Step4FlatForSale.UsefulArea, new {@class = "control-label"})
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="input-group">
+                                                        @Html.TextBoxFor(m => m.Step4FlatForSale.UsefulArea, new {@class = "form-control"})
+                                                        <div class="input-group-addon hidden-xs">
+                                                            <b> m<sup>2</sup></b>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4FlatForSale.UsefulArea, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-group--col-12 form-group--inline">
+                                                <div class="col-md-8">
+                                                    @Html.LabelFor(m => m.Step4FlatForSale.UnderGroundType, new {@class = "control-label"})
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <ul class="form__check">
+                                                        <li>
+                                                            @Html.RadioButtonFor(m => m.Step4FlatForSale.UnderGroundType, UnderGroundType.Complete, new {@class = "in-radio", id = "in-radio-undergroundtype-type-1", required = ""})
+                                                            @Html.Label(UnderGroundType.Complete.GetDisplayName(), new {@for = "in-radio-undergroundtype-type-1", @class = "in-label"})
+                                                        </li>
+                                                        <li>
+                                                            @Html.RadioButtonFor(m => m.Step4FlatForSale.UnderGroundType, UnderGroundType.NotUnderground, new {@class = "in-radio", id = "in-radio-undergroundtype-type-2", required = ""})
+                                                            @Html.Label(UnderGroundType.NotUnderground.GetDisplayName(), new {@for = "in-radio-undergroundtype-type-2", @class = "in-label"})
+                                                        </li>
+                                                        <li>
+                                                            @Html.RadioButtonFor(m => m.Step4FlatForSale.UnderGroundType, UnderGroundType.Partial, new {@class = "in-radio", id = "in-radio-undergroundtype-type-3", required = ""})
+                                                            @Html.Label(UnderGroundType.Partial.GetDisplayName(), new {@for = "in-radio-undergroundtype-type-3", @class = "in-label"})
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4FlatForSale.UsefulArea, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                        <div class="row" id="basement-area-div">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-8">
+                                                    @Html.LabelFor(m => m.Step4FlatForSale.BasementArea, new {@class = "control-label"})
+                                                </div>
+                                                <div class="col-md-4">
+                                                    @Html.TextBoxFor(m => m.Step4FlatForSale.BasementArea, new {@class = "form-control"})
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4FlatForSale.BasementArea, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-8">
+                                                    @Html.LabelFor(m => m.Step4FlatForSale.IsGardenUtilizationPossible, new {@class = "control-label"})
+                                                </div>
+                                                <div class="col-md-4">
+                                                    @Html.ToggleButtonFor(m => m.Step4FlatForSale.IsGardenUtilizationPossible, new ToggleOptions { OnShowId = "garden-area-div" })
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4FlatForSale.IsGardenUtilizationPossible, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                        <div class="row" id="garden-area-div">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-7">
+                                                    @Html.LabelFor(m => m.Step4FlatForSale.GardenArea, new {@class = "control-label"})
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="input-group">
+                                                        @Html.TextBoxFor(m => m.Step4FlatForSale.GardenArea, new {@class = "form-control"})
+                                                        <div class="input-group-addon hidden-xs">
+                                                            <b> m<sup>2</sup></b>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4FlatForSale.GardenArea, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                        <div class="collapse-group">
+                                            <div class="collapse" id="viewDetailsAreas">
+                                                <div class="row">
+                                                    <div class="form-group form-group--col-12">
+                                                        <div class="col-md-7">
+                                                            @Html.LabelFor(m => m.Step4FlatForSale.OtherArea, new {@class = "control-label"})
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <div class="input-group">
+                                                                @Html.TextBoxFor(m => m.Step4FlatForSale.OtherArea, new {@class = "form-control"})
+                                                                <div class="input-group-addon hidden-xs">
+                                                                    <b> m<sup>2</sup></b>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @Html.ValidationMessageFor(m => m.Step4FlatForSale.OtherArea, null, new {@class = "text-danger"})
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group form-group--col-12">
+                                                        <div class="col-md-7">
+                                                            @Html.LabelFor(m => m.Step4FlatForSale.TotalArea, new {@class = "control-label"})
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <div class="input-group">
+                                                                @Html.TextBoxFor(m => m.Step4FlatForSale.TotalArea, new {@class = "form-control"})
+                                                                <div class="input-group-addon hidden-xs">
+                                                                    <b> m<sup>2</sup></b>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @Html.ValidationMessageFor(m => m.Step4FlatForSale.TotalArea, null, new {@class = "text-danger"})
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group form-group--col-12">
+                                                        <div class="col-md-7">
+                                                            @Html.LabelFor(m => m.Step4FlatForSale.AtticSpace, new {@class = "control-label"})
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <div class="input-group">
+                                                                @Html.TextBoxFor(m => m.Step4FlatForSale.AtticSpace, new {@class = "form-control"})
+                                                                <div class="input-group-addon hidden-xs">
+                                                                    <b> m<sup>2</sup></b>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @Html.ValidationMessageFor(m => m.Step4FlatForSale.AtticSpace, null, new {@class = "text-danger"})
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                <a class="btn btn-default" data-toggle="collapse" data-target="#viewDetailsAreas" id="show-more-button">@Resource.View_More »</a>
+                                            </p>
+                                        </div>
+                                    </fieldset>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <legend>@Resource.Add_Property_Rooms</legend>
+                                        <div class="row">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-8">
+                                                    @Html.LabelFor(m => m.Step4FlatForSale.NumberOfRooms, new {@class = "control-label"})
+                                                </div>
+                                                <div class="col-md-4">
+                                                    @Html.TextBoxFor(m => m.Step4FlatForSale.NumberOfRooms, new {@class = "form-control"})
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4FlatForSale.NumberOfRooms, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-8">
+                                                    @Html.LabelFor(m => m.Step4FlatForSale.NumberOfBedrooms, new {@class = "control-label"})
+                                                </div>
+                                                <div class="col-md-4">
+                                                    @Html.TextBoxFor(m => m.Step4FlatForSale.NumberOfBedrooms, new {@class = "form-control"})
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4FlatForSale.NumberOfBedrooms, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-8">
+                                                    @Html.LabelFor(m => m.Step4FlatForSale.NumberOfLivingBedrooms, new {@class = "control-label"})
+                                                </div>
+                                                <div class="col-md-4">
+                                                    @Html.TextBoxFor(m => m.Step4FlatForSale.NumberOfLivingBedrooms, new {@class = "form-control"})
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4FlatForSale.NumberOfLivingBedrooms, null, new {@class = "text-danger"})
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-8">
+                                                    @Html.LabelFor(m => m.Step4FlatForSale.HasGuestToilet, new { @class = "control-label" })
+                                                </div>
+                                                <div class="col-md-4">
+                                                    @Html.CheckBoxFor(m => m.Step4FlatForSale.HasGuestToilet, new { @class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger" })
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4FlatForSale.HasGuestToilet, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-8">
+                                                    @Html.LabelFor(m => m.Step4FlatForSale.HasSeparateToilet, new { @class = "control-label" })
+                                                </div>
+                                                <div class="col-md-4">
+                                                    @Html.ToggleButtonFor(m => m.Step4FlatForSale.HasSeparateToilet, new ToggleOptions {OnShowId = "separate-toilets" })
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4FlatForSale.HasSeparateToilet, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row" id="separate-toilets">
+                                            <div class="form-group form-group--col-12">
+                                                <div class="col-md-8">
+                                                    @Html.LabelFor(m => m.Step4FlatForSale.NumberOfSeparateToilets, new { @class = "control-label" })
+                                                </div>
+                                                <div class="col-md-4">
+                                                    @Html.TextBoxFor(m => m.Step4FlatForSale.NumberOfSeparateToilets, new { @class = "form-control", min = "1" })
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.Step4FlatForSale.HasSeparateToilet, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group form-group--col-12">
+                                    <div class="col-md-8">
+                                        @Html.LabelFor(m => m.Step4FlatForSale.HasBalcony, new {@class = "control-label"})
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.CheckBoxFor(m => m.Step4FlatForSale.HasBalcony, new {@class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger"})
+                                    </div>
+                                    @Html.ValidationMessageFor(m => m.Step4FlatForSale.HasBalcony, null, new {@class = "text-danger"})
+                                </div>
+                            </div>
+                            <div class="row" id="balconyAreaDiv">
+                                @{ Html.RenderAction("GetBalconies", "Property", new {id = Model.Id});}
+                            </div>
+                            <div class="row">
+                                <div class="form-group form-group--col-12">
+                                    <div class="col-md-8">
+                                        @Html.LabelFor(m => m.Step4FlatForSale.HasParkingSpaces, new {@class = "control-label"})
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.CheckBoxFor(m => m.Step4FlatForSale.HasParkingSpaces, new {@class = "in-checkbox pull-right", data_toggle = "toggle", data_on = Resource.Yes, data_off = Resource.No, data_onstyle = "success", data_offstyle = "danger"})
+                                    </div>
+                                    @Html.ValidationMessageFor(m => m.Step4FlatForSale.HasParkingSpaces, null, new {@class = "text-danger"})
+                                </div>
+                            </div>
+                            <div class="row" id="viewDetailsPark">
+                                <div class="col-md-12">
+                                    @{ Html.RenderAction("GetParkSpaces", "Property", new {id = Model.Id});}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a class="form__submit" href="@Url.Action("Step3", new {id = Model.Id})"><i class="fa fa-angle-left"></i> @Resource.Back</a>
+                                <button type="submit" class="form__submit">@Resource.Next <i class="fa fa-angle-right"></i></button>
+                            </div>
+                                        }
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_AddBalconyModalPartial", Model.Step4FlatForSale.AddBalconyViewModel)
+@Html.Partial("_AddParkingSpaceModalPartial", Model.Step4FlatForSale.AddparkingSpaceViewModel)
+
+@section scripts
+{
+    <script>
+        var idToHide = '#basement-area-div';
+        $("input[name='@Html.NameFor(m => m.Step4FlatForSale.UnderGroundType)']")
+            .each(function () {
+                $(this)
+                    .on('change',
+                    (function () {
+                        if ($(this).prop('checked') && ($(this).val() === "@UnderGroundType.NotUnderground.ToString()")
+                        ) {
+                            $(idToHide).hide('slow');
+                        } else {
+                            $(idToHide).show('slow');
+                        }
+                    }));
+            });
+
+        if (
+            $('input[name="@Html.NameFor(m => m.Step4FlatForSale.UnderGroundType)"][value=@UnderGroundType.NotUnderground.ToString()]')
+                .prop('checked')) {
+            $(idToHide).hide('slow');
+        } else {
+            $(idToHide).show('slow');
+        }
+
+        var hasBalcony = $('#@Html.IdFor(m => m.Step4FlatForSale.HasBalcony)');
+        var balconyAreaDiv = '#balconyAreaDiv';
+        hasBalcony.change(function () {
+            if ($(hasBalcony).prop('checked'))
+                $(balconyAreaDiv).show('slow');
+            else
+                $(balconyAreaDiv).hide('slow');
+        });
+
+        if ($(hasBalcony).prop('checked'))
+            $(balconyAreaDiv).show('slow');
+        else
+            $(balconyAreaDiv).hide('slow');
+
+        var HasParkingSpace = $('#@Html.IdFor(m => m.Step4FlatForSale.HasParkingSpaces)');
+        var DetailsPark = "#viewDetailsPark";
+
+        HasParkingSpace.change(function () {
+            if ($(HasParkingSpace).prop('checked')) {
+                $(DetailsPark).show('slow');
+            } else {
+                $(DetailsPark).hide('slow');
+            }
+        });
+        if ($(HasParkingSpace).prop('checked'))
+            $(DetailsPark).show('slow');
+        else
+            $(DetailsPark).hide('slow');
+
+        $('#viewDetailsAreas')
+            .on('shown.bs.collapse',
+                function () {
+                    $("#show-more-button").text("@Resource.View_Less »");
+                });
+        $('#viewDetailsAreas')
+            .on('hidden.bs.collapse',
+                function () {
+                    $("#show-more-button").text("@Resource.View_More »");
+                });
+
+        var showBalconyLoader = function () {
+            $('#addBalconyModal').modal('toggle');
+            showLoader("#balcony-area-data-div");
+        }
+
+        var hideBalconyLoader = function () {
+            hideLoader("#balcony-area-data-div");
+        }
+
+        var showParkingSpaceLoader = function () {
+            $('#addParkingSpaceModal').modal('toggle');
+            showLoader("#viewDetailsParkPlaceData");
+        }
+
+        var hideParkingSpaceLoader = function () {
+            hideLoader("#viewDetailsParkPlaceData");
+        }
+    </script>
+    <script type="text/javascript">
+        SweetAjax("#balcony-area-data-div", ".wt24-balcony-confirmation");
+        SweetAjax("#viewDetailsParkPlaceData", ".wt24-parkspace-confirmation");
+    </script>
+}

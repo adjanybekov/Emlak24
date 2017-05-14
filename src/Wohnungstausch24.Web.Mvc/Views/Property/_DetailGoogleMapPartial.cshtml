@@ -1,0 +1,29 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Resources
+@model  Wohnungstausch24.Models.ViewModels.Listings.ListingDetail.Base.DetailListing
+@{
+    var imageDto = Model.Files.FirstOrDefault();
+    var imageId = imageDto?.Id ?? 0;
+}
+
+<div class="widget js-widget widget--details">
+    <div class="widget__content">
+        <div class="map map--properties">
+            <div class="map__buttons">
+                <button type="button" class="map__change-map js-map-btn active">@Resource.Property_Detail_PropertyMap</button>
+                <button type="button" class="map__change-panorama js-panorama-btn">@Resource.Property_Detail_StreetView</button>
+            </div>
+            <div class="map__wrap">
+                <div data-type="map" data-lat="@Model.Latitude"
+                     data-lng="@Model.Longitude"
+                     data-address="@Model.FullAddress"
+                     data-image="@imageId"
+                     data-property-type="@Model.PropertyType.GetDisplayName()"
+                     data-area="@Model.TotalArea"
+                     data-price="@Model.Price"
+                     class="map__view js-map-canvas"></div>
+                <div data-type="panorama" class="map__view map__view--panorama js-map-canvas"></div>
+            </div>
+        </div>
+    </div>
+</div>

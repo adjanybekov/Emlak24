@@ -1,0 +1,45 @@
+include ../widgets/feature
+
++widget(
+  'Our Agents',
+  'Our agents are licensed professionals that specialise in searching, evaluating and negotiating the purchase of property on behalf of the buyer. They will sell you real estate. Insights, tips & how-to guides on selling property and preparing your home or investment property for sale and working to maximise your sale price.',
+  'landing widget--gray'
+  )
+  // BEGIN SECTION WORKER INDEX
+  .listing.listing--grid.listing--lg-4(class=loadingOverlay)
+    if noItems
+      .no-items
+        .fa.no-items__icon.fa-picture-o
+        span.no-items__title No agents available
+    else
+      - var i = -1;
+      while i++ < 3
+        .listing__item
+          +worker(i, 'index')
+
+    if loadingOverlay
+      .loading
+  // END SECTION WORKER INDEX
++widget('News & Blog', 'Find your apartment or house on the exact key parameters.', 'landing')
+  - var articleType = 'grid';
+  - sr = 'enter bottom over 0s';
+  //include ../widgets/article
+  include ../mixins/article
+  .listing.listing--grid
+    - var i = -1;
+    - sr = [{animate: 'enter left over 1s and scale up 20%', end: ''}, {animate: 'enter bottom over 1s and scale up 20%', end: ''}, {animate: 'enter right over 1s and scale up 20%', end: ''}]
+    while ++i < 3
+      .listing__item
+        +article(i, 'grid')
+  .widget__footer
+    a.widget__more(href='blog.html')  More articles...
+
++widget(null, null, 'landing widget--achievement')
+  include ../widgets/achievement
+
++widget('Testimonials', 'Insights, tips & how-to guides on selling property and preparing your home or investment property for sale.', 'landing')
+  include ../widgets/review
+
+unless indexType === 'listing'
+  +widget(null, null)
+    include ../widgets/gosubmit

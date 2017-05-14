@@ -1,0 +1,26 @@
+/*------------------------------------------------------------------
+  * Scroll up button
+  + Scroll Up Button / .scrollup
+  ==============================================================*/
++b(scrollup)
+  position: fixed
+  background: #bebebe
+  color: #222222
+  bottom: 30px
+  left: 50%
+  margin-left: 530px
+  z-index: 10
+  border: none
+  padding: 0 7px 3px 7px
+  opacity: 0
+  transition: 0.5s
+  outline: none
+  &:before
+    +font-awesome(2em, '\f077')
+    line-height: 1.3
+  &.scrollup-show
+    opacity: 1
+  @media (max-width: $screen-md-max)
+    margin-left: 0
+    left: auto
+    right: 20px

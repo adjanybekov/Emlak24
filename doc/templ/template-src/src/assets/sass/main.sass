@@ -1,0 +1,146 @@
+/*------------------------------------------------------------------
+  * [Master Stylesheet]
+
+  * Project:	RealtySpace
+  * Version:	1.1
+  * Documantation online http://realtyspace.readthedocs.org/en/latest/index.html
+  * Table of contens:
+    + Header / .header
+    + Site / .site
+    + Center / .center
+    + Main / .main
+    + Authorization / .auth
+    + Banner / .banner
+    + Breadcrumbs / .breadcrumbs
+    + Contacts / .contacts
+    + Comment / .comment
+    + Dropdown / .dropdown
+    + Scroll Up Button / .scrollup
+    + Social / .social
+    + Region Select / .region-select
+    + FAQ / .faq
+    + Footer / .footer
+    + Listing / .listing
+    + Navbar / .navabar
+    + Form property / .form-property
+    + Property Details / .property
+    + Address / .address
+    + Article / .article
+    + Feature / .feature
+    + Form / .form
+    + Map / .map
+    + Nav / .nav
+    + Partners / .partners
+    + Pricing / .pricing
+    + Properites / .properties
+    + Review / .review
+    + Search / .search
+    + Slider / .slider
+    + Subscribe / .subscribe
+    + Worker / .worker
+    + Article categories / .article-categories
+    + Gosubmit / .gosubmit
+  * Vendor styles:
+    + Colorbox Core / #colorbox
+    + Bonsai / .bonsai
+    + Leaflet / .leaflet
+    + PhotoSwipe / .pswp
+    + RangeSlider / .irs
+    + Slick-slider / .slick-slider
+    + Pnotify / .ui-pnotify
+
+  ==============================================================*/
+
+$ionRangeIcon: "../img/" !default
+$imgPath: "" !default
+
+///*------------------------------------------------------------------
+//  * Importing animate
+//  * https://daneden.github.io/animate.css/
+//  ==============================================================*/
+//@import geoffgraham.animate.scss/animate
+
+@import "config/animate"
+@import "animatewithsass/animate.scss"
+
+///*------------------------------------------------------------------
+//  * Theme Sass variables
+//  ==============================================================*/
+@import config/settings
+@import config/fonts
+// Core variables and mixins
+///*------------------------------------------------------------------
+//  * Bootstrap variables
+//  ==============================================================*/
+@import bootstrap/variables
+@import bootstrap/mixins
+///*------------------------------------------------------------------
+//  * Importing Mixins
+//  ==============================================================*/
+@import mixins/bem
+@import mixins/mixins
+@import mixins/form
+@import mixins/block-grid
+@import mixins/buttons
+@import mixins/pagination
+@import mixins/common
+@import mixins/visibility
+@import effects/main
+
+@import block/checkbox
+///*------------------------------------------------------------------
+//  * Common layout styles
+//  ==============================================================*/
+@import layout/site
+@import layout/ui
+@import layout/wp
+@import layout/sidebar
+@import config/common
+@import config/util
+@import layout/widget
+///*------------------------------------------------------------------
+//  * Widgets styles
+//  ==============================================================*/
+// widgets block
+@import widgets/worker
+@import widgets/article
+@import widgets/article-categories
+@import widgets/form
+@import widgets/address
+@import widgets/nav
+@import widgets/slider
+@import block/banner
+@import widgets/review
+@import block/scrollup
+@import block/dropdown
+@import layout/header
+@import block/social
+@import layout/navbar
+@import layout/footer
+@import block/region-select
+@import widgets/properties
+@import widgets/feature
+@import widgets/gosubmit
+@import widgets/partners
+@import widgets/subscribe
+@import widgets/pricing
+@import layout/property
+@import layout/listing
+@import layout/form-property
+@import block/comment
+@import layout/contacts
+@import layout/faq
+@import block/auth
+@import widgets/map
+@import widgets/achievement
+@import block/breadcrumbs
+@import widgets/activity
+@import widgets/info
+@import widgets/payment
+@import block/table
+@import widgets/tags
+@import block/modal
+@import block/btn
+@import block/tab
+@import vendor/cropper/cropper
+@import vendor/datatable

@@ -1,0 +1,83 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Agent.AgentsListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__content">
+                <header class="form__header">
+                    <div class="widget__header">
+                        <h2 class="widget__title">@Resource.Agent_Accounts</h2>
+                        <a href="@Url.Action("AddAgent", "Agency")" class="widget__btn js-widget-btn widget__btn--action">@Resource.Add_New_Agent</a>
+                    </div>
+                </header>
+                <div class="widget js-widget widget--main">
+                    <div class="widget__content">
+                        <section class="form-property form-property--dashboard">
+                            <ul role="tablist" class="nav form-property__tabs">
+                                <li role="presentation" class="">
+                                    <a href="@Url.Action("Step1", "Agency")">Step1</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="@Url.Action("Step2", "Agency")">Step2</a>
+                                </li>
+                                <li role="presentation" class="active">
+                                    <a href="#">Step3</a>
+                                </li>
+                            </ul>
+                            <hr />
+                            <div class="form-property__content">
+                                <div class="listing listing--grid">
+                                    @foreach (var item in Model.Items)
+                                    {
+                                        <div class="listing__item">
+                                            <div data-sr="enter bottom move 80px, scale(0), over 0s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--grid">
+                                                <div class="worker__photo">
+                                                    <a target="_blank" href="@Url.Action("Detail", "Agents", new {id = item.Id, area = ""})" class="item-photo item-photo--static">
+                                                        <img src="@{ Html.RenderAction("GetProfilePicturePathByUserId", "File", new {id = item.UserId, area = ""});}" alt="@item.FullName" class="photo" />
+                                                        @if (!item.EmailConfirmed)
+                                                        {
+                                                            <span class="properties__ribon label label-default"><i class="fa fa-exclamation-triangle"></i> @Resource.Email_Not_Confirmed</span>
+                                                        }
+                                                        <figure class="item-photo__hover">
+                                                            <span class="item-photo__more">@Resource.General_View</span>
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <div class="worker__intro">
+                                                    <h3 class="worker__name fn">@item.FullName</h3>
+                                                    <div class="worker__post">@item.AgencyName</div>
+                                                    <div class="worker__listings">
+                                                        <a class="button button__action" href="@Url.Action("EditAgent", "Agency", new {id = item.Id, area = "Agent"})">
+                                                            <i class="fa fa-edit"></i>@Resource.Edit
+                                                        </a>
+                                                    </div>
+                                                    <!-- end of block .worker__listings-->
+                                                </div>
+                                                <div class="worker__descr">
+                                                    <p>@item.About</p>
+                                                </div>
+                                                <!-- end of block .worker__descr-->
+                                                <a target="_blank" href="@Url.Action("Detail", "Agents", new {id = item.Id, area = ""})" class="worker__more">
+                                                    @Resource.View_More
+                                                </a>
+                                            </div>
+                                            <!-- end of block .worker-->
+                                        </div>
+    }
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

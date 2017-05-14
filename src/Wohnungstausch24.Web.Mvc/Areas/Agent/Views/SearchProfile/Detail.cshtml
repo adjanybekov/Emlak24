@@ -1,0 +1,179 @@
+﻿@using Wohnungstausch24.Core.EnumExtensions
+@using Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.Base
+@using Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.Land
+@using Wohnungstausch24.Resources
+@model Wohnungstausch24.Models.ViewModels.Search.SearchProfileDetailViewModel
+@{
+    ViewBag.Title = "SearchProfile";
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+    string availableDate = "";
+
+    if (Model.SearchProfile.AvailableFrom != null)
+    {
+        availableDate += Model.SearchProfile.AvailableFrom.GetValueOrDefault().ToShortDateString();
+    }
+    availableDate += " - ";
+    if (Model.SearchProfile.AvailableTo != null)
+    {
+        availableDate += Model.SearchProfile.AvailableTo.GetValueOrDefault().ToShortDateString();
+    }
+}
+
+<div class="site site--dashboard">
+    <div class="site__main">
+        <div class="widget js-widget widget--dashboard">
+            <div class="widget__header">
+                <h2 class="widget__title">
+                    @Model.SearchProfile.Name
+                </h2>
+                @* todo: here id sent is static always equal to profile id *@
+                <a href="@Url.Action("AddNewClient","SearchProfile", new{id=Model.SearchProfile.Id})" class="widget__btn js-widget-btn widget__btn--action">@Resource.SearchProfile_Add_Tenant_Informations</a>
+            </div>
+            <div class="widget__content">
+                <div class="row">
+                    <div class="col-md-12">
+                        @if (Model.SearchProfile is DetailedSearchResidence)
+                        {
+                            @Html.Partial("_SearchProfileFeaturesPartial", Model.SearchProfile as DetailedSearchResidence)
+                        }
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="property__params">
+                            <ul class="property__params-list">
+                                <li>@Resource.General_Date:<strong>@availableDate</strong></li>
+                                <li>@Resource.Price:<strong>@Html.DisplayFor(m => m.SearchProfile.PriceRange)</strong></li>
+
+                                @if (Model.SearchProfile is DetailedSearchResidence)
+                                {
+                                    @Html.Partial("_SearchProfileResidence", Model.SearchProfile as DetailedSearchResidence)
+                                }
+                                @if (Model.SearchProfile is DetailedSearchLand)
+                                {
+                                    @Html.Partial("_SearchProfileLand", Model.SearchProfile as DetailedSearchLand)
+                                }
+                                <li>Locations:<strong>@Model.SearchProfile.SelectedAllLocations.StringJoin(", ")</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="panel-group" id="collapse" role="tablist" aria-multiselectable="true">
+                    @for (var i = 0; i < Model.Clients.Count; i++)
+                    {
+                        var id = string.Format("collapse_{0}", i);
+                        <div class="panel panel-default" id="clientid">
+                            <div class="panel-heading" role="tab" id="collapse-heading-one">
+                                <a role="button" data-toggle="collapse" data-parent="#collapse" href="#@id" aria-expanded="@(i == 0)" aria-controls="collapse-one">
+                                    <div class="panel-title">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                @Model.Clients[i].Name
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a data-link="@Url.Action("DeleteClient", "SearchProfile", new {SearchProfileId = Model.SearchProfile.Id, clientId = Model.Clients[i].Id})"
+                                                   class="btn btn-sm btn-danger wt24-link-confirmation pull-right"
+                                                   data-title="@Resource.Are_You_Sure"
+                                                   data-text="@Resource.Sure_To_Delete">
+                                                    <i class="fa fa-trash"></i> @Resource.Delete
+                                                </a>
+                                                <a href="@Url.Action("EditClient", "SearchProfile", new {SearchProfileId = Model.SearchProfile.Id, clientId = Model.Clients[i].Id})"
+                                                   class="btn btn-info btn-sm pull-right">
+                                                    <i class="fa fa-edit"></i> @Resource.Edit
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div id="@id" class="panel-collapse collapse @($"{(i == 0 ? "in" : "")}")" role="tabpanel" aria-labelledby="collapse-heading-one">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <ul class="property__params-list">
+                                                <li>
+                                                    @Resource.Headline<strong>@Model.Clients[i].Headline</strong>
+                                                </li>
+                                                <li>
+                                                    @Resource.EmploymentStatus<strong>@Model.Clients[i].EmploymentStatus.GetDisplayName()</strong>
+                                                </li>
+                                                <li>
+                                                    @Resource.Profession<strong>@Model.Clients[i].Profession</strong>
+                                                </li>
+                                                <li>
+                                                    @Resource.Common_Income<strong>@Model.Clients[i].Income</strong>
+                                                </li>
+                                                <li>
+                                                    @Resource.Common_Gender<strong>@Model.Clients[i].Gender.GetDisplayName()</strong>
+                                                </li>
+                                                <li>
+                                                    @Resource.Common_Age<strong>@Model.Clients[i].Age</strong>
+                                                </li>
+                                                <li>
+                                                    @Resource.SearchProfile_AddNewClient_AddAboutMe<strong>@Model.Clients[i].AboutMe</strong>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" id="persons-area-data-div">
+                                            <table class="table table-responsive table-stripped">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="7">
+                                                            <div class="row">
+                                                                <div class="col-md-8">
+                                                                    @Resource.OtherMembers
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <a class="btn btn-xs btn-primary pull-right" href="@Url.Action("AddPerson", "SearchProfile", new {id = Model.Clients[i].Id, spId=Model.SearchProfile.Id})">
+                                                                        @Resource.General_Table_Add_new<i class="fa fa-plus"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>@Resource.EmploymentStatus</th>
+                                                    <th>@Resource.Profession</th>
+                                                    <th>@Resource.Common_Income</th>
+                                                    <th>@Resource.Common_Gender</th>
+                                                    <th>@Resource.Common_Age</th>
+                                                    <th>@Resource.Options</th>
+                                                </tr>
+                                                @for (var j = 1; j <= Model.Clients[i].Persons.Count(); j++)
+                                                {
+                                                    <tr>
+                                                        <td>@j</td>
+                                                        <td>@Model.Clients[i].Persons[j - 1].EmploymentStatus.GetDisplayName()</td>
+                                                        <td>@Html.DisplayFor(m => Model.Clients[i].Persons[j - 1].Profession, new { @class = "" })</td>
+                                                        <td>@Html.DisplayFor(m => Model.Clients[i].Persons[j - 1].Income, new { @class = "" })</td>
+                                                        <td>@Model.Clients[i].Persons[j - 1].Gender.GetDisplayName()</td>
+                                                        <td>@Html.DisplayFor(m => Model.Clients[i].Persons[j - 1].Age, new { @class = "" })</td>
+                                                        <td>
+                                                            <a data-link="@Url.Action("DeletePerson", "SearchProfile", new {id = Model.Clients[i].Persons[j - 1].Id, spId = Model.SearchProfile.Id})" class="btn btn--action wt24-link-confirmation" data-title="@Resource.Are_You_Sure" data-text="@Resource.Sure_To_Delete">
+                                                                <i class="fa fa-trash"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </table>
+                                        </div>
+                                        <div class="loading"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

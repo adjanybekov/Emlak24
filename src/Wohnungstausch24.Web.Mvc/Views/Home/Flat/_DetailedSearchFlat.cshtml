@@ -1,0 +1,15 @@
+﻿@using Wohnungstausch24.Models.ViewModels.Search.DetailedSearch.Flat
+@model DetailedSearchFlat
+
+@Html.EditorFor(m => m.Level, new { min = -1, max = 50, type = "double" })
+
+@Html.EditorFor(m => m.NumberOfLevels, new { min = 0, max = 50, type = "double" })
+
+@if (Model is DetailedSearchFlatForRent)
+{
+    @Html.Partial("Flat/ForRent/_DetailedSearchFlatForRent",Model as DetailedSearchFlatForRent)
+}
+@if (Model is DetailedSearchFlatForSale)
+{
+    @Html.Partial("Flat/ForSale/_DetailedSearchFlatForSale",Model as DetailedSearchFlatForSale)
+}

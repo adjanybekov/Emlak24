@@ -1,0 +1,150 @@
+/*------------------------------------------------------------------
+  * Review widget (Testimonials)
+  + Review / .review
+    -- Review Wide / .review--wide
+    -- Review list / .review--list
+  ==============================================================*/
++b(review)
+  +e(photo)
+    position: relative
+    margin: 0
+    float: left
+    width: 50%
+    padding-right: 10px
+    @media (max-width: $screen-xs-max)
+      float: none
+      margin: 0 auto
+    img
+      max-width: 100%
+      @media (max-width: $screen-xs-max)
+        float: none
+        margin: 0 auto
+
+  +e(details)
+    float: left
+    padding-left: 10px
+    @media (max-width: $screen-xs-max)
+      float: none
+      text-align: center
+      padding: 0
+
+  +e(name)
+    font-size: 17px
+    color: $defaultColor
+    font-weight: 900
+    padding: 0
+    text-transform: uppercase
+    display: block
+    @media (max-width: $screen-xs-max)
+      font-size: 15px
+      margin-top: 0
+
+  +e(post)
+    color: $defaultColor
+    display: block
+
+    @media (max-width: $screen-xs-max)
+      font-size: 13px
+
+  +e(info)
+    margin-top: 0
+
+  +e(slider)
+    overflow: hidden
+    padding: 0 0 50px 0
+    width: 100%
+    margin: 0 auto
+    @media (max-width: $screen-xs-max)
+      padding-bottom: 10px
+
+  // style for controls
+  +e(controls)
+    display: none
+  // Dots styles
+  .slick-dots
+    text-align: center
+    bottom: 0
+    @media (max-width: $screen-xs-max)
+      bottom: -17px
+  li button:before
+    +font-awesome(10px, '\f10c')
+    color: $defaultColor
+    opacity: 1
+  li.slick-active button:before
+    +font-awesome(10px, '\f111')
+    color: $brandColor
+  +m(wide)
+    padding: 0 235px
+    @media (max-width: $screen-md-max)
+      padding: 0
+    +e(photo)
+      @media (max-width: $screen-xs-max)
+        padding-right: 0
+      img
+        float: right
+        @media (max-width: $screen-xs-max)
+          float: none
+    +e(name)
+      margin: 24px 0 0
+    +e(info)
+      margin-top: 0
+      clear: both
+      @media (max-width: $screen-xs-max)
+        margin-top: -10px
+      p
+        font-style: italic
+        color: $brandColor
+        text-align: center
+    +e(info-quote)
+      font-size: 50px
+      line-height: 1
+      color: $defaultColor
+      height: 25px
+      font-weight: 600
+      p
+        font-style: italic
+        color: $brandColor
+        text-align: center
+      +m(close)
+        float: right
+        margin-top: -30px
+        @media (max-width: $screen-sm-max)
+          margin-top: -15px
+    +e(stars)
+      display: none
+
+  +m(list)
+    .listing__item:nth-child(2n) &
+      .review__info,
+      .review__details,
+      .review__photo
+        float: right
+        img
+          float: right
+    +e(item)
+      +make-row
+    +e(info)
+      margin-top: -6px
+      @media (max-width: $screen-sm-max)
+        margin-top: 15px
+
+    +e(info-quote)
+      display: none
+    +e(stars)
+      margin-top: 15px
+      @media (max-width: $screen-xs-max)
+        margin-top: 10px
+    +e(photo)
+      +make-block-item($xs: 4, $md: 2)
+      img
+        width: 100%
+
+    +e(details)
+      +make-block-item($xs: 8, $md: 3)
+      text-align: center
+
+    +e(info)
+      +make-block-item($xs: 12, $md: 7)
+
+    +e(name)
+      margin-top: -7px

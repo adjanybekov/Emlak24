@@ -1,0 +1,301 @@
+﻿@using Wohnungstausch24.Resources
+@using Wohnungstausch24.Web.Mvc.Helpers
+@model Wohnungstausch24.Models.ViewModels.Listings.Steps.Step3.Step3ViewModel
+@{
+    Layout = "~/Areas/Agent/Views/Shared/_Layout.cshtml";
+}
+<div class="site site--dashboard">
+<div class="site__main">
+<div class="widget js-widget widget--dashboard">
+<div class="widget__header">
+    <h2 class="widget__title">@Resource.Add_New_Property</h2>
+</div>
+<div class="widget__content">
+<section class="form-property form-property--dashboard">
+@Html.Partial("FlatForSale/_Steps", Model.StepsProgressModel)
+<div class="form-property__content">
+@using (Html.BeginForm("Step3", "Property", FormMethod.Post, new { @class = "form form--flex form--property-add js-form js-form-property" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    @Html.HiddenFor(m => m.Id)
+    <div class="row">
+        <div class="form-group form-group--col-3">
+            <div class="form-group--col-12">
+                <i class="fa fa-3x fa-calendar" style="color: #015bbb"></i>
+            </div>
+            <div class="form-group--col-12">
+                <h4>@Resource.General_Date</h4>
+            </div>
+        </div>
+        <div class="form-group--col-9">
+            <div class="row">
+                <div class="form-group form-group--col-4">
+                    @Html.LabelFor(m => m.Step3FlatForSale.IsCurrentlyRented, new { @class = "control-label" })
+                    @Html.ToggleButtonFor(m => m.Step3FlatForSale.IsCurrentlyRented, new ToggleOptions { OnShowClass = "actualrent-area-div" })
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.IsCurrentlyRented, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row actualrent-area-div">
+                <div class="form-group form-group--col-4">
+                    @Html.LabelFor(m => m.Step3FlatForSale.IsActualContractTerminated, new { @class = "control-label" })
+                    @Html.ToggleButtonFor(m => m.Step3FlatForSale.IsActualContractTerminated, new ToggleOptions { OnShowId = "terminated-area-div" })
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.IsActualContractTerminated, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group form-group--col-4" id="terminated-area-div">
+                    @Html.EditorFor(m => m.Step3FlatForSale.ActualContractTerminatedOn)
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.ActualContractTerminatedOn, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group--col-12">
+                    <h4>@string.Format(Resource.Property_Add_Step3_When_Is_The_0_Available,Resource.General_Flat) </h4>
+                    <div class="row">
+                        <div class="form-group form-group--col-4">
+                            @Html.EditorFor(m => m.Step3FlatForSale.EarliestAvailableDate)
+                            @Html.ValidationMessageFor(m => m.Step3FlatForSale.EarliestAvailableDate, null, new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group form-group--col-4">
+                            @Html.EditorFor(m => m.Step3FlatForSale.LatestAvailableDate)
+                            @Html.ValidationMessageFor(m => m.Step3FlatForSale.LatestAvailableDate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="col-md-8">
+                                @Html.LabelFor(m => m.Step3FlatForSale.IsDateFlexible, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-4">
+                                @HtmlHelpers.ToggleButtonFor(Html, m => m.Step3FlatForSale.IsDateFlexible)
+                                @Html.ValidationMessageFor(m => m.Step3FlatForSale.IsDateFlexible, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="form-group form-group--col-9">
+                            @Html.LabelFor(m => m.Step3FlatForSale.FreeTextAvailableFrom, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Step3FlatForSale.FreeTextAvailableFrom, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Step3FlatForSale.FreeTextAvailableFrom, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row actualrent-area-div">
+        <hr />
+        <div class="form-group form-group--col-3">
+            <div class="form-group--col-12">
+                <i class="fa fa-3x fa-line-chart" style="color: #015bbb"></i>
+            </div>
+            <div class="form-group--col-12">
+                <h4>@Resource.Current_rent_information</h4>
+            </div>
+        </div>
+        <div class="form-group--col-9">
+            <div class="row">
+                <div class="form-group form-group--col-4">
+                    @Html.LabelFor(m => m.Step3FlatForSale.CurrentColdRent, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-euro"></i>
+                        </span>
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.CurrentColdRent, new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.CurrentColdRent, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group form-group--col-4 wt24-is-contract-terminated">
+                    @Html.LabelFor(m => m.Step3FlatForSale.RentalIncomeActual, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.RentalIncomeActual, new { @class = "form-control", min = 0 })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.RentalIncomeActual, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group form-group--col-4 wt24-is-contract-terminated">
+                    @Html.LabelFor(m => m.Step3FlatForSale.RentalIncomeDebit, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.RentalIncomeDebit, new { @class = "form-control", min = 0 })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.RentalIncomeDebit, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group form-group--col-4 wt24-is-contract-terminated">
+                    @Html.LabelFor(m => m.Step3FlatForSale.XTimes, new { @class = "control-label" })
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.XTimes, new { @class = "form-control", min = 0 })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.XTimes, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group form-group--col-4 wt24-is-contract-terminated">
+                    @Html.LabelFor(m => m.Step3FlatForSale.NetYield, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-percent"></i></span>
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.NetYield, new { @class = "form-control", min = 0 })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.NetYield, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group form-group--col-4 wt24-is-contract-terminated">
+                    @Html.LabelFor(m => m.Step3FlatForSale.NetYieldDebit, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-percent"></i></span>
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.NetYieldDebit, new { @class = "form-control", min = 0 })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.NetYieldDebit, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group form-group--col-4 wt24-is-contract-terminated">
+                    @Html.LabelFor(m => m.Step3FlatForSale.NetYieldActual, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-percent"></i></span>
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.NetYieldActual, new { @class = "form-control", min = 0 })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.NetYieldActual, null, new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="form-group form-group--col-3">
+            <div class="form-group--col-12">
+                <i class="fa fa-3x fa-euro" style="color: #015bbb"></i>
+            </div>
+        </div>
+        <div class="form-group--col-9">
+            <div class="row">
+                <div class="form-group form-group--col-4">
+                    @Html.LabelFor(m => m.Step3FlatForSale.IsPriceOnDemand, new { @class = "control-label" })
+                    @Html.ToggleButtonFor(m => m.Step3FlatForSale.IsPriceOnDemand, new ToggleOptions
+                    {
+                        OnShowId = "orientation-price"
+
+                    })
+                </div>
+                <div class="form-group form-group--col-4">
+                    @Html.LabelFor(m => m.Step3FlatForSale.Price, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.Price, new { @class = "form-control", min = 0 })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.Price, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group form-group--col-4" id="orientation-price">
+                    @Html.LabelFor(m => m.Step3FlatForSale.OrientationPrice, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.OrientationPrice, new { @class = "form-control", min = 0 })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.OrientationPrice, null, new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="alert alert-info">
+                    <i class="fa fa-3x fa-exclamation-triangle pull-left"></i><p>If an(-other) agent introduces the final buyer to you, how much commission fee would you accept to pay?</p>
+                </div>
+                <div class="form-group form-group--col-12">
+                    <div class="col-md-8">@Html.LabelFor(m => m.Step3FlatForSale.IsWillingToPay, new { @class = "control-label" })</div>
+                    <div class="col-md-4">@Html.ToggleButtonFor(m => m.Step3FlatForSale.IsWillingToPay,new ToggleOptions {OnShowId= "inside-cortage-willing-to-pay" })</div>
+                </div>
+                <div class="form-group form-group--col-4" id="inside-cortage-willing-to-pay">
+                    @Html.LabelFor(m => m.Step3FlatForSale.InsideCourtage, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.InsideCourtage, new { @class = "form-control", min = 0 })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.InsideCourtage, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group form-group--col-12">
+                    <div class="col-md-8">@Html.LabelFor(m => m.Step3FlatForSale.IsSubjectToCommission, new { @class = "control-label" })</div>
+                    <div class="col-md-4">@Html.ToggleButtonFor(m => m.Step3FlatForSale.IsSubjectToCommission, new ToggleOptions {OnShowId = "outside-courtage" })</div>
+                </div>
+
+                <div class="form-group form-group--col-4" id="outside-courtage">
+                    @Html.LabelFor(m => m.Step3FlatForSale.OutsideCourtage, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.OutsideCourtage, new { @class = "form-control", min = 0 })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.OutsideCourtage, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group form-group--col-12" id="courtage-advice-text">
+                @Html.LabelFor(m => m.Step3FlatForSale.CourtageAdvice, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Step3FlatForSale.CourtageAdvice, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Step3FlatForSale.CourtageAdvice, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group form-group--col-12">
+                <div class="form-group form-group--col-4">
+                    @Html.LabelFor(m => m.Step3FlatForSale.CommonCharge, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.CommonCharge, new { @class = "form-control", min = 0 })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.CommonCharge, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group form-group--col-4">
+                    @Html.LabelFor(m => m.Step3FlatForSale.MaintenanceSavings, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                        @Html.TextBoxFor(m => m.Step3FlatForSale.MaintenanceSavings, new { @class = "form-control", min = 0 })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Step3FlatForSale.MaintenanceSavings, null, new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <a class="form__submit" href="@Url.Action("Step2", "Property", new {id = Model.Id})"><i class="fa fa-angle-left"></i> @Resource.Back</a>
+        <button type="submit" class="form__submit">@Resource.Next <i class="fa fa-angle-right"></i></button>
+    </div>
+}
+</div>
+</section>
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+@section scripts{
+    <script>
+
+        var insideCourtage = $('#@Html.IdFor(m => m.Step3FlatForSale.IsWillingToPay)');
+        var outsideCourtage = $('#@Html.IdFor(m => m.Step3FlatForSale.IsSubjectToCommission)');
+
+
+        if (!insideCourtage.prop('checked') && !outsideCourtage.prop('checked')) {
+            $('#courtage-advice-text').hide('slow');
+        } else {
+            $('#courtage-advice-text').show('slow');
+        }
+
+        insideCourtage.change(function () {
+            if (!$(this).prop('checked') && !outsideCourtage.prop('checked')) {
+                $('#courtage-advice-text').hide('slow');
+            } else {
+                $('#courtage-advice-text').show('slow');
+            }
+        });
+
+        outsideCourtage.change(function () {
+            if (!$(this).prop('checked') && !insideCourtage.prop('checked')) {
+                $('#courtage-advice-text').hide('slow');
+            } else {
+                $('#courtage-advice-text').show('slow');
+            }
+        });
+
+
+    </script>
+}

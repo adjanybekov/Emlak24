@@ -1,0 +1,80 @@
++b(tab)
+  +m(sidebar)
+    display: flex
+    flex-wrap: wrap
+    +e(nav)
+      background: $backgroundColor
+      width: 165px
+      @media (max-width: $screen-xs-max)
+        width: 100%
+      > li
+        color: $defaultColor
+        &.active
+          color: $brandColor
+        &.active:after
+          background: #fff
+          display: block
+          width: 10px
+          height: 10px
+          transform: rotate(45grad)
+          border-bottom: 1px solid #f0f0f0
+          border-left: 1px solid #f0f0f0
+          position: absolute
+          top: 50%
+          right: -5px
+          margin-top: -5px
+          content: ''
+        > a
+          padding: 20px 5px 20px 30px
+          color: inherit
+          text-transform: uppercase
+          font-size: 13px
+          font-weight: 900
+          .fa
+            display: block
+    .tab-content
+      border-left: 1px solid #f0f0f0
+      flex: 1
+      padding: 20px 40px
+      @media (max-width: $screen-xs-max)
+        padding: 15px
+        border: none
+
+  +m(properties)
+    +e(nav)
+      padding: 0
+      margin-bottom: 50px
+      display: flex
+      justify-content: center
+      margin-top: 12px
+      @media (max-width: $screen-xs-max)
+        margin-bottom: 40px
+        justify-content: space-between
+      li
+        display: inline-block
+        margin: 0 45px
+        @media (max-width: $screen-xs-max)
+          margin: 0
+        > a
+          padding: 3px 0
+          text-transform: uppercase
+          color: $grayColor
+          &:hover,
+          &:focus,
+          &:active
+            text-decoration: none
+            background: none
+
+          @media (max-width: $screen-xs-max)
+            padding: 3px 0
+            width: 100%
+            +text-overflow
+
+        &.active a
+          border-bottom: 2px solid $defaultColor
+          color: $defaultColor
+
+    +e(tab-content)
+      clear: both
+
+

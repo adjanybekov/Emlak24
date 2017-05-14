@@ -1,0 +1,17 @@
+// BEGIN SECTION ARTICLE
+article.article(class='article--#{articleType}')
+  if noItems
+    .no-items
+      .no-items__icon.no-items__icon--svg
+        svg
+          use(xlink:href='#icon-noitems')
+      span.no-items__title No Testimonials available
+  else
+    .article__details
+      a.article__item-title(href='blog_details.html') You've been approved for a rental home. Now what?
+      time.article__time(datetime='2009-08-29') Mon - 3 Sep - 3:17 PM
+      .article__intro
+        p Congratulations! You've found the perfect rental property and your application has been approved. Now there's just a few things you'll need ...
+
+      a.article__more(href='blog_details.html') Read more
+    // END SECTION ARTICLE

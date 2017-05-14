@@ -1,0 +1,48 @@
+//common styles for listing preoprties and agents
+/*------------------------------------------------------------------
+  * Listing
+  + Listing / .listing
+    __ Listing header / .listing__header
+    __ Listing title / .listing__title
+    __ Listing headline / .listing__headline
+    __ Listing panel / .listing__panel
+  ==============================================================*/
++b(listing)
+  +m(accordion)
+    +e(item)
+    +e(title)
+      font-size: 17px
+      display: block
+      border: 1px solid $input-border
+      padding: 10px 25px 10px 15px
+      text-decoration: none!important
+      position: relative
+      color: $defaultColor
+      &:after
+        +font-awesome(0.8em, '\f0dc')
+        margin-left: 15px
+        color: $grayColor
+        @media (max-width: $screen-xs-max)
+          position: absolute
+          right: 15px
+          top: 50%
+          margin-top: -12px
+
+    +e(body)
+      +clearfix
+      border: 1px solid $input-border
+      border-top: none
+
+    +e(list)
+      +ul
+      +clearfix
+      margin: 30px
+    +e(param)
+      width: 50%
+      float: left
+      margin: 5px 0
+      @media (max-width: $screen-sm-max)
+        width: 100%
+      strong
+        @media (max-width: $screen-sm-max)
+          display: block
